@@ -1,12 +1,12 @@
-import About from '@/components/About/About'
+import Skills from '@/components/Skills/Skills'
 import MasterLayout from '@/layout/MasterLayout'
 import React from 'react'
 
 const page = () => {
   return (
-    <MasterLayout>
-        <About/>
-    </MasterLayout>
+   <MasterLayout>
+    <Skills/>
+   </MasterLayout>
   )
 }
 

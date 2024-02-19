@@ -11,7 +11,7 @@ import { IoMoonOutline } from "react-icons/io5";
 import { LuSunMoon } from "react-icons/lu";
 import { TfiClose } from "react-icons/tfi";
 import { usePathname } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const navData = [
   {
@@ -54,7 +54,7 @@ const navData = [
 
 const Navbar = () => {
   const path = usePathname();
-
+  const [dark, setDark] = useState(true)
   useEffect(() => {
     const navMenu = document.getElementById("nav-menu"),
       navToggle = document.getElementById("nav-toggle"),
@@ -78,16 +78,17 @@ const Navbar = () => {
       })
     );
 
-    const themeButton = document.getElementById("theme-button");
-    themeButton.addEventListener("click", () => {
-      document.body.classList.add('dark-theme');
-    });
+    // dark theme code 
+    // const themeButton = document.getElementById("theme-button");
+    // themeButton.addEventListener("click", () => {
+    //   "dark-theme"
+    // });
   }, []);
   return (
-    <header className="header py-5" id="header">
+    <header className="header" id="header" style={{paddingTop: '15px'}}>
       <nav className="nav cus_container">
         <Link href="/" className="nav__logo">
-          Mezbah.dev "dark-theme"
+          Mezbah.dev 
         </Link>
         <div className="nav__menu" id="nav-menu">
           <ul className="nav__list cus_grid">
@@ -110,8 +111,12 @@ const Navbar = () => {
         </div>
         <div className="nav__btns">
           {/* Theme Change button */}
-          <span id="theme-button">
-            <IoMoonOutline className="change-theme" />
+          <span id="theme-button" onClick={() => setDark(!dark)}>
+            {dark ? (
+              <LuSunMoon className="change-theme" />
+            ) : (
+              <IoMoonOutline className="change-theme"/>
+            )}
           </span>
           <div className="nav__toggle" id="nav-toggle">
             <RiAppsLine />
