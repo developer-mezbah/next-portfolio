@@ -1,90 +1,74 @@
 "use client";
-import React, { useEffect } from "react";
-const Projects = () => {
+import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowBack } from "react-icons/io";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import Image from "next/image";
+import Link from "next/link";
+import { VscSend } from "react-icons/vsc";
+const Projects = ({ data }) => {
   return (
-    <section className="portfolio section" id="portfolio">
-      <h2 className="section__title anime">Portfolio</h2>
-      <span className="section__subtitle anime">Most recent Work</span>
-      <div className="portfolio__container cus_container swiper-container">
-        <div className="swiper-wrapper">
-          {/*==================== PORTFOLIO 1 ====================*/}
-          <div className="portfolio__content cus_grid swiper-slide">
-            <img
-              src="assets/img/portfolio1.jpg"
-              alt=""
-              className="portfolio__img"
-            />
-            <div className="portfolio__data">
-              <h3 className="portfolio__title">Modern Website</h3>
-              <p className="portfolio__description">
-                Website adaptable to all devices, with ui components and
-                animated interactions.
-              </p>
-              <a
-                href="#"
-                className="button button--flex button--small portfolio__button"
-              >
-                Demo
-                <i className="uil uil-arrow-right button__icon" />
-              </a>
+    <div className="cus_container relative py-10 overflow-hidden">
+      <h2 class="section__title anime">Portfolio</h2>
+      <span class="section__subtitle anime">Most recent Work</span>
+      <Swiper
+        cssMode={true}
+        loop={true}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        }}
+        navigation={{
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Navigation, Pagination, Autoplay]}
+        className="project_slider"
+      >
+        {data?.map((slide) => (
+          <SwiperSlide key={slide.id} className="px-16 pb-10">
+            <div className="flex justify-between gap-6 items-center">
+              <div className="w-[90%]">
+                <Image
+                  className="rounded-lg"
+                  width={400}
+                  height={400}
+                  src={slide.img}
+                  alt={slide.title}
+                />
+              </div>
+              <div className="w-full space-y-5">
+                <h2 className="portfolio__title">{slide.title}</h2>
+                <p className="portfolio__description">
+                {slide.description}
+                </p>
+                <Link
+                  href={"#"}
+                  className="button button--flex button--small portfolio__button"
+                >
+                  preview
+                  <VscSend className="button__icon" />
+                </Link>
+              </div>
             </div>
+          </SwiperSlide>
+        ))}
+        <div className="absolute w-full top-0 h-full z-50 flex justify-between items-center">
+          <div className="swiper-button-next cursor-pointer overflow-hidden text-sm">
+            <IoIosArrowBack className="swiper-portfolio-icon" />
           </div>
-          {/*==================== PORTFOLIO 2 ====================*/}
-          <div className="portfolio__content grid swiper-slide">
-            <img
-              src="assets/img/portfolio2.jpg"
-              alt=""
-              className="portfolio__img"
-            />
-            <div className="portfolio__data">
-              <h3 className="portfolio__title">Brand Design</h3>
-              <p className="portfolio__description">
-                Website adaptable to all devices, with ui components and
-                animated interactions.
-              </p>
-              <a
-                href="#"
-                className="button button--flex button--small portfolio__button"
-              >
-                Demo
-                <i className="uil uil-arrow-right button__icon" />
-              </a>
-            </div>
-          </div>
-          {/*==================== PORTFOLIO 3 ====================*/}
-          <div className="portfolio__content grid swiper-slide">
-            <img
-              src="assets/img/portfolio3.jpg"
-              alt=""
-              className="portfolio__img"
-            />
-            <div className="portfolio__data">
-              <h3 className="portfolio__title">Online Store</h3>
-              <p className="portfolio__description">
-                Website adaptable to all devices, with ui components and
-                animated interactions.
-              </p>
-              <a
-                href="#"
-                className="button button--flex button--small portfolio__button"
-              >
-                Demo
-                <i className="uil uil-arrow-right button__icon" />
-              </a>
-            </div>
+          <div className="swiper-button-prev cursor-pointer">
+            <IoIosArrowForward className="swiper-portfolio-icon" />
           </div>
         </div>
-        {/* Add Arrows */}
-        <div className="swiper-button-next">
-          <i className="uil uil-angle-right-b swiper-portfolio-icon" />
-        </div>
-        <div className="swiper-button-prev">
-          <i className="uil uil-angle-left-b swiper-portfolio-icon" />
-        </div>
-        {/* Swipper pagination */}
-        <div className="swiper-pagination" />
-      </div>
-    </section>
+      </Swiper>
+    </div>
   );
 };
 
