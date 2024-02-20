@@ -164,7 +164,7 @@ img {
 
 /*==================== LAYOUT ====================*/
 .cus_container {
-  max-width: 768px;
+  max-width: 968px;
   margin-left: var(--mb-1-5);
   margin-right: var(--mb-1-5);
 }
@@ -774,13 +774,14 @@ img {
   bottom: -2.5rem;
 }
 .swiper-pagination-bullet-active {
-  background-color: var(--first-color);
+  background-color: var(--first-color) !important;
 }
 .swiper-button-prev,
 .swiper-button-next,
 .swiper-pagination-bullet {
   outline: none;
 }
+
 /*==================== PROJECT IN MIND ====================*/
 .project {
   text-align: center;

@@ -1,9 +1,61 @@
+"use client";
 import { PiBracketsCurlyBold } from "react-icons/pi";
 import { BsHddNetwork } from "react-icons/bs";
 import { FaSwatchbook } from "react-icons/fa";
 import { FaAngleDown } from "react-icons/fa";
+import { useEffect } from "react";
 
 const Skills = () => {
+  useEffect(() => {
+    // Dynamic Width Change from html element value
+    function dynamicSkillsWidth() {
+      const skillsNumber = document.querySelectorAll(".skills__number");
+      const skills__percentage = document.querySelectorAll(
+        ".skills__percentage"
+      );
+      console.log("hey");
+      skillsNumber.forEach((item, index) => {
+        const getWidth = item.childNodes[0].nodeValue;
+
+        const convertInt = parseInt(getWidth);
+        for (let i = 0; i <= convertInt; i++) {
+          skills__percentage[index].style.width = "0%";
+          skills__percentage[index].style.transition = "0s";
+        }
+        setInterval(function () {
+          for (let i = 0; i <= convertInt; i++) {
+            skills__percentage[index].style.transition = "4s ease-in-out";
+            skills__percentage[index].style.width = i + "%";
+          }
+        }, 1);
+      });
+    }
+
+    /* Validate if constant exists */
+
+    /*==================== REMOVE MENU MOBILE ====================*/
+
+    /*==================== ACCORDION SKILLS ====================*/
+    const skillsContent = document.getElementsByClassName("skills__content"),
+      skillsHeader = document.querySelectorAll(".skills__header");
+
+    skillsHeader.forEach((el) => {
+      el.addEventListener("click", function () {
+        let itemClass = this.parentNode.className;
+        for (let i = 0; i < skillsContent.length; i++) {
+          skillsContent[i].className = "skills__content skills__close";
+        }
+        console.log("mezbah");
+        if (itemClass === "skills__content skills__close") {
+          this.parentNode.className = "skills__content skills__open";
+        }
+      });
+    });
+
+    skillsHeader.forEach((el) => {
+      el.addEventListener("click", dynamicSkillsWidth);
+    });
+  }, []);
   return (
     <section className="skills section anime" id="skills">
       <h2 className="section__title">Skills</h2>
@@ -17,7 +69,7 @@ const Skills = () => {
               <h1 className="skills__titles">Fronted developer</h1>
               <span className="skills__subtitle">More than 4 Years</span>
             </div>
-            <FaAngleDown className="skills__arrow"/>
+            <FaAngleDown className="skills__arrow" />
           </div>
           <div className="skills__list cus_grid">
             <div className="skills__data">
@@ -75,7 +127,7 @@ const Skills = () => {
               <h1 className="skills__titles">Backend developer</h1>
               <span className="skills__subtitle">More than 2 Years</span>
             </div>
-            <FaAngleDown className="skills__arrow"/>
+            <FaAngleDown className="skills__arrow" />
           </div>
           <div className="skills__list cus_grid">
             <div className="skills__data">
@@ -119,12 +171,12 @@ const Skills = () => {
         {/* Skils Part 3 */}
         <div className="skills__content skills__close">
           <div className="skills__header">
-            <FaSwatchbook className="skills__icon"/>
+            <FaSwatchbook className="skills__icon" />
             <div>
               <h1 className="skills__titles">Other Things</h1>
               <span className="skills__subtitle">More than 1 Years</span>
             </div>
-            <FaAngleDown className="skills__arrow"/>
+            <FaAngleDown className="skills__arrow" />
           </div>
           <div className="skills__list cus_grid">
             <div className="skills__data">
