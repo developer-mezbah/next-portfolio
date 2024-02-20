@@ -7,7 +7,6 @@ export default function Home() {
   return (
     <MasterLayout>
       <Hero/>
-      <Banner/>
     </MasterLayout>
   );
 }

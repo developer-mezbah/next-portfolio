@@ -1201,9 +1201,9 @@ img {
   .project {
     text-align: initial;
   }
-  .project__bg {
+  /* .project__bg {
     display: none;
-  }
+  } */
   .project__container {
     background-color: var(--first-color-second);
     border-radius: 1rem;

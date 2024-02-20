@@ -29,7 +29,7 @@ const Projects = ({ data }) => {
           clickable: true,
         }}
         modules={[Navigation, Pagination, Autoplay]}
-        className="project_slider"
+        className="project_slider h-[310px]"
       >
         {data?.map((slide) => (
           <SwiperSlide key={slide.id} className="px-16 pb-10">
@@ -38,7 +38,7 @@ const Projects = ({ data }) => {
                 <Image
                   className="rounded-lg"
                   width={400}
-                  height={400}
+                  height={280}
                   src={slide.img}
                   alt={slide.title}
                 />
