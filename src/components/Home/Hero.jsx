@@ -1,7 +1,5 @@
 import Link from "next/link";
-import { FiGithub } from "react-icons/fi";
-import { FiLinkedin } from "react-icons/fi";
-import { FiFacebook } from "react-icons/fi";
+import { FiFacebook, FiGithub, FiLinkedin } from "react-icons/fi";
 import { VscSend } from "react-icons/vsc";
 
 const Hero = () => {
@@ -11,13 +9,13 @@ const Hero = () => {
         <div className="home__content cus_grid">
           <div className="home__social flipLeft">
             <Link href="#" className="home__social-icon">
-              <FiGithub className="text-3xl"/>
+              <FiGithub className="text-3xl" />
             </Link>
             <Link href="#" className="home__social-icon">
-              <FiLinkedin className="text-3xl"/>
+              <FiLinkedin className="text-3xl" />
             </Link>
             <Link href="#" className="home__social-icon">
-              <FiFacebook className="text-3xl"/>
+              <FiFacebook className="text-3xl" />
             </Link>
           </div>
           <div className="home__img">
@@ -82,7 +80,7 @@ const Hero = () => {
             </svg>
           </div>
           <div className="home__data fadeLeft">
-            {/* <h1 class="home__title">Hi, I'am Mezbah</h1> */}
+            {/* <h1 className="home__title">Hi, I'am Mezbah</h1> */}
             <h1 className="text-3xl py-3">My name is Mezbah uddin</h1>
             <h3 className="home__subtitle">Full Stack web Developer</h3>
             <p className="home__description">

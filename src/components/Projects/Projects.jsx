@@ -1,18 +1,17 @@
 "use client";
-import { IoIosArrowForward } from "react-icons/io";
-import { IoIosArrowBack } from "react-icons/io";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import Image from "next/image";
 import Link from "next/link";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { VscSend } from "react-icons/vsc";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 const Projects = ({ data }) => {
   return (
     <div className="cus_container relative py-10 overflow-hidden">
-      <h2 class="section__title anime">Portfolio</h2>
-      <span class="section__subtitle anime">Most recent Work</span>
+      <h2 className="section__title anime">Portfolio</h2>
+      <span className="section__subtitle anime">Most recent Work</span>
       <Swiper
         cssMode={true}
         loop={true}
@@ -45,9 +44,7 @@ const Projects = ({ data }) => {
               </div>
               <div className="w-full space-y-5">
                 <h2 className="portfolio__title">{slide.title}</h2>
-                <p className="portfolio__description">
-                {slide.description}
-                </p>
+                <p className="portfolio__description">{slide.description}</p>
                 <Link
                   href={"#"}
                   className="button button--flex button--small portfolio__button"

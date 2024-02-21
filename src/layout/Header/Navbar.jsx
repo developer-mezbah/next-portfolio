@@ -54,7 +54,7 @@ const navData = [
 
 const Navbar = () => {
   const path = usePathname();
-  const [dark, setDark] = useState(true)
+  const [dark, setDark] = useState(true);
   useEffect(() => {
     const navMenu = document.getElementById("nav-menu"),
       navToggle = document.getElementById("nav-toggle"),
@@ -78,17 +78,27 @@ const Navbar = () => {
       })
     );
 
-    // dark theme code 
-    // const themeButton = document.getElementById("theme-button");
-    // themeButton.addEventListener("click", () => {
-    //   "dark-theme"
-    // });
+    /*==================== DARK LIGHT THEME ====================*/
+    const themeButton = document.getElementById("theme-button");
+    const darkTheme = "dark-theme";
+    const selectedTheme = localStorage.getItem("selected-theme");
+    const getCurrentTheme = () =>
+      document.body.classList.contains(darkTheme) ? "dark" : "light";
+    if (selectedTheme) {
+      document.body.classList[selectedTheme === "dark" ? "add" : "remove"](
+        darkTheme
+      );
+    }
+    themeButton.addEventListener("click", () => {
+      document.body.classList.toggle(darkTheme);
+      localStorage.setItem("selected-theme", getCurrentTheme());
+    });
   }, []);
   return (
-    <header className="header" id="header" style={{paddingTop: '15px'}}>
+    <header className="header" id="header" style={{ paddingTop: "15px" }}>
       <nav className="nav cus_container">
         <Link href="/" className="nav__logo">
-          Mezbah.dev 
+          Mezbah.dev
         </Link>
         <div className="nav__menu" id="nav-menu">
           <ul className="nav__list cus_grid">
@@ -115,7 +125,7 @@ const Navbar = () => {
             {dark ? (
               <LuSunMoon className="change-theme" />
             ) : (
-              <IoMoonOutline className="change-theme"/>
+              <IoMoonOutline className="change-theme" />
             )}
           </span>
           <div className="nav__toggle" id="nav-toggle">
