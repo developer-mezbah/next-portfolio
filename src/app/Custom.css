@@ -788,7 +788,7 @@ img {
 }
 .project__bg {
   background-color: var(--first-color-second);
-  padding-top: 3rem;
+  /* padding-top: 3rem; */
 }
 .project__title {
   font-size: var(--h2-font-size);
@@ -1207,7 +1207,7 @@ img {
   .project__container {
     background-color: var(--first-color-second);
     border-radius: 1rem;
-    padding: 3rem 2.5rem 0;
+    /* padding: 3rem 2.5rem 0; */
     -ms-grid-columns: 1fr 3rem -webkit-max-content;
     -ms-grid-columns: 1fr 3rem max-content;
     grid-template-columns: 1fr -webkit-max-content;
@@ -1318,4 +1318,7 @@ img {
 
 .footer__socials {
   display: flex;
+}
+.project.section{
+  padding: 50px 0px;
 }

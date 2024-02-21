@@ -13,7 +13,6 @@ const Skills = () => {
       const skills__percentage = document.querySelectorAll(
         ".skills__percentage"
       );
-      console.log("hey");
       skillsNumber.forEach((item, index) => {
         const getWidth = item.childNodes[0].nodeValue;
 
@@ -30,7 +29,7 @@ const Skills = () => {
         }, 1);
       });
     }
-
+    dynamicSkillsWidth()
     /* Validate if constant exists */
 
     /*==================== REMOVE MENU MOBILE ====================*/
@@ -45,7 +44,6 @@ const Skills = () => {
         for (let i = 0; i < skillsContent.length; i++) {
           skillsContent[i].className = "skills__content skills__close";
         }
-        console.log("mezbah");
         if (itemClass === "skills__content skills__close") {
           this.parentNode.className = "skills__content skills__open";
         }
