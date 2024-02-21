@@ -7,7 +7,7 @@ const Hero = () => {
     <section className="home section" id="home">
       <div className="home_container cus_container cus_grid">
         <div className="home__content cus_grid">
-          <div className="home__social flipLeft">
+          <div className="home__social pl-2">
             <Link href="#" className="home__social-icon">
               <FiGithub className="text-3xl" />
             </Link>
@@ -73,7 +73,7 @@ const Hero = () => {
                 <image
                   className="home__blob-img"
                   x={12}
-                  y={10}
+                  y={30}
                   href="/images/perfil.png"
                 />
               </g>

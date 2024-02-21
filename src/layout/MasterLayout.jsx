@@ -6,7 +6,7 @@ const MasterLayout = ({ children }) => {
   return (
     <div>
       <Navbar />
-      <div style={{marginTop: "100px"}}>{children}</div>
+      <div className="main" style={{marginTop: "100px"}}>{children}</div>
       <Footer />
     </div>
   );

@@ -1,4 +1,3 @@
-
 /*==================== GOOGLE FONTS ====================*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
@@ -118,6 +117,8 @@ body {
   font-size: var(--normal-font-size);
   background-color: var(--body-color);
   color: var(--text-color);
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 h1,
@@ -314,19 +315,22 @@ img {
   color: var(--first-color-alt);
 }
 .home__blob {
-  width: 200px;
+  width: 100%;
   fill: var(--first-color);
 }
 
+.home__img {
+  position: relative;
+}
 .home__img::before {
   content: "";
   position: absolute;
-  width: 280px;
-  height: 280px;
+  width: 110%;
+  height: 100%;
   background: var(--first-color);
   z-index: -9;
-  -webkit-filter: blur(50px);
-  filter: blur(50px);
+  -webkit-filter: blur(130px);
+  filter: blur(130px);
 }
 
 .home__blob-img {
@@ -934,8 +938,11 @@ img {
 .footer__copy {
   font-size: var(--smaller-font-size);
   text-align: center;
-  color: var(--text-color-light);
   margin-top: var(--mb-3);
+  color: #fff;
+}
+.dark-theme .footer__copy {
+  color: var(--text-color-light);
 }
 .footer__title,
 .footer__subtitle,
@@ -1009,7 +1016,7 @@ img {
     grid-template-columns: 0.25fr 3fr;
   }
   .home__blob {
-    width: 180px;
+    width: 100%;
   }
   .skills__title {
     font-size: var(--normal-font-size);
@@ -1136,7 +1143,7 @@ img {
     column-gap: 2rem;
   }
   .home__blob {
-    width: 270px;
+    width: 105%;
   }
   .home__img .home__scroll {
     display: block;
@@ -1207,7 +1214,7 @@ img {
   .project__container {
     background-color: var(--first-color-second);
     border-radius: 1rem;
-    /* padding: 3rem 2.5rem 0; */
+    padding: 3rem 2.5rem 0;
     -ms-grid-columns: 1fr 3rem -webkit-max-content;
     -ms-grid-columns: 1fr 3rem max-content;
     grid-template-columns: 1fr -webkit-max-content;
@@ -1246,13 +1253,16 @@ img {
 }
 /* For large devices */
 @media screen and (min-width: 1024px) {
+  .project__container{
+    padding: 0;
+  }
   .header,
   .main,
   .footer__container {
     padding: 0;
   }
   .home__blob {
-    width: 320px;
+    width: 130%;
   }
   .home__social {
     -webkit-transform: translateX(-6rem);
@@ -1319,8 +1329,6 @@ img {
 .footer__socials {
   display: flex;
 }
-.project.section{
+.project.section {
   padding: 50px 0px;
 }
-
-
