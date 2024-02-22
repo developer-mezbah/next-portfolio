@@ -10,9 +10,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 const ProjectsSlider = ({data}) => {
   return (
-    <div className="cus_container relative py-10 overflow-hidden">
-      <h2 className="section__title anime">Popular Projects</h2>
-      <span className="section__subtitle anime">Most recent Work</span>
       <Swiper
         cssMode={true}
         loop={true}
@@ -32,7 +29,8 @@ const ProjectsSlider = ({data}) => {
         className="project_slider md:h-[310px]"
       >
         {data?.map((slide) => (
-          <SwiperSlide key={slide.id} className="px-16 pb-10">
+          <SwiperSlide key={slide.id} className="px-16 pb-10"><Link
+          href={"/project-details"}>
             <div className="md:flex justify-between gap-6 items-center mx-auto block w-full text-center md:text-left">
               <div className="md:w-[90%] w-full">
                 <Image
@@ -46,15 +44,14 @@ const ProjectsSlider = ({data}) => {
               <div className="w-full md:space-y-5">
                 <h2 className="portfolio__title">{slide.title}</h2>
                 <p className="portfolio__description">{slide.description}</p>
-                <Link
-                  href={"#"}
-                  className="button button--flex button--small portfolio__button"
+                <button
+                  className="button button--flex button--small portfolio__button cursor-pointer"
                 >
                   preview
                   <VscSend className="button__icon" />
-                </Link>
+                </button>
               </div>
-            </div>
+            </div></Link>
           </SwiperSlide>
         ))}
         <div className="absolute w-full -top-[40px] h-full z-50 flex justify-between items-center">
@@ -66,7 +63,6 @@ const ProjectsSlider = ({data}) => {
           </div>
         </div>
       </Swiper>
-    </div>
   );
 };
 

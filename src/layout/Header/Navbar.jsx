@@ -12,6 +12,7 @@ import { LuSunMoon } from "react-icons/lu";
 import { TfiClose } from "react-icons/tfi";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { FaBlog } from "react-icons/fa";
 
 const navData = [
   {
@@ -49,6 +50,11 @@ const navData = [
     name: "ContactMe",
     url: "/contact",
     icon: <VscSend />,
+  },{
+    id: 7,
+    name: "Blogs",
+    url: "/blogs",
+    icon: <FaBlog />,
   },
 ];
 

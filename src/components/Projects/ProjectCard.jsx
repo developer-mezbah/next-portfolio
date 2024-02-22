@@ -28,7 +28,7 @@ const ProjectCard = ({ data }) => {
             <div className="flex gap-2 mb-2">
               <Link href={data.code}>
                 <div
-                  className="flex items-center gap-2 text-white text-xl cursor-pointer px-2 rounded-lg hover:bg-black"
+                  className="flex items-center gap-2 text-white text-xl cursor-pointer px-3 py-1 rounded-lg hover:bg-black"
                   style={{ border: "2px solid var(--first-color)" }}
                 >
                   <FaCode />
@@ -37,7 +37,7 @@ const ProjectCard = ({ data }) => {
               </Link>
               <Link href={data.preview}>
                 <div
-                  className="flex items-center gap-2 text-white text-xl cursor-pointer px-1 rounded-lg hover:bg-black"
+                  className="flex items-center gap-2 text-white text-xl cursor-pointer px-3 py-1 rounded-lg hover:bg-black"
                   style={{ border: "2px solid var(--first-color)" }}
                 >
                   <VscPreview />
@@ -47,7 +47,7 @@ const ProjectCard = ({ data }) => {
             </div>
             <Link href={data.preview}>
               <div
-                className="flex items-center gap-2 text-white text-xl cursor-pointer px-1 rounded-lg hover:bg-black w-1/2 mx-auto"
+                className="flex items-center gap-2 text-white text-xl cursor-pointer px-3 py-1 rounded-lg hover:bg-black w-1/2 mx-auto"
                 style={{ border: "2px solid var(--first-color)" }}
               >
                 <TbListDetails  />
@@ -61,7 +61,7 @@ const ProjectCard = ({ data }) => {
         className="bottom-0 w-full text-white text-center font-semibold duration-300 px-2 py-3"
         style={{ background: "var(--first-color)" }}
       >
-        {data.title.length > 66 ? data.title.slice(0,67)+"..." : data.title}
+        {data.title.length > 110 ? data.title.slice(0,110)+"..." : data.title}
       </p>
     </div>
   );

@@ -23,7 +23,7 @@ const Skills = () => {
         }
         setInterval(function () {
           for (let i = 0; i <= convertInt; i++) {
-            skills__percentage[index].style.transition = "4s ease-in-out";
+            skills__percentage[index].style.transition = "3s ease-in-out";
             skills__percentage[index].style.width = i + "%";
           }
         }, 1);
