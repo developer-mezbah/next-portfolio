@@ -1,10 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FiDownload } from "react-icons/fi";
 const About = () => {
   return (
     <>
       {/*==================== ABOUT ====================*/}
-      <section className="about section anime" id="about" target="fadeUp">
+      <section className="about section anime" id="about">
         <h2 className="section__title">About Me</h2>
         <span className="section__subtitle">My introduction</span>
         <div className="about__container cus_container cus_grid">
@@ -47,14 +48,14 @@ const About = () => {
             </div>
           </div>
           <div className="about__buttons">
-            <a
+            <Link
               download=""
               href="assets/pdf/Alexa-Cv.pdf"
               className="button button--flex"
             >
               Download CV
               <FiDownload className="button__icon"/>
-            </a>
+            </Link>
           </div>
         </div>
       </section>

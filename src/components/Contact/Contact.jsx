@@ -1,31 +1,36 @@
 import { LiaPhoneVolumeSolid } from "react-icons/lia";
 import { CiLocationOn } from "react-icons/ci";
 import { SiAmazonsimpleemailservice } from "react-icons/si";
+import Link from "next/link";
 const Contact = () => {
   return (
     <section className="contact section anime" id="contact">
       <h2 className="section__title">Contact Me</h2>
       <span className="section__subtitle">Get in Touch</span>
       <div className="contact__container cus_container cus_grid">
-        <div className="anime" target="fadeRight">
-          <div className="contact__information">
-            <LiaPhoneVolumeSolid className="contact__icon"/>
-            <div>
-              <h3 className="contact__title">Call Me</h3>
-              <span className="contact__subtitle">+8801707954201</span>
+        <div className="anime">
+          <Link href={"tel:+880 1707954201"}>
+            <div className="contact__information">
+              <LiaPhoneVolumeSolid className="contact__icon" />
+              <div>
+                <h3 className="contact__title">Call Me</h3>
+                <span className="contact__subtitle">+880 1707954201</span>
+              </div>
             </div>
-          </div>
-          <div className="contact__information">
-            <SiAmazonsimpleemailservice className="contact__icon"/>
-            <div>
-              <h3 className="contact__title">Email</h3>
-              <span className="contact__subtitle">
-                developer.mezbah@gmail.com
-              </span>
+          </Link>
+          <Link href={"mailto:developer.mezbah@gmail.com"}>
+            <div className="contact__information cursor-pointer">
+              <SiAmazonsimpleemailservice className="contact__icon" />
+              <div>
+                <h3 className="contact__title">Email</h3>
+                <span className="contact__subtitle">
+                  developer.mezbah@gmail.com
+                </span>
+              </div>
             </div>
-          </div>
+          </Link>
           <div className="contact__information">
-            <CiLocationOn className="contact__icon"/>
+            <CiLocationOn className="contact__icon" />
             <div>
               <h3 className="contact__title">Location</h3>
               <span className="contact__subtitle">BD - Dhaka, Comilla</span>

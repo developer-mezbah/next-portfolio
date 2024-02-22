@@ -144,7 +144,7 @@ img {
 
 /*==================== REUSABLE CSS CLASSES ====================*/
 .section {
-  padding: 2rem 0 4rem;
+  /* padding: 2rem 0 4rem; */
 }
 
 .section__title {
@@ -293,7 +293,7 @@ img {
 .home__content {
   -ms-grid-columns: 0.5fr 3fr;
   grid-template-columns: 0.5fr 3fr;
-  padding-top: 3.5rem;
+  /* padding-top: 3.5rem; */
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -422,6 +422,7 @@ img {
 /*==================== ABOUT ====================*/
 .about__img {
   width: 200px;
+  /* width: 100%; */
   border-radius: 0.5rem;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
@@ -1157,7 +1158,8 @@ img {
     column-gap: 5rem;
   }
   .about__img {
-    width: 350px;
+    /* width: 350px; */
+    width: 100%;
   }
   .about__description {
     text-align: initial;
@@ -1185,8 +1187,8 @@ img {
     grid-template-columns: 0.5fr;
   }
   .services__container {
-    -ms-grid-columns: (218px) [3];
-    grid-template-columns: repeat(3, 218px);
+    -ms-grid-columns: (1fr) [3];
+    grid-template-columns: repeat(3, 1fr);
   }
   .services__icon {
     font-size: 2rem;
@@ -1265,13 +1267,13 @@ img {
     width: 130%;
   }
   .home__social {
-    -webkit-transform: translateX(-6rem);
-    -ms-transform: translateX(-6rem);
-    transform: translateX(-6rem);
+    -webkit-transform: translateX(-1rem);
+    -ms-transform: translateX(-1rem);
+    transform: translateX(-1rem);
   }
   .services__container {
-    -ms-grid-columns: (238px) [3];
-    grid-template-columns: repeat(3, 238px);
+    -ms-grid-columns: (1fr) [3];
+    grid-template-columns: repeat(3, 1fr);
   }
   .portfolio__content {
     -webkit-column-gap: 5rem;

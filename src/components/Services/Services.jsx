@@ -4,6 +4,7 @@ import { CiGrid31 } from "react-icons/ci";
 import { FaLaptopCode } from "react-icons/fa";
 import { GiSandsOfTime } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
+import { FiCheckCircle } from "react-icons/fi";
 
 const Services = () => {
   useEffect(() => {
@@ -30,15 +31,11 @@ const Services = () => {
   }, []);
   return (
     <section className="services section" id="services">
-      <h2 className="section__title anime" target="fadeUp">
-        Services
-      </h2>
-      <span className="section__subtitle anime" target="fadeUp">
-        What i offer
-      </span>
-      <div className="services__container cus_container cus_grid">
+      <h2 className="section__title anime">Services</h2>
+      <span className="section__subtitle anime">What i offer</span>
+      <div className="services__container cus_container cus_grid md:px-3">
         {/*==================== SERVICES 1 ====================*/}
-        <div className="services__content anime" target="fadeRight">
+        <div className="services__content anime">
           <div>
             <CiGrid31 className="services__icon" />
             <h3 className="services__title">
@@ -59,19 +56,19 @@ const Services = () => {
               <IoMdClose className="services cus_grid services__modal-close" />
               <ul className="services__modal-services cus_grid">
                 <li className="services__modal-service">
-                  <i className="uil uil-check-circle services__modal-icon" />
+                  <FiCheckCircle className="services__modal-icon mt-1" />
                   <p>I develop The user Interface.</p>
                 </li>
                 <li className="services__modal-service">
-                  <i className="uil uil-check-circle services__modal-icon" />
+                  <FiCheckCircle className="services__modal-icon mt-1"/>
                   <p>Web page development.</p>
                 </li>
                 <li className="services__modal-service">
-                  <i className="uil uil-check-circle services__modal-icon" />
+                  <FiCheckCircle className="services__modal-icon mt-1"/>
                   <p>I create ux element interactions.</p>
                 </li>
                 <li className="services__modal-service">
-                  <i className="uil uil-check-circle services__modal-icon" />
+                  <FiCheckCircle className="services__modal-icon mt-1"/>
                   <p>I position your company brand.</p>
                 </li>
               </ul>
@@ -79,7 +76,7 @@ const Services = () => {
           </div>
         </div>
         {/*==================== SERVICES 2 ====================*/}
-        <div className="services__content anime" target="fadeDown">
+        <div className="services__content anime">
           <div>
             <FaLaptopCode className="services__icon" />
             <h3 className="services__title">
@@ -120,7 +117,7 @@ const Services = () => {
           </div>
         </div>
         {/*==================== SERVICES 3 ====================*/}
-        <div className="services__content anime" target="fadeLeft">
+        <div className="services__content anime">
           <div>
             <GiSandsOfTime className="services__icon" />
             <h3 className="services__title">
