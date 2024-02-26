@@ -104,7 +104,7 @@ const Navbar = () => {
     <header className="header" id="header" style={{ paddingTop: "15px" }}>
       <nav className="nav cus_container">
         <Link href="/" className="nav__logo">
-          Mezbah.dev
+          Mezbah.Dev
         </Link>
         <div className="nav__menu" id="nav-menu">
           <ul className="nav__list cus_grid">

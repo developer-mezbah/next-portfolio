@@ -3,6 +3,7 @@ import "./globals.css";
 import "@/utils/css/Custom.css";
 import'@/utils/css/Animation.css'
 import NextTopLoader from "nextjs-toploader";
+import BgSnow from "@/components/Others/BgSnow";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({ children }) {
           showSpinner={false}
         />
         {children}
+        <BgSnow/>
       </body>
     </html>
   );

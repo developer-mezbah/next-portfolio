@@ -80,7 +80,7 @@ const Hero = () => {
             </svg>
           </div>
           <div className="home__data fadeLeft">
-            {/* <h1 className="home__title">Hi, I'am Mezbah</h1> */}
+            <h1 className="home__title">Hi, I'am Mezbah</h1>
             <h1 className="text-3xl py-3">My name is Mezbah uddin</h1>
             <h3 className="home__subtitle">Full Stack web Developer</h3>
             <p className="home__description">
