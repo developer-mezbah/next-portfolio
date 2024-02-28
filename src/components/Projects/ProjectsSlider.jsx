@@ -25,7 +25,7 @@ const ProjectsSlider = ({ data }) => {
       pagination={{
         clickable: true,
       }}
-      modules={[Navigation, Pagination]}
+      modules={[Navigation, Pagination, Autoplay]}
       className="project_slider md:h-[310px]"
     >
       {data?.map((slide) => (

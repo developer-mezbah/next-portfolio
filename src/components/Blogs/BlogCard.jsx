@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import { CardBody, CardContainer, CardItem } from "../Others/Card3dEffect";
 
 const BlogCard = ({
   index,
@@ -13,42 +13,50 @@ const BlogCard = ({
   blogUrl,
 }) => {
   return (
-    <div className="h-full w-full overflow-hidden">
-      <div className="h-full w-full overflow-hidden rounded-xl border border-dark/10 bg-light">
-        <div className="h-[10rem] w-full overflow-hidden sm:h-[15rem]">
+    <CardContainer className="inter-var">
+      <CardBody className="relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] bg-[#e057e01c] dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border ">
+        <CardItem
+          translateZ="50"
+          className="text-xl font-bold"
+        >
+          Make things float in air
+        </CardItem>
+        <CardItem as="p" translateZ="60" className="text-sm max-w-sm mt-2 text-black dark:text-gray-500">
+        {body.substring(0, 200)}...
+        </CardItem>
+        <CardItem translateZ="100" className="w-full mt-4">
           <Image
             src={image}
             alt={title}
             width={500}
             height={300}
             priority
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover rounded"
           />
+        </CardItem>
+        <div className="flex justify-between items-center mt-20">
+          <CardItem
+            translateZ={20}
+            as="button"
+            className="px-4 py-2 rounded-xl text-xs font-normal text-black dark:text-gray-500"
+          >
+            Try now →
+          </CardItem>
+          <CardItem
+            translateZ={20}
+            as="button"
+          >
+            <Link
+              className="button button--flex"
+              href={blogUrl}
+              target="_blank"
+            >
+              Read Full Article
+            </Link>
+          </CardItem>
         </div>
-        <div className="flex flex-col items-start gap-3 p-5">
-          <h3 className="text-2xl font-semibold">
-            {title.substring(0, 60)}...
-          </h3>
-          <div className="flex w-full flex-col justify-between gap-y-1.5 text-dark/50 sm:flex-row sm:gap-y-0">
-            <p>
-              by{" "}
-              <Link
-                href={authorUrl}
-                target="_blank"
-                className="link-item-dark text-dark"
-              >
-                {author}
-              </Link>
-            </p>
-            <p className="text-dark">{publishedDate}</p>
-          </div>
-          <p>{body.substring(0, 200)}...</p>
-          <Link className="button button--flex" href={blogUrl} target="_blank">
-            Read Full Article
-          </Link>
-        </div>
-      </div>
-    </div>
+      </CardBody>
+    </CardContainer>
   );
 };
 

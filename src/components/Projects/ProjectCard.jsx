@@ -4,12 +4,15 @@ import React from "react";
 import { FaCode } from "react-icons/fa6";
 import { VscPreview } from "react-icons/vsc";
 import { TbListDetails } from "react-icons/tb";
+import { BackgroundGradient } from "../Others/BackgroundGradient";
 
 const ProjectCard = ({ data }) => {
   return (
+    
+    <BackgroundGradient className="rounded-[22px] bg-white dark:bg-zinc-900 overflow-hidden">
     <div
-      className="rounded-lg overflow-hidden md:w-full w-full sm:w-3/4"
-      style={{ border: "2px solid var(--first-color)" }}
+      className="rounded-lg overflow-hidden md:w-full w-full"
+      // style={{ border: "2px solid var(--first-color)" }}
     >
       <div className="w-full h-80 overflow-hidden relative group">
         <Image
@@ -64,6 +67,7 @@ const ProjectCard = ({ data }) => {
         {data.title.length > 110 ? data.title.slice(0,110)+"..." : data.title}
       </p>
     </div>
+    </BackgroundGradient>
   );
 };
 

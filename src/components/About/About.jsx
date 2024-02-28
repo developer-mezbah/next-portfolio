@@ -10,7 +10,7 @@ const About = () => {
         <span className="section__subtitle">My introduction</span>
         <div className="about__container cus_container cus_grid">
           <Image width={500} height={500} src="/images/about.jpg" alt="" className="about__img" />
-          <div className="about__data">
+          <div className="about__data flex flex-col justify-center">
             <p className="about__description">
               I am a CSE student at CCN Polytechnic Institute in Bangladesh.I
               learned web development along with my studies. Web developer, with

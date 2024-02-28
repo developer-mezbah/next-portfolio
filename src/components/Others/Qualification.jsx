@@ -1,6 +1,8 @@
 "use client";
-
 import { useEffect } from "react";
+import { FaGraduationCap } from "react-icons/fa6";
+import { FaBriefcase } from "react-icons/fa";
+import { FcCalendar } from "react-icons/fc";
 
 const Qualification = () => {
   useEffect(() => {
@@ -23,20 +25,15 @@ const Qualification = () => {
   }, []);
   return (
     <section className="qualification section">
-      <h2 className="section__title anime" target="fadeUp">
-        Qualification
-      </h2>
-      <span className="section__subtitle anime" target="fadeUp">
-        My personal journey
-      </span>
+      <h2 className="section__title anime">Qualification</h2>
+      <span className="section__subtitle anime">My personal journey</span>
       <div className="qualification__container cus_container">
         <div className="qualification__tabs">
           <div
-            className="qualification__button button--flex qualification__active anime"
+            className="qualification__button button--flex qualification__active anime delay-1000"
             data-target="#education"
-            target="fadeRight"
           >
-            <i className="uil uil-graduation-cap qualification__icon" />
+            <FaGraduationCap className="qualification__icon" />
             Education
           </div>
           <div
@@ -44,7 +41,7 @@ const Qualification = () => {
             data-target="#work"
             target="fadeLeft"
           >
-            <i className="uil uil-briefcase-alt qualification__icon" />
+            <FaBriefcase className="qualification__icon"/>
             Work
           </div>
         </div>
@@ -56,14 +53,14 @@ const Qualification = () => {
             id="education"
           >
             {/*==================== Qualification 1 ====================*/}
-            <div className="qualification__data anime" target="fadeUp">
+            <div className="qualification__data anime">
               <div>
                 <h3 className="qualification__title">Computer Enginner</h3>
                 <span className="qualification__subtitle">
                   Bangladesh Polytechnic Institute
                 </span>
-                <div className="qualification__calender">
-                  <i className="uil uil-calender-alt" />
+                <div className="qualification__calender flex gap-2 justify-center">
+                  <FcCalendar className="text-xl"/>
                   2019 - 2023
                 </div>
               </div>
@@ -73,7 +70,7 @@ const Qualification = () => {
               </div>
             </div>
             {/*==================== Qualification 2 ====================*/}
-            <div className="qualification__data anime" target="fadeUp">
+            <div className="qualification__data anime">
               <div />
               <div>
                 <span className="qualification__rounder" />
@@ -84,22 +81,22 @@ const Qualification = () => {
                 <span className="qualification__subtitle">
                   E-shikhon - Institute
                 </span>
-                <div className="qualification__calender">
-                  <i className="uil uil-calender-alt" />
-                  2023 - 2024
+                <div className="qualification__calender flex gap-2 justify-center">
+                  <FcCalendar className="text-xl"/>
+                  2019 - 2023
                 </div>
               </div>
             </div>
             {/*==================== Qualification 3 ====================*/}
-            <div className="qualification__data anime" target="fadeDown">
+            <div className="qualification__data anime">
               <div>
                 <h3 className="qualification__title">Web Development</h3>
                 <span className="qualification__subtitle">
                   E-shikhon - Institute
                 </span>
-                <div className="qualification__calender">
-                  <i className="uil uil-calender-alt" />
-                  2023 - 2024
+                <div className="qualification__calender flex gap-2 justify-center">
+                  <FcCalendar className="text-xl"/>
+                  2019 - 2023
                 </div>
               </div>
               <div>
@@ -108,7 +105,7 @@ const Qualification = () => {
               </div>
             </div>
             {/*==================== Qualification 4 ====================*/}
-            <div className="qualification__data anime" target="fadeDown">
+            <div className="qualification__data anime">
               <div />
               <div>
                 <span className="qualification__rounder" />
@@ -121,9 +118,9 @@ const Qualification = () => {
                 <span className="qualification__subtitle">
                   Peru - Institute
                 </span>
-                <div className="qualification__calender">
-                  <i className="uil uil-calender-alt" />
-                  2023 - 2024
+                <div className="qualification__calender flex gap-2 justify-center">
+                  <FcCalendar className="text-xl"/>
+                  2019 - 2023
                 </div>
               </div>
             </div>
@@ -137,9 +134,9 @@ const Qualification = () => {
                 <span className="qualification__subtitle">
                   CCN Polytecnic Institute
                 </span>
-                <div className="qualification__calender">
-                  <i className="uil uil-calender-alt" />
-                  2020 - 2021
+                <div className="qualification__calender flex gap-2 justify-center">
+                  <FcCalendar className="text-xl"/>
+                  2019 - 2023
                 </div>
               </div>
               <div>
@@ -161,9 +158,9 @@ const Qualification = () => {
                 <span className="qualification__subtitle">
                   CCN Polytecnic Institute
                 </span>
-                <div className="qualification__calender">
-                  <i className="uil uil-calender-alt" />
-                  2022 - 2023
+                <div className="qualification__calender flex gap-2 justify-center">
+                  <FcCalendar className="text-xl"/>
+                  2019 - 2023
                 </div>
               </div>
             </div>
@@ -174,9 +171,9 @@ const Qualification = () => {
                 <span className="qualification__subtitle">
                   BlackeyBaby - Institute
                 </span>
-                <div className="qualification__calender">
-                  <i className="uil uil-calender-alt" />
-                  2023 - 2023
+                <div className="qualification__calender flex gap-2 justify-center">
+                  <FcCalendar className="text-xl"/>
+                  2019 - 2023
                 </div>
               </div>
               <div>
