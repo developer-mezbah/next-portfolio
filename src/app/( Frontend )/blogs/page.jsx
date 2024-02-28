@@ -1,4 +1,5 @@
 import BlogCard from "@/components/Blogs/BlogCard";
+import { TracingBeam } from "@/components/Others/TracingBeam";
 import MasterLayout from "@/layout/MasterLayout";
 import { BlogsData } from "@/utils/fakeData";
 import React from "react";
@@ -6,6 +7,7 @@ import React from "react";
 const page = () => {
   return (
     <MasterLayout>
+    <TracingBeam className="pl-6 md:pl-0">
       <div className="cus_container">
         <h2 className="section__title anime">Blogs</h2>
         <span className="section__subtitle anime">Most recent Work</span>
@@ -25,6 +27,7 @@ const page = () => {
           ))}
         </div>
       </div>
+      </TracingBeam>
     </MasterLayout>
   );
 };

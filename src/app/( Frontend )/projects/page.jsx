@@ -7,7 +7,7 @@ const page = () => {
   return (
     <MasterLayout>
       
-    <TracingBeam className="px-6 md:px-0">
+    <TracingBeam className="pl-6 md:pl-0">
       <Projects sliderData={projectSlider} projects={projects}/>
       </TracingBeam>
     </MasterLayout>

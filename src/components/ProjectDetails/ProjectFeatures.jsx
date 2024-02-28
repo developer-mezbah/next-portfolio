@@ -5,7 +5,7 @@ const ProjectFeatures = () => {
     <div>
       <hr
         className="outline-none my-5"
-        style={{ border: "2px solid var(--first-color)" }}
+        style={{ border: "2px solid var(--first-color)"}}
       />
       <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-5 py-10">
         <div>
