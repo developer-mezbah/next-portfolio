@@ -623,6 +623,32 @@ img {
   -ms-transform: translate(6px, -7px);
   transform: translate(6px, -7px);
 }
+
+
+
+
+.qualification__active{
+  animation: 1s linear 0s alternate qualification-animation;
+}
+
+@keyframes qualification-animation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
+
+
+
+
 .qualification [data-content] {
   display: none;
 }

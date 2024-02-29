@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { FaGraduationCap } from "react-icons/fa6";
 import { FaBriefcase } from "react-icons/fa";
 import { FcCalendar } from "react-icons/fc";
+import { motion } from "framer-motion";
 
 const Qualification = () => {
   useEffect(() => {
@@ -30,7 +31,7 @@ const Qualification = () => {
       <div className="qualification__container cus_container">
         <div className="qualification__tabs">
           <div
-            className="qualification__button button--flex qualification__active anime delay-1000"
+            className="qualification__button button--flex qualification__active anime"
             data-target="#education"
           >
             <FaGraduationCap className="qualification__icon" />
@@ -50,8 +51,7 @@ const Qualification = () => {
           <div
             className="qualification__content qualification__active"
             data-content=""
-            id="education"
-          >
+            id="education">
             {/*==================== Qualification 1 ====================*/}
             <div className="qualification__data anime">
               <div>
