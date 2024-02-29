@@ -24,7 +24,8 @@ export default function RootLayout({ children }) {
           speed={200}
           showSpinner={false}
         />
-        <TransitionProvider>{children}</TransitionProvider>
+        <TransitionProvider>
+        {children}</TransitionProvider>
         <BgSnow />
       </body>
     </html>

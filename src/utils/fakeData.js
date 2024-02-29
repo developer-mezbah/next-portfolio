@@ -151,7 +151,7 @@ export const BlogsData = [
     authorUrl: "https://www.linkedin.com/in/shohan-pherones",
     publishedDate: "Nov 11, 2023",
     image:
-      "https://media.licdn.com/dms/image/D5612AQEuhx2Dn69J5Q/article-cover_image-shrink_423_752/0/1699706111904?e=1705536000&v=beta&t=M9yConqsFySFJPz161i3fwGaSjM_QYjHfeMC1o9Ks6E",
+      "https://media.licdn.com/dms/image/D5612AQEmmFLOFBtvBQ/article-cover_image-shrink_720_1280/0/1685803051198?e=1709164800&v=beta&t=eyloKc_jPvXuBc5_6kB1uJJZA03V5SnChCm8jAuukhA",
     body: "Setting up and deploying an Express server on a Virtual Private Server (VPS) is a crucial step in bringing your web application to life. In this guide, we will walk through the process of deploying an Express server on a VPS and configuring Nginx as a reverse proxy to enhance performance and security.",
     blogUrl:
       "https://www.linkedin.com/pulse/deploying-express-server-vps-nginx-comprehensive-guide-rahman-lutwc",
