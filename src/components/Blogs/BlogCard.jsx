@@ -21,17 +21,16 @@ const BlogCard = ({
         >
           Make things float in air
         </CardItem>
-        <CardItem as="p" translateZ="60" className="text-sm max-w-sm mt-2 testimonial__description">
+        <CardItem as="p" translateZ="60" className="text-sm max-w-sm mt-2 testimonial__description text-justify">
         {body.substring(0, 200)}...
         </CardItem>
-        <CardItem translateZ="100" className="w-full mt-4">
+        <CardItem translateZ="100" className="w-full sm:mt-4 mt-0">
           <Image
-            src={image}
+            src={image || "/images/about.jpg"}
             alt={title}
             width={500}
             height={300}
-            priority
-            className="h-[250px] w-full object-cover rounded"
+            className="sm:h-[250px] w-full object-cover rounded"
           />
         </CardItem>
         <div className="flex justify-between items-center mt-5">
@@ -40,14 +39,14 @@ const BlogCard = ({
             as="button"
             className="px-4 py-2 rounded-xl text-xs font-normal"
           >
-            → {publishedDate} 
+            <span className="sm:inline hidden">→</span> {publishedDate} 
           </CardItem>
           <CardItem
             translateZ={20}
             as="button"
           >
             <Link
-              className="button button--flex"
+              className="button button--flex text-sm"
               href={blogUrl}
               target="_blank"
             >

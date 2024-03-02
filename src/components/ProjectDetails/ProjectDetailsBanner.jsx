@@ -54,22 +54,30 @@ const ProjectDetailsBanner = () => {
               </div>
             </div>
             <div className="py-4 pl-6 rounded-lg mb-3 sm:mb-0 w-full flex items-center">
-              <Link
+              {/* <Link
                 href={"#"}
                 className="flex w-4/5 items-center gap-2 bg-gradient-to-b to-purple-300 from-purple-500 hover:to-purple-400 hover:from-purple-600  text-white font-bold py-4 px-4 rounded-lg uppercase text-sm  shadow-xl"
               >
                 <FaCode className="text-2xl" />
                 Code
-              </Link>
+              </Link> */}
+              
+        <button className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#E057E0,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+          Shimmer
+        </button>
+
             </div>
-            <Link
+            {/* <Link
               href={"#"}
               className="py-4 rounded-lg mb-3 sm:mb-0 w-full flex items-center"
             >
               <button className="flex w-4/5 items-center gap-2 bg-gradient-to-b from-purple-300 to-purple-600 hover:to-purple-400 hover:from-purple-600 delay-75 text-white font-bold py-4 px-4 rounded-lg uppercase text-sm  shadow-xl">
                 <VscPreview className="text-2xl" /> Preview
               </button>
-            </Link>
+            </Link> */}
+            <button className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#E057E0,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+          Shimmer
+        </button>
           </div>
         </div>
       </div>
