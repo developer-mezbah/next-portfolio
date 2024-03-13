@@ -1,0 +1,106 @@
+.navbar-bullet li,
+.bullet {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.navbar-bullet li::before,
+.bullet {
+  position: absolute;
+  content: "";
+  width: 0.3rem;
+  height: 0.3rem;
+  border: 1px solid #a3aed1;
+  border-radius: 50%;
+  background-color: transparent;
+  inset-inline-start: 0.5rem;
+  opacity: 0.5;
+}
+.navbar-bullet li:hover:before {
+  border: 1px solid #fff;
+}
+
+.top-navbar {
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+}
+
+.animated-arrow {
+  rotate: 180deg;
+}
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.rotating {
+  -webkit-animation: rotating 2.5s linear infinite;
+  -moz-animation: rotating 2.5s linear infinite;
+  -ms-animation: rotating 2.5s linear infinite;
+  -o-animation: rotating 2.5s linear infinite;
+  animation: rotating 2.5s linear infinite;
+}
+
+.pulse {
+  border-radius: 50%;
+  text-align: center;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  animation: animate-pulse 3s linear infinite;
+  cursor: pointer;
+}
+@keyframes animate-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(74, 80, 255, 0.7), 0 0 0 0 rgba(74, 128, 255, 0.7);
+  }
+  40% {
+    box-shadow: 0 0 0 50px rgba(255, 109, 74, 0),0 0 0 0 rgba(74, 80, 255, 0.7);
+  }
+  80% {
+    box-shadow: 0 0 0 50px rgba(255, 109, 74, 0),
+      0 0 0 30px rgba(255, 109, 74, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 109, 74, 0), 0 0 0 30px rgba(255, 109, 74, 0);
+  }
+}
+
+
+.dropdown-anime{
+  animation: .3s linear dropdown-somoth;
+}
+@keyframes dropdown-somoth {
+  0%{
+    rotate: 90deg;
+    scale: 0;
+    opacity: 0;
+  }
+  100%{
+    rotate: 0deg;
+    opacity: 1;
+    scale: 1;
+  }
+}
