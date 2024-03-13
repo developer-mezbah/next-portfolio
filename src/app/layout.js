@@ -2,7 +2,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import "@/utils/css/Custom.css";
 import "@/utils/css/Animation.css";
-import NextTopLoader from "nextjs-toploader";
 import BgSnow from "@/components/Others/BgSnow";
 import TransitionProvider from "@/components/Others/TransitionProvider";
 
@@ -18,12 +17,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         {/* + " dark-theme" */}
-        <NextTopLoader
-          color="var(--first-color)"
-          height={2}
-          speed={200}
-          showSpinner={false}
-        />
+
         <TransitionProvider>
         {children}</TransitionProvider>
         <BgSnow />

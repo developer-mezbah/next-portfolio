@@ -23,7 +23,7 @@
   display: inline-block;
   padding: 8px 40px;
   position: relative;
-  background-color: rgba(6, 216, 137, 0.2);
+  background-color: rgba(192, 5, 255, 0.2);
   margin-bottom: 10px;
 }
 
@@ -79,7 +79,6 @@
 }
 
 .single-blog-content {
-  background-color: #0f0f0f;
   padding: 30px 0;
 }
 
@@ -146,7 +145,7 @@
     linear-gradient(#171717, #171717);
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 50px 80px;
+  padding: 30px 20px;
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.05);
   text-align: center;
@@ -269,11 +268,6 @@
   outline: 0;
 }
 
-.comment-box button {
-  width: 300px;
-  height: 50px;
-  border: 0;
-}
 
 @media (min-width: 768px) {
   .singleBlog .blogs-head {
@@ -349,6 +343,9 @@
   }
   .single-blog-content h3 {
     font-size: 45px;
+  }
+  .single-blog-content .highlight {
+    padding: 50px 80px;
   }
 }
 

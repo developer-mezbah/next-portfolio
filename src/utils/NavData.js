@@ -3,6 +3,7 @@ import { FaHome } from "react-icons/fa";
 import { LuLayoutDashboard } from "react-icons/lu";
 import { ImProfile } from "react-icons/im";
 import { TbBrandBlogger } from "react-icons/tb";
+import { IoImagesOutline } from "react-icons/io5";
 
 export const NavData = [
   {
@@ -70,6 +71,25 @@ export const NavData = [
       {
         name: "Create Blog",
         url: "/dashboard/create-blog",
+      },
+    ],
+  },
+  {
+    pageName: "Create Image and upload",
+    pageTitle: "Gallery",
+    icon: <IoImagesOutline />,
+    subItems: [
+      {
+        name: "All Images",
+        url: "/dashboard/all-images",
+      },
+      {
+        name: "Upload Images",
+        url: "/dashboard/upload-image",
+      },
+      {
+        name: "Categories",
+        url: "/dashboard/gallery-categories",
       },
     ],
   },

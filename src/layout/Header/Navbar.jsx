@@ -103,7 +103,7 @@ const Navbar = () => {
   return (
     <header className="header" id="header" style={{ paddingTop: "15px" }}>
       <nav className="nav cus_container">
-        <Link href="/" className="nav__logo">
+        <Link href="/dashboard" className="nav__logo">
           Mezbah.Dev
         </Link>
         <div className="nav__menu" id="nav-menu">

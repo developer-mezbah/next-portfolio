@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FiFacebook, FiGithub, FiLinkedin } from "react-icons/fi";
 import { VscSend } from "react-icons/vsc";
+import TypeWriter from "../Others/TypeWriter";
 
 const Hero = () => {
   return (
@@ -79,10 +80,14 @@ const Hero = () => {
               </g>
             </svg>
           </div>
-          <div className="home__data fadeLeft">
-            <h1 className="home__title">Hi, I'am Mezbah</h1>
-            <h1 className="text-3xl py-3">My name is Mezbah uddin</h1>
-            <h3 className="home__subtitle">Full Stack web Developer</h3>
+          <div className="home__data space-y-5">
+            <h1 className="home__title flex flex-wrap items-center">
+              <span className="pr-5">Hi, I'am </span>
+              <TypeWriter />
+              <span className="text-primary -mt-2">:)</span>
+              {/* 🙋 👋 */}
+            </h1>
+            <h3 className="home__subtitle">Full Stack web Developement with react, next.js, prisma, mongodb, mySql and many more.</h3>
             <p className="home__description">
               High level experience in web design, development and knowledge,
               producing quality work.

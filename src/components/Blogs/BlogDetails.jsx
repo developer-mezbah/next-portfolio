@@ -1,4 +1,5 @@
-import "./BlogDetails.css"
+import { VscSend } from "react-icons/vsc";
+import "./BlogDetails.css";
 
 const BlogDetails = () => {
   const singleblog = {
@@ -53,14 +54,24 @@ const BlogDetails = () => {
       <div className="singleBlog cus_container">
         <div className="single-blog-content">
           <div className="px-5">
-            <img src={singleblog.img} alt="web developer" className="object-cover max-h-[300px] md:max-h-[400px]" />
+            <img
+              src={singleblog.img}
+              alt="web developer"
+              className="object-cover max-h-[300px] md:max-h-[400px]"
+            />
             <h3>{singleblog.title}</h3>
             <ul>
               <li>
-                <img src={singleblog.author.img} alt="web developer" className="object-cover" />
+                <img
+                  src={singleblog.author.img}
+                  alt="web developer"
+                  className="object-cover"
+                />
                 <p>
                   By,{" "}
-                  <span style={{color: "var(--first-color)"}}>{singleblog.author.name}</span>
+                  <span style={{ color: "var(--first-color)" }}>
+                    {singleblog.author.name}
+                  </span>
                 </p>
               </li>
               <li>{singleblog.date}</li>
@@ -68,7 +79,9 @@ const BlogDetails = () => {
             <p className="para">{singleblog.desc1}</p>
             <div className="highlight">
               <p>{`"${singleblog.highlight.desc}"`}</p>
-              <h5 style={{color: "var(--first-color)"}}>{singleblog.highlight.name}</h5>
+              <h5 style={{ color: "var(--first-color)" }}>
+                {singleblog.highlight.name}
+              </h5>
             </div>
             <h4>{singleblog.title2}</h4>
             <p className="para">{singleblog.desc2}</p>
@@ -87,7 +100,9 @@ const BlogDetails = () => {
                 <img src={comment.author.profile} alt="web developer" />
                 <div className="commentDetails">
                   <h5>{comment.author.name}</h5>
-                  <p className="date" style={{color: "var(--first-color)"}}>{comment.date}</p>
+                  <p className="date" style={{ color: "var(--first-color)" }}>
+                    {comment.date}
+                  </p>
                   <p className="para">{comment.comment}</p>
                 </div>
               </div>
@@ -115,7 +130,10 @@ const BlogDetails = () => {
                   <div className="inputs">
                     <textarea name="message" placeholder="Message"></textarea>
                   </div>
-                  <button className="btn-primary">Post Comment</button>
+                  <div><button className="button button--flex">
+                    Post Comment
+                    <VscSend className="button__icon" />
+                  </button></div>
                 </form>
               </div>
             </div>

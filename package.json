@@ -23,7 +23,8 @@
     "recharts": "^2.12.2",
     "sharp": "^0.33.2",
     "swiper": "^11.0.6",
-    "tailwind-merge": "^2.2.1"
+    "tailwind-merge": "^2.2.1",
+    "typewriter-effect": "^2.21.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",
