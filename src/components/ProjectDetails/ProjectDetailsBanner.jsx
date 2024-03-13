@@ -20,10 +20,10 @@ const ProjectDetailsBanner = () => {
           />
 
           <div className="flex justify-between">
-            <div className="py-4 flex space-x-2 items-center">
+            <div className="py-4 flex items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-green-500"
+                className="h-5 w-5 text-green-500 -mt-2"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
@@ -53,31 +53,23 @@ const ProjectDetailsBanner = () => {
                 />
               </div>
             </div>
-            <div className="py-4 pl-6 rounded-lg mb-3 sm:mb-0 w-full flex items-center">
-              {/* <Link
-                href={"#"}
-                className="flex w-4/5 items-center gap-2 bg-gradient-to-b to-purple-300 from-purple-500 hover:to-purple-400 hover:from-purple-600  text-white font-bold py-4 px-4 rounded-lg uppercase text-sm  shadow-xl"
+            <div className="py-4 pl-6 rounded-lg mb-3 sm:mb-0 w-full flex items-center gap-2 md:justify-around justify-end md:mx-12 mr-10">
+              <button
+                className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md bg-[linear-gradient(110deg,#000103,45%,#E057E0,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
+                style={{ border: "1px solid var(--first-color)" }}
               >
-                <FaCode className="text-2xl" />
                 Code
-              </Link> */}
-              
-        <button className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#E057E0,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-          Shimmer
-        </button>
-
-            </div>
-            {/* <Link
-              href={"#"}
-              className="py-4 rounded-lg mb-3 sm:mb-0 w-full flex items-center"
-            >
-              <button className="flex w-4/5 items-center gap-2 bg-gradient-to-b from-purple-300 to-purple-600 hover:to-purple-400 hover:from-purple-600 delay-75 text-white font-bold py-4 px-4 rounded-lg uppercase text-sm  shadow-xl">
-                <VscPreview className="text-2xl" /> Preview
               </button>
-            </Link> */}
-            <button className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#E057E0,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-          Shimmer
-        </button>
+              <button
+                className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md bg-[linear-gradient(110deg,#000103,45%,#E057E0,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
+                style={{
+                  animationDelay: "1.3s",
+                  border: "1px solid var(--first-color)",
+                }}
+              >
+                Preview
+              </button>
+            </div>
           </div>
         </div>
       </div>

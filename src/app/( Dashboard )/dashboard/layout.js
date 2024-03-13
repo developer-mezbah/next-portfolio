@@ -12,7 +12,7 @@ export default function Layout({ children }) {
       </div>
       <div className="w-full mt-[65px]">
         <div className="bg-[url('/images/dashboard-bg.jpg')] bg-fixed bg-center bg-no-repeat bg-cover min-h-[86vh]">
-          {children}
+          <div className="p-5 pr-10">{children}</div>
         </div>
         <div>
           <Footer />
