@@ -1,14 +1,16 @@
-import AllImages from '@/DasComponent/Gallery/AllImages'
-import PageTitle from '@/DasComponent/Others/PageTitle'
-import React from 'react'
+import AllImages from "@/DasComponent/Gallery/AllImages";
+import PageTitle from "@/DasComponent/Others/PageTitle";
+import { getAllPhotos } from "@/utils/actions/uploadActions";
+import React from "react";
 
-const page = () => {
+const page = async () => {
+  const photos = await getAllPhotos();
   return (
     <div>
-        <PageTitle text={"All Images"}/>
-        <AllImages/>
+      <PageTitle text={"All Images"} />
+      <AllImages photos={photos} />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;

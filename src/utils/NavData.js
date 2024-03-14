@@ -87,10 +87,10 @@ export const NavData = [
         name: "Upload Images",
         url: "/dashboard/upload-image",
       },
-      {
-        name: "Categories",
-        url: "/dashboard/gallery-categories",
-      },
+      // {
+      //   name: "Categories",
+      //   url: "/dashboard/gallery-categories",
+      // },
     ],
   },
 ];

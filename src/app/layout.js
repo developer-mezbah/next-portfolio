@@ -4,6 +4,7 @@ import "@/utils/css/Custom.css";
 import "@/utils/css/Animation.css";
 import BgSnow from "@/components/Others/BgSnow";
 import TransitionProvider from "@/components/Others/TransitionProvider";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,9 +19,9 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         {/* + " dark-theme" */}
 
-        <TransitionProvider>
-        {children}</TransitionProvider>
+        <TransitionProvider>{children}</TransitionProvider>
         <BgSnow />
+        <Toaster />
       </body>
     </html>
   );
