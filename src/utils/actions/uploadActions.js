@@ -7,9 +7,9 @@ import cloudinary from "cloudinary";
 import { revalidatePath } from "next/cache";
 
 cloudinary.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.API_KEY,
-  api_secret: process.env.API_SECRET,
+  cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
 async function savePhotosToLocal(formData) {
@@ -75,7 +75,8 @@ export async function getAllPhotos() {
   try {
     // images Getting from Cloudinary
     const { resources } = await cloudinary.v2.search
-      .expression("folder:nextjs_upload/*")
+      // .expression("folder:nextjs_upload/*")
+      .expression("folder:mezbah-portfolio/*")
       .sort_by("created_at", "desc")
       .max_results(500)
       .execute();

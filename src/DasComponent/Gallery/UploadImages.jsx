@@ -6,9 +6,22 @@ import React from "react";
 import { MdDeleteSweep } from "react-icons/md";
 import { revalidata, uploadPhoto } from "@/utils/actions/uploadActions";
 import SubmitButton from "../Others/SubmitButton";
+import { CldUploadButton } from "next-cloudinary";
 
 const UploadImages = () => {
-  const [submit, setSubmit] = useState(false)
+  const [uploadLoading, setUploadLoading] = useState(false);
+
+  const [links, setLinks] = useState([]);
+  const [linkInput, setLinkInput] = useState("");
+
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [categories, setCategories] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const [publicId, setPublicId] = useState("");
+  const [error, setError] = useState("");
+  const [submit, setSubmit] = useState(false);
   const formRef = useRef();
   const [files, setFiles] = useState([]);
 
@@ -34,10 +47,17 @@ const UploadImages = () => {
 
   const handleUpload = async (e) => {
     e.preventDefault();
-    if (!files.length) ErrorToast("No image files are selected.");
+    setSubmit(true);
+    if (!files.length) {
+      setSubmit(false);
+      ErrorToast("No image files are selected.");
+    }
 
     // How many photo Do you upload
-    if (files.length > 3) return ErrorToast("Upload up to 3 image files.");
+    if (files.length > 3) {
+      setSubmit(false);
+      return ErrorToast("Upload up to 3 image files.");
+    }
 
     var formData = new FormData();
 
@@ -45,27 +65,37 @@ const UploadImages = () => {
       files.forEach((file) => {
         formData.append("files", file);
       });
+  };
 
-    const res = await uploadPhoto(formData);
-
-    if (res?.msg) SuccessToast(`Success: ${res?.msg}`);
-    if (res?.errMsg) ErrorToast(`Error: ${res.errMsg}`);
-
-    setFiles([]);
-    formRef.current.reset();
-
-    revalidata("/");
+  const handleImageUpload = (result) => {
+    const info = result.info;
+    if ("secure_url" in info && "public_id" in info) {
+      const url = info.secure_url;
+      const public_id = info.public_id;
+      setImageUrl(url);
+      setPublicId(public_id);
+    }
   };
   return (
     <div>
       <div className="dashboard-form-bg p-5">
-        <form onSubmit={handleUpload} className="w-full flex gap-10 items-center" ref={formRef}>
+        <form
+          onSubmit={handleUpload}
+          className="w-full flex gap-10 items-center"
+          ref={formRef}
+        >
           <div>
             <label htmlFor="countries" className="dashboard-label">
               Select an option
             </label>
-            <select defaultValue="DEFAULT" id="gallery-categories" className="dashboard-input">
-              <option value="DEFAULT" disabled>Choose a country</option>
+            <select
+              defaultValue="DEFAULT"
+              id="gallery-categories"
+              className="dashboard-input"
+            >
+              <option value="DEFAULT" disabled>
+                Choose a country
+              </option>
               <option value="US">United States</option>
               <option value="CA">Canada</option>
               <option value="FR">France</option>
@@ -76,7 +106,7 @@ const UploadImages = () => {
             <label className="dashboard-label" htmlFor="file_input">
               Upload file
             </label>
-            <input
+            {/* <input
               className="dashboard-input"
               aria-describedby="file_input_help"
               id="file_input"
@@ -84,9 +114,13 @@ const UploadImages = () => {
               accept="image/*"
               multiple
               onChange={handleInputFiles}
-            />
+            /> */}
+            <CldUploadButton
+              uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET}
+              onUpload={handleImageUpload}
+              className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+            ></CldUploadButton>
           </div>
-          <div className="mt-6"><SubmitButton text={"Upload"} submit={submit}/></div>
         </form>
         <div className="gallery">
           <div className="wrapper">
