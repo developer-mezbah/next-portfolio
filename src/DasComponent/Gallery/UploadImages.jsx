@@ -11,17 +11,9 @@ import { CldUploadButton } from "next-cloudinary";
 const UploadImages = () => {
   const [uploadLoading, setUploadLoading] = useState(false);
 
-  const [links, setLinks] = useState([]);
-  const [linkInput, setLinkInput] = useState("");
 
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-  const [categories, setCategories] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [publicId, setPublicId] = useState("");
-  const [error, setError] = useState("");
-  const [submit, setSubmit] = useState(false);
   const formRef = useRef();
   const [files, setFiles] = useState([]);
 
@@ -74,6 +66,7 @@ const UploadImages = () => {
       const public_id = info.public_id;
       setImageUrl(url);
       setPublicId(public_id);
+      SuccessToast("Images uploaded!")
     }
   };
   return (
@@ -122,31 +115,6 @@ const UploadImages = () => {
             ></CldUploadButton>
           </div>
         </form>
-        <div className="gallery">
-          <div className="wrapper">
-            {files?.map((data, index) => (
-              <div key={index} className="card group">
-                <Image
-                  fill
-                  src={URL.createObjectURL(data)}
-                  className="cover group-hover:scale-150"
-                  alt=""
-                />
-                <div
-                  className="info group-hover:flex delay-75"
-                  onClick={() => handleDeleteFile(index)}
-                >
-                  <div
-                    className=" border-red-400 border-2 rounded-full hover:bg-red-500 text-red-500 hover:text-white"
-                    style={{ padding: "10px" }}
-                  >
-                    <MdDeleteSweep className="text-4xl" />
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </div>
   );

@@ -3,18 +3,14 @@
 import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
 
 const TransitionProvider = ({ children }) => {
   const pathName = usePathname();
 
-  const [show, setShow] = useState(
-    pathName.includes("dashboard") ? false : true
-  );
 
   return (
     <>
-      {show ? (
+      {!pathName.includes("dashboard") ? (
         <AnimatePresence mode="wait">
           <div key={pathName} className="w-screen h-full">
             <motion.div
