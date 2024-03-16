@@ -1,5 +1,5 @@
 {
-  "name": "portfolio",
+  "name": "mezbah-portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,6 +11,7 @@
   "dependencies": {
     "@lottiefiles/react-lottie-player": "^3.5.3",
     "@motionone/utils": "^10.17.0",
+    "@prisma/client": "^5.11.0",
     "cloudinary": "^1.41.0",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.6",
@@ -34,6 +35,26 @@
   "devDependencies": {
     "autoprefixer": "^10.0.1",
     "postcss": "^8",
+    "prisma": "^5.11.0",
     "tailwindcss": "^3.3.0"
-  }
+  },
+  "description": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
+  "main": "postcss.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/developer-mezbah/next-portfolio-2.git"
+  },
+  "keywords": [
+    "next-project",
+    "portfolio",
+    "prisma",
+    "mysql",
+    "dashboard"
+  ],
+  "author": "Mezbah Uddin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/developer-mezbah/next-portfolio-2/issues"
+  },
+  "homepage": "https://github.com/developer-mezbah/next-portfolio-2#readme"
 }

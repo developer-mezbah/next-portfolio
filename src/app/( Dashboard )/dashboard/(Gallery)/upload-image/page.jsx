@@ -1,6 +1,5 @@
 import UploadImages from '@/DasComponent/Gallery/UploadImages'
 import PageTitle from '@/DasComponent/Others/PageTitle'
-import React from 'react'
 
 const page = () => {
   return (

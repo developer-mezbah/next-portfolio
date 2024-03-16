@@ -1,14 +1,19 @@
 import AllImages from "@/DasComponent/Gallery/AllImages";
 import PageTitle from "@/DasComponent/Others/PageTitle";
-import { getAllPhotos } from "@/utils/actions/uploadActions";
-import React from "react";
+import { PrismaClient } from "@prisma/client";
+
+async function getData() {
+  const prisma = new PrismaClient();
+  const categories = await prisma.gallery.findMany({});
+  return { categories };
+}
 
 const page = async () => {
-  const photos = await getAllPhotos();
+  const { categories } = await getData();
   return (
     <div>
       <PageTitle text={"All Images"} />
-      <AllImages photos={photos} />
+      <AllImages categories={categories} />
     </div>
   );
 };
