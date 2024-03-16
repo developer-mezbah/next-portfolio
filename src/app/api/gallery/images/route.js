@@ -1,5 +1,7 @@
+export const revalidate = 0;
 import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
+import cloudinary from "cloudinary";
 
 // GET images by category name
 export async function GET(req, res) {
@@ -36,15 +38,26 @@ export async function POST(req, res) {
   }
 }
 
+cloudinary.config({
+  cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 // Delete image by category name
-export async function DELETE(req, res){
+export async function DELETE(req, res) {
   try {
     const { searchParams } = new URL(req.url);
     const id = parseInt(searchParams.get("id"));
-    const result = await prisma.gallery_img.delete({
-      where: {id: id}
-    })
-    return NextResponse.json({ status: "success", data: result });
+    const public_id = searchParams.get("public_id");
+    const prisma = new PrismaClient();
+
+    const result = await cloudinary.v2.uploader.destroy(public_id);
+    if (result.result === "ok") {
+      await prisma.gallery_img.delete({
+        where: { id: id },
+      });
+    }
+    return NextResponse.json({ status: "success", data: { result } });
   } catch (error) {
     return NextResponse.json({ status: "fail", data: error });
   }

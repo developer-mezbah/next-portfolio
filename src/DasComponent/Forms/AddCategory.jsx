@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import SubmitButton from "../Others/SubmitButton";
 import Swal from "sweetalert2";
-import { revalidata } from "@/utils/actions/uploadActions";
 
 const AddCategory = () => {
   const [loading, setLoading] = useState(false);

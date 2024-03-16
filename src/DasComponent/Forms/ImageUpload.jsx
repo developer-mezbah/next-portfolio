@@ -4,7 +4,6 @@ import { ErrorToast, SuccessToast } from "@/utils/FormHelper";
 import Image from "next/image";
 import React from "react";
 import { MdDeleteSweep } from "react-icons/md";
-import { revalidata, uploadPhoto } from "@/utils/actions/uploadActions";
 import SubmitButton from "../Others/SubmitButton";
 import { CldUploadButton } from "next-cloudinary";
 import Swal from "sweetalert2";

@@ -5,32 +5,24 @@ import Horizontal from "../Others/Horizontal";
 import Image from "next/image";
 import { MdDeleteSweep, MdNoteAdd } from "react-icons/md";
 import Link from "next/link";
-import { deletePhoto } from "@/utils/actions/uploadActions";
 import Swal from "sweetalert2";
 import { SuccessToast } from "@/utils/FormHelper";
 import client_api from "@/utils/api_fetch_fun";
 import { FaCopy } from "react-icons/fa6";
+import { DeleteAlert } from "@/utils/DeleteAlert";
 
 const AllImages = ({ categories }) => {
   const [photos, setPhotos] = useState([]);
-  // async function handleDeletePhoto(public_id) {
-  //   Swal.fire({
-  //     title: "Are you sure?",
-  //     text: "You won't be able to revert this!",
-  //     icon: "warning",
-  //     showCancelButton: true,
-  //     confirmButtonColor: "#3085d6",
-  //     cancelButtonColor: "#d33",
-  //     confirmButtonText: "Yes, delete it!",
-  //   }).then(async (result) => {
-  //     if (result.isConfirmed) {
-  //       const res = await deletePhoto(public_id);
-  //       if (res.msg == "Delete Success") {
-  //         return SuccessToast("Delete Success");
-  //       }
-  //     }
-  //   });
-  // }
+  async function handleDeletePhoto(id, public_id) {
+    DeleteAlert(`/api/gallery/images?id=${id}&public_id=${public_id}`).then(
+      (res) => {
+        if (res) {
+          SuccessToast("Image Deleted!");
+          getData();
+        }
+      }
+    );
+  }
 
   const getData = (id) => {
     if (id) {
@@ -103,7 +95,7 @@ const AllImages = ({ categories }) => {
                 />
                 <div className="info group-hover:flex delay-75 gap-5">
                   <div
-                    onClick={() => handleDeletePhoto(data?.public_id)}
+                    onClick={() => handleDeletePhoto(data.id, data?.public_id)}
                     className=" border-red-400 border-2 rounded-full hover:bg-red-500 text-red-500 hover:text-white"
                     style={{ padding: "10px" }}
                   >
