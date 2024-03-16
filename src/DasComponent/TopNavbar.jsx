@@ -10,6 +10,7 @@ import Image from "next/image";
 import { RiFullscreenExitFill } from "react-icons/ri";
 import { IoSettingsOutline } from "react-icons/io5";
 import { RxDashboard } from "react-icons/rx";
+import Link from "next/link";
 
 const TopNavbar = ({ handleNavbar, smallNavbar }) => {
   return (
@@ -62,7 +63,7 @@ const TopNavbar = ({ handleNavbar, smallNavbar }) => {
             <RxDashboard className="text-xl text-white" />
           </li>
           <li>
-            <RiFullscreenExitFill className="text-xl text-white" />
+            <Link href={"/"}><RiFullscreenExitFill className="text-xl text-white" /></Link>
           </li>
           <li className="flex gap-2">
             <div>
