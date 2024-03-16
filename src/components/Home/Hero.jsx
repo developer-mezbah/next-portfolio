@@ -98,13 +98,14 @@ const Hero = () => {
             </Link>
           </div>
         </div>
-        <div className="home__scroll">
+        {/* Scrolling Button  */}
+        {/* <div className="home__scroll">
           <a href="#about" className="home__scroll-button button--flex">
             <i className="uil uil-mouse-alt home__scroll-mouse" />
             <span className="home__scroll-name">Scroll Down</span>
             <i className="uil uil-arrow-down home__scroll-arrow" />
           </a>
-        </div>
+        </div> */}
       </div>
     </section>
   );

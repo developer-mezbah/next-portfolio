@@ -183,3 +183,8 @@
 .dashboard-input {
   @apply border text-sm rounded-lg block w-full p-2.5 bg-bgDark border-themeColor placeholder-gray-400 text-white focus:ring-themeColor focus:border-themeColor;
 }
+
+
+.gallery-model::-webkit-scrollbar {
+  display: none;
+}

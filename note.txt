@@ -24,3 +24,8 @@ cloudinary.config({
   api_key: '225759323913615', 
   api_secret: 'XFa4T0MoCgDw3h1Xr_zK1ejlprk' 
 });
+
+
+
+
+<AddImage name={"Import your Image"}  setImageUrl={setSelectedUrl} imageUrl={selectedUrl}/>

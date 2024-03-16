@@ -1,8 +1,11 @@
-import React from "react";
+
 import SubmitButton from "../Others/SubmitButton";
 import FormTitle from "../Others/FormTitle";
+import AddImage from "../Gallery/AddImage";
+import { useState } from "react";
 
 const SocialLinks = () => {
+  const [facebookImg, setFacebookImage] = useState("")
   const inputClass =
     "border text-sm rounded-lg block w-full p-2.5 bg-bgDark border-themeColor placeholder-gray-400 text-white focus:ring-themeColor focus:border-themeColor";
   const lableClass =
@@ -56,6 +59,7 @@ const SocialLinks = () => {
               placeholder="Medium Link"
             />
           </div>
+          <AddImage name={"facebook image"} setImageUrl={setFacebookImage} imageUrl={facebookImg} />
         </div>
 
         <SubmitButton text={"Submit"} submit={true} />

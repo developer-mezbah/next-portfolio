@@ -9,7 +9,7 @@ const Qulification = () => {
   return (
     <>
       <div className="dashboard-form-bg flex flex-col">
-        <FormTitle text={"Education"} />
+        <FormTitle text={"Qualification"} />
         <form className="px-10 pb-10">
           <div className="grid gap-6 mb-6 md:grid-cols-2">
             <div>
