@@ -1,17 +1,29 @@
-import { useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useState } from "react";
 import { GrGallery } from "react-icons/gr";
 import GalleryModel from "./GalleryModel";
 import Image from "next/image";
+import { useGalleryModel } from "@/_zustand/store";
 
 const AddImage = ({ name, setImageUrl, imageUrl }) => {
-  const [showModel, setShowModel] = useState(false);
+  const { setShowModel, selectedImgUrl,uniqueKey,setUniqueKey } = useGalleryModel();
+  useEffect(() => {
+    const res = selectedImgUrl.find((url) => url.key === name)
+    if(res !== undefined){
+      setImageUrl(res.url)
+    }
+  }, [selectedImgUrl])
+
+  const handleModel = () => {
+    setShowModel(true)
+    setUniqueKey(name)
+  }
   return (
     <div>
       <div>
         <span className="dashboard-label">{name}</span>
         <div className="flex gap-2">
           <button
-            onClick={() => setShowModel(true)}
+            onClick={handleModel}
             className="h-12 align-middle hover:bg-themeColor delay-75 hover:text-white select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg border border-themeColor text-textColor hover:opacity-75 focus:ring focus:ring-gray-300 active:opacity-[0.85] flex items-center gap-3"
             type="button"
           >
@@ -27,12 +39,12 @@ const AddImage = ({ name, setImageUrl, imageUrl }) => {
           />
         </div>
       </div>
-
+      {/* 
       <GalleryModel
         selectedImgUrl={setImageUrl}
         showModel={showModel}
         setShowModel={setShowModel}
-      />
+      /> */}
     </div>
   );
 };

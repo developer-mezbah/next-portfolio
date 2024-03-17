@@ -58,7 +58,7 @@ class api_fetch_fun {
   async update(api, obj) {
     try {
       const response = await fetch(api, {
-        method: "POST",
+        method: "PUT",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",

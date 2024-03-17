@@ -1,7 +1,10 @@
+import { useState } from "react";
 import FormTitle from "../Others/FormTitle";
 import SubmitButton from "../Others/SubmitButton";
+import AddImage from "../Gallery/AddImage";
 
 const Qulification = () => {
+  const [img, setImg] = useState("")
   const inputClass =
     "border text-sm rounded-lg block w-full p-2.5 bg-bgDark border-themeColor placeholder-gray-400 text-white focus:ring-themeColor focus:border-themeColor";
   const lableClass =
@@ -48,6 +51,7 @@ const Qulification = () => {
                 placeholder="Input data when start your course."
               />
             </div>
+            <AddImage name={"Import your Image"}  setImageUrl={setImg} imageUrl={img}/>
           </div>
           <SubmitButton text={"Add"} submit={false} />
         </form>

@@ -1,11 +1,11 @@
 "use client";
 import Typewriter from "typewriter-effect";
-const TypeWriter = () => {
+const TypeWriter = ({data}) => {
   return (
     <span>
       <Typewriter
         options={{
-          strings: ["Mezbah Uddin", "Web Desighner", "Web Developer"],
+          strings: data,
           autoStart: true,
           loop: true,
           cursorClassName: "text-primary"

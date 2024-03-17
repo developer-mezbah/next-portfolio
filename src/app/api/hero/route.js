@@ -1,3 +1,4 @@
+export const revalidate = 0;
 import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
 

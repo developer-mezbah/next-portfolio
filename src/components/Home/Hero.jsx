@@ -3,7 +3,7 @@ import { FiFacebook, FiGithub, FiLinkedin } from "react-icons/fi";
 import { VscSend } from "react-icons/vsc";
 import TypeWriter from "../Others/TypeWriter";
 
-const Hero = () => {
+const Hero = ({ data }) => {
   return (
     <section className="home section" id="home">
       <div className="home_container cus_container cus_grid">
@@ -75,7 +75,7 @@ const Hero = () => {
                   className="home__blob-img"
                   x={12}
                   y={30}
-                  href="/images/perfil.png"
+                  href={data.img}
                 />
               </g>
             </svg>
@@ -83,15 +83,14 @@ const Hero = () => {
           <div className="home__data space-y-5">
             <h1 className="home__title flex flex-wrap items-center">
               <span className="pr-5">Hi, I'am </span>
-              <TypeWriter />
+              <TypeWriter
+                data={[data?.title1, data?.title3, data?.title3, data?.title4]}
+              />
               <span className="text-primary -mt-2">:)</span>
               {/* 🙋 👋 */}
             </h1>
-            <h3 className="home__subtitle">Full Stack web Developement with react, next.js, prisma, mongodb, mySql and many more.</h3>
-            <p className="home__description">
-              High level experience in web design, development and knowledge,
-              producing quality work.
-            </p>
+            <h3 className="home__subtitle">{data.subtitle}</h3>
+            <p className="home__description">{data.description}</p>
             <Link href="/contact" className="button button--flex">
               Contact Me
               <VscSend className="button__icon" />

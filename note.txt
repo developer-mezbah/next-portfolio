@@ -29,3 +29,10 @@ cloudinary.config({
 
 
 <AddImage name={"Import your Image"}  setImageUrl={setSelectedUrl} imageUrl={selectedUrl}/>
+
+      if (!!data === false) {
+        await client_api.register({});
+      }
+
+
+      export const revalidate = 0;

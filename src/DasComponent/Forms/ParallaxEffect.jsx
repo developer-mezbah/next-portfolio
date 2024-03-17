@@ -1,7 +1,10 @@
+import { useState } from "react";
+import AddImage from "../Gallery/AddImage";
 import FormTitle from "../Others/FormTitle";
 import SubmitButton from "../Others/SubmitButton";
 
 const ParallaxEffect = () => {
+  const [connect, setConnect] = useState("")
   const inputClass =
     "border text-sm rounded-lg block w-full p-2.5 bg-bgDark border-themeColor placeholder-gray-400 text-white focus:ring-themeColor focus:border-themeColor";
   const lableClass =
@@ -35,7 +38,7 @@ const ParallaxEffect = () => {
           </div>
         </div>
 
-        <SubmitButton text={"Submit"} submit={false} />
+        <SubmitButton text={"Submit"} submit={false}/>
       </form>
     </div>
   );

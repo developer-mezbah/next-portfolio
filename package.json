@@ -30,7 +30,8 @@
     "swiper": "^11.0.6",
     "tailwind-merge": "^2.2.1",
     "typewriter-effect": "^2.21.0",
-    "uuidv4": "^6.2.13"
+    "uuidv4": "^6.2.13",
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",
