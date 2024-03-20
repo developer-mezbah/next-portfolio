@@ -2,8 +2,28 @@ import Link from "next/link";
 import { FiFacebook, FiGithub, FiLinkedin } from "react-icons/fi";
 import { VscSend } from "react-icons/vsc";
 import TypeWriter from "../Others/TypeWriter";
+import { PrismaClient } from "@prisma/client";
 
-const Hero = ({ data }) => {
+async function getData(){
+  const prisma = new PrismaClient();
+  const result = await prisma.hero.create({
+    data: {
+      title1: "",
+      title2: "",
+      title3: "",
+      title4: "",
+      subtitle: "",
+      description: "",
+      img: "",
+    },
+  });
+}
+
+
+const Hero = async ({ data }) => {
+  if (!!data === false) {
+    await getData()
+  }
   return (
     <section className="home section" id="home">
       <div className="home_container cus_container cus_grid">
@@ -75,7 +95,7 @@ const Hero = ({ data }) => {
                   className="home__blob-img"
                   x={12}
                   y={30}
-                  href={data.img}
+                  href={data?.img}
                 />
               </g>
             </svg>
@@ -89,8 +109,8 @@ const Hero = ({ data }) => {
               <span className="text-primary -mt-2">:)</span>
               {/* 🙋 👋 */}
             </h1>
-            <h3 className="home__subtitle">{data.subtitle}</h3>
-            <p className="home__description">{data.description}</p>
+            <h3 className="home__subtitle">{data?.subtitle}</h3>
+            <p className="home__description">{data?.description}</p>
             <Link href="/contact" className="button button--flex">
               Contact Me
               <VscSend className="button__icon" />

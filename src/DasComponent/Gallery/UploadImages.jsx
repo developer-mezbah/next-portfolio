@@ -1,3 +1,4 @@
+export const revalidate = 0;
 import { PrismaClient } from "@prisma/client";
 import AddCategory from "../Forms/AddCategory";
 import ImageUpload from "../Forms/ImageUpload";

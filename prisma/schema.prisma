@@ -26,17 +26,35 @@ model hero {
   updatedAt   DateTime @default(now()) @updatedAt @db.Timestamp(0)
 }
 
-
-
 model Gallery {
-  id      Int    @id @default(autoincrement())
-  cat_name String @db.VarChar(50)
-  images Gallery_img[]
+  id       Int           @id @default(autoincrement())
+  cat_name String        @db.VarChar(50)
+  images   Gallery_img[]
 }
+
 model Gallery_img {
-  id      Int    @id @default(autoincrement())
-  img_url String @db.VarChar(400)
-  public_id String @db.VarChar(100)
-  cat_id Int
-  gallery Gallery @relation(fields: [cat_id], references: [id], onDelete: Cascade)
+  id        Int     @id @default(autoincrement())
+  img_url   String  @db.VarChar(400)
+  public_id String  @db.VarChar(100)
+  cat_id    Int
+  gallery   Gallery @relation(fields: [cat_id], references: [id], onDelete: Cascade)
+}
+
+model Qualification {
+  id             Int                @id @default(autoincrement())
+  title          String             @db.VarChar(100)
+  institute_name String             @db.VarChar(100)
+  session        String             @db.VarChar(50)
+  role           qualification_role
+}
+
+model Marquee {
+  id            Int    @id @default(autoincrement())
+  title         String @db.VarChar(100)
+  reverse_title String @db.VarChar(100)
+}
+
+enum qualification_role {
+  Education
+  Work
 }

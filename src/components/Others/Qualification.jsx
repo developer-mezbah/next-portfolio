@@ -5,7 +5,9 @@ import { FaBriefcase } from "react-icons/fa";
 import { FcCalendar } from "react-icons/fc";
 import { motion } from "framer-motion";
 
-const Qualification = () => {
+const Qualification = ({ workQualify, educationQualify }) => {
+  const workLastIndex = workQualify.slice(-1)[0]?.id;
+  const educationLastIndex = educationQualify.slice(-1)[0]?.id;
   useEffect(() => {
     const tabs = document.querySelectorAll("[data-target]"),
       tabContents = document.querySelectorAll("[data-content]");
@@ -42,7 +44,7 @@ const Qualification = () => {
             data-target="#work"
             target="fadeLeft"
           >
-            <FaBriefcase className="qualification__icon"/>
+            <FaBriefcase className="qualification__icon" />
             Work
           </div>
         </div>
@@ -51,136 +53,117 @@ const Qualification = () => {
           <div
             className="qualification__content qualification__active"
             data-content=""
-            id="education">
-            {/*==================== Qualification 1 ====================*/}
-            <div className="qualification__data anime">
-              <div>
-                <h3 className="qualification__title">Computer Enginner</h3>
-                <span className="qualification__subtitle">
-                  Bangladesh Polytechnic Institute
-                </span>
-                <div className="qualification__calender flex gap-2 justify-center">
-                  <FcCalendar className="text-xl"/>
-                  2019 - 2023
+            id="education"
+          >
+            {educationQualify?.map((education, index) => {
+              const initNumber = index + 1;
+              return (
+                <div key={education.id} className="qualification__data">
+                  {initNumber % 2 !== 0 && (
+                    <>
+                      <div>
+                        <h3 className="qualification__title">
+                          
+                        {education.title}
+                        </h3>
+                        <span className="qualification__subtitle">
+                          
+                        {education.institute_name}
+                        </span>
+
+                        <div className="qualification__calender flex gap-2 justify-center">
+                          <FcCalendar className="text-xl" />
+                          {education.session}
+                        </div>
+                      </div>
+                      <div>
+                        <span className="qualification__rounder" />
+                        {education.id !== educationLastIndex && (
+                          <span className="qualification__line" />
+                        )}
+                      </div>
+                    </>
+                  )}
+                  {initNumber % 2 == 0 && (
+                    <>
+                      <div />
+                      <div>
+                        <span className="qualification__rounder" />
+                        {education.id !== educationLastIndex && (
+                          <span className="qualification__line" />
+                        )}
+                      </div>
+                      <div>
+                        <h3 className="qualification__title">
+                          {education.title}</h3>
+                        <span className="qualification__subtitle">{education.institute_name}
+                        </span>
+                        <div className="qualification__calender flex gap-2 justify-center">
+                          <FcCalendar className="text-xl" />
+                          {education.session}
+                        </div>
+                      </div>
+                    </>
+                  )}
                 </div>
-              </div>
-              <div>
-                <span className="qualification__rounder" />
-                <span className="qualification__line" />
-              </div>
-            </div>
-            {/*==================== Qualification 2 ====================*/}
-            <div className="qualification__data anime">
-              <div />
-              <div>
-                <span className="qualification__rounder" />
-                <span className="qualification__line" />
-              </div>
-              <div>
-                <h3 className="qualification__title">Web Design</h3>
-                <span className="qualification__subtitle">
-                  E-shikhon - Institute
-                </span>
-                <div className="qualification__calender flex gap-2 justify-center">
-                  <FcCalendar className="text-xl"/>
-                  2019 - 2023
-                </div>
-              </div>
-            </div>
-            {/*==================== Qualification 3 ====================*/}
-            <div className="qualification__data anime">
-              <div>
-                <h3 className="qualification__title">Web Development</h3>
-                <span className="qualification__subtitle">
-                  E-shikhon - Institute
-                </span>
-                <div className="qualification__calender flex gap-2 justify-center">
-                  <FcCalendar className="text-xl"/>
-                  2019 - 2023
-                </div>
-              </div>
-              <div>
-                <span className="qualification__rounder" />
-                <span className="qualification__line" />
-              </div>
-            </div>
-            {/*==================== Qualification 4 ====================*/}
-            <div className="qualification__data anime">
-              <div />
-              <div>
-                <span className="qualification__rounder" />
-                {/* <span className="qualification__line"></span> */}
-              </div>
-              <div>
-                <h3 className="qualification__title">
-                  Master MERN AND NEXT.JS
-                </h3>
-                <span className="qualification__subtitle">
-                  Peru - Institute
-                </span>
-                <div className="qualification__calender flex gap-2 justify-center">
-                  <FcCalendar className="text-xl"/>
-                  2019 - 2023
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
           {/*==================== Qualification Content 2 ====================*/}
           <div className="qualification__content" data-content="" id="work">
-            {/*==================== Qualification 1 ====================*/}
-            <div className="qualification__data fadeUp">
-              <div>
-                <h3 className="qualification__title">C#</h3>
-                <span className="qualification__subtitle">
-                  CCN Polytecnic Institute
-                </span>
-                <div className="qualification__calender flex gap-2 justify-center">
-                  <FcCalendar className="text-xl"/>
-                  2019 - 2023
+            {workQualify?.map((work, index) => {
+              const initNumber = index + 1;
+              return (
+                <div key={work.id} className="qualification__data">
+                  {initNumber % 2 !== 0 && (
+                    <>
+                      <div>
+                        <h3 className="qualification__title">
+                          {work.title}
+                        </h3>
+                        <span className="qualification__subtitle">
+                        {work.institute_name}
+                        </span>
+
+                        <div className="qualification__calender flex gap-2 justify-center">
+                          <FcCalendar className="text-xl" />
+                          {work.session}
+                        </div>
+                      </div>
+                      <div>
+                        <span className="qualification__rounder" />
+                        {work.id !== workLastIndex && (
+                          <span className="qualification__line" />
+                        )}
+                      </div>
+                    </>
+                  )}
+                  {initNumber % 2 == 0 && (
+                    <>
+                      <div />
+                      <div>
+                        <span className="qualification__rounder" />
+                        {work.id !== workLastIndex && (
+                          <span className="qualification__line" />
+                        )}
+                      </div>
+                      <div>
+                        <h3 className="qualification__title">
+                          {work.title}</h3>
+                        <span className="qualification__subtitle">
+                        {work.institute_name}
+                        </span>
+
+                        <div className="qualification__calender flex gap-2 justify-center">
+                          <FcCalendar className="text-xl" />
+                          {work.session}
+                        </div>
+                      </div>
+                    </>
+                  )}
                 </div>
-              </div>
-              <div>
-                <span className="qualification__rounder" />
-                <span className="qualification__line" />
-              </div>
-            </div>
-            {/*==================== Qualification 2 ====================*/}
-            <div className="qualification__data fadeUp">
-              <div />
-              <div>
-                <span className="qualification__rounder" />
-                <span className="qualification__line" />
-              </div>
-              <div>
-                <h3 className="qualification__title">
-                  Database management system
-                </h3>
-                <span className="qualification__subtitle">
-                  CCN Polytecnic Institute
-                </span>
-                <div className="qualification__calender flex gap-2 justify-center">
-                  <FcCalendar className="text-xl"/>
-                  2019 - 2023
-                </div>
-              </div>
-            </div>
-            {/*==================== Qualification 3 ====================*/}
-            <div className="qualification__data fadeDown">
-              <div>
-                <h3 className="qualification__title">Web Development</h3>
-                <span className="qualification__subtitle">
-                  BlackeyBaby - Institute
-                </span>
-                <div className="qualification__calender flex gap-2 justify-center">
-                  <FcCalendar className="text-xl"/>
-                  2019 - 2023
-                </div>
-              </div>
-              <div>
-                <span className="qualification__rounder" />
-                {/* <span className="qualification__line"></span> */}
-              </div>
-            </div>
+              );
+            })}
           </div>
         </div>
       </div>

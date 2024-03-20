@@ -4,6 +4,7 @@ import { LuLayoutDashboard } from "react-icons/lu";
 import { ImProfile } from "react-icons/im";
 import { TbBrandBlogger } from "react-icons/tb";
 import { IoImagesOutline } from "react-icons/io5";
+import { MdCastForEducation } from "react-icons/md";
 
 export const NavData = [
   {
@@ -27,8 +28,8 @@ export const NavData = [
         url: "/dashboard/hero",
       },
       {
-        name: "not-found",
-        url: "/dashboard/not-found",
+        name: "Marquee",
+        url: "/dashboard/marquee",
       },
       {
         name: "alert",
@@ -87,10 +88,21 @@ export const NavData = [
         name: "Upload Images",
         url: "/dashboard/upload-image",
       },
-      // {
-      //   name: "Categories",
-      //   url: "/dashboard/gallery-categories",
-      // },
+    ],
+  },
+  {
+    pageName: "My personal journey",
+    pageTitle: "Qualification",
+    icon: <MdCastForEducation />,
+    subItems: [
+      {
+        name: "All Qualification",
+        url: "/dashboard/all-qualification",
+      },
+      {
+        name: "Create Qualification",
+        url: "/dashboard/create-qualification",
+      },
     ],
   },
 ];

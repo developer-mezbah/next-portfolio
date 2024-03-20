@@ -1,3 +1,4 @@
+export const revalidate = 0;
 import UploadImages from '@/DasComponent/Gallery/UploadImages'
 import PageTitle from '@/DasComponent/Others/PageTitle'
 

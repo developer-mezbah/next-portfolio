@@ -2,9 +2,11 @@
 import { useEffect, useState } from "react";
 import SubmitButton from "../Others/SubmitButton";
 import Swal from "sweetalert2";
+import { useRouter } from "next/navigation";
 
 const AddCategory = () => {
   const [loading, setLoading] = useState(false);
+  const router = useRouter()
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,7 +40,7 @@ const AddCategory = () => {
             text: "Your file has been uploaded.",
             icon: "success",
           });
-          revalidata("/")
+          router.refresh()
         }
       }
     });
