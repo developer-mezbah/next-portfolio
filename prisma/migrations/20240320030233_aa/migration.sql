@@ -33,9 +33,21 @@ CREATE TABLE `Gallery_img` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `Title` (
+CREATE TABLE `Qualification` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `title` VARCHAR(200) NOT NULL,
+    `title` VARCHAR(100) NOT NULL,
+    `institute_name` VARCHAR(100) NOT NULL,
+    `session` VARCHAR(50) NOT NULL,
+    `role` ENUM('Education', 'Work') NOT NULL,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `Marquee` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `title` VARCHAR(100) NOT NULL,
+    `reverse_title` VARCHAR(100) NOT NULL,
 
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
