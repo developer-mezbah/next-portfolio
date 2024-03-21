@@ -3,11 +3,11 @@ import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa6";
 import { FaFacebookSquare } from "react-icons/fa";
 import Banner from "@/components/Others/Banner";
+import { PiMediumLogoFill } from "react-icons/pi";
 
-const Footer = () => {
+const Footer = ({social}) => {
   return (
     <>
-      {/*==================== FOOTER ====================*/}
       <footer className="footer">
         <div className="footer__bg">
         <Banner/>
@@ -36,14 +36,17 @@ const Footer = () => {
               </li>
             </ul>
             <div className="footer__socials">
-              <Link href="#" className="footer__social">
+              <Link href={social?.github} className="footer__social">
                 <FaGithub/>
               </Link>
-              <Link href="#" className="footer__social">
+              <Link href={social?.linkedin} className="footer__social">
                 <FaLinkedin/>
               </Link>
-              <Link href="#" className="footer__social">
+              <Link href={social?.facebook} className="footer__social">
                 <FaFacebookSquare/>
+              </Link>
+              <Link href={social?.medium} className="footer__social">
+              <PiMediumLogoFill />
               </Link>
             </div>
           </div>

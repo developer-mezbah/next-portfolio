@@ -34,7 +34,7 @@ const AddImage = ({ name, setImageUrl, imageUrl }) => {
             width={200}
             height={200}
             src={imageUrl || "/images/Image_not_available.png"}
-            alt="Upload Images"
+            alt="Uploaded Image"
             className="rounded -mt-10 h-[120px] w-[200px] ml-5"
           />
         </div>

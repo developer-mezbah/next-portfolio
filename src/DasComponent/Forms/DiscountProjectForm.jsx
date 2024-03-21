@@ -3,26 +3,31 @@ import { useEffect, useRef, useState } from "react";
 import FormTitle from "../Others/FormTitle";
 import SubmitButton from "../Others/SubmitButton";
 import client_api from "@/utils/api_fetch_fun";
-import { SuccessToast } from "@/utils/FormHelper";
+import { ErrorToast, IsEmpty, SuccessToast } from "@/utils/FormHelper";
+import AddImage from "../Gallery/AddImage";
 
-const MarqueeForm = () => {
-  const [loading, setLoading] = useState(false)
+const DiscountProjectForm = () => {
+  const [loading, setLoading] = useState(false);
+  const [img, setImg] = useState("");
   const [formData, setFormData] = useState({
     title: "",
-    reverse_title: "",
+    sub_title: "",
   });
   const [id, setId] = useState("");
   useEffect(() => {
-    client_api.get("/api/marquee").then((res) => {
+    client_api.get("/api/discount-porject").then((res) => {
       if (res.data == null) {
-        client_api.create("/api/marquee", formData).then(res => setId(res.data.id))
+        client_api
+          .create("/api/discount-porject", {...formData, img})
+          .then((res) => setId(res.data.id));
       } else {
         setId(res.data.id);
         setFormData({
           ...formData,
           title: res.data.title,
-          reverse_title: res.data.reverse_title,
+          sub_title: res.data.sub_title
         });
+        setImg(res.data.img);
       }
     });
   }, []);
@@ -33,13 +38,22 @@ const MarqueeForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true)
-    client_api.update(`/api/marquee?id=${id}`, formData).then(res => {
+    if (
+      IsEmpty(formData.title) ||
+      IsEmpty(formData.sub_title) ||
+      IsEmpty(img) 
+    ) {
+      return ErrorToast("Must be fill up all Form Input.");
+    }
+    setLoading(true);
+    client_api
+      .update(`/api/discount-porject?id=${id}`, { ...formData, img })
+      .then((res) => {
         if (res.status == "success") {
-            SuccessToast("Updated Data!")
-            setLoading(false)
+          SuccessToast("Updated Data!");
+          setLoading(false);
         }
-    })
+      });
   };
   return (
     <div className="dashboard-form-bg flex flex-col mt-5">
@@ -48,30 +62,38 @@ const MarqueeForm = () => {
         <div className="grid gap-6 mb-6 md:grid-cols-2">
           <div>
             <label htmlFor="title" className="dashboard-label">
-              Title
+            Title
             </label>
-            <textarea
+            <input
               type="text"
               id="title"
               className="dashboard-input"
-              placeholder="Write marquee Title"
+              placeholder="Write Title"
               name="title"
               value={formData.title}
               onChange={handleChange}
             />
           </div>
           <div>
-            <label htmlFor="reverse-parlax" className="dashboard-label">
-              Reverse Title
+            <label htmlFor="sub-title" className="dashboard-label">
+              Sub Title
             </label>
             <textarea
               type="text"
-              id="reverse-parlax"
+              id="sub-title"
               className="dashboard-input"
-              placeholder="Write Reverse Title"
-              name="reverse_title"
-              value={formData.reverse_title}
+              placeholder="Write Sub Title"
+              name="sub_title"
+              value={formData.sub_title}
               onChange={handleChange}
+            />
+          </div>
+          
+          <div>
+            <AddImage
+              name={"Discount Project Image"}
+              setImageUrl={setImg}
+              imageUrl={img}
             />
           </div>
         </div>
@@ -82,4 +104,4 @@ const MarqueeForm = () => {
   );
 };
 
-export default MarqueeForm;
+export default DiscountProjectForm;

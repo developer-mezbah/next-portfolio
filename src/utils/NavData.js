@@ -5,6 +5,7 @@ import { ImProfile } from "react-icons/im";
 import { TbBrandBlogger } from "react-icons/tb";
 import { IoImagesOutline } from "react-icons/io5";
 import { MdCastForEducation } from "react-icons/md";
+import { VscFeedback } from "react-icons/vsc";
 
 export const NavData = [
   {
@@ -32,16 +33,16 @@ export const NavData = [
         url: "/dashboard/marquee",
       },
       {
-        name: "alert",
-        url: "/dashboard/alert",
+        name: "About Me",
+        url: "/dashboard/aboutme",
       },
       {
-        name: "Table",
-        url: "/dashboard/table",
+        name: "Social Media",
+        url: "/dashboard/social-media",
       },
       {
-        name: "Create Form",
-        url: "/dashboard/create-form",
+        name: "Discount Project",
+        url: "/dashboard/discount-project",
       },
     ],
   },
@@ -102,6 +103,21 @@ export const NavData = [
       {
         name: "Create Qualification",
         url: "/dashboard/create-qualification",
+      },
+    ],
+  },
+  {
+    pageName: "My personal journey",
+    pageTitle: "Testimonials",
+    icon: <VscFeedback />,
+    subItems: [
+      {
+        name: "All Testimonials",
+        url: "/dashboard/all-testimonials",
+      },
+      {
+        name: "Create Testimonial",
+        url: "/dashboard/create-testimonial",
       },
     ],
   },

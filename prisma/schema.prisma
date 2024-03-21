@@ -48,13 +48,49 @@ model Qualification {
   role           qualification_role
 }
 
+enum qualification_role {
+  Education
+  Work
+}
+
 model Marquee {
   id            Int    @id @default(autoincrement())
   title         String @db.VarChar(100)
   reverse_title String @db.VarChar(100)
 }
 
-enum qualification_role {
-  Education
-  Work
+model About_me {
+  id        Int    @id @default(autoincrement())
+  content   String @db.VarChar(700)
+  expericed String @db.VarChar(50)
+  projects  String @db.VarChar(50)
+  works     String @db.VarChar(50)
+  img       String @db.VarChar(500)
+  cv        String @db.VarChar(500)
+}
+
+model Testimonial {
+  id          Int      @id @default(autoincrement())
+  name        String   @db.VarChar(50)
+  title       String   @db.VarChar(50)
+  description String   @db.VarChar(600)
+  rating      Float    @db.Double
+  img         String   @db.VarChar(500)
+  createdAt   DateTime @default(now()) @db.Timestamp(0)
+  updatedAt   DateTime @default(now()) @updatedAt @db.Timestamp(0)
+}
+
+model Discount_project {
+  id        Int    @id @default(autoincrement())
+  title     String @db.VarChar(50)
+  sub_title String @db.VarChar(50)
+  img       String @db.VarChar(500)
+}
+
+model Social_media {
+  id       Int    @id @default(autoincrement())
+  github   String @db.VarChar(400)
+  linkedin String @db.VarChar(400)
+  facebook String @db.VarChar(400)
+  medium   String @db.VarChar(400)
 }

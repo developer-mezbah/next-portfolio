@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.3.3",
     "@lottiefiles/react-lottie-player": "^3.5.3",
     "@motionone/utils": "^10.17.0",
     "@prisma/client": "^5.11.0",

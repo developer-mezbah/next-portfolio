@@ -52,5 +52,32 @@ CREATE TABLE `Marquee` (
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
+-- CreateTable
+CREATE TABLE `About_me` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `content` VARCHAR(700) NOT NULL,
+    `expericed` VARCHAR(50) NOT NULL,
+    `projects` VARCHAR(50) NOT NULL,
+    `works` VARCHAR(50) NOT NULL,
+    `img` VARCHAR(500) NOT NULL,
+    `cv` VARCHAR(500) NOT NULL,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `Testimonial` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(50) NOT NULL,
+    `title` VARCHAR(50) NOT NULL,
+    `description` VARCHAR(600) NOT NULL,
+    `rating` DOUBLE NOT NULL,
+    `img` VARCHAR(500) NOT NULL,
+    `createdAt` TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0),
+    `updatedAt` TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0),
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
 -- AddForeignKey
 ALTER TABLE `Gallery_img` ADD CONSTRAINT `Gallery_img_cat_id_fkey` FOREIGN KEY (`cat_id`) REFERENCES `Gallery`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;

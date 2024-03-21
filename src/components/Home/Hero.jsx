@@ -1,8 +1,10 @@
 import Link from "next/link";
-import { FiFacebook, FiGithub, FiLinkedin } from "react-icons/fi";
+import { FiGithub, FiLinkedin } from "react-icons/fi";
 import { VscSend } from "react-icons/vsc";
 import TypeWriter from "../Others/TypeWriter";
 import { PrismaClient } from "@prisma/client";
+import { PiMediumLogoFill } from "react-icons/pi";
+import { CiFacebook } from "react-icons/ci";
 
 async function getData(){
   const prisma = new PrismaClient();
@@ -20,7 +22,7 @@ async function getData(){
 }
 
 
-const Hero = async ({ data }) => {
+const Hero = async ({ data,social }) => {
   if (!!data === false) {
     await getData()
   }
@@ -29,14 +31,17 @@ const Hero = async ({ data }) => {
       <div className="home_container cus_container cus_grid">
         <div className="home__content cus_grid">
           <div className="home__social pl-2">
-            <Link href="#" className="home__social-icon">
+            <Link href={social?.github} className="home__social-icon">
               <FiGithub className="text-3xl" />
             </Link>
-            <Link href="#" className="home__social-icon">
+            <Link href={social?.linkedin} className="home__social-icon">
               <FiLinkedin className="text-3xl" />
             </Link>
-            <Link href="#" className="home__social-icon">
-              <FiFacebook className="text-3xl" />
+            <Link href={social?.facebook} className="home__social-icon">
+              <CiFacebook className="text-3xl" />
+            </Link>
+            <Link href={social?.medium} className="home__social-icon">
+              <PiMediumLogoFill className="text-3xl" />
             </Link>
           </div>
           <div className="home__img">

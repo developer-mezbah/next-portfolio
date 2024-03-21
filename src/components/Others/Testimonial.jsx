@@ -4,6 +4,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { FaRegStar } from "react-icons/fa";
+import Image from "next/image";
 
 const Testimonial = ({ data }) => {
   return (
@@ -34,10 +35,12 @@ const Testimonial = ({ data }) => {
               <div className="testimonial__content swiper-slide">
                 <div className="testimonial__data">
                   <div className="testimonial__header">
-                    <img
+                    <Image
+                      width={100}
+                      height={100}
                       src={item.img}
-                      alt=""
-                      className="testimonial__img"
+                      alt={item.title}
+                      className="testimonial__img object-cover w-20 h-20"
                     />
                     <div>
                       <h3 className="testimonial__name">{item.name}</h3>
@@ -54,9 +57,7 @@ const Testimonial = ({ data }) => {
                     </div>
                   </div>
                 </div>
-                <p className="testimonial__description">
-                  {item.description}
-                </p>
+                <p className="testimonial__description">{item.description}</p>
               </div>
             </SwiperSlide>
           ))}

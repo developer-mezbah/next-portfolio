@@ -1,8 +1,29 @@
+"use client"
 import { LiaPhoneVolumeSolid } from "react-icons/lia";
 import { CiLocationOn } from "react-icons/ci";
 import { SiAmazonsimpleemailservice } from "react-icons/si";
 import Link from "next/link";
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+
 const Contact = () => {
+  const form = useRef();
+  const sendEmail = (e) => {
+    e.preventDefault();
+    // console.log(process.env.NEXT_YOUR_SERVICE_ID);
+    emailjs
+      .sendForm("service_u4nw8j9", "template_fzoh51h", form.current, {
+        publicKey: "eVIofJJ6_hAB65CpC",
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+        },
+      );
+  };
   return (
     <section className="contact section anime" id="contact">
       <h2 className="section__title">Contact Me</h2>
@@ -37,26 +58,26 @@ const Contact = () => {
             </div>
           </div>
         </div>
-        <form action="" className="contact__form cus_grid">
+        <form ref={form} onSubmit={sendEmail} className="contact__form cus_grid">
           <div className="contact__inputs cus_grid">
             <div className="contact__content anime" target="fadeRight">
               <label htmlFor="" className="contact__label">
                 Name
               </label>
-              <input type="text" className="contact__input" />
+              <input type="text" name="user_name"  className="contact__input" />
             </div>
             <div className="contact__content anime" target="fadeLeft">
               <label htmlFor="" className="contact__label">
                 Email
               </label>
-              <input type="email" className="contact__input" />
+              <input type="email" name="user_email" className="contact__input" />
             </div>
           </div>
           <div className="contact__content anime" target="zoomIn">
             <label htmlFor="" className="contact__label">
               Project
             </label>
-            <input type="text" className="contact__input" />
+            <input type="text" name="message" className="contact__input" />
           </div>
           <div className="contact__content anime" target="zoomInUp">
             <label htmlFor="" className="contact__label">
@@ -72,14 +93,23 @@ const Contact = () => {
             />
           </div>
           <div>
-            <a href="#" className="button button--flex">
+            <button type="submit" className="button button--flex">
               Send Message
               <i className="uil uil-message button__icon rightArrow" />
-            </a>
+            </button>
           </div>
         </form>
       </div>
     </section>
+  //   <form ref={form} onSubmit={sendEmail}>
+  //   <label>Name</label>
+  //   <input type="text" name="user_name" />
+  //   <label>Email</label>
+  //   <input type="email" name="user_email" />
+  //   <label>Message</label>
+  //   <textarea name="message" />
+  //   <input type="submit" value="Send" />
+  // </form>
   );
 };
 
