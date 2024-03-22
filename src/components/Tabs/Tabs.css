@@ -12,7 +12,7 @@
   font-size: 20px;
   border-bottom: 3px solid var(--first-color);
 }
-.tab-header ul li {
+.tab-header ul li{
   background: rgba(224, 87, 224, 0.17);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(12.6px);
@@ -29,6 +29,7 @@
   align-items: center;
   flex-wrap: nowrap;
   transition: .5s;
+  margin-bottom: -2px;
 }
 .tab-header ul li.active {
   background: var(--first-color);

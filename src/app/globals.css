@@ -8,3 +8,18 @@
 }
 
 
+.project-card-title{
+    background: rgba(224, 87, 224, 0.17);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12.6px);
+    -webkit-backdrop-filter: blur(12.6px);
+    /* padding: 15px 20px; */
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    transition: .5s;
+    margin-bottom: -2px;
+}

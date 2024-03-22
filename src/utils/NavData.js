@@ -68,11 +68,15 @@ export const NavData = [
     subItems: [
       {
         name: "All Blogs",
-        url: "/dashboard/all-blogs",
+        url: "/dashboard/blog/all-blogs",
       },
       {
         name: "Create Blog",
-        url: "/dashboard/create-blog",
+        url: "/dashboard/blog/create-blog",
+      },
+      {
+        name: "Manage Categories",
+        url: "/dashboard/blog/categories",
       },
     ],
   },

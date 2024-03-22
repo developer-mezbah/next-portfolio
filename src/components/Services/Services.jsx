@@ -5,6 +5,8 @@ import { FaLaptopCode } from "react-icons/fa";
 import { GiSandsOfTime } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
 import { FiCheckCircle } from "react-icons/fi";
+import { CgArrowLongRightC } from "react-icons/cg";
+
 
 const Services = () => {
   useEffect(() => {
@@ -12,7 +14,6 @@ const Services = () => {
     const modalViews = document.querySelectorAll(".services__modal"),
       modalBtns = document.querySelectorAll(".services__button"),
       modalCloses = document.querySelectorAll(".services__modal-close");
-
     let modal = function (modalClick) {
       modalViews[modalClick].classList.add("active-modal");
     };
@@ -29,13 +30,17 @@ const Services = () => {
       });
     });
   }, []);
+
+  // const ui = ["I develop The user Interface.","Web page development.", "I create ux element interactions.", "I position your company brand."]
+  // const frontent = ["I develop The user Interface.","Web page development.", "I create ux element interactions.", "I position your company brand."]
+  // const backend = ["I develop The user Interface.","Web page development.", "I create ux element interactions.", "I position your company brand."]
   return (
     <section className="services section" id="services">
-      <h2 className="section__title anime">Services</h2>
-      <span className="section__subtitle anime">What i offer</span>
+      <h2 className="section__title">Services</h2>
+      <span className="section__subtitle">What i offer</span>
       <div className="services__container cus_container cus_grid md:px-3">
         {/*==================== SERVICES 1 ====================*/}
-        <div className="services__content anime">
+        <div className="services__content">
           <div>
             <CiGrid31 className="services__icon" />
             <h3 className="services__title">
@@ -45,7 +50,7 @@ const Services = () => {
           </div>
           <span className="button button--flex button--small button--link services__button">
             View More
-            <i className="uil uil-arrow-right button__icon" />
+            <CgArrowLongRightC className="button__icon"/>
           </span>
           <div className="services__modal">
             <div className="services__modal-content">
@@ -86,7 +91,7 @@ const Services = () => {
           </div>
           <span className="button button--flex button--small button--link services__button">
             View More
-            <i className="uil uil-arrow-right button__icon" />
+            <CgArrowLongRightC className="button__icon"/>
           </span>
           <div className="services__modal">
             <div className="services__modal-content">
@@ -127,7 +132,7 @@ const Services = () => {
           </div>
           <span className="button button--flex button--small button--link services__button">
             View More
-            <i className="uil uil-arrow-right button__icon" />
+            <CgArrowLongRightC className="button__icon"/>
           </span>
           <div className="services__modal">
             <div className="services__modal-content">

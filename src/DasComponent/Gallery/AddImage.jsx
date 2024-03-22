@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useMemo, useState } from "react";
+import { useEffect } from "react";
 import { GrGallery } from "react-icons/gr";
 import GalleryModel from "./GalleryModel";
 import Image from "next/image";

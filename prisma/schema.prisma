@@ -21,7 +21,7 @@ model hero {
   title4      String?  @db.VarChar(50)
   subtitle    String   @db.VarChar(200)
   description String   @db.VarChar(500)
-  img         String   @db.VarChar(300)
+  img         String   @db.LongText
   createdAt   DateTime @default(now()) @db.Timestamp(0)
   updatedAt   DateTime @default(now()) @updatedAt @db.Timestamp(0)
 }
@@ -34,10 +34,16 @@ model Gallery {
 
 model Gallery_img {
   id        Int     @id @default(autoincrement())
-  img_url   String  @db.VarChar(400)
+  img_url   String  @db.LongText
   public_id String  @db.VarChar(100)
   cat_id    Int
-  gallery   Gallery @relation(fields: [cat_id], references: [id], onDelete: Cascade)
+  gallery   Gallery @relation(fields: [cat_id], references: [id], onDelete: Restrict, onUpdate: Cascade)
+}
+
+model qualification_page {
+  id        Int     @id @default(autoincrement())
+  title     String? @db.VarChar(100)
+  sub_title String? @db.VarChar(100)
 }
 
 model Qualification {
@@ -59,14 +65,26 @@ model Marquee {
   reverse_title String @db.VarChar(100)
 }
 
+model About_me_page {
+  id        Int     @id @default(autoincrement())
+  title     String? @db.VarChar(100)
+  sub_title String? @db.VarChar(100)
+}
+
 model About_me {
   id        Int    @id @default(autoincrement())
   content   String @db.VarChar(700)
   expericed String @db.VarChar(50)
   projects  String @db.VarChar(50)
   works     String @db.VarChar(50)
-  img       String @db.VarChar(500)
+  img       String @db.LongText
   cv        String @db.VarChar(500)
+}
+
+model Testimonial_page {
+  id        Int     @id @default(autoincrement())
+  title     String? @db.VarChar(100)
+  sub_title String? @db.VarChar(100)
 }
 
 model Testimonial {
@@ -75,7 +93,7 @@ model Testimonial {
   title       String   @db.VarChar(50)
   description String   @db.VarChar(600)
   rating      Float    @db.Double
-  img         String   @db.VarChar(500)
+  img         String   @db.LongText
   createdAt   DateTime @default(now()) @db.Timestamp(0)
   updatedAt   DateTime @default(now()) @updatedAt @db.Timestamp(0)
 }
@@ -84,7 +102,7 @@ model Discount_project {
   id        Int    @id @default(autoincrement())
   title     String @db.VarChar(50)
   sub_title String @db.VarChar(50)
-  img       String @db.VarChar(500)
+  img       String @db.LongText
 }
 
 model Social_media {
@@ -93,4 +111,52 @@ model Social_media {
   linkedin String @db.VarChar(400)
   facebook String @db.VarChar(400)
   medium   String @db.VarChar(400)
+}
+
+model Profile {
+  id        Int      @id
+  user_name String?  @db.VarChar(100)
+  age       String?  @db.VarChar(50)
+  mobile    String?  @db.VarChar(50)
+  img       String?  @db.LongText
+  email     String?  @unique @db.VarChar(50)
+  password  String?  @db.VarChar(50)
+  blogs     blog[]
+  createAt  DateTime @default(now()) @db.Timestamp(0)
+  updateAt  DateTime @default(now()) @updatedAt @db.Timestamp(0)
+}
+
+model blog {
+  id        Int       @id @default(autoincrement())
+  title     String?   @db.VarChar(400)
+  keywords  String?   @db.VarChar(400)
+  short_des String?   @db.VarChar(400)
+  long_des  String?   @db.LongText
+  img       String?   @db.LongText
+  highLight String?   @db.VarChar(200)
+  profile   Profile   @relation(fields: [profileId], references: [id])
+  profileId Int
+  createAt  DateTime  @default(now()) @db.Timestamp(0)
+  updateAt  DateTime  @default(now()) @updatedAt @db.Timestamp(0)
+  comment   comment[]
+}
+
+model comment {
+  id      Int      @id @default(autoincrement())
+  name    String?  @db.VarChar(400)
+  email   String?  @db.VarChar(400)
+  comment String?  @db.LongText
+  approve Boolean? @default(false)
+  blogId  Int
+  blog    blog     @relation(fields: [blogId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  createAt DateTime @default(now()) @db.Timestamp(0)
+  updateAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
+}
+
+model visitor_data {
+  id       Int      @id @default(autoincrement())
+  ip       String?  @db.VarChar(400)
+  createAt DateTime @default(now()) @db.Timestamp(0)
+  updateAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
 }

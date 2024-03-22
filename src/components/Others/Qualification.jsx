@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 const Qualification = ({ workQualify, educationQualify }) => {
   const workLastIndex = workQualify.slice(-1)[0]?.id;
   const educationLastIndex = educationQualify.slice(-1)[0]?.id;
+  
   useEffect(() => {
     const tabs = document.querySelectorAll("[data-target]"),
       tabContents = document.querySelectorAll("[data-content]");
