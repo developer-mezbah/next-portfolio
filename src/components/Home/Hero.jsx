@@ -1,10 +1,10 @@
+import { PrismaClient } from "@prisma/client";
 import Link from "next/link";
+import { CiFacebook } from "react-icons/ci";
 import { FiGithub, FiLinkedin } from "react-icons/fi";
+import { PiMediumLogoFill } from "react-icons/pi";
 import { VscSend } from "react-icons/vsc";
 import TypeWriter from "../Others/TypeWriter";
-import { PrismaClient } from "@prisma/client";
-import { PiMediumLogoFill } from "react-icons/pi";
-import { CiFacebook } from "react-icons/ci";
 
 async function getData(){
   const prisma = new PrismaClient();
@@ -109,7 +109,7 @@ const Hero = async ({ data,social }) => {
             <h1 className="home__title flex flex-wrap items-center">
               <span className="pr-5">Hi, I'am </span>
               <TypeWriter
-                data={[data?.title1, data?.title3, data?.title3, data?.title4]}
+                data={[data?.title1, data?.title2, data?.title3, data?.title4]}
               />
               <span className="text-primary -mt-2">:)</span>
               {/* 🙋 👋 */}
