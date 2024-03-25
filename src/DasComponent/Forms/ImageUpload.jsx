@@ -32,7 +32,7 @@ const ImageUpload = ({ category }) => {
       setImageUrl(url);
       setPublicId(public_id);
       await client_api
-        .create(`/api/gallery/images?id=${imageCategory}`, {
+        .create(`/api/dashboard/gallery/images?id=${imageCategory}`, {
           img_url: url,
           public_id,
         })

@@ -121,12 +121,12 @@ model Profile {
   img       String?  @db.LongText
   email     String?  @unique @db.VarChar(50)
   password  String?  @db.VarChar(50)
-  blogs     blog[]
+  blogs     Blog[]
   createAt  DateTime @default(now()) @db.Timestamp(0)
   updateAt  DateTime @default(now()) @updatedAt @db.Timestamp(0)
 }
 
-model blog {
+model Blog {
   id        Int       @id @default(autoincrement())
   title     String?   @db.VarChar(400)
   keywords  String?   @db.VarChar(400)
@@ -146,9 +146,10 @@ model comment {
   name    String?  @db.VarChar(400)
   email   String?  @db.VarChar(400)
   comment String?  @db.LongText
-  approve Boolean? @default(false)
+  approve Boolean? @default(true)
+  img     String?  @db.LongText
   blogId  Int
-  blog    blog     @relation(fields: [blogId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  blog    Blog     @relation(fields: [blogId], references: [id], onDelete: Restrict, onUpdate: Cascade)
 
   createAt DateTime @default(now()) @db.Timestamp(0)
   updateAt DateTime @default(now()) @updatedAt @db.Timestamp(0)

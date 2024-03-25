@@ -36,3 +36,7 @@ cloudinary.config({
 
 
       export const revalidate = 0;
+
+`/blog-details/${item?.title
+                          .replace(/[^a-zA-Z0-9-.\s]/g, "")
+                          .replace(/ /g, "-")}?id=${item?.id}`

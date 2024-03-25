@@ -13,9 +13,9 @@ const MarqueeForm = () => {
   });
   const [id, setId] = useState("");
   useEffect(() => {
-    client_api.get("/api/marquee").then((res) => {
+    client_api.get("/api/dashboard/marquee").then((res) => {
       if (res.data == null) {
-        client_api.create("/api/marquee", formData).then(res => setId(res.data.id))
+        client_api.create("/api/dashboard/marquee", formData).then(res => setId(res.data.id))
       } else {
         setId(res.data.id);
         setFormData({
@@ -34,7 +34,7 @@ const MarqueeForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true)
-    client_api.update(`/api/marquee?id=${id}`, formData).then(res => {
+    client_api.update(`/api/dashboard/marquee?id=${id}`, formData).then(res => {
         if (res.status == "success") {
             SuccessToast("Updated Data!")
             setLoading(false)

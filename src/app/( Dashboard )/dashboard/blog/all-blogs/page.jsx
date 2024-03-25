@@ -1,8 +1,21 @@
-import React from 'react'
+export const revalidate = 0;
+import BlogsTable from '@/DasComponent/Tables/BlogsTable'
+import { PrismaClient } from '@prisma/client';
 
-const page = () => {
+async function getData(){
+  const prisma = new PrismaClient();
+  const data = await prisma.blog.findMany({
+    include: { profile: { select: { user_name: true } } },
+  });
+  return data
+}
+
+const page = async () => {
+  const data = await getData()
   return (
-    <div>page</div>
+    <div>
+        <BlogsTable data={data}/>
+    </div>
   )
 }
 

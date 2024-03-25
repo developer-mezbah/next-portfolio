@@ -33,7 +33,7 @@ const Qulification = ({ name, data, setUpdateForm }) => {
 
     if (data) {
       client_api
-        .update(`/api/qualification?id=${data.id}`, formData)
+        .update(`/api/dashboard/qualification?id=${data.id}`, formData)
         .then((res) => {
           if (res.status == "success") {
             SuccessToast("Data Updated!");
@@ -44,7 +44,7 @@ const Qulification = ({ name, data, setUpdateForm }) => {
           }
         });
     } else {
-      client_api.create("/api/qualification", formData).then((res) => {
+      client_api.create("/api/dashboard/qualification", formData).then((res) => {
         if (res.status == "success") {
           SuccessToast("Data Added");
           setFormData({

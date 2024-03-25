@@ -15,10 +15,10 @@ const DiscountProjectForm = () => {
   });
   const [id, setId] = useState("");
   useEffect(() => {
-    client_api.get("/api/discount-porject").then((res) => {
+    client_api.get("/api/dashboard/discount-porject").then((res) => {
       if (res.data == null) {
         client_api
-          .create("/api/discount-porject", {...formData, img})
+          .create("/api/dashboard/discount-porject", {...formData, img})
           .then((res) => setId(res.data.id));
       } else {
         setId(res.data.id);
@@ -47,7 +47,7 @@ const DiscountProjectForm = () => {
     }
     setLoading(true);
     client_api
-      .update(`/api/discount-porject?id=${id}`, { ...formData, img })
+      .update(`/api/dashboard/discount-porject?id=${id}`, { ...formData, img })
       .then((res) => {
         if (res.status == "success") {
           SuccessToast("Updated Data!");

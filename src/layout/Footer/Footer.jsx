@@ -36,16 +36,16 @@ const Footer = ({social}) => {
               </li>
             </ul>
             <div className="footer__socials">
-              <Link href={social?.github} className="footer__social">
+              <Link href={social?.github || "#"} className="footer__social">
                 <FaGithub/>
               </Link>
-              <Link href={social?.linkedin} className="footer__social">
+              <Link href={social?.linkedin || "#"} className="footer__social">
                 <FaLinkedin/>
               </Link>
-              <Link href={social?.facebook} className="footer__social">
+              <Link href={social?.facebook || "#"} className="footer__social">
                 <FaFacebookSquare/>
               </Link>
-              <Link href={social?.medium} className="footer__social">
+              <Link href={social?.medium || "#"} className="footer__social">
               <PiMediumLogoFill />
               </Link>
             </div>

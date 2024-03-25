@@ -18,10 +18,10 @@ const AboutMeForm = () => {
   });
   const [id, setId] = useState("");
   useEffect(() => {
-    client_api.get("/api/aboutme").then((res) => {
+    client_api.get("/api/dashboard/aboutme").then((res) => {
       if (res.data == null) {
         client_api
-          .create("/api/aboutme", {...formData, img, cv})
+          .create("/api/dashboard/aboutme", {...formData, img, cv})
           .then((res) => setId(res.data.id));
       } else {
         setId(res.data.id);
@@ -56,7 +56,7 @@ const AboutMeForm = () => {
     }
     setLoading(true);
     client_api
-      .update(`/api/aboutme?id=${id}`, { ...formData, img, cv })
+      .update(`/api/dashboard/aboutme?id=${id}`, { ...formData, img, cv })
       .then((res) => {
         if (res.status == "success") {
           SuccessToast("Updated Data!");

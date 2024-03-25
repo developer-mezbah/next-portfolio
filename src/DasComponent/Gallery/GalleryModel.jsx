@@ -20,7 +20,7 @@ const GalleryModel = () => {
   } = useGalleryModel();
   useEffect(() => {
     client_api
-      .get("/api/gallery/category")
+      .get("/api/dashboard/gallery/category")
       .then((res) => setCategories(res.data));
   }, []);
 

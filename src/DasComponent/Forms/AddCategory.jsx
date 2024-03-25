@@ -1,8 +1,8 @@
 "use client";
-import { useEffect, useState } from "react";
-import SubmitButton from "../Others/SubmitButton";
-import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import Swal from "sweetalert2";
+import SubmitButton from "../Others/SubmitButton";
 
 const AddCategory = () => {
   const [loading, setLoading] = useState(false);
@@ -30,7 +30,7 @@ const AddCategory = () => {
           },
           body: JSON.stringify(value),
         };
-        let res = await fetch("/api/gallery/category", options);
+        let res = await fetch("/api/dashboard/gallery/category", options);
         let resJson = await res.json();
         if (resJson.status === "success") {
           setLoading(false);

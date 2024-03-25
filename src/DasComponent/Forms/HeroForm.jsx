@@ -38,7 +38,7 @@ const HeroForm = () => {
   };
 
   useEffect(() => {
-    client_api.get("/api/hero").then((res) => {
+    client_api.get("/api/dashboard/hero").then((res) => {
       if (!!res.data !== false) {
         setInputData({
           ...inputData,
@@ -55,7 +55,7 @@ const HeroForm = () => {
           res.data?.title4,
         ]);
       } else {
-        client_api.create("/api/hero", {
+        client_api.create("/api/dashboard/hero", {
           title1: "",
           title2: "",
           title3: "",
@@ -78,7 +78,7 @@ const HeroForm = () => {
     const img = selectedUrl;
 
     client_api
-      .update(`/api/hero?id=${inputData.heroId}`, {
+      .update(`/api/dashboard/hero?id=${inputData.heroId}`, {
         title1,
         title2,
         title3,

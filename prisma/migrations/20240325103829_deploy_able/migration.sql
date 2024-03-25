@@ -144,7 +144,7 @@ CREATE TABLE `Profile` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `blog` (
+CREATE TABLE `Blog` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `title` VARCHAR(400) NULL,
     `keywords` VARCHAR(400) NULL,
@@ -165,7 +165,8 @@ CREATE TABLE `comment` (
     `name` VARCHAR(400) NULL,
     `email` VARCHAR(400) NULL,
     `comment` LONGTEXT NULL,
-    `approve` BOOLEAN NULL DEFAULT false,
+    `approve` BOOLEAN NULL DEFAULT true,
+    `img` LONGTEXT NULL,
     `blogId` INTEGER NOT NULL,
     `createAt` TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0),
     `updateAt` TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0),
@@ -187,7 +188,7 @@ CREATE TABLE `visitor_data` (
 ALTER TABLE `Gallery_img` ADD CONSTRAINT `Gallery_img_cat_id_fkey` FOREIGN KEY (`cat_id`) REFERENCES `Gallery`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `blog` ADD CONSTRAINT `blog_profileId_fkey` FOREIGN KEY (`profileId`) REFERENCES `Profile`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `Blog` ADD CONSTRAINT `Blog_profileId_fkey` FOREIGN KEY (`profileId`) REFERENCES `Profile`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `comment` ADD CONSTRAINT `comment_blogId_fkey` FOREIGN KEY (`blogId`) REFERENCES `blog`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `comment` ADD CONSTRAINT `comment_blogId_fkey` FOREIGN KEY (`blogId`) REFERENCES `Blog`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;

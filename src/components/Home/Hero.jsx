@@ -31,16 +31,16 @@ const Hero = async ({ data,social }) => {
       <div className="home_container cus_container cus_grid">
         <div className="home__content cus_grid">
           <div className="home__social pl-2">
-            <Link href={social?.github} className="home__social-icon">
+            <Link href={social?.github || "#"} className="home__social-icon">
               <FiGithub className="text-3xl" />
             </Link>
-            <Link href={social?.linkedin} className="home__social-icon">
+            <Link href={social?.linkedin || "#"} className="home__social-icon">
               <FiLinkedin className="text-3xl" />
             </Link>
-            <Link href={social?.facebook} className="home__social-icon">
+            <Link href={social?.facebook || "#"} className="home__social-icon">
               <CiFacebook className="text-3xl" />
             </Link>
-            <Link href={social?.medium} className="home__social-icon">
+            <Link href={social?.medium || "#"} className="home__social-icon">
               <PiMediumLogoFill className="text-3xl" />
             </Link>
           </div>

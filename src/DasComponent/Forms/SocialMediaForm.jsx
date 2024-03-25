@@ -16,10 +16,10 @@ const SocialMediaForm = () => {
   });
   const [id, setId] = useState("");
   useEffect(() => {
-    client_api.get("/api/social").then((res) => {
+    client_api.get("/api/dashboard/social").then((res) => {
       if (res.data == null) {
         client_api
-          .create("/api/social", formData)
+          .create("/api/dashboard/social", formData)
           .then((res) => setId(res.data.id));
       } else {
         setId(res.data.id);
@@ -50,7 +50,7 @@ const SocialMediaForm = () => {
     }
     setLoading(true);
     client_api
-      .update(`/api/social?id=${id}`, formData)
+      .update(`/api/dashboard/social?id=${id}`, formData)
       .then((res) => {
         if (res.status == "success") {
           SuccessToast("Updated Data!");

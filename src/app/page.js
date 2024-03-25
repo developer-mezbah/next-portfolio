@@ -45,7 +45,7 @@ export default async function Home() {
         </ParallaxText>
       </div>
       <Qualification educationQualify={data?.educationQualify} workQualify={data?.workQualify}/>
-      <Testimonial data={data.testimonial} />
+      <Testimonial data={data?.testimonial} />
     </MasterLayout>
   );
 }

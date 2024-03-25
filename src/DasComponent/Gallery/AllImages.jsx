@@ -17,7 +17,7 @@ const AllImages = ({ categories, showModel, setIsSelectImage }) => {
   const [photos, setPhotos] = useState([]);
   const [selectImage, setSelectImage] = useState("");
   async function handleDeletePhoto(id, public_id) {
-    DeleteAlert(`/api/gallery/images?id=${id}&public_id=${public_id}`).then(
+    DeleteAlert(`/api/dashboard/gallery/images?id=${id}&public_id=${public_id}`).then(
       (res) => {
         if (res) {
           SuccessToast("Image Deleted!");
@@ -29,13 +29,13 @@ const AllImages = ({ categories, showModel, setIsSelectImage }) => {
 
   const getData = (id) => {
     if (id) {
-      client_api.get(`/api/gallery/all-images?id=${id}`).then((data) => {
+      client_api.get(`/api/dashboard/gallery/all-images?id=${id}`).then((data) => {
         if (data.status == "success") {
           setPhotos(data?.data);
         }
       });
     } else {
-      client_api.get(`/api/gallery/all-images`).then((data) => {
+      client_api.get(`/api/dashboard/gallery/all-images`).then((data) => {
         if (data.status == "success") {
           setPhotos(data?.data);
         }

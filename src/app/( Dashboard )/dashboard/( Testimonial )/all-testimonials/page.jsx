@@ -1,5 +1,5 @@
 export const revalidate = 0;
-import TestimonialsTable from "@/DasComponent/Forms/TestimonialsTable";
+import TestimonialsTable from "@/DasComponent/Tables/TestimonialsTable";
 import { PrismaClient } from "@prisma/client";
 
 async function getData() {
@@ -10,10 +10,12 @@ async function getData() {
   return data;
 }
 const page = async () => {
-    const data = await getData();
-  return <div>
-    <TestimonialsTable data={data}/>
-  </div>;
+  const data = await getData();
+  return (
+    <div>
+      <TestimonialsTable data={data} />
+    </div>
+  );
 };
 
 export default page;

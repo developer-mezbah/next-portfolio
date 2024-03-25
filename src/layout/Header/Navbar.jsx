@@ -111,7 +111,7 @@ const Navbar = () => {
             {navData?.map((nav) => (
               <li key={nav.id} className="nav__item">
                 <Link
-                  href={nav.url}
+                  href={nav.url || "#"}
                   className={
                     nav.url === path ? "nav__link active-link" : "nav__link"
                   }

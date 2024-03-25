@@ -1,17 +1,14 @@
 "use client";
 import { DeleteAlert } from "@/utils/DeleteAlert";
-import Qualification from "./Qulification";
 import { SuccessToast } from "@/utils/FormHelper";
-import { customTableStyles, qualificationData } from "@/utils/TableData";
-import client_api from "@/utils/api_fetch_fun";
-import Link from "next/link";
+import { customTableStyles } from "@/utils/TableData";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import DataTable, { createTheme } from "react-data-table-component";
+import DataTable from "react-data-table-component";
 import { FaTrashCan } from "react-icons/fa6";
 import { FiEdit } from "react-icons/fi";
-import TestimonialForm from "./TestimonialForm";
-import Image from "next/image";
+import TestimonialForm from "../Forms/TestimonialForm";
 
 const TestimonialsTable = ({ data }) => {
   const router = useRouter();
@@ -25,7 +22,7 @@ const TestimonialsTable = ({ data }) => {
   const handleDelete = (id) => {
     DeleteAlert(`/api/testimonial?id=${id}`).then((res) => {
       if (res) {
-        router.refresh()
+        router.refresh();
         SuccessToast("Deleted Data!");
       }
     });
@@ -40,7 +37,13 @@ const TestimonialsTable = ({ data }) => {
     {
       name: "Images",
       selector: (row) => (
-        <Image className="rounded w-20 h-20 p-3" width={100} height={100} src={row?.img} alt={row?.name}/>
+        <Image
+          className="rounded w-20 h-20 p-3"
+          width={100}
+          height={100}
+          src={row?.img}
+          alt={row?.name}
+        />
       ),
     },
     {
@@ -79,7 +82,7 @@ const TestimonialsTable = ({ data }) => {
           <DataTable
             title={"Qulification Lists"}
             columns={columns}
-            data={ data}
+            data={data}
             theme="solarized"
             customStyles={customTableStyles}
           />

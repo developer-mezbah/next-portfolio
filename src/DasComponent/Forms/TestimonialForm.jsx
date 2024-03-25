@@ -34,7 +34,7 @@ const TestimonialForm = ({ name, data, setUpdateForm }) => {
     }
     if (data) {
       client_api
-        .update(`/api/testimonial?id=${data.id}`, {name: formData.name, title: formData.title, description: formData.description,rating: parseFloat(formData.rating), img})
+        .update(`/api/dashboard/testimonial?id=${data.id}`, {name: formData.name, title: formData.title, description: formData.description,rating: parseFloat(formData.rating), img})
         .then((res) => {
           if (res.status == "success") {
             SuccessToast("Data Updated!");
@@ -46,7 +46,7 @@ const TestimonialForm = ({ name, data, setUpdateForm }) => {
           }
         });
     } else {
-      client_api.create("/api/testimonial", {name: formData.name, title: formData.title, description: formData.description,rating: parseFloat(formData.rating), img}).then((res) => {
+      client_api.create("/api/dashboard/testimonial", {name: formData.name, title: formData.title, description: formData.description,rating: parseFloat(formData.rating), img}).then((res) => {
         if (res.status == "success") {
           SuccessToast("Data Added");
           setFormData({

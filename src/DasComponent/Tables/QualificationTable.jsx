@@ -1,15 +1,13 @@
 "use client";
 import { DeleteAlert } from "@/utils/DeleteAlert";
-import Qualification from "./Qulification";
 import { SuccessToast } from "@/utils/FormHelper";
-import { customTableStyles, qualificationData } from "@/utils/TableData";
-import client_api from "@/utils/api_fetch_fun";
-import Link from "next/link";
+import { customTableStyles } from "@/utils/TableData";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import DataTable, { createTheme } from "react-data-table-component";
+import DataTable from "react-data-table-component";
 import { FaTrashCan } from "react-icons/fa6";
 import { FiEdit } from "react-icons/fi";
+import Qualification from "../Forms/Qulification";
 
 const QualificationTable = ({ data }) => {
   const router = useRouter();
@@ -24,7 +22,7 @@ const QualificationTable = ({ data }) => {
   const handleDelete = (id) => {
     DeleteAlert(`/api/qualification?id=${id}`).then((res) => {
       if (res) {
-        router.refresh()
+        router.refresh();
         SuccessToast("Deleted Data!");
         if (formData) {
           setFormData((prev) => prev.filter((item) => item.id !== id));

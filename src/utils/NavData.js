@@ -75,8 +75,8 @@ export const NavData = [
         url: "/dashboard/blog/create-blog",
       },
       {
-        name: "Manage Categories",
-        url: "/dashboard/blog/categories",
+        name: "All comments",
+        url: "/dashboard/blog/comments",
       },
     ],
   },

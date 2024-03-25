@@ -51,7 +51,12 @@
   transform: translateY(-50%);
 }
 
-.singleBlog .blogs-head h3 {
+.singleBlog .blogs-head h1,
+.singleBlog .blogs-head h2,
+.singleBlog .blogs-head h3,
+.singleBlog .blogs-head h4,
+.singleBlog .blogs-head h5,
+.singleBlog .blogs-head h6 {
   font-size: 22px;
   font-weight: 700;
   color: var(--white);
@@ -85,10 +90,15 @@
 .single-blog-content img {
   width: 100%;
   height: 500px;
-  object-fit: cover;
+  /* object-fit: cover; */
 }
 
-.single-blog-content h3 {
+.single-blog-content h1,
+.single-blog-content h2,
+.single-blog-content h3,
+.single-blog-content h4,
+.single-blog-content h5,
+.single-blog-content h6 {
   font-weight: 600;
   font-size: 30px;
   text-transform: capitalize;
@@ -97,7 +107,12 @@
   margin-top: 30px;
 }
 
-.single-blog-content h4 {
+.single-blog-content h1,
+.single-blog-content h2,
+.single-blog-content h3,
+.single-blog-content h4,
+.single-blog-content h5,
+.single-blog-content h6 {
   font-weight: 600;
   font-size: 30px;
   text-transform: capitalize;
@@ -132,7 +147,7 @@
   object-fit: cover;
 }
 
-.single-blog-content .para {
+.single-blog-content p {
   font-weight: 300;
   font-size: 15px;
   line-height: 32px;
@@ -162,7 +177,12 @@
   color: var(--text-color);
 }
 
-.single-blog-content .highlight h5 {
+.single-blog-content .highlight h1,
+.single-blog-content .highlight h2,
+.single-blog-content .highlight h3,
+.single-blog-content .highlight h4,
+.single-blog-content .highlight h5,
+.single-blog-content .highlight h6 {
   margin-bottom: 0;
   font-weight: 500;
   font-size: 30px;
@@ -206,7 +226,7 @@
   text-decoration: underline;
   text-underline-offset: 10px;
   -webkit-text-underline-offset: 10px;
-  text-decoration-color:  var(--first-color);
+  text-decoration-color: var(--first-color);
 }
 
 .comment-box {
@@ -267,7 +287,6 @@
   padding: 10px 25px;
   outline: 0;
 }
-
 
 @media (min-width: 768px) {
   .singleBlog .blogs-head {

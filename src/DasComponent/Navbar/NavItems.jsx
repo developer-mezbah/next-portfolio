@@ -62,7 +62,7 @@ const NavItems = ({ data }) => {
           <ul className="navbar-bullet text-textColor pl-5 space-y-1 dropdown-anime">
             {data.subItems?.map((item, i) => (
               <li key={i} onClick={() => setActiveNavar(i)}>
-                <Link href={item.url}>
+                <Link href={item.url || "#"}>
                   <span
                     className={`pl-6 hover:text-white ${
                       item.url === pathname ? "text-white" : ""

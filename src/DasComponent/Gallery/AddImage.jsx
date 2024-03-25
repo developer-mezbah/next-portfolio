@@ -1,22 +1,22 @@
+import { useGalleryModel } from "@/_zustand/store";
+import Image from "next/image";
 import { useEffect } from "react";
 import { GrGallery } from "react-icons/gr";
-import GalleryModel from "./GalleryModel";
-import Image from "next/image";
-import { useGalleryModel } from "@/_zustand/store";
 
 const AddImage = ({ name, setImageUrl, imageUrl }) => {
-  const { setShowModel, selectedImgUrl,uniqueKey,setUniqueKey } = useGalleryModel();
+  const { setShowModel, selectedImgUrl, uniqueKey, setUniqueKey } =
+    useGalleryModel();
   useEffect(() => {
-    const res = selectedImgUrl.find((url) => url.key === name)
-    if(res !== undefined){
-      setImageUrl(res.url)
+    const res = selectedImgUrl.find((url) => url.key === name);
+    if (res !== undefined) {
+      setImageUrl(res.url);
     }
-  }, [selectedImgUrl])
+  }, [selectedImgUrl]);
 
   const handleModel = () => {
-    setShowModel(true)
-    setUniqueKey(name)
-  }
+    setShowModel(true);
+    setUniqueKey(name);
+  };
   return (
     <div>
       <div>
@@ -35,7 +35,7 @@ const AddImage = ({ name, setImageUrl, imageUrl }) => {
             height={200}
             src={imageUrl || "/images/Image_not_available.png"}
             alt="Uploaded Image"
-            className="rounded -mt-10 h-[120px] w-[200px] ml-5"
+            className="rounded -mt-10 h-[120px] w-[200px] ml-5 object-scale-down"
           />
         </div>
       </div>
