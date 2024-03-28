@@ -19,7 +19,8 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         {/* + " dark-theme" */}
 
-        <TransitionProvider>{children}</TransitionProvider>
+        <TransitionProvider>{children}
+        </TransitionProvider>
         <BgSnow />
         <Toaster />
       </body>

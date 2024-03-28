@@ -11,8 +11,9 @@ const CommentForm = ({ blogId }) => {
     const name = e.target.userName.value;
     const email = e.target.email.value;
     const comment = e.target.message.value;
+    const img = e.target.img.value;
     client_api
-      .create("/api/dashboard/blogs/comments", { name, email, comment, blogId: 50 })
+      .create("/api/dashboard/blogs/comments", { name, email, comment, blogId, img })
       .then((res) => {
         if (res) {
           e.target.reset();
@@ -27,13 +28,16 @@ const CommentForm = ({ blogId }) => {
       <div className="comment-box">
         <form onSubmit={handleSubmit}>
           <div className="inputs">
-            <input name="userName" type="text" placeholder="Enter Your Name" />
+            <input name="userName" type="text" placeholder="Enter Your Name" required/>
           </div>
           <div className="inputs">
-            <input name="email" type="email" placeholder="Enter Your Email" />
+            <input name="email" type="email" placeholder="Enter Your Email" required/>
           </div>
           <div className="inputs">
-            <textarea name="message" placeholder="Message"></textarea>
+            <input name="img" type="text" placeholder="Enter Your IMAGE CDN." />
+          </div>
+          <div className="inputs">
+            <textarea name="message" placeholder="Message" required></textarea>
           </div>
           <div>
             <button className="button button--flex">

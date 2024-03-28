@@ -1,3 +1,4 @@
+export const revalidate = 0;
 let md5 = require("md5");
 import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
@@ -15,3 +16,4 @@ export async function POST(req, res) {
     return NextResponse.json({ status: false, data: e.toString() });
   }
 }
+

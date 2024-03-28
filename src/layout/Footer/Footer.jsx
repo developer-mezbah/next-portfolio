@@ -26,12 +26,17 @@ const Footer = ({social}) => {
               </li>
               <li>
                 <Link href="/projects" className="footer__link">
-                  Portfolio
+                  Projects
                 </Link>
               </li>
               <li>
                 <Link href="/contact" className="footer__link">
                   ContactMe
+                </Link>
+              </li>
+              <li>
+                <Link href="/dashboard" className="footer__link">
+                  Go-Dashboard
                 </Link>
               </li>
             </ul>

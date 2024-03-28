@@ -1,10 +1,9 @@
-import { SiPowerpages } from "react-icons/si";
-import { FaHome } from "react-icons/fa";
-import { LuLayoutDashboard } from "react-icons/lu";
-import { ImProfile } from "react-icons/im";
-import { TbBrandBlogger } from "react-icons/tb";
+import { FaHome, FaSignOutAlt } from "react-icons/fa";
+import { GoProjectSymlink } from "react-icons/go";
 import { IoImagesOutline } from "react-icons/io5";
+import { LuLayoutDashboard } from "react-icons/lu";
 import { MdCastForEducation } from "react-icons/md";
+import { TbBrandBlogger } from "react-icons/tb";
 import { VscFeedback } from "react-icons/vsc";
 
 export const NavData = [
@@ -16,6 +15,10 @@ export const NavData = [
       {
         name: "Home",
         url: "/dashboard",
+      },
+      {
+        name: "Profile",
+        url: "/dashboard/profile",
       },
     ],
   },
@@ -81,6 +84,25 @@ export const NavData = [
     ],
   },
   {
+    pageName: "Create Projects",
+    pageTitle: "Projects",
+    icon: <GoProjectSymlink />,
+    subItems: [
+      {
+        name: "All Projects",
+        url: "/dashboard/projects/all-projects",
+      },
+      {
+        name: "Create Project",
+        url: "/dashboard/projects/create-projects",
+      },
+      {
+        name: "Add Category",
+        url: "/dashboard/projects/category",
+      },
+    ],
+  },
+  {
     pageName: "Create Image and upload",
     pageTitle: "Gallery",
     icon: <IoImagesOutline />,
@@ -123,6 +145,17 @@ export const NavData = [
         name: "Create Testimonial",
         url: "/dashboard/create-testimonial",
       },
+    ],
+  },
+  {
+    pageName: "Dashboard Logout",
+    pageTitle: "Logout",
+    icon: <FaSignOutAlt/>,
+    subItems: [
+      {
+        name: "Logout",
+        url: "/api/user/logout",
+      }
     ],
   },
 ];

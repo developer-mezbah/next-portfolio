@@ -62,7 +62,7 @@ const ImageUpload = ({ category }) => {
             onChange={(e) => setImageCategory(e.target.value)}
           >
             <option value="DEFAULT" disabled>
-              Choose a country
+              Choose a Category
             </option>
             {category?.map((data) => (
               <option key={data.id} value={data.id}>
@@ -75,15 +75,6 @@ const ImageUpload = ({ category }) => {
           <label className="dashboard-label" htmlFor="file_input">
             Upload file
           </label>
-          {/* <input
-          className="dashboard-input"
-          aria-describedby="file_input_help"
-          id="file_input"
-          type="file"
-          accept="image/*"
-          multiple
-          onChange={handleInputFiles}
-        /> */}
           {!imageCategory == "" ? (
             <CldUploadButton
               uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET}

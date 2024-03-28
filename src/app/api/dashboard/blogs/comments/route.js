@@ -11,7 +11,6 @@ export async function POST(req, res) {
     let result = await prisma.comment.create({
       data: reqBody,
     });
-
     return NextResponse.json({ status: true, data: result });
   } catch (e) {
     return NextResponse.json({ status: false, data: e.toString() });
@@ -41,7 +40,9 @@ export async function GET(req, res) {
   try {
     let prisma = new PrismaClient();
 
-    let result = await prisma.comment.findMany({});
+    let result = await prisma.comment.findMany({
+      include: {blog: {select: {title: true}}}
+    });
 
     return NextResponse.json({ status: true, data: result });
   } catch (e) {

@@ -29,7 +29,6 @@ function CommentTable() {
   const DeleteComment = (id) => {
     DeleteAlert(`/api/blogs/comments?id=${id}`).then(async (res) => {
       if (res) {
-        console.log(res);
         client_api.get("/api/dashboard/blogs/comments").then((res) => {
           if (res?.status === true) {
             setData(res?.data);
@@ -66,8 +65,8 @@ function CommentTable() {
       selector: (row) => row?.email,
     },
     {
-      name: "Blog Id",
-      selector: (row) => row?.blogId,
+      name: "Blog Title",
+      selector: (row) => row?.blog.title,
     },
     {
       name: "Status",

@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { MdOutlineHome } from "react-icons/md";
-import { FaUserAstronaut } from "react-icons/fa";
+import { FaSignOutAlt, FaUserAstronaut } from "react-icons/fa";
 import { GiSkills } from "react-icons/gi";
 import { FcServices } from "react-icons/fc";
 import { GoProjectSymlink } from "react-icons/go";
@@ -12,7 +12,7 @@ import { LuSunMoon } from "react-icons/lu";
 import { TfiClose } from "react-icons/tfi";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { FaBlog } from "react-icons/fa";
+import { LiaBlogSolid } from "react-icons/lia";
 
 const navData = [
   {
@@ -54,7 +54,7 @@ const navData = [
     id: 7,
     name: "Blogs",
     url: "/blogs",
-    icon: <FaBlog />,
+    icon: <LiaBlogSolid />,
   },
 ];
 

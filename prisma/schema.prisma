@@ -114,16 +114,17 @@ model Social_media {
 }
 
 model Profile {
-  id        Int      @id
-  user_name String?  @db.VarChar(100)
-  age       String?  @db.VarChar(50)
-  mobile    String?  @db.VarChar(50)
-  img       String?  @db.LongText
-  email     String?  @unique @db.VarChar(50)
-  password  String?  @db.VarChar(50)
+  id        Int       @id
+  user_name String?   @db.VarChar(100)
+  age       String?   @db.VarChar(50)
+  mobile    String?   @db.VarChar(50)
+  img       String?   @db.LongText
+  email     String?   @unique @db.VarChar(50)
+  password  String?   @db.VarChar(50)
   blogs     Blog[]
-  createAt  DateTime @default(now()) @db.Timestamp(0)
-  updateAt  DateTime @default(now()) @updatedAt @db.Timestamp(0)
+  projects  Projects[]
+  createAt  DateTime  @default(now()) @db.Timestamp(0)
+  updateAt  DateTime  @default(now()) @updatedAt @db.Timestamp(0)
 }
 
 model Blog {
@@ -160,4 +161,48 @@ model visitor_data {
   ip       String?  @db.VarChar(400)
   createAt DateTime @default(now()) @db.Timestamp(0)
   updateAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
+}
+
+model Projects {
+  id          Int     @id @default(autoincrement())
+  banner_img  String  @db.LongText
+  long_img    String  @db.LongText
+  price       String? @db.VarChar(100)
+  code_url    String? @db.LongText
+  preview_url String? @db.LongText
+  title       String  @db.VarChar(600)
+  description String  @db.LongText
+  type        String? @db.VarChar(100)
+
+  profile   Profile @relation(fields: [profileId], references: [id])
+  profileId Int 
+
+  category   Projects_category? @relation(fields: [categoryId], references: [id])
+  categoryId Int?
+
+  for_developer For_developers[]
+  key_feature Key_features[]
+
+  createAt DateTime @default(now()) @db.Timestamp(0)
+  updateAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
+}
+
+model Projects_category {
+  id       Int        @id @default(autoincrement())
+  cat_name String     @db.VarChar(100)
+  project  Projects[]
+}
+
+model For_developers {
+  id        Int      @id @default(autoincrement())
+  title     String   @db.VarChar(400)
+  project   Projects @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  projectId Int
+}
+
+model Key_features {
+  id        Int      @id @default(autoincrement())
+  title     String   @db.VarChar(400)
+  project   Projects @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  projectId Int
 }

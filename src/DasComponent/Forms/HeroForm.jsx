@@ -48,12 +48,26 @@ const HeroForm = () => {
         });
         setSelectedUrl(res.data.img);
 
-        setWhoami([
-          res.data.title1,
-          res.data?.title2,
-          res.data?.title3,
-          res.data?.title4,
-        ]);
+        const newWhoami = [];
+        if (res.data?.title1 !== "") {
+          newWhoami.push(res.data?.title1);
+        }
+        if (res.data?.title2 !== "") {
+          newWhoami.push(res.data?.title2);
+        }
+        if (res.data?.title3 !== "") {
+          newWhoami.push(res.data?.title3);
+        }
+        if (res.data?.title4 !== "") {
+          newWhoami.push(res.data?.title4);
+        }
+        setWhoami(newWhoami);
+        // setWhoami([
+        //   res.data?.title1,
+        //   res.data?.title2,
+        //   res.data?.title3,
+        //   res.data?.title4,
+        // ]);
       } else {
         client_api.create("/api/dashboard/hero", {
           title1: "",
@@ -76,13 +90,12 @@ const HeroForm = () => {
     const title3 = whoami[2];
     const title4 = whoami[3];
     const img = selectedUrl;
-
     client_api
       .update(`/api/dashboard/hero?id=${inputData.heroId}`, {
-        title1,
-        title2,
-        title3,
-        title4,
+        title1: title1 || "",
+        title2: title2 || "",
+        title3: title3 || "",
+        title4: title4 || "",
         img,
         subtitle: inputData.subtitle,
         description: inputData.description,
@@ -101,18 +114,21 @@ const HeroForm = () => {
         <FormTitle text={"Hero section"} />
         <div className="ml-10 mb-5">
           <ul className="flex gap-3">
-            {whoami?.map((data, index) => (
-              <li
-                key={index}
-                className="px-3 py-2 rounded text-white bg-themeColor flex items-center gap-2"
-              >
-                {`${index + 1}. ${data}`}
-                <IoMdClose
-                  onClick={() => deleteWhoami(index)}
-                  className="text-xl text-red-200 cursor-pointer"
-                />
-              </li>
-            ))}
+            {whoami?.map(
+              (data, index) =>
+                data !== "" && (
+                  <li
+                    key={index}
+                    className="px-3 py-2 rounded text-white bg-themeColor flex items-center gap-2"
+                  >
+                    {`${index + 1}. ${data}`}
+                    <IoMdClose
+                      onClick={() => deleteWhoami(index)}
+                      className="text-xl text-red-200 cursor-pointer"
+                    />
+                  </li>
+                )
+            )}
           </ul>
         </div>
         <form onSubmit={handleSubmit} className="px-10 pb-10">

@@ -184,6 +184,51 @@ CREATE TABLE `visitor_data` (
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
+-- CreateTable
+CREATE TABLE `Projects` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `banner_img` LONGTEXT NOT NULL,
+    `long_img` LONGTEXT NOT NULL,
+    `price` VARCHAR(100) NULL,
+    `code_url` LONGTEXT NULL,
+    `preview_url` LONGTEXT NULL,
+    `title` VARCHAR(600) NOT NULL,
+    `description` LONGTEXT NOT NULL,
+    `type` VARCHAR(100) NULL,
+    `profileId` INTEGER NOT NULL,
+    `categoryId` INTEGER NULL,
+    `createAt` TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0),
+    `updateAt` TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0),
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `Projects_category` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `cat_name` VARCHAR(100) NOT NULL,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `For_developers` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `title` VARCHAR(400) NOT NULL,
+    `projectId` INTEGER NOT NULL,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `Key_features` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `title` VARCHAR(400) NOT NULL,
+    `projectId` INTEGER NOT NULL,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
 -- AddForeignKey
 ALTER TABLE `Gallery_img` ADD CONSTRAINT `Gallery_img_cat_id_fkey` FOREIGN KEY (`cat_id`) REFERENCES `Gallery`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
@@ -192,3 +237,15 @@ ALTER TABLE `Blog` ADD CONSTRAINT `Blog_profileId_fkey` FOREIGN KEY (`profileId`
 
 -- AddForeignKey
 ALTER TABLE `comment` ADD CONSTRAINT `comment_blogId_fkey` FOREIGN KEY (`blogId`) REFERENCES `Blog`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE `Projects` ADD CONSTRAINT `Projects_profileId_fkey` FOREIGN KEY (`profileId`) REFERENCES `Profile`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE `Projects` ADD CONSTRAINT `Projects_categoryId_fkey` FOREIGN KEY (`categoryId`) REFERENCES `Projects_category`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE `For_developers` ADD CONSTRAINT `For_developers_projectId_fkey` FOREIGN KEY (`projectId`) REFERENCES `Projects`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE `Key_features` ADD CONSTRAINT `Key_features_projectId_fkey` FOREIGN KEY (`projectId`) REFERENCES `Projects`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;

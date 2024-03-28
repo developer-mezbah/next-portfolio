@@ -7,7 +7,6 @@ import { usePathname } from "next/navigation";
 const TransitionProvider = ({ children }) => {
   const pathName = usePathname();
 
-
   return (
     <>
       {!pathName.includes("dashboard") ? (
@@ -21,9 +20,12 @@ const TransitionProvider = ({ children }) => {
             />
             <motion.div
               className="fixed m-auto top-0 bottom-0 left-0 right-0 text-white text-8xl cursor-default w-fit h-fit z-[300]"
-              initial={{ opacity: 1 }}
-              animate={{ opacity: 0 }}
-              exit={{ opacity: 0 }}
+              initial={{ opacity: 1, zIndex: "99999"  }}
+              animate={{ opacity: 0, zIndex: "-99999"  }}
+              exit={{ opacity: 0, zIndex: "-99999" }}
+              // initial={{ opacity: 1 }}
+              // animate={{ opacity: 0 }}
+              // exit={{ opacity: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               {pathName === "/" ? "Home" : pathName.substring(1)}
@@ -39,7 +41,9 @@ const TransitionProvider = ({ children }) => {
             <div className="h-full">{children !== "/" ? children : "Home"}</div>
           </div>
         </AnimatePresence>
-      ): children}
+      ) : (
+        children
+      )}
     </>
   );
 };
