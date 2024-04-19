@@ -1,6 +1,6 @@
 import React from "react";
 
-const ProjectFeatures = () => {
+const ProjectFeatures = ({forDeveloper,keyFeatures}) => {
   return (
     <div>
       <hr
@@ -15,11 +15,14 @@ const ProjectFeatures = () => {
             style={{ border: "1px solid var(--first-color)", opacity: "0.5" }}
           />
           <ul className="list-decimal pl-7">
-            <li>Dark, Light with RTL Supported</li>
+            {/* <li>Dark, Light with RTL Supported</li>
             <li>Multiple Layouts</li>
             <li>Easy to Customize with Tailwind.config</li>
             <li>Unlimited Template Possibilities</li>
-            <li>Topbar & Sidebar with many color option support</li>
+            <li>Topbar & Sidebar with many color option support</li> */}
+            {keyFeatures?.map((item) => (
+              <li key={item.id}>{item.title}</li>
+            ))}
           </ul>
         </div>
         <div>
@@ -29,11 +32,14 @@ const ProjectFeatures = () => {
             style={{ border: "1px solid var(--first-color)", opacity: "0.5" }}
           />
           <ul className="list-decimal pl-7">
-            <li>Tailwind CSS</li>
+            {/* <li>Tailwind CSS</li>
             <li>Yarn & NPM</li>
             <li>Next.js</li>
             <li>Firebase</li>
-            <li>Scss</li>
+            <li>Scss</li> */}
+            {forDeveloper?.map((item) => (
+              <li key={item.id}>{item.title}</li>
+            ))}
           </ul>
         </div>
         <div>

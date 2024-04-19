@@ -29,12 +29,12 @@ const Navbar = () => {
     }
   };
   return (
-    <>
+    <div className="">
       <TopNavbar handleNavbar={handleNavbar} smallNavbar={smallNavbar} />
       <div
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className={smallNavbar ? "w-[80px] h-full" : "w-[250px] h-full"}
+        className={smallNavbar ? "w-[80px] h-screen overflow-y-scroll overflow-x-hidden dashboard-navbar" : "w-[250px] h-screen overflow-y-scroll overflow-x-hidden dashboard-navbar"}
       >
         <div className={smallNavbar ? "hidden" : "w-[250px]"}>
           <div className="logo py-2">
@@ -56,7 +56,7 @@ const Navbar = () => {
         </div>
         {smallNavbar && <SmallNavbar />}
       </div>
-    </>
+    </div>
   );
 };
 

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FaCode } from "react-icons/fa6";
 import { VscPreview } from "react-icons/vsc";
 
-const ProjectDetailsBanner = () => {
+const ProjectDetailsBanner = ({ data }) => {
   return (
     <div className="flex justify-center items-center overflow-auto">
       <div className="w-full h-full relative">
@@ -14,9 +14,9 @@ const ProjectDetailsBanner = () => {
           <Image
             width={600}
             height={500}
-            src="/images/portfolio1.jpg"
-            className="h-[150%] w-full"
-            alt=""
+            src={data?.banner_img || "/images/image-not-found.png"}
+            className="h-[500px] w-full object-scale-down"
+            alt={data?.title}
           />
 
           <div className="flex justify-between">
@@ -41,26 +41,26 @@ const ProjectDetailsBanner = () => {
               style={{ background: "var(--first-color)" }}
             >
               <p className="text-white text-sm text-center font-semibold pb-4">
-                Mezbah Uddin
+              {data?.profile?.user_name}
               </p>
               <div className="flex justify-center">
                 <Image
-                  width={20}
-                  height={20}
-                  src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                  className="w-14 h-14 rounded-full border-2 border-white"
-                  alt=""
+                  width={100}
+                  height={100}
+                  src={data?.profile?.img || "/images/image-not-found.png"}
+                  className="w-14 h-14 rounded-full border-2 border-white object-cover"
+                  alt={data?.profile?.user_name}
                 />
               </div>
             </div>
             <div className="py-4 pl-6 rounded-lg mb-3 sm:mb-0 w-full flex items-center gap-2 md:justify-around justify-end md:mx-12 mr-10">
-              <button
+              <a href={data?.code_url}
                 className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md bg-[linear-gradient(110deg,#000103,45%,#E057E0,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
                 style={{ border: "1px solid var(--first-color)" }}
               >
                 Code
-              </button>
-              <button
+              </a>
+              <a href={data?.preview_url}
                 className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md bg-[linear-gradient(110deg,#000103,45%,#E057E0,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
                 style={{
                   animationDelay: "1.3s",
@@ -68,7 +68,7 @@ const ProjectDetailsBanner = () => {
                 }}
               >
                 Preview
-              </button>
+              </a>
             </div>
           </div>
         </div>

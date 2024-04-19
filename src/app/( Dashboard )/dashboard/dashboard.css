@@ -188,3 +188,7 @@
 .gallery-model::-webkit-scrollbar {
   display: none;
 }
+
+.dashboard-navbar::-webkit-scrollbar {
+  display: none;
+}

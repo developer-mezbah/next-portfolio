@@ -15,8 +15,8 @@ const ProjectCard = ({ data }) => {
             className="object-cover translate-y-0 group-hover:-translate-y-[65%] transition-transform duration-[3s] w-full"
             width={350}
             height={350}
-            src={data.longImg}
-            alt={data.title}
+            src={data?.long_img}
+            alt={data?.title}
           />
 
           <div
@@ -25,7 +25,7 @@ const ProjectCard = ({ data }) => {
           >
             <div className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
               <div className="flex gap-2 mb-2">
-                <Link href={data.code || "#"}>
+                <Link href={data?.code_url || "#"}>
                   <div
                     className="flex items-center gap-2 text-white text-xl cursor-pointer px-3 py-1 rounded-lg hover:bg-black"
                     style={{ border: "2px solid var(--first-color)" }}
@@ -34,7 +34,7 @@ const ProjectCard = ({ data }) => {
                     <span>Code</span>
                   </div>
                 </Link>
-                <Link href={data.preview || "#"}>
+                <Link href={data?.preview_url || "#"}>
                   <div
                     className="flex items-center gap-2 text-white text-xl cursor-pointer px-3 py-1 rounded-lg hover:bg-black"
                     style={{ border: "2px solid var(--first-color)" }}
@@ -44,7 +44,9 @@ const ProjectCard = ({ data }) => {
                   </div>
                 </Link>
               </div>
-              <Link href={data.preview || "#"}>
+              <Link href={`/projects/${data?.title
+                          .replace(/[^a-zA-Z0-9-.\s]/g, "")
+                          .replace(/ /g, "-")}?id=${data?.id}` || "#"}>
                 <div
                   className="flex items-center gap-2 text-white text-xl cursor-pointer px-3 py-1 rounded-lg hover:bg-black w-1/2 mx-auto"
                   style={{ border: "2px solid var(--first-color)" }}
@@ -58,9 +60,9 @@ const ProjectCard = ({ data }) => {
         </div>
         <div>
           <p className="bottom-0 w-full text-white text-center font-semibold duration-300 project-card-title py-3">
-            {data.title.length > 110
-              ? data.title.slice(0, 110) + "..."
-              : data.title}
+            {data?.title.length > 110
+              ? data?.title.slice(0, 110) + "..."
+              : data?.title}
           </p>
           <hr className="h-5 w-full bg-[#E057E0] -mt-5" />
         </div>

@@ -3,15 +3,20 @@ import ProjectDetailsBanner from "./ProjectDetailsBanner";
 import ProjectsSlider from "../Projects/ProjectsSlider";
 import { projectSlider } from "@/utils/fakeData";
 import ProjectFeatures from "./ProjectFeatures";
-const ProjectDetails = () => {
+const ProjectDetails = ({ data }) => {
+  console.log(data);
   return (
     <div className="cus_container space-y-5">
       <h1 className="text-2xl" style={{ color: "var(--first-color)" }}>
-        Tailwick - Tailwind CSS Admin & Dashboard Template
+        {/* Tailwick - Tailwind CSS Admin & Dashboard Template */}
+        {data?.title}
       </h1>
       <div className="flex gap-5 flex-wrap">
         <div className="flex gap-1 items-center">
-          By <span style={{color: "var(--first-color)"}}>Mezbah Uddin</span>
+          By{" "}
+          <span style={{ color: "var(--first-color)" }}>
+            {data?.profile?.user_name}
+          </span>
         </div>
         <div className="flex gap-1 items-center text-green-600">
           Recently Updated <FaCheckCircle />
@@ -23,7 +28,7 @@ const ProjectDetails = () => {
       </div>
       <div className="md:flex md:w-full pb-5 gap-6 m-auto block sm:w-3/4">
         <div className="w-full">
-          <ProjectDetailsBanner />
+          <ProjectDetailsBanner data={data} />
         </div>
         <div
           className="md:w-2/4 mt-6 rounded-xl p-6"
@@ -35,7 +40,7 @@ const ProjectDetails = () => {
           <div className="flex items-center justify-between text-xl">
             <h3>Regular Price</h3>{" "}
             <span>
-              <sup>$100</sup>
+              {data.price ? <sup>${data?.price}</sup> : <sup>FREE</sup>}
             </span>
           </div>
           <hr
@@ -75,22 +80,27 @@ const ProjectDetails = () => {
         </div>
       </div>
 
-
-      <ProjectFeatures/>
+      <ProjectFeatures
+        keyFeatures={data?.key_feature}
+        forDeveloper={data?.for_developer}
+      />
 
       <hr
         className="outline-none my-3"
         style={{ border: "2px solid var(--first-color)" }}
       />
       <div className="py-5">
-        <h1 className="text-2xl inline-block" style={{ color: "var(--first-color)" }}>
+        <h1
+          className="text-2xl inline-block"
+          style={{ color: "var(--first-color)" }}
+        >
           Related Projects
           <hr
             className="outline-none my-5"
             style={{ border: "2px solid var(--first-color)", opacity: "0.5" }}
           />
         </h1>
-        <ProjectsSlider data={projectSlider}/>
+        <ProjectsSlider data={projectSlider} />
       </div>
     </div>
   );
