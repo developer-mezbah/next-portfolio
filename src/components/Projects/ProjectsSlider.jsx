@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import parse from "html-react-parser";
 
 const ProjectsSlider = ({ data }) => {
   return (
@@ -37,21 +38,24 @@ const ProjectsSlider = ({ data }) => {
           <div className="md:flex justify-between gap-6 items-center mx-auto block w-full text-center md:text-left">
             <div className="md:w-[90%] w-full">
               <Image
-                className="rounded-lg sm:h-[220px] md:w-full mx-auto mb-5"
+                className="rounded-lg sm:h-[220px] md:w-full mx-auto mb-5 object-cover"
                 width={400}
                 height={280}
-                src={slide.img}
-                alt={slide.title}
+                src={slide?.banner_img}
+                alt={slide?.title}
               />
             </div>
             <div className="w-full md:space-y-5">
-              <h2 className="portfolio__title">{slide.title}</h2>
-              <p className="portfolio__description">{slide.description}</p>
-              <Link href={"/project-details"}>
-                <button className="button button--flex button--small portfolio__button cursor-pointer my-3">
-                  preview
-                  <VscSend className="button__icon" />
-                </button>
+              <h2 className="portfolio__title">{slide?.title}</h2>
+              <div className="portfolio__description portfolio__description-2 truncate">
+                {parse(slide?.description)}
+              </div>
+              <Link
+                href={slide?.preview_url || "#"}
+                className="button button--flex button--small portfolio__button cursor-pointer my-3"
+              >
+                preview
+                <VscSend className="button__icon" />
               </Link>
             </div>
           </div>

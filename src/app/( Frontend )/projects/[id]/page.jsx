@@ -8,7 +8,10 @@ async function getData(id){
     where: {id},
     include: {profile: {select: {user_name: true, img: true}}, key_feature: true, for_developer: true}
   })
-  return {projects}
+  const relatedProjects = await prisma.projects.findMany({
+    where: {categoryId: projects.categoryId}
+  })
+  return {projects, relatedProjects}
 }
 
 
@@ -18,7 +21,7 @@ const ProjectsDetails = async (props) => {
   return (
     <MasterLayout>
       <div>
-        <ProjectDetails data={data?.projects}/>
+        <ProjectDetails data={data?.projects} relatedProjects={data?.relatedProjects}/>
       </div>
     </MasterLayout>
   );

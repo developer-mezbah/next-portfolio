@@ -1488,3 +1488,7 @@ img {
 .signin-and-signup .social i{
   margin-right: 4px;
 }
+
+.portfolio__description-2 img{
+  display: none;
+}

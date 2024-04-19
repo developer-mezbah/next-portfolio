@@ -3,8 +3,7 @@ import ProjectDetailsBanner from "./ProjectDetailsBanner";
 import ProjectsSlider from "../Projects/ProjectsSlider";
 import { projectSlider } from "@/utils/fakeData";
 import ProjectFeatures from "./ProjectFeatures";
-const ProjectDetails = ({ data }) => {
-  console.log(data);
+const ProjectDetails = ({ data,relatedProjects }) => {
   return (
     <div className="cus_container space-y-5">
       <h1 className="text-2xl" style={{ color: "var(--first-color)" }}>
@@ -100,7 +99,7 @@ const ProjectDetails = ({ data }) => {
             style={{ border: "2px solid var(--first-color)", opacity: "0.5" }}
           />
         </h1>
-        <ProjectsSlider data={projectSlider} />
+        <ProjectsSlider data={relatedProjects} />
       </div>
     </div>
   );
