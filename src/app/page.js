@@ -24,7 +24,11 @@ async function getData() {
     });
     
     const social = await prisma.Social_media.findFirst({});
-    return { hero_data, educationQualify,workQualify,marque,testimonial,social };
+    const allProjects = await prisma.projects.findMany({
+      take: 4,
+      orderBy: {id: 'desc'},
+    });
+    return { hero_data, educationQualify,workQualify,marque,testimonial,social,allProjects };
   } catch (error) {
     console.log(error);
   }
@@ -35,7 +39,7 @@ export default async function Home() {
   return (
     <MasterLayout>
       <Hero data={data?.hero_data} social={data?.social}/>
-      <Tabs />
+      <Tabs data={data?.allProjects}/>
       <div className="w-screen md:py-20 py-10 rotate-[3deg]">
         <ParallaxText baseVelocity={-5}>
         {data?.marque?.reverse_title}

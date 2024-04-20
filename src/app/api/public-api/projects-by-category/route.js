@@ -1,12 +1,15 @@
 export const revalidate = 0;
 import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
-export async function POST(req, res) {
+
+export async function GET(req, res) {
   try {
-    const bodyData = await req.json();
+    const { searchParams } = new URL(req.url);
+    const id = parseInt(searchParams.get("id"));
     const prisma = new PrismaClient();
-    const result = await prisma.Projects_category.create({
-      data: { cat_name: bodyData },
+    const result = await prisma.projects.findMany({
+      where: { categoryId: id },
+      orderBy: {id: 'desc'},
     });
     return NextResponse.json({ status: "success", data: result });
   } catch (error) {
