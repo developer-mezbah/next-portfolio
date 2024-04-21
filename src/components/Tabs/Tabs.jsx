@@ -10,17 +10,7 @@ const Tabs = ({ data }) => {
   const [loading, setLoading] = useState(false);
   const [projects, setProjects] = useState(data || []);
   const [tabs, setTabs] = useState([]);
-  useEffect(() => {
-    const tabItems = document.querySelectorAll(".tab-items li");
-    tabItems.forEach((tab) => {
-      tab.addEventListener("click", () => {
-        tabItems.forEach((removeActive) => {
-          removeActive.classList.remove("active");
-        });
-        tab.classList.add("active");
-      });
-    });
-  }, []);
+  
   useEffect(() => {
     setLoading(true);
     fetch("/api/public-api/project-categories")
@@ -42,24 +32,23 @@ const Tabs = ({ data }) => {
 
   const style = {
     height: "100%",
-    width: "100vw",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
   };
-
-  if (loading && !data) {
-    return (
-      <div style={style}>
-        <Player
-          autoplay
-          loop
-          src="/loading.json"
-          style={{ height: "300px", width: "300px" }}
-        ></Player>
-      </div>
-    );
-  }
+  useEffect(() => {
+    const tabItems = document.querySelectorAll(".tab-items li");
+    console.log(tabItems);
+    tabItems.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        tabItems.forEach((removeActive) => {
+          removeActive.classList.remove("active");
+        });
+        tab.classList.add("active");
+      });
+    });
+  }, [tabs]);
+  
   return (
     <div className="cus_container">
       <div className="tabs-section">
@@ -69,7 +58,8 @@ const Tabs = ({ data }) => {
               setLoading(true)
               setProjects(data)
               setLoading(false)
-            }}>All</li>
+            }}
+            className="active">All</li>
             {tabs?.map((item) => (
               <li onClick={() => dataFetchByCat(item?.id)} key={item?.id}>
                 {item.cat_name}
@@ -77,11 +67,18 @@ const Tabs = ({ data }) => {
             ))}
           </ul>
         </div>
-        <div className="tab-body grid md:grid-cols-2 gap-5">
-          {projects.length >= 0 ? projects?.slice(0, 4).map((project) => (
+        {!loading && data ? <div className="tab-body grid md:grid-cols-2 gap-5">
+          {projects.length != 0 ? projects?.slice(0, 4).map((project) => (
             <ProjectCard key={project.id} data={project} />
           )): <p>There is no project here!</p>}
-        </div>
+        </div>: <div style={style}>
+        <Player
+          autoplay
+          loop
+          src="/loading.json"
+          style={{ height: "300px", width: "300px" }}
+        ></Player>
+      </div>}
       </div>
     </div>
   );

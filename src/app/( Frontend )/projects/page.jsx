@@ -12,7 +12,12 @@ async function getData() {
     include: {for_developer: true, key_feature: true,profile: {select: {user_name: true, img: true}}}
   });
   const categories = await prisma.projects_category.findMany({})
-  return {projects, categories};
+  const sliderProjects = await prisma.projects.findMany({
+    where: {type: "slider"},
+    orderBy: {id: 'desc'},
+    take: 5
+  })
+  return {projects, categories,sliderProjects};
 }
 
 
@@ -22,7 +27,7 @@ const page = async () => {
     <MasterLayout>
       
     <TracingBeam className="pl-6 md:pl-0">
-      <Projects sliderData={data?.projects} projects={data?.projects}/>
+      <Projects sliderData={data?.sliderProjects} projects={data?.projects}/>
       </TracingBeam>
     </MasterLayout>
   );
