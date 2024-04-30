@@ -52,7 +52,7 @@ const BlogDetails = ({ comments, blogId, data }) => {
   //   ],
   // };
   return (
-    <div className="">
+    <div>
       <div className="singleBlog cus_container">
         <div className="single-blog-content">
           <div className="px-5">
@@ -93,10 +93,10 @@ const BlogDetails = ({ comments, blogId, data }) => {
             <br />
             <br />
             <h4>
-              {comments?.length}
-              {comments?.length > 1 ? " Comments" : " Comment"}
+              {comments.length}
+              {comments.length > 1 ? " Comments" : " Comment"}
             </h4>
-            {/* {comments?.map((comment) => {
+            {comments?.map((comment) => {
               return (
                 <div key={comment.id} className="commentsDiv">
                   <Image
@@ -115,7 +115,7 @@ const BlogDetails = ({ comments, blogId, data }) => {
                   </div>
                 </div>
               );
-            })} */}
+            })}
             <CommentForm blogId={blogId} />
           </div>
         </div>
