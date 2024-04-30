@@ -7,7 +7,7 @@ import { PrismaClient } from "@prisma/client";
 async function getData(id) {
   let prisma = new PrismaClient();
   let commentsData = await prisma.comment.findMany({
-    where: { blogId: id, approve: true },
+    where: { blogId: id },
   });
   let blog = await prisma.blog.findMany({
     where: { id },
@@ -29,7 +29,6 @@ async function getData(id) {
 const SingleBlog = async (props) => {
   let id = await parseInt(props.searchParams["id"]);
   const data = await getData(id);
-  console.log(id);
   return (
     <MasterLayout>
       <BlogDetails
