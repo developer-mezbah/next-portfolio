@@ -48,7 +48,6 @@ const BlogCard = ({
             <Link
               className="button button--flex text-sm"
               href={blogUrl || "#"}
-              target="_blank"
             >
               Read Full Article
             </Link>
