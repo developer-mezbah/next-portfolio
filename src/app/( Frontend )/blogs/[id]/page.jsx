@@ -11,7 +11,7 @@ async function getData(id) {
     where: { blogId: id, approve: true },
   });
   let blog = await prisma.blog.findMany({
-    where: { id },
+    where: { id: parseInt(id) },
     include: {
       profile: {
         select: {
@@ -28,7 +28,7 @@ async function getData(id) {
 }
 
 const SingleBlog = async (props) => {
-  let id = await parseInt(props.searchParams["id"]);
+  let id = await props.searchParams["id"];
   const data = await getData(id);
   return (
     <MasterLayout>
