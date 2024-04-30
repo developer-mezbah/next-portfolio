@@ -7,9 +7,9 @@ import { cookies, headers } from "next/headers";
 
 async function getData(id) {
   let prisma = new PrismaClient();
-  let commentsData = await prisma.comment.findMany({
-    where: { blogId: id, approve: true },
-  });
+  // let commentsData = await prisma.comment.findMany({
+  //   where: { blogId: id, approve: true },
+  // });
   let blog = await prisma.blog.findMany({
     where: { id: parseInt(id) },
     include: {
@@ -24,7 +24,8 @@ async function getData(id) {
       },
     },
   });
-  return { commentsData, blog };
+  // return { commentsData, blog };
+  return { blog };
 }
 
 const SingleBlog = async (props) => {
@@ -33,7 +34,7 @@ const SingleBlog = async (props) => {
   return (
     <MasterLayout>
       <BlogDetails
-        comments={data.commentsData}
+        // comments={data?.commentsData}
         blogId={id}
         data={data?.blog[0]}
       />
