@@ -5,6 +5,7 @@ import { LuLayoutDashboard } from "react-icons/lu";
 import { MdCastForEducation } from "react-icons/md";
 import { TbBrandBlogger } from "react-icons/tb";
 import { VscFeedback } from "react-icons/vsc";
+import { SiSkillshare } from "react-icons/si";
 
 export const NavData = [
   {
@@ -144,6 +145,21 @@ export const NavData = [
       {
         name: "Create Testimonial",
         url: "/dashboard/create-testimonial",
+      },
+    ],
+  },
+  {
+    pageName: "My personal Skills",
+    pageTitle: "Skills",
+    icon: <SiSkillshare />,
+    subItems: [
+      {
+        name: "All Skills",
+        url: "/dashboard/all-skills",
+      },
+      {
+        name: "Create Skill",
+        url: "/dashboard/create-skill",
       },
     ],
   },
