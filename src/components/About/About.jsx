@@ -4,7 +4,7 @@ import { FiDownload } from "react-icons/fi";
 const About = ({data}) => {
   return (
     <>
-      {/*==================== ABOUT-2 ====================*/}
+      {/*==================== ABOUT ====================*/}
       <section className="about section anime" id="about">
         <h2 className="section__title">About Me</h2>
         <span className="section__subtitle">My introduction</span>
