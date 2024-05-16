@@ -9,7 +9,8 @@ async function getData() {
   const data = await prisma.blog.findMany({
     include: { profile: { select: { user_name: true, img: true } } },
   });
-  return data;
+  const sectionDetails = await prisma.section_details.findFirst({});
+  return { data, sectionDetails };
 }
 const page = async () => {
   const data = await getData();
@@ -17,10 +18,14 @@ const page = async () => {
     <MasterLayout>
       <TracingBeam className="pl-6 md:pl-0">
         <div className="cus_container">
-          <h2 className="section__title anime">Blogs</h2>
-          <span className="section__subtitle anime">Most recent Work</span>
+          <h2 className="section__title anime">
+            {data?.sectionDetails?.blogs_title || "Blogs"}
+          </h2>
+          <span className="section__subtitle anime">
+            {data?.sectionDetails?.blogs_subtitle || "Most recent Work"}
+          </span>
           <div className="grid grid-cols-1 sm:gap-10 md:grid-cols-2">
-            {data?.map((blog, index) => (
+            {data?.data?.map((blog, index) => (
               <BlogCard
                 key={blog.id}
                 index={index}

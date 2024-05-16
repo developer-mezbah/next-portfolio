@@ -3,9 +3,10 @@ import { GoProjectSymlink } from "react-icons/go";
 import { IoImagesOutline } from "react-icons/io5";
 import { LuLayoutDashboard } from "react-icons/lu";
 import { MdCastForEducation } from "react-icons/md";
-import { TbBrandBlogger } from "react-icons/tb";
+import { TbBrandBlogger, TbSection } from "react-icons/tb";
 import { VscFeedback } from "react-icons/vsc";
 import { SiSkillshare } from "react-icons/si";
+import { GrServices } from "react-icons/gr";
 
 export const NavData = [
   {
@@ -50,21 +51,17 @@ export const NavData = [
       },
     ],
   },
-  // {
-  //   pageName: "personal info",
-  //   pageTitle: "Profile",
-  //   icon: <ImProfile />,
-  //   subItems: [
-  //     {
-  //       name: "My Profile",
-  //       url: "/dashboard/my-profile",
-  //     },
-  //     {
-  //       name: "Inbox",
-  //       url: "/dashboard/inbox",
-  //     },
-  //   ],
-  // },
+  {
+    pageName: "Details of All sections",
+    pageTitle: "Title And Subtitle",
+    icon: <TbSection />,
+    subItems: [
+      {
+        name: "create and update",
+        url: "/dashboard/title-and-subtitle",
+      }
+    ],
+  },
   {
     pageName: "Frontend Blogs",
     pageTitle: "Blogs",
@@ -155,11 +152,26 @@ export const NavData = [
     subItems: [
       {
         name: "All Skills",
-        url: "/dashboard/all-skills",
+        url: "/dashboard/skills/all-skills",
       },
       {
         name: "Create Skill",
-        url: "/dashboard/create-skill",
+        url: "/dashboard/skills/create-skill",
+      },
+    ],
+  },
+  {
+    pageName: "My Services",
+    pageTitle: "Services",
+    icon: <GrServices />,
+    subItems: [
+      {
+        name: "All Services",
+        url: "/dashboard/service/all-services",
+      },
+      {
+        name: "Create Skill",
+        url: "/dashboard/service/create-service",
       },
     ],
   },

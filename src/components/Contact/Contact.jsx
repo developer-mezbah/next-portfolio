@@ -6,7 +6,7 @@ import Link from "next/link";
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 
-const Contact = () => {
+const Contact = ({sectionDetails}) => {
   const form = useRef();
   const sendEmail = (e) => {
     e.preventDefault();
@@ -26,8 +26,8 @@ const Contact = () => {
   };
   return (
     <section className="contact section anime" id="contact">
-      <h2 className="section__title">Contact Me</h2>
-      <span className="section__subtitle">Get in Touch</span>
+      <h2 className="section__title">{sectionDetails?.contact_me_title || "Contact Me"}</h2>
+      <span className="section__subtitle">{ sectionDetails?.contact_me_subtitle  || "Get in Touch"}</span>
       <div className="contact__container cus_container cus_grid">
         <div className="anime">
           <Link href={"tel:+880 1707954201"}>

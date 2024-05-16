@@ -28,7 +28,10 @@ async function getData() {
       take: 4,
       orderBy: {id: 'desc'},
     });
-    return { hero_data, educationQualify,workQualify,marque,testimonial,social,allProjects };
+    
+    const sectionDetails = await prisma.section_details.findFirst({});
+
+    return { hero_data, educationQualify,workQualify,marque,testimonial,social,allProjects,sectionDetails };
   } catch (error) {
     console.log(error);
   }
@@ -48,8 +51,8 @@ export default async function Home() {
         {data?.marque?.title}
         </ParallaxText>
       </div>
-      <Qualification educationQualify={data?.educationQualify} workQualify={data?.workQualify}/>
-      <Testimonial data={data?.testimonial} />
+      <Qualification sectionDetails={data?.sectionDetails} educationQualify={data?.educationQualify} workQualify={data?.workQualify}/>
+      <Testimonial sectionDetails={data?.sectionDetails} data={data?.testimonial} />
     </MasterLayout>
   );
 }

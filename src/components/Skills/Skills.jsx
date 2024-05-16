@@ -4,8 +4,10 @@ import { BsHddNetwork } from "react-icons/bs";
 import { FaSwatchbook } from "react-icons/fa";
 import { FaAngleDown } from "react-icons/fa";
 import { useEffect } from "react";
+import parse from "html-react-parser";
 
-const Skills = () => {
+const Skills = ({ data,sectionDetails }) => {
+  console.log(sectionDetails);
   useEffect(() => {
     // Dynamic Width Change from html element value
     function dynamicSkillsWidth() {
@@ -29,7 +31,7 @@ const Skills = () => {
         }, 1);
       });
     }
-    dynamicSkillsWidth()
+    dynamicSkillsWidth();
     /* Validate if constant exists */
 
     /*==================== REMOVE MENU MOBILE ====================*/
@@ -56,69 +58,76 @@ const Skills = () => {
   }, []);
   return (
     <section className="skills section anime" id="skills">
-      <h2 className="section__title">Skills</h2>
-      <span className="section__subtitle">My Technical level</span>
+      <h2 className="section__title">{ sectionDetails?.skills_title || "Skills"}</h2>
+      <span className="section__subtitle">{ sectionDetails?.skills_subtitle || "My Technical level"}</span>
       <div className="skills__container cus_container cus_grid">
         {/* Skils Part 1 */}
-        <div className="skills__content skills__open">
-          <div className="skills__header">
-            <PiBracketsCurlyBold className="skills__icon" />
-            <div>
-              <h1 className="skills__titles">Fronted developer</h1>
-              <span className="skills__subtitle">More than 4 Years</span>
+        {data?.map((item, index) => (
+          <div key={item.id} className={`skills__content ${index ==0 ? "skills__open" : "skills__close"}`}>
+            <div className="skills__header">
+              {/* <PiBracketsCurlyBold className="skills__icon" /> */}
+              <span className="skills__icon">{parse(item?.svg)}</span>
+              <div>
+                <h1 className="skills__titles">{item?.title}</h1>
+                <span className="skills__subtitle">{item?.subTitle}</span>
+              </div>
+              <FaAngleDown className="skills__arrow" />
             </div>
-            <FaAngleDown className="skills__arrow" />
+            <div className="skills__list cus_grid">
+              {
+                item?.skill_items.map(skill => (
+                  <div key={skill.id} className="skills__data">
+                <div className="skills__titles">
+                  <h3 className="skills__name">{skill?.name}</h3>
+                  <span className="skills__number">{skill?.percent}%</span>
+                </div>
+                <div className="skills__bar">
+                  <span className="skills__percentage skills__html" />
+                </div>
+              </div>
+                ))
+              }
+{/*               
+              <div className="skills__data">
+                <div className="skills__titles">
+                  <h3 className="skills__name">CSS</h3>
+                  <span className="skills__number">80%</span>
+                </div>
+                <div className="skills__bar">
+                  <span className="skills__percentage skills__css" />
+                </div>
+              </div>
+              <div className="skills__data">
+                <div className="skills__titles">
+                  <h3 className="skills__name">JavaScript</h3>
+                  <span className="skills__number">50%</span>
+                </div>
+                <div className="skills__bar">
+                  <span className="skills__percentage skills__javascript" />
+                </div>
+              </div>
+              <div className="skills__data">
+                <div className="skills__titles">
+                  <h3 className="skills__name">React</h3>
+                  <span className="skills__number">85%</span>
+                </div>
+                <div className="skills__bar">
+                  <span className="skills__percentage skills__react" />
+                </div>
+              </div>
+              <div className="skills__data">
+                <div className="skills__titles">
+                  <h3 className="skills__name">Next.js</h3>
+                  <span className="skills__number">50%</span>
+                </div>
+                <div className="skills__bar">
+                  <span className="skills__percentage skills__react" />
+                </div>
+              </div> */}
+            </div>
           </div>
-          <div className="skills__list cus_grid">
-            <div className="skills__data">
-              <div className="skills__titles">
-                <h3 className="skills__name">HTML</h3>
-                <span className="skills__number">90%</span>
-              </div>
-              <div className="skills__bar">
-                <span className="skills__percentage skills__html" />
-              </div>
-            </div>
-            <div className="skills__data">
-              <div className="skills__titles">
-                <h3 className="skills__name">CSS</h3>
-                <span className="skills__number">80%</span>
-              </div>
-              <div className="skills__bar">
-                <span className="skills__percentage skills__css" />
-              </div>
-            </div>
-            <div className="skills__data">
-              <div className="skills__titles">
-                <h3 className="skills__name">JavaScript</h3>
-                <span className="skills__number">50%</span>
-              </div>
-              <div className="skills__bar">
-                <span className="skills__percentage skills__javascript" />
-              </div>
-            </div>
-            <div className="skills__data">
-              <div className="skills__titles">
-                <h3 className="skills__name">React</h3>
-                <span className="skills__number">85%</span>
-              </div>
-              <div className="skills__bar">
-                <span className="skills__percentage skills__react" />
-              </div>
-            </div>
-            <div className="skills__data">
-              <div className="skills__titles">
-                <h3 className="skills__name">Next.js</h3>
-                <span className="skills__number">50%</span>
-              </div>
-              <div className="skills__bar">
-                <span className="skills__percentage skills__react" />
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* Skils Part 2 */}
-        <div className="skills__content skills__close">
+        ))}
+        {/* <div className="skills__content skills__close">
           <div className="skills__header">
             <BsHddNetwork className="skills__icon" />
             <div>
@@ -165,9 +174,8 @@ const Skills = () => {
               </div>
             </div>
           </div>
-        </div>
-        {/* Skils Part 3 */}
-        <div className="skills__content skills__close">
+        </div> */}
+        {/* <div className="skills__content skills__close">
           <div className="skills__header">
             <FaSwatchbook className="skills__icon" />
             <div>
@@ -214,7 +222,7 @@ const Skills = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

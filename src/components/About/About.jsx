@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FiDownload } from "react-icons/fi";
-const About = ({data}) => {
+const About = ({data,sectionDetails}) => {
   return (
     <>
       {/*==================== ABOUT ====================*/}
       <section className="about section anime" id="about">
-        <h2 className="section__title">About Me</h2>
-        <span className="section__subtitle">My introduction</span>
+        <h2 className="section__title">{sectionDetails?.about_me_title || "About Me"}</h2>
+        <span className="section__subtitle">{sectionDetails?.about_me_subtitle || "My introduction"}</span>
         <div className="about__container cus_container cus_grid">
           <Image width={500} height={500} src={data?.img || "/images/about.jpg"} alt="" className="about__img h-[300px] object-cover" />
           <div className="about__data flex flex-col justify-center">

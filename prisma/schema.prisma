@@ -100,31 +100,31 @@ model Testimonial {
 
 model Discount_project {
   id        Int    @id @default(autoincrement())
-  title     String @db.VarChar(50)
-  sub_title String @db.VarChar(50)
+  title     String @db.VarChar(150)
+  sub_title String @db.VarChar(500)
   img       String @db.LongText
 }
 
 model Social_media {
   id       Int    @id @default(autoincrement())
-  github   String @db.VarChar(400)
-  linkedin String @db.VarChar(400)
-  facebook String @db.VarChar(400)
-  medium   String @db.VarChar(400)
+  github   String @db.VarChar(800)
+  linkedin String @db.VarChar(800)
+  facebook String @db.VarChar(800)
+  medium   String @db.VarChar(800)
 }
 
 model Profile {
-  id        Int       @id
-  user_name String?   @db.VarChar(100)
-  age       String?   @db.VarChar(50)
-  mobile    String?   @db.VarChar(50)
-  img       String?   @db.LongText
-  email     String?   @unique @db.VarChar(50)
-  password  String?   @db.VarChar(50)
+  id        Int        @id
+  user_name String?    @db.VarChar(100)
+  age       String?    @db.VarChar(50)
+  mobile    String?    @db.VarChar(50)
+  img       String?    @db.LongText
+  email     String?    @unique @db.VarChar(100)
+  password  String?    @db.VarChar(50)
   blogs     Blog[]
   projects  Projects[]
-  createAt  DateTime  @default(now()) @db.Timestamp(0)
-  updateAt  DateTime  @default(now()) @updatedAt @db.Timestamp(0)
+  createAt  DateTime   @default(now()) @db.Timestamp(0)
+  updateAt  DateTime   @default(now()) @updatedAt @db.Timestamp(0)
 }
 
 model Blog {
@@ -156,12 +156,7 @@ model comment {
   updateAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
 }
 
-model visitor_data {
-  id       Int      @id @default(autoincrement())
-  ip       String?  @db.VarChar(400)
-  createAt DateTime @default(now()) @db.Timestamp(0)
-  updateAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
-}
+
 
 model Projects {
   id          Int     @id @default(autoincrement())
@@ -175,13 +170,13 @@ model Projects {
   type        String? @db.VarChar(100)
 
   profile   Profile @relation(fields: [profileId], references: [id])
-  profileId Int 
+  profileId Int
 
   category   Projects_category? @relation(fields: [categoryId], references: [id])
   categoryId Int?
 
   for_developer For_developers[]
-  key_feature Key_features[]
+  key_feature   Key_features[]
 
   createAt DateTime @default(now()) @db.Timestamp(0)
   updateAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
@@ -205,4 +200,69 @@ model Key_features {
   title     String   @db.VarChar(400)
   project   Projects @relation(fields: [projectId], references: [id], onDelete: Cascade)
   projectId Int
+}
+
+model Skills {
+  id          Int           @id @default(autoincrement())
+  title       String        @db.VarChar(500)
+  subTitle    String        @db.VarChar(800)
+  svg         String        @db.LongText
+  skill_items Skill_items[]
+  createAt    DateTime      @default(now()) @db.Timestamp(0)
+  updateAt    DateTime      @default(now()) @updatedAt @db.Timestamp(0)
+}
+
+model Skill_items {
+  id      Int    @id @default(autoincrement())
+  name    String @db.VarChar(1000)
+  percent String @db.VarChar(50)
+  skillId Int
+  skill   Skills @relation(fields: [skillId], references: [id], onDelete: Cascade)
+}
+
+model Services {
+  id            Int             @id @default(autoincrement())
+  title         String          @db.VarChar(500)
+  svg           String          @db.LongText
+  service_items Service_items[]
+  createAt      DateTime        @default(now()) @db.Timestamp(0)
+  updateAt      DateTime        @default(now()) @updatedAt @db.Timestamp(0)
+}
+
+model Service_items {
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar(1000)
+  serviceId Int
+  service   Services @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+}
+
+model Section_details {
+  id                        Int    @id @default(autoincrement())
+  qualification_title       String @db.VarChar(500)
+  qualification_subtitle    String @db.VarChar(800)
+  testimonial_title         String @db.VarChar(500)
+  testimonial_subtitle      String @db.VarChar(800)
+  about_me_title            String @db.VarChar(500)
+  about_me_subtitle         String @db.VarChar(800)
+  skills_title              String @db.VarChar(500)
+  skills_subtitle           String @db.VarChar(800)
+  services_title            String @db.VarChar(500)
+  services_subtitle         String @db.VarChar(800)
+  popular_projects_title    String @db.VarChar(500)
+  popular_projects_subtitle String @db.VarChar(800)
+  all_projects_title        String @db.VarChar(500)
+  all_projects_subtitle     String @db.VarChar(800)
+  contact_me_title          String @db.VarChar(500)
+  contact_me_subtitle       String @db.VarChar(800)
+  blogs_title               String @db.VarChar(500)
+  blogs_subtitle            String @db.VarChar(800)
+
+  createAt DateTime @default(now()) @db.Timestamp(0)
+  updateAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
+}
+model visitor_data {
+  id       Int      @id @default(autoincrement())
+  ip       String?  @db.VarChar(400)
+  createAt DateTime @default(now()) @db.Timestamp(0)
+  updateAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
 }

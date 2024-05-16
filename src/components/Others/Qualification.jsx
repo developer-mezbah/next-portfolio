@@ -5,10 +5,10 @@ import { FaBriefcase } from "react-icons/fa";
 import { FcCalendar } from "react-icons/fc";
 import { motion } from "framer-motion";
 
-const Qualification = ({ workQualify, educationQualify }) => {
+const Qualification = ({ workQualify, educationQualify, sectionDetails }) => {
   const workLastIndex = workQualify.slice(-1)[0]?.id;
   const educationLastIndex = educationQualify.slice(-1)[0]?.id;
-  
+
   useEffect(() => {
     const tabs = document.querySelectorAll("[data-target]"),
       tabContents = document.querySelectorAll("[data-content]");
@@ -29,8 +29,8 @@ const Qualification = ({ workQualify, educationQualify }) => {
   }, []);
   return (
     <section className="qualification section">
-      <h2 className="section__title anime">Qualification</h2>
-      <span className="section__subtitle anime">My personal journey</span>
+      <h2 className="section__title anime">{ sectionDetails?.qualification_title || "Qualification"}</h2>
+      <span className="section__subtitle anime">{ sectionDetails?.qualification_subtitle|| "My personal journey"}</span>
       <div className="qualification__container cus_container">
         <div className="qualification__tabs">
           <div
@@ -64,12 +64,10 @@ const Qualification = ({ workQualify, educationQualify }) => {
                     <>
                       <div>
                         <h3 className="qualification__title">
-                          
-                        {education.title}
+                          {education.title}
                         </h3>
                         <span className="qualification__subtitle">
-                          
-                        {education.institute_name}
+                          {education.institute_name}
                         </span>
 
                         <div className="qualification__calender flex gap-2 justify-center">
@@ -96,8 +94,10 @@ const Qualification = ({ workQualify, educationQualify }) => {
                       </div>
                       <div>
                         <h3 className="qualification__title">
-                          {education.title}</h3>
-                        <span className="qualification__subtitle">{education.institute_name}
+                          {education.title}
+                        </h3>
+                        <span className="qualification__subtitle">
+                          {education.institute_name}
                         </span>
                         <div className="qualification__calender flex gap-2 justify-center">
                           <FcCalendar className="text-xl" />
@@ -119,11 +119,9 @@ const Qualification = ({ workQualify, educationQualify }) => {
                   {initNumber % 2 !== 0 && (
                     <>
                       <div>
-                        <h3 className="qualification__title">
-                          {work.title}
-                        </h3>
+                        <h3 className="qualification__title">{work.title}</h3>
                         <span className="qualification__subtitle">
-                        {work.institute_name}
+                          {work.institute_name}
                         </span>
 
                         <div className="qualification__calender flex gap-2 justify-center">
@@ -149,10 +147,9 @@ const Qualification = ({ workQualify, educationQualify }) => {
                         )}
                       </div>
                       <div>
-                        <h3 className="qualification__title">
-                          {work.title}</h3>
+                        <h3 className="qualification__title">{work.title}</h3>
                         <span className="qualification__subtitle">
-                        {work.institute_name}
+                          {work.institute_name}
                         </span>
 
                         <div className="qualification__calender flex gap-2 justify-center">

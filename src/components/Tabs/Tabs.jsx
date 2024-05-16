@@ -38,7 +38,6 @@ const Tabs = ({ data }) => {
   };
   useEffect(() => {
     const tabItems = document.querySelectorAll(".tab-items li");
-    console.log(tabItems);
     tabItems.forEach((tab) => {
       tab.addEventListener("click", () => {
         tabItems.forEach((removeActive) => {

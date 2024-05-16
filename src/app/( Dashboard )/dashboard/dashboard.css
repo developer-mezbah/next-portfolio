@@ -192,3 +192,8 @@
 .dashboard-navbar::-webkit-scrollbar {
   display: none;
 }
+
+.dashboard-svg svg{
+  height: 150px;
+  width: 150px;
+}

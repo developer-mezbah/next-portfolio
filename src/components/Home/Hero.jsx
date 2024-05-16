@@ -6,7 +6,7 @@ import { PiMediumLogoFill } from "react-icons/pi";
 import { VscSend } from "react-icons/vsc";
 import TypeWriter from "../Others/TypeWriter";
 
-async function getData(){
+async function getData() {
   const prisma = new PrismaClient();
   const result = await prisma.hero.create({
     data: {
@@ -21,10 +21,9 @@ async function getData(){
   });
 }
 
-
-const Hero = async ({ data,social }) => {
+const Hero = async ({ data, social }) => {
   if (!!data === false) {
-    await getData()
+    await getData();
   }
   return (
     <section className="home section" id="home">

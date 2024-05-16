@@ -3,19 +3,23 @@ import MasterLayout from "@/layout/MasterLayout";
 import { PrismaClient } from "@prisma/client";
 
 async function getData(id) {
-  const prisma = new PrismaClient();
-  const projects = await prisma.projects.findUnique({
-    where: { id },
-    include: {
-      profile: { select: { user_name: true, img: true } },
-      key_feature: true,
-      for_developer: true,
-    },
-  });
-  const relatedProjects = await prisma.projects.findMany({
-    where: { categoryId: projects.categoryId },
-  });
-  return { projects, relatedProjects };
+  try {
+    const prisma = new PrismaClient();
+    const projects = await prisma.projects.findUnique({
+      where: { id },
+      include: {
+        profile: { select: { user_name: true, img: true } },
+        key_feature: true,
+        for_developer: true,
+      },
+    });
+    const relatedProjects = await prisma.projects.findMany({
+      where: { categoryId: projects.categoryId },
+    });
+    return { projects, relatedProjects };
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 const ProjectsDetails = async (props) => {

@@ -6,11 +6,13 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { FaRegStar } from "react-icons/fa";
 import Image from "next/image";
 
-const Testimonial = ({ data }) => {
+const Testimonial = ({ data, sectionDetails }) => {
   return (
     <section className="testimonial section anime" target="fadeUp">
-      <h2 className="section__title">Testimonial</h2>
-      <span className="section__subtitle">My Client Saying</span>
+      <h2 className="section__title">
+        {sectionDetails?.testimonial_title || "Testimonial"}
+      </h2>
+      <span className="section__subtitle">{sectionDetails?.testimonial_subtitle || "My Client Saying"}</span>
       <div className="testimonial__container cus_container swiper-container">
         <Swiper
           loop={true}
