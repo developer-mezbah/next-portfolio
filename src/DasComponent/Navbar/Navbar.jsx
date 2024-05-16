@@ -8,33 +8,42 @@ import Horizontal from "../Others/Horizontal";
 import NavItems from "./NavItems";
 import SmallNavbar from "./SmallNavbar";
 import { NavData } from "@/utils/NavData";
+import { useGalleryModel } from "@/_zustand/store";
 
 const Navbar = () => {
+  const { IsSmallNavbar, toggleNavbar } = useGalleryModel();
   const [navToggle, setNavToggle] = useState(false);
   const [smallNavbar, setSmaillNavbar] = useState(false);
   const handleNavbar = () => {
     setSmaillNavbar(!smallNavbar);
+    toggleNavbar(!smallNavbar)
   };
 
   const handleMouseMove = () => {
     if (smallNavbar) {
       setSmaillNavbar(false);
       setNavToggle(true);
+      toggleNavbar(!smallNavbar)
     }
   };
   const handleMouseLeave = () => {
     if (navToggle) {
       setSmaillNavbar(true);
       setNavToggle(false);
+      toggleNavbar(!smallNavbar)
     }
   };
   return (
-    <div className="">
+    <div>
       <TopNavbar handleNavbar={handleNavbar} smallNavbar={smallNavbar} />
       <div
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className={smallNavbar ? "w-[80px] h-screen overflow-y-scroll overflow-x-hidden dashboard-navbar" : "w-[250px] h-screen overflow-y-scroll overflow-x-hidden dashboard-navbar"}
+        className={
+          smallNavbar
+            ? "w-[80px] h-screen overflow-y-scroll overflow-x-hidden dashboard-navbar"
+            : "w-[250px] h-screen overflow-y-scroll overflow-x-hidden dashboard-navbar"
+        }
       >
         <div className={smallNavbar ? "hidden" : "w-[250px]"}>
           <div className="logo py-2">

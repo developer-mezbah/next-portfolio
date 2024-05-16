@@ -13,4 +13,6 @@ export const useGalleryModel = create((set) => ({
     setSelectImageUrl: (value) => set((state) => ({selectedImgUrl: [...state.selectedImgUrl, value]})),
     setShowModel: (value) => set((state) => ({showModel: state.showModel = value})),
     setUniqueKey: (value) => set((state) => ({uniqueKey: state.uniqueKey = value})),
+    IsSmallNavbar: false,
+    toggleNavbar: (value) => set((state) => ({IsSmallNavbar: state.IsSmallNavbar = value}))
 }))
