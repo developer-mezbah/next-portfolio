@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+export const maxDuration = 300;
 
 // Logout Functionality
 export async function GET(req, res) {

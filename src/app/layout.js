@@ -1,4 +1,3 @@
-export const maxDuration = 300;
 import BgSnow from "@/components/Others/BgSnow";
 import TransitionProvider from "@/components/Others/TransitionProvider";
 import "@/utils/css/Animation.css";
