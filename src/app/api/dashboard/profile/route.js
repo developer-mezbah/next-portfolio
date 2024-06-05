@@ -1,5 +1,4 @@
 export const revalidate = 0;
-export const maxDuration = 300;
 import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
 let md5 = require("md5");

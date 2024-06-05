@@ -2,7 +2,6 @@ import { CreateToken } from "@/utils/JWTTokenHelper";
 import { PrismaClient } from "@prisma/client";
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
-export const maxDuration = 300;
 
 const md5 = require("md5");
 

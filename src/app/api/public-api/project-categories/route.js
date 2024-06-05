@@ -1,6 +1,5 @@
 import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
-export const maxDuration = 300;
 
 export async function GET(req, res) {
     try {
