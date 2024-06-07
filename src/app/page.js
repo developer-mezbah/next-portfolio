@@ -10,7 +10,7 @@ import { PrismaClient } from "@prisma/client";
 async function getData() {
   try {
     const prisma = new PrismaClient();
-    let hero_data = await prisma.hero.findFirst({});
+    // let hero_data = await prisma.hero.findFirst({});
     // let educationQualify = await prisma.qualification.findMany({
     //   where: { role: "Education" },
     // });
@@ -31,7 +31,7 @@ async function getData() {
     
     // const sectionDetails = await prisma.section_details.findFirst({});
 
-    return { hero_data, educationQualify,workQualify,marque,testimonial,social,allProjects,sectionDetails };
+    return { educationQualify,workQualify,marque,testimonial,social,allProjects,sectionDetails };
   } catch (error) {
     console.log(error);
   }
@@ -41,7 +41,7 @@ export default async function Home() {
   const data = await getData();
   return (
     <MasterLayout>
-      <Hero data={data?.hero_data} social={data?.social}/>
+      <Hero social={data?.social}/>
       <Tabs data={data?.allProjects}/>
       <div className="w-screen md:py-20 py-10 rotate-[3deg]">
         <ParallaxText baseVelocity={-5}>

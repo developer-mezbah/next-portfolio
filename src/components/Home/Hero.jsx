@@ -1,3 +1,4 @@
+export const revalidate = 0;
 import { PrismaClient } from "@prisma/client";
 import Link from "next/link";
 import { CiFacebook } from "react-icons/ci";
@@ -6,7 +7,7 @@ import { PiMediumLogoFill } from "react-icons/pi";
 import { VscSend } from "react-icons/vsc";
 import TypeWriter from "../Others/TypeWriter";
 
-async function getData() {
+async function postData() {
   const prisma = new PrismaClient();
   const result = await prisma.hero.create({
     data: {
@@ -21,25 +22,37 @@ async function getData() {
   });
 }
 
-const Hero = async ({ data, social }) => {
+async function getData() {
+  try {
+    const prisma = new PrismaClient();
+    let hero_data = await prisma.hero.findFirst({});
+    const social = await prisma.Social_media.findFirst({});
+    return { hero_data, social };
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+const Hero = async () => {
+  const data = await getData();
   if (!!data === false) {
-    await getData();
+    await postData();
   }
   return (
     <section className="home section" id="home">
       <div className="home_container cus_container cus_grid">
         <div className="home__content cus_grid">
           <div className="home__social pl-2">
-            <Link href={social?.github || "#"} className="home__social-icon">
+            <Link href={data?.social?.github || "#"} className="home__social-icon">
               <FiGithub className="text-3xl" />
             </Link>
-            <Link href={social?.linkedin || "#"} className="home__social-icon">
+            <Link href={data?.social?.linkedin || "#"} className="home__social-icon">
               <FiLinkedin className="text-3xl" />
             </Link>
-            <Link href={social?.facebook || "#"} className="home__social-icon">
+            <Link href={data?.social?.facebook || "#"} className="home__social-icon">
               <CiFacebook className="text-3xl" />
             </Link>
-            <Link href={social?.medium || "#"} className="home__social-icon">
+            <Link href={data?.social?.medium || "#"} className="home__social-icon">
               <PiMediumLogoFill className="text-3xl" />
             </Link>
           </div>
@@ -98,7 +111,7 @@ const Hero = async ({ data, social }) => {
                   className="home__blob-img"
                   x={12}
                   y={30}
-                  href={data?.img}
+                  href={data?.hero_data?.img}
                 />
               </g>
             </svg>
@@ -107,13 +120,13 @@ const Hero = async ({ data, social }) => {
             <h1 className="home__title flex flex-wrap items-center">
               <span className="pr-5">Hi, I'am </span>
               <TypeWriter
-                data={[data?.title1, data?.title2, data?.title3, data?.title4]}
+                data={[data?.hero_data?.title1, data?.hero_data?.title2, data?.hero_data?.title3, data?.hero_data?.title4]}
               />
               <span className="text-primary -mt-2">:)</span>
               {/* 🙋 👋 */}
             </h1>
-            <h3 className="home__subtitle">{data?.subtitle}</h3>
-            <p className="home__description">{data?.description}</p>
+            <h3 className="home__subtitle">{data?.hero_data?.subtitle}</h3>
+            <p className="home__description">{data?.hero_data?.description}</p>
             <Link href="/contact" className="button button--flex">
               Contact Me
               <VscSend className="button__icon" />
