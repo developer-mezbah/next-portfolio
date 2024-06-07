@@ -6,8 +6,8 @@ import { FcCalendar } from "react-icons/fc";
 import { motion } from "framer-motion";
 
 const Qualification = ({ workQualify, educationQualify, sectionDetails }) => {
-  const workLastIndex = workQualify.slice(-1)[0]?.id;
-  const educationLastIndex = educationQualify.slice(-1)[0]?.id;
+  const workLastIndex = workQualify?.slice(-1)[0]?.id;
+  const educationLastIndex = educationQualify?.slice(-1)[0]?.id;
 
   useEffect(() => {
     const tabs = document.querySelectorAll("[data-target]"),
