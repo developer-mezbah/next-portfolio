@@ -1,5 +1,5 @@
-"use client"
-import { useRef } from "react"
+"use client";
+import { useEffect, useRef, useState } from "react";
 import {
   motion,
   useScroll,
@@ -7,48 +7,56 @@ import {
   useTransform,
   useMotionValue,
   useVelocity,
-  useAnimationFrame
-} from "framer-motion"
-import { wrap } from "@motionone/utils"
-import "./SkillLibraries.css"
+  useAnimationFrame,
+} from "framer-motion";
+import { wrap } from "@motionone/utils";
+import "./SkillLibraries.css";
 
-export default function ParallaxText({ children, baseVelocity = 100 }) {
-  const baseX = useMotionValue(0)
-  const { scrollY } = useScroll()
-  const scrollVelocity = useVelocity(scrollY)
+export default function ParallaxText({ baseVelocity = 100, reverse }) {
+  const [title, setTitle] = useState(null);
+  useEffect(() => {
+    fetch("/api/public-api/home-client/qualification")
+      .then((res) => res.json())
+      .then((data) => {
+        setTitle(reverse ? data?.data?.reverse_title : data?.data?.title);
+      });
+  }, []);
+  const baseX = useMotionValue(0);
+  const { scrollY } = useScroll();
+  const scrollVelocity = useVelocity(scrollY);
   const smoothVelocity = useSpring(scrollVelocity, {
     damping: 50,
-    stiffness: 400
-  })
+    stiffness: 400,
+  });
   const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
-    clamp: false
-  })
+    clamp: false,
+  });
 
   /**
    * This is a magic wrapping for the length of the text - you
    * have to replace for wrapping that works for you or dynamically
    * calculate
    */
-  const x = useTransform(baseX, v => `${wrap(-20, -45, v)}%`)
+  const x = useTransform(baseX, (v) => `${wrap(-20, -45, v)}%`);
 
-  const directionFactor = useRef(1)
+  const directionFactor = useRef(1);
   useAnimationFrame((t, delta) => {
-    let moveBy = directionFactor.current * baseVelocity * (delta / 4000) // set time
+    let moveBy = directionFactor.current * baseVelocity * (delta / 4000); // set time
 
     /**
      * This is what changes the direction of the scroll once we
      * switch scrolling directions.
      */
     if (velocityFactor.get() < 0) {
-      directionFactor.current = -1
+      directionFactor.current = -1;
     } else if (velocityFactor.get() > 0) {
-      directionFactor.current = 1
+      directionFactor.current = 1;
     }
 
-    moveBy += directionFactor.current * moveBy * velocityFactor.get()
+    moveBy += directionFactor.current * moveBy * velocityFactor.get();
 
-    baseX.set(baseX.get() + moveBy)
-  })
+    baseX.set(baseX.get() + moveBy);
+  });
 
   /**
    * The number of times to repeat the child text should be dynamically calculated
@@ -60,13 +68,13 @@ export default function ParallaxText({ children, baseVelocity = 100 }) {
   return (
     <div className="parallax">
       <motion.div className="scroller" style={{ x }}>
-        <span>{children} </span>
-        <span>{children} </span>
-        <span>{children} </span>
-        <span>{children} </span>
+        <span>{title}</span>
+        <span>{title}</span>
+        <span>{title}</span>
+        <span>{title}</span>
       </motion.div>
     </div>
-  )
+  );
 }
 
 // export default function App() {

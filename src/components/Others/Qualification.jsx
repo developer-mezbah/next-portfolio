@@ -1,11 +1,25 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { FaGraduationCap } from "react-icons/fa6";
 import { FaBriefcase } from "react-icons/fa";
 import { FcCalendar } from "react-icons/fc";
 import { motion } from "framer-motion";
 
-const Qualification = ({ workQualify, educationQualify, sectionDetails }) => {
+const Qualification = () => {
+  const [workQualify, setWorkQualify] = useState([]);
+  const [educationQualify, setEducationQualify] = useState([]);
+  const [sectionDetails, setSectionDetails] = useState();
+
+  useEffect(() => {
+    fetch("/api/public-api/home-client/qualification")
+      .then((res) => res.json())
+      .then((data) => {
+        setEducationQualify(data?.data?.educationQualify);
+        setWorkQualify(data?.data?.workQualify);
+        setSectionDetails(data?.data?.sectionDetails);
+      });
+  }, []);
+
   const workLastIndex = workQualify?.slice(-1)[0]?.id;
   const educationLastIndex = educationQualify?.slice(-1)[0]?.id;
 
@@ -29,8 +43,12 @@ const Qualification = ({ workQualify, educationQualify, sectionDetails }) => {
   }, []);
   return (
     <section className="qualification section">
-      <h2 className="section__title anime">{ sectionDetails?.qualification_title || "Qualification"}</h2>
-      <span className="section__subtitle anime">{ sectionDetails?.qualification_subtitle|| "My personal journey"}</span>
+      <h2 className="section__title anime">
+        {sectionDetails?.qualification_title || "Qualification"}
+      </h2>
+      <span className="section__subtitle anime">
+        {sectionDetails?.qualification_subtitle || "My personal journey"}
+      </span>
       <div className="qualification__container cus_container">
         <div className="qualification__tabs">
           <div
