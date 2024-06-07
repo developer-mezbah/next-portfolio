@@ -11,25 +11,25 @@ async function getData() {
   try {
     const prisma = new PrismaClient();
     let hero_data = await prisma.hero.findFirst({});
-    let educationQualify = await prisma.qualification.findMany({
-      where: { role: "Education" },
-    });
-    let workQualify = await prisma.qualification.findMany({
-      where: { role: "Work" },
-      orderBy: {id: "desc"}
-    });
-    const marque = await prisma.marquee.findFirst({});
-    const testimonial = await prisma.Testimonial.findMany({
-      orderBy: { id: "desc" },
-    });
+    // let educationQualify = await prisma.qualification.findMany({
+    //   where: { role: "Education" },
+    // });
+    // let workQualify = await prisma.qualification.findMany({
+    //   where: { role: "Work" },
+    //   orderBy: {id: "desc"}
+    // });
+    // const marque = await prisma.marquee.findFirst({});
+    // const testimonial = await prisma.Testimonial.findMany({
+    //   orderBy: { id: "desc" },
+    // });
     
-    const social = await prisma.Social_media.findFirst({});
-    const allProjects = await prisma.projects.findMany({
-      take: 4,
-      orderBy: {id: 'desc'},
-    });
+    // const social = await prisma.Social_media.findFirst({});
+    // const allProjects = await prisma.projects.findMany({
+    //   take: 4,
+    //   orderBy: {id: 'desc'},
+    // });
     
-    const sectionDetails = await prisma.section_details.findFirst({});
+    // const sectionDetails = await prisma.section_details.findFirst({});
 
     return { hero_data, educationQualify,workQualify,marque,testimonial,social,allProjects,sectionDetails };
   } catch (error) {
