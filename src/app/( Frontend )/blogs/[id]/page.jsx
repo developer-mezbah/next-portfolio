@@ -26,9 +26,10 @@ async function getData(id) {
   return { commentsData, blog };
 }
 
-const SingleBlog = async () => {
-  // let id = await parseInt(props.searchParams["id"]);
-  const data = await getData(1);
+const SingleBlog = async (props) => {
+  let id = await parseInt(props.searchParams["id"]);
+  const data = await getData(id);
+  console.log({id, data});
   return (
     <MasterLayout>
       <BlogDetails
