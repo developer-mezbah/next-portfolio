@@ -1,10 +1,10 @@
-
 import ProjectDetails from "@/components/ProjectDetails/ProjectDetails";
 import MasterLayout from "@/layout/MasterLayout";
 import { PrismaClient } from "@prisma/client";
 
-async function getData(id) {
+async function getData(serchID) {
   try {
+    const id = parseInt(serchID)
     const prisma = new PrismaClient();
     const projects = await prisma.projects.findUnique({
       where: { id },
@@ -24,8 +24,8 @@ async function getData(id) {
 }
 
 const ProjectsDetails = async (props) => {
-  let id = await parseInt(props.searchParams["id"]);
-  const data = await getData(parseInt(id));
+  let id = await props.searchParams["id"]
+  const data = await getData(id);
   return (
     <MasterLayout>
       <div>

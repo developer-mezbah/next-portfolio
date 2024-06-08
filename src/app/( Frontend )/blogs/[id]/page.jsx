@@ -3,7 +3,8 @@ import MasterLayout from "@/layout/MasterLayout";
 import { PrismaClient } from "@prisma/client";
 
 
-async function getData(id) {
+async function getData(serchID) {
+  const id = parseInt(serchID)
   let prisma = new PrismaClient();
   let commentsData = await prisma.comment.findMany({
     where: { blogId: id },
@@ -27,7 +28,7 @@ async function getData(id) {
 
 const SingleBlog = async (props) => {
   let id = await props.searchParams["id"];
-  const data = await getData(1);
+  const data = await getData(id);
   return (
     <MasterLayout>
       <BlogDetails
