@@ -24,7 +24,7 @@ async function getData(id) {
 
 const ProjectsDetails = async (props) => {
   let id = await parseInt(props.searchParams["id"]);
-  const data = await getData(id);
+  const data = await getData(parseInt(id));
   return (
     <MasterLayout>
       <div>
