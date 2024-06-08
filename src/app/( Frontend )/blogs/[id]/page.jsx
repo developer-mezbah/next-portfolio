@@ -1,3 +1,4 @@
+export const revalidate = 0; 
 import BlogDetails from "@/components/Blogs/BlogDetails";
 import MasterLayout from "@/layout/MasterLayout";
 import { PrismaClient } from "@prisma/client";
@@ -21,7 +22,7 @@ async function getData(id) {
       },
     },
   });
-  return { commentsData, blog };
+  return { blog, commentsData };
 }
 
 const SingleBlog = async (props) => {
