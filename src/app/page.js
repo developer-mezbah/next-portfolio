@@ -1,4 +1,4 @@
-
+export const revalidate = 0;
 import Hero from "@/components/Home/Hero";
 import Qualification from "@/components/Others/Qualification";
 import Testimonial from "@/components/Others/Testimonial";

@@ -1,4 +1,3 @@
-export const revalidate = 0;
 import { PrismaClient } from "@prisma/client";
 import Link from "next/link";
 import { CiFacebook } from "react-icons/ci";
