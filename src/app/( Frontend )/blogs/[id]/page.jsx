@@ -1,4 +1,3 @@
-export const revalidate = 0;
 import BlogDetails from "@/components/Blogs/BlogDetails";
 import MasterLayout from "@/layout/MasterLayout";
 import { PrismaClient } from "@prisma/client";
@@ -27,9 +26,8 @@ async function getData(id) {
 }
 
 const SingleBlog = async (props) => {
-  let id = await parseInt(props.searchParams["id"]);
-  const data = await getData(parseInt(id));
-  console.log({id, data});
+  let id = await props.searchParams["id"];
+  const data = await getData(1);
   return (
     <MasterLayout>
       <BlogDetails

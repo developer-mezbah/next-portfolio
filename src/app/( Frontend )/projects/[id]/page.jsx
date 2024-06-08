@@ -1,3 +1,4 @@
+
 import ProjectDetails from "@/components/ProjectDetails/ProjectDetails";
 import MasterLayout from "@/layout/MasterLayout";
 import { PrismaClient } from "@prisma/client";
