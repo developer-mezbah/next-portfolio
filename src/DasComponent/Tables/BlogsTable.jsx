@@ -34,7 +34,7 @@ const BlogsTable = ({ data }) => {
     return `${day}-${month}-${year}`;
   };
   const handleDelete = (id) => {
-    DeleteAlert(`/api/blogs?id=${id}`).then((res) => {
+    DeleteAlert(`/api/dashboard/blogs?id=${id}`).then((res) => {
       if (res) {
         router.refresh();
         SuccessToast("Deleted Data!");

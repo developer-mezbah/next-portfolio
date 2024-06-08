@@ -33,7 +33,7 @@ const ProjectsTable = ({ data,categories }) => {
     return `${day}-${month}-${year}`;
   };
   const handleDelete = (id) => {
-    DeleteAlert(`/api/dashboard/projects/delete-project?id=5${id}`).then((res) => {
+    DeleteAlert(`/api/dashboard/projects/delete-project?id=${id}`).then((res) => {
       if (res) {
         router.refresh();
         SuccessToast("Deleted Data!");

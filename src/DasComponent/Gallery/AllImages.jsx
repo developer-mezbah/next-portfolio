@@ -102,7 +102,7 @@ const AllImages = ({ categories, showModel, setIsSelectImage }) => {
                       : ""
                   }`}
                 >
-                  <div className="card group">
+                  <div className="card group flex-wrap">
                     <Image
                       width={500}
                       height={500}
