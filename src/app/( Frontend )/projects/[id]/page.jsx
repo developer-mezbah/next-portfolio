@@ -2,12 +2,11 @@ import ProjectDetails from "@/components/ProjectDetails/ProjectDetails";
 import MasterLayout from "@/layout/MasterLayout";
 import { PrismaClient } from "@prisma/client";
 
-async function getData(serchID) {
+async function getData(id) {
   try {
-    const id = parseInt(serchID)
     const prisma = new PrismaClient();
     const projects = await prisma.projects.findUnique({
-      where: { id },
+      where: { id: parseInt(id) },
       include: {
         profile: { select: { user_name: true, img: true } },
         key_feature: true,

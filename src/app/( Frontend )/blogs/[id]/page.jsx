@@ -2,15 +2,13 @@ import BlogDetails from "@/components/Blogs/BlogDetails";
 import MasterLayout from "@/layout/MasterLayout";
 import { PrismaClient } from "@prisma/client";
 
-
-async function getData(serchID) {
-  const id = parseInt(serchID)
+async function getData(id) {
   let prisma = new PrismaClient();
   let commentsData = await prisma.comment.findMany({
-    where: { blogId: id },
+    where: { id: parseInt(id) },
   });
   let blog = await prisma.blog.findMany({
-    where: { id },
+    where: { id: parseInt(id) },
     include: {
       profile: {
         select: {
