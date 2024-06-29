@@ -26,7 +26,6 @@ const Tabs = () => {
         setData(data?.data);
         setProjects(data?.data);
         setLoading(false);
-
       });
   }, []);
   const dataFetchByCat = async (catID) => {
@@ -82,11 +81,16 @@ const Tabs = () => {
         {!loading && data ? (
           <div className="tab-body grid md:grid-cols-2 gap-5">
             {projects.length != 0 ? (
-              projects
-                ?.slice(0, 4)
-                .map((project) => (
-                  <ProjectCard key={project.id} data={project} />
-                ))
+              projects?.slice(0, 4).map((project, index) => (
+                <div
+                  key={project.id}
+                  data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
+                  data-aos-easing="linear"
+                  data-aos-duration="300"
+                >
+                  <ProjectCard data={project} />
+                </div>
+              ))
             ) : (
               <p>There is no project here!</p>
             )}

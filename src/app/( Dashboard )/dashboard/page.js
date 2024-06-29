@@ -9,52 +9,11 @@ import CommentTable from "@/DasComponent/Tables/CommentsTable";
 
 async function getData() {
   const prisma = new PrismaClient();
-  // let all_blog = await prisma.blog.findMany({
-  //   orderBy: { createAt: "desc" },
-  //   select: {
-  //     id: true,
-  //     title: true,
-  //     createAt: true,
-  //     updateAt: true,
-  //   },
-  // });
-  // let all_comment = await prisma.comment.findMany({
-  //   orderBy: { createAt: "desc" },
-  //   select: {
-  //     id: true,
-  //     name: true,
-  //     createAt: true,
-  //     updateAt: true,
-  //   },
-  // });
-  // let all_message = await prisma.message.findMany({
-  //   orderBy: { createAt: "desc" },
-  //   select: {
-  //     id: true,
-  //     email: true,
-  //     createAt: true,
-  //     updateAt: true,
-  //   },
-  // });
-  // let all_portfolio = await prisma.portfolio.findMany({
-  //   orderBy: { createAt: "desc" },
-  //   select: {
-  //     id: true,
-  //     title: true,
-  //     createAt: true,
-  //     updateAt: true,
-  //   },
-  // });
-
   let visitor_data = await prisma.visitor_data.count();
   let projects = await prisma.Projects.count();
   let blog = await prisma.Blog.count();
-  // let visitor_data = await prisma.visitor_data.count();
-
-  // return { all_blog, all_comment, all_message, all_portfolio, visitor_data };\
   return {visitor_data,projects,blog}
 }
-
 
 const page = async () => {
   const data = await getData()

@@ -14,11 +14,28 @@ async function getData() {
     console.log(error);
   }
 }
+
+export async function generateMetadata() {
+  const data = await getData();
+  return {
+    title: "Contact with Me | Mezbah Uddin",
+    description: data?.web_info?.footer_description,
+    formatDetection: {
+      email: data?.web_info?.email,
+      address: data?.web_info?.location,
+      telephone: data?.web_info?.phone,
+    },
+  };
+}
+
 const page = async () => {
   const data = await getData();
   return (
     <MasterLayout>
-      <Contact sectionDetails={data?.sectionDetails} contactData={data?.web_info} />
+      <Contact
+        sectionDetails={data?.sectionDetails}
+        contactData={data?.web_info}
+      />
     </MasterLayout>
   );
 };

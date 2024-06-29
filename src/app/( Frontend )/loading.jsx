@@ -1,7 +1,15 @@
 "use client";
 import { Player } from "@lottiefiles/react-lottie-player";
+
 const loading = () => {
-    const style = {height: "100vh", width: "100vw", display: 'flex', justifyContent: 'center', alignItems: 'center'}
+  const style = {
+    height: "100vh",
+    width: "100vw",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  };
+
   return (
     <div style={style}>
       <Player

@@ -6,7 +6,6 @@ import ParallaxText from "@/components/SkillLibraries/SkillLibraries";
 import Tabs from "@/components/Tabs/Tabs";
 import MasterLayout from "@/layout/MasterLayout";
 import Visitor from "@/utils/visitor";
-import { PrismaClient } from "@prisma/client";
 
 
 

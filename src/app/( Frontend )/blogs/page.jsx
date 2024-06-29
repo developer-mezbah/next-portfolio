@@ -12,6 +12,21 @@ async function getData() {
   const sectionDetails = await prisma.section_details.findFirst({});
   return { data, sectionDetails };
 }
+
+export async function generateMetadata(props) {
+  const data = await getData();
+  return {
+    title: "Blogs | Mezbah Uddin",
+    description: "This is Blog page. I am Mezbah Uddin, a dedicated and passionate full stack web developer with a keen eye for detail and a commitment to creating seamless, user-friendly web experiences. With expertise in both front-end and back-end technologies, I specialize in building robust, scalable, and dynamic web applications. My proficiency spans across HTML, CSS, JavaScript, and various back-end frameworks, enabling me to deliver comprehensive solutions tailored to meet diverse client needs. I thrive in collaborative environments, continuously seeking opportunities to innovate and enhance the digital landscape through cutting-edge web development practices.",
+    openGraph: {
+      title: data?.data[0]?.title,
+      images: [data?.data[0]?.img,data?.data[1]?.img,data?.data[2]?.img,data?.data[3]?.img],
+      description: data?.data[0]?.short_des,
+    },
+  };
+}
+
+
 const page = async () => {
   const data = await getData();
   return (

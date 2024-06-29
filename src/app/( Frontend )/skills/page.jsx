@@ -16,7 +16,12 @@ async function getData() {
     console.log(error);
   }
 }
-
+export function generateMetadata() {
+  return {
+    title: "Skills | Mezbah Uddin",
+    description: "This is Skills page. There is lot of Skills like full stact web developer and good communication with everyone.",
+  };
+}
 const page = async () => {
   const data = await getData();
   return (

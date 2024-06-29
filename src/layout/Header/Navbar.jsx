@@ -23,6 +23,18 @@ const navData = [
     icon: <MdOutlineHome />,
   },
   {
+    id: 5,
+    name: "Projects",
+    url: "/projects",
+    icon: <GoProjectSymlink />,
+  },
+  {
+    id: 7,
+    name: "Blogs",
+    url: "/blogs",
+    icon: <LiaBlogSolid />,
+  },
+  {
     id: 2,
     name: "About",
     url: "/about",
@@ -41,22 +53,10 @@ const navData = [
     icon: <FcServices />,
   },
   {
-    id: 5,
-    name: "Projects",
-    url: "/projects",
-    icon: <GoProjectSymlink />,
-  },
-  {
     id: 6,
     name: "ContactMe",
     url: "/contact",
     icon: <VscSend />,
-  },
-  {
-    id: 7,
-    name: "Blogs",
-    url: "/blogs",
-    icon: <LiaBlogSolid />,
   },
 ];
 

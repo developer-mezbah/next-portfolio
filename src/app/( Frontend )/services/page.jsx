@@ -17,6 +17,14 @@ async function getData() {
   }
 }
 
+
+export function generateMetadata() {
+  return {
+    title: "Services | Mezbah Uddin",
+    description: "This is Services page. There is lot of services for free.",
+  };
+}
+
 const page = async () => {
   const data = await getData();
   return (

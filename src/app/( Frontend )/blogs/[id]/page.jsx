@@ -8,7 +8,7 @@ async function getData(id) {
   let commentsData = await prisma.comment.findMany({
     where: { blogId: parseInt(id) },
   });
-  let blog = await prisma.blog.findMany({
+  let blog = await prisma.blog.findUnique({
     where: { id: parseInt(id) },
     include: {
       profile: {
@@ -25,6 +25,21 @@ async function getData(id) {
   return { blog, commentsData };
 }
 
+export async function generateMetadata(props) {
+  let id = await props.searchParams["id"];
+  const data = await getData(id);
+  return {
+    title: data?.blog?.title,
+    description: data?.blog?.short_des,
+    keywords: [data?.blog?.keywords],
+    openGraph: {
+      title: data?.blog?.title,
+      images: [data?.blog?.img],
+      description: data?.blog?.long_des,
+    },
+  };
+}
+
 const SingleBlog = async (props) => {
   let id = await props.searchParams["id"];
   const data = await getData(id);
@@ -33,7 +48,7 @@ const SingleBlog = async (props) => {
       <BlogDetails
         comments={data?.commentsData}
         blogId={id}
-        data={data?.blog[0]}
+        data={data?.blog}
       />
     </MasterLayout>
   );
