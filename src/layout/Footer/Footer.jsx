@@ -4,21 +4,28 @@ import { FaLinkedin } from "react-icons/fa6";
 import { FaFacebookSquare } from "react-icons/fa";
 import Banner from "@/components/Others/Banner";
 import { PiMediumLogoFill } from "react-icons/pi";
+import Image from "next/image";
 
-const Footer = ({social}) => {
+const Footer = ({ social, data }) => {
   return (
     <>
       <footer className="footer">
         <div className="footer__bg">
-        <Banner/>
+          <Banner />
           <div className="footer__container cus_grid">
             <div>
-              <h1 className="footer__title">Mezbah</h1>
-              <span className="footer__subtitle">
-                Next.js and MERN Full stack Developer
-              </span>
+              {/* <h1 className="footer__title">
+              </h1> */}
+
+              <Image
+                width={500}
+                height={500}
+                alt={data?.footer_description}
+                src={data?.footer_logo}
+                className="w-[250px] mx-auto md:mx-1"
+              />
             </div>
-            <ul className="footer__links" style={{flexWrap: 'wrap'}}>
+            <ul className="footer__links" style={{ flexWrap: "wrap" }}>
               <li>
                 <Link href="/services" className="footer__link">
                   Services
@@ -27,6 +34,11 @@ const Footer = ({social}) => {
               <li>
                 <Link href="/projects" className="footer__link">
                   Projects
+                </Link>
+              </li>
+              <li>
+                <Link href="/blogs" className="footer__link">
+                  Blogs
                 </Link>
               </li>
               <li>
@@ -42,18 +54,24 @@ const Footer = ({social}) => {
             </ul>
             <div className="footer__socials">
               <Link href={social?.github || "#"} className="footer__social">
-                <FaGithub/>
+                <FaGithub />
               </Link>
               <Link href={social?.linkedin || "#"} className="footer__social">
-                <FaLinkedin/>
+                <FaLinkedin />
               </Link>
               <Link href={social?.facebook || "#"} className="footer__social">
-                <FaFacebookSquare/>
+                <FaFacebookSquare />
               </Link>
               <Link href={social?.medium || "#"} className="footer__social">
-              <PiMediumLogoFill />
+                <PiMediumLogoFill />
               </Link>
             </div>
+          </div>
+
+          <div className="footer__container">
+            <span className="mt-3 block">
+            {data?.footer_description}
+            </span>
           </div>
           <p className="footer__copy">
             © developer.mezbah. All right reserved.

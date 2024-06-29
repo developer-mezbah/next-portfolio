@@ -24,7 +24,9 @@ const Tabs = () => {
       .then((res) => res.json())
       .then((data) => {
         setData(data?.data);
+        setProjects(data?.data);
         setLoading(false);
+
       });
   }, []);
   const dataFetchByCat = async (catID) => {

@@ -73,7 +73,7 @@ model About_me_page {
 
 model About_me {
   id        Int    @id @default(autoincrement())
-  content   String @db.VarChar(700)
+  content   String @db.LongText
   expericed String @db.VarChar(50)
   projects  String @db.VarChar(50)
   works     String @db.VarChar(50)
@@ -155,8 +155,6 @@ model comment {
   createAt DateTime @default(now()) @db.Timestamp(0)
   updateAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
 }
-
-
 
 model Projects {
   id          Int     @id @default(autoincrement())
@@ -260,9 +258,22 @@ model Section_details {
   createAt DateTime @default(now()) @db.Timestamp(0)
   updateAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
 }
+
 model visitor_data {
   id       Int      @id @default(autoincrement())
   ip       String?  @db.VarChar(400)
   createAt DateTime @default(now()) @db.Timestamp(0)
   updateAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
+}
+
+model Web_information {
+  id                 Int      @id @default(autoincrement())
+  logo               String?   @db.LongText
+  footer_logo        String?   @db.LongText
+  footer_description String?   @db.LongText
+  phone              String?  @db.VarChar(100)
+  email              String?  @db.VarChar(200)
+  location           String?  @db.VarChar(200)
+  createAt           DateTime @default(now()) @db.Timestamp(0)
+  updateAt           DateTime @default(now()) @updatedAt @db.Timestamp(0)
 }

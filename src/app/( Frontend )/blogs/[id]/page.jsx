@@ -6,7 +6,7 @@ import { PrismaClient } from "@prisma/client";
 async function getData(id) {
   let prisma = new PrismaClient();
   let commentsData = await prisma.comment.findMany({
-    where: { id: parseInt(id) },
+    where: { blogId: parseInt(id) },
   });
   let blog = await prisma.blog.findMany({
     where: { id: parseInt(id) },

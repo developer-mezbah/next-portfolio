@@ -2,6 +2,7 @@
 import { SuccessToast } from "@/utils/FormHelper";
 import client_api from "@/utils/api_fetch_fun";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 import { VscSend } from "react-icons/vsc";
 
 const CommentForm = ({ blogId }) => {
@@ -13,12 +14,14 @@ const CommentForm = ({ blogId }) => {
     const comment = e.target.message.value;
     const img = e.target.img.value;
     client_api
-      .create("/api/dashboard/blogs/comments", { name, email, comment, blogId, img })
+      .create("/api/public-api/comments", { name, email, comment, blogId, img })
       .then((res) => {
-        if (res) {
+        if (res.status) {
           e.target.reset();
           SuccessToast("comment sent successfully");
           router.refresh();
+        }else{
+          toast.error("SomeThing went wrong!")
         }
       });
   };

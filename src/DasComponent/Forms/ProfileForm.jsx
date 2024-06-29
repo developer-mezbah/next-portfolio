@@ -92,25 +92,24 @@ const ProfileForm = ({ data }) => {
                 <div className="mt-8 grid gap-2">
                   <p>
                     <strong>
-                      Full Name: {data?.user_name || "Mezbah Uddin"}
+                      Full Name: {data?.user_name}
                     </strong>
                   </p>
                   <p>
-                    <strong>Email:</strong> {data?.email || "admin@mezbah.com"}
+                    <strong>Email:</strong> {data?.email}
                   </p>
                   <p>
                     <strong>
-                      Mobile Number: {data?.mobile || "+880 1707954201"}
+                      Mobile Number: {data?.mobile}
                     </strong>
                   </p>
                   <p>
-                    <strong>Age: {data?.age || "22+"}</strong>
+                    <strong>Age: {data?.age}</strong>
                   </p>
                   <p>
                     <strong>
                       Last Profile Update:{" "}
-                      {moment(data?.updateAt).format("MMMM Do YYYY") ||
-                        " 2/22/2024"}
+                      {moment(data?.updateAt).format("MMMM Do YYYY")}
                     </strong>
                   </p>
                   <br />

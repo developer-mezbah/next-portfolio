@@ -120,7 +120,7 @@ function CommentTable() {
     {
       name: "Action",
       selector: (row) => (
-        <div className="p-2 cursor-pointer  ">
+        <div className="p-2 cursor-pointer hover:text-red-500 text-xl ">
           <FaTrashCan onClick={() => DeleteComment(row?.id)} />
         </div>
       ),
@@ -129,7 +129,7 @@ function CommentTable() {
 
   return (
     <ThemeProvider>
-      <div className="rounded-xl p-[30px] m-[30px]">
+      <div className="rounded-xl">
         <PageTitle text={"All comments"} />
         <DataTable
           fixedHeader

@@ -50,7 +50,7 @@ const Qualification = () => {
         {sectionDetails?.qualification_subtitle || "My personal journey"}
       </span>
       <div className="qualification__container cus_container">
-        <div className="qualification__tabs">
+        <div  data-aos="zoom-in-down" className="qualification__tabs">
           <div
             className="qualification__button button--flex qualification__active anime"
             data-target="#education"
@@ -80,7 +80,7 @@ const Qualification = () => {
                 <div key={education.id} className="qualification__data">
                   {initNumber % 2 !== 0 && (
                     <>
-                      <div>
+                      <div data-aos="fade-down">
                         <h3 className="qualification__title">
                           {education.title}
                         </h3>
@@ -93,7 +93,7 @@ const Qualification = () => {
                           {education.session}
                         </div>
                       </div>
-                      <div>
+                      <div data-aos="fade-down">
                         <span className="qualification__rounder" />
                         {education.id !== educationLastIndex && (
                           <span className="qualification__line" />
@@ -104,13 +104,13 @@ const Qualification = () => {
                   {initNumber % 2 == 0 && (
                     <>
                       <div />
-                      <div>
+                      <div data-aos="fade-down">
                         <span className="qualification__rounder" />
                         {education.id !== educationLastIndex && (
                           <span className="qualification__line" />
                         )}
                       </div>
-                      <div>
+                      <div data-aos="fade-down">
                         <h3 className="qualification__title">
                           {education.title}
                         </h3>
@@ -136,7 +136,7 @@ const Qualification = () => {
                 <div key={work.id} className="qualification__data">
                   {initNumber % 2 !== 0 && (
                     <>
-                      <div>
+                      <div data-aos="fade-down">
                         <h3 className="qualification__title">{work.title}</h3>
                         <span className="qualification__subtitle">
                           {work.institute_name}
@@ -147,7 +147,7 @@ const Qualification = () => {
                           {work.session}
                         </div>
                       </div>
-                      <div>
+                      <div data-aos="fade-down">
                         <span className="qualification__rounder" />
                         {work.id !== workLastIndex && (
                           <span className="qualification__line" />
@@ -158,13 +158,13 @@ const Qualification = () => {
                   {initNumber % 2 == 0 && (
                     <>
                       <div />
-                      <div>
+                      <div data-aos="fade-down">
                         <span className="qualification__rounder" />
                         {work.id !== workLastIndex && (
                           <span className="qualification__line" />
                         )}
                       </div>
-                      <div>
+                      <div data-aos="fade-down">
                         <h3 className="qualification__title">{work.title}</h3>
                         <span className="qualification__subtitle">
                           {work.institute_name}

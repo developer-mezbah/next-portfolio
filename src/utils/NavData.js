@@ -22,6 +22,10 @@ export const NavData = [
         name: "Profile",
         url: "/dashboard/profile",
       },
+      {
+        name: "Web Information",
+        url: "/dashboard/web-information",
+      },
     ],
   },
   {

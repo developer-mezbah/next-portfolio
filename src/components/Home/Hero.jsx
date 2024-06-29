@@ -41,21 +41,41 @@ const Hero = async () => {
     <section className="home section" id="home">
       <div className="home_container cus_container cus_grid">
         <div className="home__content cus_grid">
-          <div className="home__social pl-2">
-            <Link href={data?.social?.github || "#"} className="home__social-icon">
+          <div
+            data-aos-delay="800"
+            data-aos="zoom-in-left"
+            className="home__social pl-2"
+          >
+            <Link
+              href={data?.social?.github || "#"}
+              className="home__social-icon"
+            >
               <FiGithub className="text-3xl" />
             </Link>
-            <Link href={data?.social?.linkedin || "#"} className="home__social-icon">
+            <Link
+              href={data?.social?.linkedin || "#"}
+              className="home__social-icon"
+            >
               <FiLinkedin className="text-3xl" />
             </Link>
-            <Link href={data?.social?.facebook || "#"} className="home__social-icon">
+            <Link
+              href={data?.social?.facebook || "#"}
+              className="home__social-icon"
+            >
               <CiFacebook className="text-3xl" />
             </Link>
-            <Link href={data?.social?.medium || "#"} className="home__social-icon">
+            <Link
+              href={data?.social?.medium || "#"}
+              className="home__social-icon"
+            >
               <PiMediumLogoFill className="text-3xl" />
             </Link>
           </div>
-          <div className="home__img">
+          <div
+            data-aos-delay="800"
+            data-aos="zoom-in-left"
+            className="home__img"
+          >
             <svg
               viewBox="0 0 500 500"
               xmlns="http://www.w3.org/2000/svg"
@@ -115,11 +135,20 @@ const Hero = async () => {
               </g>
             </svg>
           </div>
-          <div className="home__data space-y-5">
+          <div
+            data-aos-delay="800"
+            data-aos="fade-up"
+            className="home__data space-y-5"
+          >
             <h1 className="home__title flex flex-wrap items-center">
               <span className="pr-5">Hi, I'am </span>
               <TypeWriter
-                data={[data?.hero_data?.title1, data?.hero_data?.title2, data?.hero_data?.title3, data?.hero_data?.title4]}
+                data={[
+                  data?.hero_data?.title1,
+                  data?.hero_data?.title2,
+                  data?.hero_data?.title3,
+                  data?.hero_data?.title4,
+                ]}
               />
               <span className="text-primary -mt-2">:)</span>
               {/* 🙋 👋 */}

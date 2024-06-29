@@ -13,6 +13,7 @@ import { TfiClose } from "react-icons/tfi";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { LiaBlogSolid } from "react-icons/lia";
+import Image from "next/image";
 
 const navData = [
   {
@@ -50,7 +51,8 @@ const navData = [
     name: "ContactMe",
     url: "/contact",
     icon: <VscSend />,
-  },{
+  },
+  {
     id: 7,
     name: "Blogs",
     url: "/blogs",
@@ -58,7 +60,7 @@ const navData = [
   },
 ];
 
-const Navbar = () => {
+const Navbar = ({ data }) => {
   const path = usePathname();
   const [dark, setDark] = useState(true);
   useEffect(() => {
@@ -103,8 +105,14 @@ const Navbar = () => {
   return (
     <header className="header" id="header" style={{ paddingTop: "15px" }}>
       <nav className="nav cus_container">
-        <Link href="/dashboard" className="nav__logo">
-          Mezbah.Dev
+        <Link href="/" className="nav__logo w-[300px] overflow-hidden ">
+          <Image
+            alt={data?.footer_description}
+            src={data?.logo}
+            width={500}
+            height={500}
+            className="md:w-full w-2/3 mb-2 md:my-0"
+          />
         </Link>
         <div className="nav__menu" id="nav-menu">
           <ul className="nav__list cus_grid">

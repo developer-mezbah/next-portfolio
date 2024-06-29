@@ -8,7 +8,8 @@ async function getData() {
   try {
     const prisma = new PrismaClient();
     const sectionDetails = await prisma.section_details.findFirst({});
-    return sectionDetails;
+    const web_info = await prisma.Web_information.findFirst({});
+    return { sectionDetails, web_info };
   } catch (error) {
     console.log(error);
   }
@@ -17,7 +18,7 @@ const page = async () => {
   const data = await getData();
   return (
     <MasterLayout>
-      <Contact sectionDetails={data} />
+      <Contact sectionDetails={data?.sectionDetails} contactData={data?.web_info} />
     </MasterLayout>
   );
 };
