@@ -1,13 +1,14 @@
-import { PrismaClient } from "@prisma/client";
+// import { PrismaClient } from "@prisma/client";
 import Link from "next/link";
 import { CiFacebook } from "react-icons/ci";
 import { FiGithub, FiLinkedin } from "react-icons/fi";
 import { PiMediumLogoFill } from "react-icons/pi";
 import { VscSend } from "react-icons/vsc";
 import TypeWriter from "../Others/TypeWriter";
+import prisma from "@/utils/prisma";
 
 async function postData() {
-  const prisma = new PrismaClient();
+  // const prisma = new PrismaClient();
   const result = await prisma.hero.create({
     data: {
       title1: "",

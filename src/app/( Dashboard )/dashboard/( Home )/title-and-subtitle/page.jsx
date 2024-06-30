@@ -1,10 +1,11 @@
 export const revalidate = 0;
 import TitleAndSubtitle from "@/DasComponent/Forms/TitleAndSubtitle"
-import { PrismaClient } from "@prisma/client"
+// import { PrismaClient } from "@prisma/client"
+import prisma from "@/utils/prisma";
 
 async function getData(){
     try {
-        const prisma = new PrismaClient();
+        // const prisma = new PrismaClient();
         const data = await prisma.section_details.findFirst({})
         return data
     } catch (error) {

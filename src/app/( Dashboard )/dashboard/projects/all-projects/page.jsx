@@ -1,10 +1,11 @@
 export const revalidate = 0;
 import ProjectsTable from "@/DasComponent/Tables/ProjectsTable";
-import { PrismaClient } from "@prisma/client";
+// import { PrismaClient } from "@prisma/client";
 import React from "react";
+import prisma from "@/utils/prisma";
 
 async function getData() {
-  const prisma = new PrismaClient();
+  // const prisma = new PrismaClient();
   const data = await prisma.projects.findMany({
     orderBy: {id: 'desc'},
     include: {for_developer: true, key_feature: true,profile: {select: {user_name: true, img: true}}}

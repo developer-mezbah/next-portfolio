@@ -1,9 +1,10 @@
 export const revalidate = 0;
 import ProjectCategoryForm from "@/DasComponent/Forms/ProjectCategoryForm";
-import { PrismaClient } from "@prisma/client";
+// import { PrismaClient } from "@prisma/client";
+import prisma from "@/utils/prisma";
 
 async function getData() {
-  const prisma = new PrismaClient();
+  // const prisma = new PrismaClient();
   const categories = await prisma.projects_category.findMany({});
   return { categories };
 }

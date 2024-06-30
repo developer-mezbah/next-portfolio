@@ -1,10 +1,11 @@
 export const revalidate = 0;
 import LoginComponent from "@/DasComponent/Forms/LoginComponent";
-import { PrismaClient } from "@prisma/client";
+// import { PrismaClient } from "@prisma/client";
 import "./style.css";
+import prisma from "@/utils/prisma";
 
 async function getData() {
-  const prisma = new PrismaClient();
+  // const prisma = new PrismaClient();
   let data = await prisma.profile.findFirst({});
   return data;
 }

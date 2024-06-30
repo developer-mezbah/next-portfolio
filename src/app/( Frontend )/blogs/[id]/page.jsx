@@ -1,10 +1,11 @@
 export const revalidate = 0; 
 import BlogDetails from "@/components/Blogs/BlogDetails";
 import MasterLayout from "@/layout/MasterLayout";
-import { PrismaClient } from "@prisma/client";
+// import { PrismaClient } from "@prisma/client";
+import prisma from "@/utils/prisma";
 
 async function getData(id) {
-  let prisma = new PrismaClient();
+  // let prisma = new PrismaClient();
   let commentsData = await prisma.comment.findMany({
     where: { blogId: parseInt(id) },
   });

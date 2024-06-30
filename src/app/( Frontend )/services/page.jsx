@@ -1,11 +1,12 @@
 export const revalidate = 0;
 import Services from "@/components/Services/Services";
 import MasterLayout from "@/layout/MasterLayout";
-import { PrismaClient } from "@prisma/client";
+// import { PrismaClient } from "@prisma/client";
+import prisma from "@/utils/prisma";
 
 async function getData() {
   try {
-    const prisma = new PrismaClient();
+    // const prisma = new PrismaClient();
     const data = await prisma.services.findMany({
       include: { service_items: true },
     });

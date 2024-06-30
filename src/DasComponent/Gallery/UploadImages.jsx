@@ -1,10 +1,11 @@
 export const revalidate = 0;
-import { PrismaClient } from "@prisma/client";
+// import { PrismaClient } from "@prisma/client";
 import AddCategory from "../Forms/AddCategory";
 import ImageUpload from "../Forms/ImageUpload";
+import prisma from "@/utils/prisma";
 
 async function getData() {
-  const prisma = new PrismaClient();
+  // const prisma = new PrismaClient();
   const galleryCat = await prisma.gallery.findMany({});
   return { galleryCat };
 }
