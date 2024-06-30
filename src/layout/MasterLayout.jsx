@@ -1,7 +1,7 @@
 export const revalidate = 0;
 import Navbar from "./Header/Navbar";
 import Footer from "./Footer/Footer";
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";  
 
 async function getData() {
   try {
