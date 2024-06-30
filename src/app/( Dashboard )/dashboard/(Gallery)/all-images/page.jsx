@@ -1,3 +1,4 @@
+export const revalidate = 0;
 import AllImages from "@/DasComponent/Gallery/AllImages";
 import PageTitle from "@/DasComponent/Others/PageTitle";
 import { PrismaClient } from "@prisma/client";
