@@ -73,7 +73,7 @@ CREATE TABLE `About_me_page` (
 -- CreateTable
 CREATE TABLE `About_me` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `content` VARCHAR(700) NOT NULL,
+    `content` LONGTEXT NOT NULL,
     `expericed` VARCHAR(50) NOT NULL,
     `projects` VARCHAR(50) NOT NULL,
     `works` VARCHAR(50) NOT NULL,
@@ -178,6 +178,7 @@ CREATE TABLE `comment` (
 CREATE TABLE `Projects` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `banner_img` LONGTEXT NOT NULL,
+    `keywords` LONGTEXT NULL,
     `long_img` LONGTEXT NOT NULL,
     `price` VARCHAR(100) NULL,
     `code_url` LONGTEXT NULL,
@@ -292,6 +293,21 @@ CREATE TABLE `Section_details` (
 CREATE TABLE `visitor_data` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `ip` VARCHAR(400) NULL,
+    `createAt` TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0),
+    `updateAt` TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0),
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `Web_information` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `logo` LONGTEXT NULL,
+    `footer_logo` LONGTEXT NULL,
+    `footer_description` LONGTEXT NULL,
+    `phone` VARCHAR(100) NULL,
+    `email` VARCHAR(200) NULL,
+    `location` VARCHAR(200) NULL,
     `createAt` TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0),
     `updateAt` TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0),
 

@@ -20,9 +20,9 @@ export async function generateMetadata(props) {
     title: "About Me | Mezbah Uddin",
     description: data?.data?.content,
     openGraph: {
-      title: data?.data.title,
+      title: data?.data?.title,
       images: [data?.data?.img, data?.data?.cv],
-      description: data?.data.content,
+      description: data?.data?.content,
     },
   };
 }
