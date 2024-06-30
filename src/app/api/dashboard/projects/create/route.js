@@ -17,6 +17,7 @@ export async function POST(req, res) {
         preview_url: bodyData.preview_url,
         title: bodyData.title,
         description: bodyData.description,
+        keywords: bodyData.keywords,
         type: bodyData.type,
         profileId: profileResult.id,
         categoryId: parseInt(bodyData.categoryId),

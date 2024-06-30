@@ -10,7 +10,7 @@ const About = ({data,sectionDetails}) => {
         <h2 className="section__title">{sectionDetails?.about_me_title || "About Me"}</h2>
         <span className="section__subtitle">{sectionDetails?.about_me_subtitle || "My introduction"}</span>
         <div className="about__container cus_container cus_grid">
-          <Image data-aos="fade-right" width={500} height={500} src={data?.img || "/images/about.jpg"} alt="" className="about__img h-[300px] object-cover h-full" />
+          <Image data-aos="fade-right" width={500} height={500} src={data?.img || "/images/about.jpg"} alt={data?.content} className="about__img h-[300px] object-cover h-full" />
           <div data-aos="fade-left" className="about__data flex flex-col justify-center">
             <p className="about__description">
               {data?.content}

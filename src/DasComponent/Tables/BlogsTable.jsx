@@ -11,6 +11,8 @@ import Qualification from "../Forms/Qulification";
 import Image from "next/image";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import BlogsForm from "../Forms/BlogsForm";
+import Link from "next/link";
+import { MdPreview } from "react-icons/md";
 
 const BlogsTable = ({ data }) => {
   const router = useRouter();
@@ -84,7 +86,7 @@ const BlogsTable = ({ data }) => {
     {
       name: "Action",
       selector: (row) => (
-        <div className="p-2 cursor-pointer flex gap-5 text-xl">
+        <div className="p-2 cursor-pointer flex gap-5 text-2xl">
           <FaTrashCan
             className=" text-red-400"
             onClick={() => handleDelete(row?.id)}
@@ -95,6 +97,15 @@ const BlogsTable = ({ data }) => {
               setTableData("");
             }}
           />
+          <Link
+            href={
+              `/blogs/${row?.title
+                .replace(/[^a-zA-Z0-9-.\s]/g, "")
+                .replace(/ /g, "-")}?id=${row?.id}` || "#"
+            }
+          >
+            <MdPreview />
+          </Link>
         </div>
       ),
     },

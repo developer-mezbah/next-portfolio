@@ -105,13 +105,13 @@ const Navbar = ({ data }) => {
   return (
     <header className="header" id="header" style={{ paddingTop: "15px" }}>
       <nav className="nav cus_container">
-        <Link href="/" className="nav__logo w-[300px] overflow-hidden ">
+        <Link href="/" className="nav__logo w-[250px] overflow-hidden ">
           <Image
             alt={data?.footer_description}
             src={data?.logo}
             width={500}
             height={500}
-            className="md:w-full w-2/3 mb-2 md:my-0"
+            className="w-full mb-2 md:my-0"
           />
         </Link>
         <div className="nav__menu" id="nav-menu">

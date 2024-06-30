@@ -24,6 +24,7 @@ const ProjectsForm = ({ name, data, setUpdateForm, categories }) => {
     preview_url: data?.preview_url || "",
     type: data?.type || "",
     categoryId: data?.categoryId || "",
+    keywords: data?.keywords || "",
   });
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -147,7 +148,6 @@ const ProjectsForm = ({ name, data, setUpdateForm, categories }) => {
       setImg("");
     }
   }, []);
-
   return (
     <>
       <div className="dashboard-form-bg flex flex-col">
@@ -221,6 +221,21 @@ const ProjectsForm = ({ name, data, setUpdateForm, categories }) => {
                 placeholder="For slider"
                 name="type"
                 value={formData.type}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <label className="dashboard-label" htmlFor="keywords">
+                keywords
+              </label>
+              <textarea
+                rows={4}
+                type="text"
+                id="keywords"
+                className="dashboard-input"
+                placeholder="Write keywords"
+                name="keywords"
+                value={formData.keywords}
                 onChange={handleInputChange}
               />
             </div>

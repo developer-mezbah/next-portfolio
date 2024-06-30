@@ -1,3 +1,4 @@
+export const revalidate = 0; 
 import ProjectDetails from "@/components/ProjectDetails/ProjectDetails";
 import MasterLayout from "@/layout/MasterLayout";
 import { PrismaClient } from "@prisma/client";
@@ -26,8 +27,9 @@ export async function generateMetadata(props) {
   let id = await props.searchParams["id"];
   const data = await getData(id);
   return {
-    title: data?.projects[0]?.title,
+    title: data?.projects?.title,
     description: data?.projects?.description,
+    keywords: [data?.projects?.keywords],
     openGraph: {
       title: data?.projects?.title,
       images: [data?.projects?.long_img, data?.projects?.banner_img],

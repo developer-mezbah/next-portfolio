@@ -8,7 +8,6 @@ export async function PUT(req, res) {
     const prisma = new PrismaClient();
     const { searchParams } = new URL(req.url);
     const id = parseInt(searchParams.get("id"));
-
     const profileResult = await prisma.profile.findFirst();
     const createdProject = await prisma.projects.update({
       data: {
@@ -19,6 +18,7 @@ export async function PUT(req, res) {
         preview_url: bodyData.preview_url,
         title: bodyData.title,
         description: bodyData.description,
+        keywords: bodyData.keywords,
         type: bodyData.type,
         profileId: profileResult.id,
         categoryId: parseInt(bodyData.categoryId),

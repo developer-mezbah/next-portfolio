@@ -10,8 +10,10 @@ import { FiEdit } from "react-icons/fi";
 import Image from "next/image";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import ProjectsForm from "../Forms/ProjectsForm";
+import Link from "next/link";
+import { MdPreview } from "react-icons/md";
 
-const ProjectsTable = ({ data,categories }) => {
+const ProjectsTable = ({ data, categories }) => {
   const router = useRouter();
   const [loader, setLoader] = useState(true);
   const [updateForm, setUpdateForm] = useState(false);
@@ -33,13 +35,15 @@ const ProjectsTable = ({ data,categories }) => {
     return `${day}-${month}-${year}`;
   };
   const handleDelete = (id) => {
-    DeleteAlert(`/api/dashboard/projects/delete-project?id=${id}`).then((res) => {
-      if (res) {
-        router.refresh();
-        SuccessToast("Deleted Data!");
-        setTableData(tableData.filter((prev) => prev.id !== id));
+    DeleteAlert(`/api/dashboard/projects/delete-project?id=${id}`).then(
+      (res) => {
+        if (res) {
+          router.refresh();
+          SuccessToast("Deleted Data!");
+          setTableData(tableData.filter((prev) => prev.id !== id));
+        }
       }
-    });
+    );
   };
 
   const handleUpdate = (data) => {
@@ -83,7 +87,7 @@ const ProjectsTable = ({ data,categories }) => {
     {
       name: "Action",
       selector: (row) => (
-        <div className="p-2 cursor-pointer flex gap-5 text-xl">
+        <div className="p-2 cursor-pointer flex gap-5 text-2xl">
           <FaTrashCan
             className=" text-red-400"
             onClick={() => handleDelete(row?.id)}
@@ -94,6 +98,15 @@ const ProjectsTable = ({ data,categories }) => {
               setTableData("");
             }}
           />
+          <Link
+            href={
+              `/projects/${row?.title
+                .replace(/[^a-zA-Z0-9-.\s]/g, "")
+                .replace(/ /g, "-")}?id=${row?.id}` || "#"
+            }
+          >
+            <MdPreview />
+          </Link>
         </div>
       ),
     },
