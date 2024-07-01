@@ -8,14 +8,14 @@ const ProjectDetailsBanner = ({ data }) => {
     <div className="flex justify-center items-center overflow-auto">
       <div className="w-full h-full relative">
         <div
-          className="pb-14 bg-transparent py-4 px-4 rounded-3xl h-full shadow-2xl"
+          className="md:pb-[7rem] pb-14 bg-transparent pt-4 px-4 rounded-3xl h-full shadow-2xl"
           style={{ border: "8px solid var(--first-color)" }}
         >
           <Image
             width={600}
             height={500}
             src={data?.banner_img || "/images/image-not-found.png"}
-            className="h-[500px] w-full object-scale-down"
+            className="max-h-[500px] w-full object-scale-down"
             alt={data?.title}
           />
 
@@ -29,7 +29,7 @@ const ProjectDetailsBanner = ({ data }) => {
               >
                 <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
               </svg>
-              <p className="text-lg font-semibold mb-2">Category</p>
+              <p className="text-lg font-semibold mb-2">Productionable</p>
             </div>
           </div>
         </div>

@@ -7,6 +7,7 @@ import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { IoSendSharp } from "react-icons/io5";
 import toast from "react-hot-toast";
+import { ErrorToast, IsEmpty } from "@/utils/FormHelper";
 
 const Contact = ({ sectionDetails,contactData }) => {
   const [loader, setLoader] = useState(false);
@@ -17,6 +18,22 @@ const Contact = ({ sectionDetails,contactData }) => {
     const email = e.target.email.value;
     const subject = e.target.subject.value;
     const message = e.target.message.value;
+    if (IsEmpty(name)) {
+      setLoader(false);
+      return ErrorToast("Write your name!")
+    }
+    if (IsEmpty(email)) {
+      setLoader(false);
+      return ErrorToast("Write your email!")
+    }
+    if (IsEmpty(subject)) {
+      setLoader(false);
+      return ErrorToast("Write Email subject or project!")
+    }
+    if (IsEmpty(message)) {
+      setLoader(false);
+      return ErrorToast("Write your message!")
+    }
     console.log({ name, email, subject, message });
     emailjs
       .send(

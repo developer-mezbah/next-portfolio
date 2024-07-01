@@ -14,8 +14,8 @@ const BlogCard = ({
   blogUrl,
 }) => {
   return (
-    <CardContainer className="inter-var border-2 border-[#CB43CB] rounded-xl mb-10">
-      <CardBody className="relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:border-white/[0.2] border-black/[0.1] w-auto h-auto rounded-xl p-6 border ">
+    <CardContainer className="inter-var border-2 border-[#CB43CB] rounded-xl mb-10 w-full">
+      <CardBody className="relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:border-white/[0.2] border-black/[0.1] h-auto rounded-xl p-6 border w-full">
         <CardItem translateZ="50" className="text-xl font-bold">
           Make things float in air
         </CardItem>
@@ -26,13 +26,13 @@ const BlogCard = ({
         >
           {body.substring(0, 200)}...
         </CardItem>
-        <CardItem translateZ="100" className="w-full sm:mt-4 mt-0">
+        <CardItem translateZ="100" className="w-full md:mt-4 mt-0">
           <Image
             src={image || "/images/about.jpg"}
             alt={title}
             width={500}
             height={300}
-            className="sm:h-[250px] w-full object-scale-down rounded min-w-[350px]"
+            className="sm:max-h-[350px] w-full object-scale-down rounded mx-auto"
           />
         </CardItem>
         <div className="flex justify-between items-center mt-5">
@@ -45,10 +45,7 @@ const BlogCard = ({
             {moment(publishedDate).format("MMMM Do YYYY")}
           </CardItem>
           <CardItem translateZ={20} as="button">
-            <Link
-              className="button button--flex text-sm"
-              href={blogUrl || "#"}
-            >
+            <Link className="button button--flex text-sm" href={blogUrl || "#"}>
               Read Full Article
             </Link>
           </CardItem>
