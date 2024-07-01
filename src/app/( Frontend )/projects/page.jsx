@@ -2,13 +2,10 @@ export const revalidate = 0;
 import { TracingBeam } from "@/components/Others/TracingBeam";
 import Projects from "@/components/Projects/Projects";
 import MasterLayout from "@/layout/MasterLayout";
-// import { projectSlider, projects } from "@/utils/fakeData";
-// import { PrismaClient } from "@prisma/client";
 import prisma from "@/utils/prisma";
 
 async function getData() {
   try {
-    // const prisma = new PrismaClient();
     const projects = await prisma.projects.findMany({
       orderBy: { id: "desc" },
       include: {

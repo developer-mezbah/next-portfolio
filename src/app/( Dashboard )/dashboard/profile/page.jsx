@@ -1,9 +1,8 @@
 export const revalidate = 0;
 import ProfileForm from '@/DasComponent/Forms/ProfileForm'
-import { PrismaClient } from '@prisma/client';
+import prisma from '@/utils/prisma';
 
 async function getData(){
-    const prisma = new PrismaClient();
     const data = await prisma.profile.findFirst({});
     return data
 }

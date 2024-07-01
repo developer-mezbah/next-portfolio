@@ -1,12 +1,10 @@
 export const revalidate = 0; 
 import ProjectDetails from "@/components/ProjectDetails/ProjectDetails";
 import MasterLayout from "@/layout/MasterLayout";
-// import { PrismaClient } from "@prisma/client";
 import prisma from "@/utils/prisma";
 
 async function getData(id) {
   try {
-    // const prisma = new PrismaClient();
     const projects = await prisma.projects.findUnique({
       where: { id: parseInt(id) },
       include: {

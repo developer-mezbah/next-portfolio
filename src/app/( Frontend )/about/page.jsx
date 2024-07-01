@@ -2,11 +2,9 @@ export const revalidate = 0;
 import About from "@/components/About/About";
 import MasterLayout from "@/layout/MasterLayout";
 import prisma from "@/utils/prisma";
-// import { PrismaClient } from "@prisma/client";
 
 async function getData() {
   try {
-    // const prisma = new PrismaClient();
     const data = await prisma.About_me.findFirst({});
     const sectionDetails = await prisma.section_details.findFirst({});
     return { data, sectionDetails };

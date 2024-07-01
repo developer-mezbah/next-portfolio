@@ -4,12 +4,10 @@ import styles from "@/DasComponent/DashboardHome/dashboard.module.css";
 import Transaction from "@/DasComponent/DashboardHome/Transaction/Transaction";
 import Chart from "@/DasComponent/DashboardHome/Chart/Chart";
 import RightBar from "@/DasComponent/DashboardHome/Rightbar/Rightbar";
-// import { PrismaClient } from "@prisma/client";
 import CommentTable from "@/DasComponent/Tables/CommentsTable";
 import prisma from "@/utils/prisma";
 
 async function getData() {
-  // const prisma = new PrismaClient();
   let visitor_data = await prisma.visitor_data.count();
   let projects = await prisma.Projects.count();
   let blog = await prisma.Blog.count();

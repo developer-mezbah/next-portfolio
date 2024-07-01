@@ -1,10 +1,8 @@
 export const revalidate = 0;
 import TestimonialsTable from "@/DasComponent/Tables/TestimonialsTable";
-// import { PrismaClient } from "@prisma/client";
 import prisma from "@/utils/prisma";
 
 async function getData() {
-  // const prisma = new PrismaClient();
   const data = await prisma.testimonial.findMany({
     orderBy: { id: "desc" },
   });

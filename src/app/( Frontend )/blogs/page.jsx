@@ -2,11 +2,9 @@ export const revalidate = 0;
 import BlogCard from "@/components/Blogs/BlogCard";
 import { TracingBeam } from "@/components/Others/TracingBeam";
 import MasterLayout from "@/layout/MasterLayout";
-// import { PrismaClient } from "@prisma/client";
 import prisma from "@/utils/prisma";
 
 async function getData() {
-  // let prisma = new PrismaClient();
   const data = await prisma.blog.findMany({
     include: { profile: { select: { user_name: true, img: true } } },
   });

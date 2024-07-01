@@ -1,12 +1,10 @@
 export const revalidate = 0;
 import Skills from "@/components/Skills/Skills";
 import MasterLayout from "@/layout/MasterLayout";
-// import { PrismaClient } from "@prisma/client";
 import prisma from "@/utils/prisma";
 
 async function getData() {
   try {
-    // const prisma = new PrismaClient();
     const data = await prisma.skills.findMany({
       include: { skill_items: true },
     });

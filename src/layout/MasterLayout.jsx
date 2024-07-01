@@ -1,12 +1,10 @@
 export const revalidate = 0;
 import Navbar from "./Header/Navbar";
 import Footer from "./Footer/Footer";
-// import { PrismaClient } from "@prisma/client";  
 import prisma from "@/utils/prisma";
 
 async function getData() {
   try {
-    // const prisma = new PrismaClient();
     const social = await prisma.Social_media.findFirst({});
     const web_info = await prisma.Web_information.findFirst({});
 

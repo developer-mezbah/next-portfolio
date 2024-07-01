@@ -1,4 +1,3 @@
-// import { PrismaClient } from "@prisma/client";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -6,7 +5,6 @@ import { VscSend } from "react-icons/vsc";
 import prisma from "@/utils/prisma";
 
 async function getData() {
-  // const prisma = new PrismaClient();
   const data = await prisma.Discount_project.findFirst({});
   return data;
 }

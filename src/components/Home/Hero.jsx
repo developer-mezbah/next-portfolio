@@ -1,4 +1,3 @@
-// import { PrismaClient } from "@prisma/client";
 import Link from "next/link";
 import { CiFacebook } from "react-icons/ci";
 import { FiGithub, FiLinkedin } from "react-icons/fi";
@@ -8,7 +7,6 @@ import TypeWriter from "../Others/TypeWriter";
 import prisma from "@/utils/prisma";
 
 async function postData() {
-  // const prisma = new PrismaClient();
   const result = await prisma.hero.create({
     data: {
       title1: "",
@@ -24,7 +22,6 @@ async function postData() {
 
 async function getData() {
   try {
-    // const prisma = new PrismaClient();
     let hero_data = await prisma.hero.findFirst({});
     const social = await prisma.Social_media.findFirst({});
     return { hero_data, social };

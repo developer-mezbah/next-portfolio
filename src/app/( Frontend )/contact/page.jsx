@@ -1,13 +1,11 @@
 export const revalidate = 0;
 import Contact from "@/components/Contact/Contact";
 import MasterLayout from "@/layout/MasterLayout";
-// import { PrismaClient } from "@prisma/client";
 import React from "react";
 import prisma from "@/utils/prisma";
 
 async function getData() {
   try {
-    // const prisma = new PrismaClient();
     const sectionDetails = await prisma.section_details.findFirst({});
     const web_info = await prisma.Web_information.findFirst({});
     return { sectionDetails, web_info };
