@@ -1,5 +1,5 @@
 export const revalidate = 0;
-import { PrismaClient } from "@prisma/client";
+import prisma from "@/utils/prisma";
 import { NextResponse } from "next/server";
 
 // create comment
@@ -7,7 +7,6 @@ export async function POST(req, res) {
     try {
       let reqBody = await req.json();
       reqBody.blogId = parseInt(reqBody.blogId)
-      let prisma = new PrismaClient();
       let result = await prisma.comment.create({
         data: reqBody,
       });

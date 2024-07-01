@@ -1,7 +1,6 @@
-import { PrismaClient } from "@prisma/client";
+import prisma from "@/utils/prisma";
 import { NextResponse } from "next/server";
 export async function POST(req, res) {
-  let prisma = new PrismaClient();
   try {
     let reqBody = await req.json();
     const existingVisit = await prisma.visitor_data.findMany({

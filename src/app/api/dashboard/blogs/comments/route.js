@@ -1,5 +1,5 @@
 export const revalidate = 0;
-import { PrismaClient } from "@prisma/client";
+import prisma from "@/utils/prisma";
 import { NextResponse } from "next/server";
 
 // create comment
@@ -7,7 +7,6 @@ export async function POST(req, res) {
   try {
     let reqBody = await req.json();
     reqBody.blogId = parseInt(reqBody.blogId)
-    let prisma = new PrismaClient();
     let result = await prisma.comment.create({
       data: reqBody,
     });
@@ -24,7 +23,6 @@ export async function DELETE(req, res) {
     let { searchParams } = new URL(req.url);
     let ID = searchParams.get("id");
 
-    let prisma = new PrismaClient();
 
     let result = await prisma.comment.delete({
       where: { id: parseInt(ID) },
@@ -39,7 +37,6 @@ export async function DELETE(req, res) {
 // comments read all
 export async function GET(req, res) {
   try {
-    let prisma = new PrismaClient();
 
     let result = await prisma.comment.findMany({
       include: {blog: {select: {title: true}}}
@@ -58,7 +55,6 @@ export async function PUT(req, res) {
     let serviceID = searchParams.get("id");
 
     let reqBody = await req.json();
-    let prisma = new PrismaClient();
 
     let result = await prisma.comment.update({
       where: { id: parseInt(serviceID) },

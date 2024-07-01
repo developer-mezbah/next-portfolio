@@ -1,11 +1,10 @@
 export const revalidate = 0;
-import { PrismaClient } from "@prisma/client";
+import prisma from "@/utils/prisma";
 import { NextResponse } from "next/server";
 
 export async function PUT(req, res) {
   try {
     const bodyData = await req.json();
-    const prisma = new PrismaClient();
     const { searchParams } = new URL(req.url);
     const id = parseInt(searchParams.get("id"));
     const profileResult = await prisma.profile.findFirst();

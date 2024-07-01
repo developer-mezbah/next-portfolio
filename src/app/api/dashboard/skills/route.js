@@ -1,10 +1,9 @@
 export const revalidate = 0;
-import { PrismaClient } from "@prisma/client";
+import prisma from "@/utils/prisma";
 import { NextResponse } from "next/server";
 
 export async function GET(req, res) {
   try {
-    const prisma = new PrismaClient();
     const result = await prisma.Skills.findMany({
       orderBy: { id: "desc" },
       include: { skill_items: true },
@@ -18,7 +17,6 @@ export async function GET(req, res) {
 export async function POST(req, res) {
   try {
     const bodyData = await req.json();
-    const prisma = new PrismaClient();
 
     const createdSkill = await prisma.skills.create({
       data: {
@@ -50,7 +48,6 @@ export async function DELETE(req, res) {
   try {
     const { searchParams } = new URL(req.url);
     const id = parseInt(searchParams.get("id"));
-    const prisma = new PrismaClient();
     const result = await prisma.skills.delete({
       where: { id },
     });
@@ -63,7 +60,6 @@ export async function DELETE(req, res) {
 export async function PUT(req, res) {
   try {
     const bodyData = await req.json();
-    const prisma = new PrismaClient();
     const { searchParams } = new URL(req.url);
     const id = parseInt(searchParams.get("id"));
 

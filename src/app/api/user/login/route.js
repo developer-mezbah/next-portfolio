@@ -1,5 +1,5 @@
 import { CreateToken } from "@/utils/JWTTokenHelper";
-import { PrismaClient } from "@prisma/client";
+import prisma from "@/utils/prisma";
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 
@@ -8,7 +8,6 @@ const md5 = require("md5");
 export async function POST(req, res) {
   try {
     let reqBody = await req.json();
-    const prisma = new PrismaClient();
     reqBody.password = md5(reqBody.password);
 
     const result = await prisma.profile.findMany({
@@ -32,7 +31,6 @@ export async function POST(req, res) {
 
 export async function GET(req, res) {
   try {
-    const prisma = new PrismaClient();
     let headerList = headers();
     let id = parseInt(headerList.get("id"));
     return NextResponse.json({ status: "success", data: "data" });

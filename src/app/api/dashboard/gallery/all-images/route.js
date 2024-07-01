@@ -1,5 +1,5 @@
 export const revalidate = 0;
-import { PrismaClient } from "@prisma/client";
+import prisma from "@/utils/prisma";
 import { NextResponse } from "next/server";
 
 // Get all images from gallery
@@ -7,7 +7,6 @@ export async function GET(req, res) {
   try {
     const { searchParams } = new URL(req.url);
     const id = parseInt(searchParams.get("id"));
-    const prisma = new PrismaClient();
     if (id) {
       const result = await prisma.gallery_img.findMany({
         where: { cat_id: id },

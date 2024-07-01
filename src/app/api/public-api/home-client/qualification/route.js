@@ -1,10 +1,9 @@
 export const revalidate = 0;
-import { PrismaClient } from "@prisma/client";
+import prisma from "@/utils/prisma";
 import { NextResponse } from "next/server";
 
 export async function GET(req, res) {
   try {
-    const prisma = new PrismaClient();
     let educationQualify = await prisma.qualification.findMany({
       where: { role: "Education" },
     });

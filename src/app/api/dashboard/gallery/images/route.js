@@ -1,14 +1,13 @@
 export const revalidate = 0;
-import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
 import cloudinary from "cloudinary";
+import prisma from "@/utils/prisma";
 
 // GET images by category name
 export async function GET(req, res) {
   try {
     const { searchParams } = new URL(req.url);
     const cat_id = parseInt(searchParams.get("id"));
-    const prisma = new PrismaClient();
     const result = await prisma.gallery_img.findMany({
       where: { cat_id },
     });
@@ -24,7 +23,6 @@ export async function POST(req, res) {
     const reqBody = await req.json();
     const { searchParams } = new URL(req.url);
     const cat_id = parseInt(searchParams.get("id"));
-    const prisma = new PrismaClient();
     const result = await prisma.gallery_img.create({
       data: {
         img_url: reqBody.img_url,
@@ -49,7 +47,6 @@ export async function DELETE(req, res) {
     const { searchParams } = new URL(req.url);
     const id = parseInt(searchParams.get("id"));
     const public_id = searchParams.get("public_id");
-    const prisma = new PrismaClient();
 
     const result = await cloudinary.v2.uploader.destroy(public_id);
     if (result.result === "ok") {
