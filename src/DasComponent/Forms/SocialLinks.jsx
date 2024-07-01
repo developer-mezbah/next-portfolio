@@ -1,4 +1,4 @@
-
+"use client"
 import SubmitButton from "../Others/SubmitButton";
 import FormTitle from "../Others/FormTitle";
 import AddImage from "../Gallery/AddImage";

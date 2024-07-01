@@ -1,4 +1,3 @@
-"use client";
 import HeroForm from "@/DasComponent/Forms/HeroForm";
 import ParallaxEffect from "@/DasComponent/Forms/ParallaxEffect";
 import Qulification from "@/DasComponent/Forms/Qulification";

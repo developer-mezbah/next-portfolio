@@ -28,18 +28,18 @@ async function getData() {
 }
 
 
-export async function generateMetadata() {
-  const data = await getData();
-  return {
-    title: "Projects | Mezbah Uddin",
-    description: "This is Projects page. I am Mezbah Uddin, a dedicated and passionate full stack web developer with a keen eye for detail and a commitment to creating seamless, user-friendly web experiences. With expertise in both front-end and back-end technologies, I specialize in building robust, scalable, and dynamic web applications. My proficiency spans across HTML, CSS, JavaScript, and various back-end frameworks, enabling me to deliver comprehensive solutions tailored to meet diverse client needs. I thrive in collaborative environments, continuously seeking opportunities to innovate and enhance the digital landscape through cutting-edge web development practices.",
-    openGraph: {
-      title: data?.projects[0]?.title,
-      images: [data?.projects[0]?.banner_img,data?.projects[1]?.banner_img,data?.projects[2]?.banner_img,data?.projects[3]?.banner_img],
-      description: data?.projects[0]?.description,
-    },
-  };
-}
+// export async function generateMetadata() {
+//   const data = await getData();
+//   return {
+//     title: "Projects | Mezbah Uddin",
+//     description: "This is Projects page. I am Mezbah Uddin, a dedicated and passionate full stack web developer with a keen eye for detail and a commitment to creating seamless, user-friendly web experiences. With expertise in both front-end and back-end technologies, I specialize in building robust, scalable, and dynamic web applications. My proficiency spans across HTML, CSS, JavaScript, and various back-end frameworks, enabling me to deliver comprehensive solutions tailored to meet diverse client needs. I thrive in collaborative environments, continuously seeking opportunities to innovate and enhance the digital landscape through cutting-edge web development practices.",
+//     openGraph: {
+//       title: data?.projects[0]?.title,
+//       images: [data?.projects[0]?.banner_img,data?.projects[1]?.banner_img,data?.projects[2]?.banner_img,data?.projects[3]?.banner_img],
+//       description: data?.projects[0]?.description,
+//     },
+//   };
+// }
 
 
 

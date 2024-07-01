@@ -1,4 +1,4 @@
-export const revalidate = 0;
+// export const revalidate = 0;
 import Navbar from "./Header/Navbar";
 import Footer from "./Footer/Footer";
 import prisma from "@/utils/prisma";
