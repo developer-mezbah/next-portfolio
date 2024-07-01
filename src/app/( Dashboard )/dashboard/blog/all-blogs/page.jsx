@@ -1,9 +1,10 @@
 export const revalidate = 0;
 import BlogsTable from '@/DasComponent/Tables/BlogsTable'
-import { PrismaClient } from '@prisma/client';
+import prisma from '@/utils/prisma';
+// import { PrismaClient } from '@prisma/client';
 
 async function getData(){
-  const prisma = new PrismaClient();
+  // const prisma = new PrismaClient();
   const data = await prisma.blog.findMany({
     include: { profile: { select: { user_name: true } } },
   });

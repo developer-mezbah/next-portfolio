@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 
 const TransitionProvider = ({ children }) => {
   const pathName = usePathname();
-
   return (
     <>
       {!pathName.includes("dashboard") ? (

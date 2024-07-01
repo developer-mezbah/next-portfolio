@@ -24,7 +24,7 @@ async function postData() {
 
 async function getData() {
   try {
-    const prisma = new PrismaClient();
+    // const prisma = new PrismaClient();
     let hero_data = await prisma.hero.findFirst({});
     const social = await prisma.Social_media.findFirst({});
     return { hero_data, social };

@@ -7,7 +7,6 @@ import { useEffect } from "react";
 import parse from "html-react-parser";
 
 const Skills = ({ data,sectionDetails }) => {
-  console.log(sectionDetails);
   useEffect(() => {
     // Dynamic Width Change from html element value
     function dynamicSkillsWidth() {
