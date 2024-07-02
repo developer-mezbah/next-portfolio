@@ -42,7 +42,7 @@ const LoginComponent = ({ data }) => {
       client_api.login({ email, password }).then((res) => {
         if (res?.status === true) {
           SuccessToast("Login Success!");
-          router.push("/dashboard");
+          router.replace("/dashboard");
           setSubmit(false);
           setLoader(false)
         } else {
