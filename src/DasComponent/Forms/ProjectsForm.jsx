@@ -34,8 +34,6 @@ const ProjectsForm = ({ name, data, setUpdateForm, categories }) => {
     //validation data
     if (
       IsEmpty(formData.title) ||
-      IsEmpty(formData.code_url) ||
-      IsEmpty(formData.preview_url) ||
       IsEmpty(img) ||
       IsEmpty(longimg) ||
       IsEmpty(editorData)
