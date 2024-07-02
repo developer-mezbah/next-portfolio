@@ -25,7 +25,7 @@ const ProjectCard = ({ data }) => {
           >
             <div className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
               <div className="flex gap-2 mb-2">
-                <Link href={data?.code_url || "#"}>
+                <Link href={data?.code_url || "#"} target="_blank">
                   <div
                     className="flex items-center gap-2 text-white text-xl cursor-pointer px-3 py-1 rounded-lg hover:bg-black"
                     style={{ border: "2px solid var(--first-color)" }}
