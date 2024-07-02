@@ -54,7 +54,7 @@ const page = async () => {
                   authorUrl={blog?.profile.img}
                   publishedDate={blog.createAt}
                   body={blog.short_des}
-                  blogUrl={`/blogs/${blog?.title
+                  blogUrl={`/blog-details/${blog?.title
                     .replace(/[^a-zA-Z0-9-.\s]/g, "")
                     .replace(/ /g, "-")}?id=${blog?.id}`}
                 />

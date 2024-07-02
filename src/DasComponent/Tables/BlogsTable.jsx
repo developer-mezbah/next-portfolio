@@ -99,7 +99,7 @@ const BlogsTable = ({ data }) => {
           />
           <Link
             href={
-              `/blogs/${row?.title
+              `/blog-details/${row?.title
                 .replace(/[^a-zA-Z0-9-.\s]/g, "")
                 .replace(/ /g, "-")}?id=${row?.id}` || "#"
             }

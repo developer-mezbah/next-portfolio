@@ -100,7 +100,7 @@ const ProjectsTable = ({ data, categories }) => {
           />
           <Link
             href={
-              `/projects/${row?.title
+              `/project-details/${row?.title
                 .replace(/[^a-zA-Z0-9-.\s]/g, "")
                 .replace(/ /g, "-")}?id=${row?.id}` || "#"
             }

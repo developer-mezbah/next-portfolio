@@ -63,7 +63,7 @@ const TopNavbar = ({ handleNavbar, smallNavbar }) => {
             <RxDashboard className="text-xl text-white" />
           </li>
           <li>
-            <Link href={"/"}><RiFullscreenExitFill className="text-xl text-white" /></Link>
+            <Link target="_blank" href={"/"}><RiFullscreenExitFill className="text-xl text-white" /></Link>
           </li>
           <li className="flex gap-2">
             <div>
