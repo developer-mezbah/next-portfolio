@@ -65,7 +65,7 @@ const Skills = ({ data,sectionDetails }) => {
           <div key={item.id} className={`skills__content ${index ==0 ? "skills__open" : "skills__close"}`}>
             <div className="skills__header">
               {/* <PiBracketsCurlyBold className="skills__icon" /> */}
-              <span className="skills__icon">{parse(item?.svg)}</span>
+              <span className="skills__icon" style={{height: "100px", width: "100px"}}>{parse(item?.svg)}</span>
               <div>
                 <h1 className="skills__titles">{item?.title}</h1>
                 <span className="skills__subtitle">{item?.subTitle}</span>
