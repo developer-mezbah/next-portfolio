@@ -34,7 +34,7 @@ const ProjectCard = ({ data }) => {
                     <span>Code</span>
                   </div>
                 </Link>
-                <Link href={data?.preview_url || "#"}>
+                <Link href={data?.preview_url || "#"} target="_blank">
                   <div
                     className="flex items-center gap-2 text-white text-xl cursor-pointer px-3 py-1 rounded-lg hover:bg-black"
                     style={{ border: "2px solid var(--first-color)" }}

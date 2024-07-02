@@ -39,7 +39,7 @@ export async function generateMetadata(props) {
   };
 }
 
-const SingleBlog = async (props) => {
+export default async function Page(props) {
   let id = await props.searchParams["id"];
   const data = await getData(id);
   return (
@@ -53,4 +53,3 @@ const SingleBlog = async (props) => {
   );
 };
 
-export default SingleBlog;
