@@ -5,8 +5,9 @@ import { FaSwatchbook } from "react-icons/fa";
 import { FaAngleDown } from "react-icons/fa";
 import { useEffect } from "react";
 import parse from "html-react-parser";
+import CountUpOnScroll from "@/utils/CountUpOnScroll";
 
-const Skills = ({ data,sectionDetails }) => {
+const Skills = ({ data, sectionDetails }) => {
   useEffect(() => {
     // Dynamic Width Change from html element value
     function dynamicSkillsWidth() {
@@ -57,15 +58,29 @@ const Skills = ({ data,sectionDetails }) => {
   }, []);
   return (
     <section className="skills section anime" id="skills">
-      <h2 className="section__title">{ sectionDetails?.skills_title || "Skills"}</h2>
-      <span className="section__subtitle">{ sectionDetails?.skills_subtitle || "My Technical level"}</span>
+      <h2 className="section__title">
+        {sectionDetails?.skills_title || "Skills"}
+      </h2>
+      <span className="section__subtitle">
+        {sectionDetails?.skills_subtitle || "My Technical level"}
+      </span>
       <div className="skills__container cus_container cus_grid">
         {/* Skils Part 1 */}
         {data?.map((item, index) => (
-          <div key={item.id} className={`skills__content ${index ==0 ? "skills__open" : "skills__close"}`}>
+          <div
+            key={item.id}
+            className={`skills__content ${
+              index == 0 ? "skills__open" : "skills__close"
+            }`}
+          >
             <div className="skills__header">
               {/* <PiBracketsCurlyBold className="skills__icon" /> */}
-              <span className="skills__icon" style={{height: "100px", width: "100px"}}>{parse(item?.svg)}</span>
+              <span
+                className="skills__icon"
+                style={{ height: "100px", width: "100px" }}
+              >
+                {parse(item?.svg)}
+              </span>
               <div>
                 <h1 className="skills__titles">{item?.title}</h1>
                 <span className="skills__subtitle">{item?.subTitle}</span>
@@ -73,20 +88,21 @@ const Skills = ({ data,sectionDetails }) => {
               <FaAngleDown className="skills__arrow" />
             </div>
             <div className="skills__list cus_grid">
-              {
-                item?.skill_items.map(skill => (
-                  <div key={skill.id} className="skills__data">
-                <div className="skills__titles">
-                  <h3 className="skills__name">{skill?.name}</h3>
-                  <span className="skills__number">{skill?.percent}%</span>
+              {item?.skill_items.map((skill) => (
+                <div key={skill.id} className="skills__data">
+                  <div className="skills__titles">
+                    <h3 className="skills__name">{skill?.name}</h3>
+                    <span className="skills__number flex">
+                      <CountUpOnScroll number={skill?.percent} />%
+                      {/* {skill?.percent}% */}
+                    </span>
+                  </div>
+                  <div className="skills__bar">
+                    <span className="skills__percentage skills__html" />
+                  </div>
                 </div>
-                <div className="skills__bar">
-                  <span className="skills__percentage skills__html" />
-                </div>
-              </div>
-                ))
-              }
-{/*               
+              ))}
+              {/*               
               <div className="skills__data">
                 <div className="skills__titles">
                   <h3 className="skills__name">CSS</h3>

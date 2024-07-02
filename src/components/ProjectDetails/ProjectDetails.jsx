@@ -39,7 +39,7 @@ const ProjectDetails = ({ data,relatedProjects }) => {
           <div className="flex items-center justify-between text-xl">
             <h3>Regular Price</h3>{" "}
             <span>
-              {data.price ? <sup>${data?.price}</sup> : <sup>FREE</sup>}
+              {data?.price ? <sup>${data?.price}</sup> : <sup>FREE</sup>}
             </span>
           </div>
           <hr

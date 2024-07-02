@@ -15,7 +15,7 @@ import "./SkillLibraries.css";
 export default function ParallaxText({ baseVelocity = 100, reverse }) {
   const [title, setTitle] = useState(null);
   useEffect(() => {
-    fetch("/api/public-api/home-client/qualification")
+    fetch("/api/public-api/home-client/parallax")
       .then((res) => res.json())
       .then((data) => {
         setTitle(reverse ? data?.data?.reverse_title : data?.data?.title);

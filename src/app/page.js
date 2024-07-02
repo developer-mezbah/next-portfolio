@@ -14,7 +14,7 @@ export default function Home() {
     <MasterLayout>
       <Hero />
       <Tabs />
-      <div className="w-screen md:py-20 py-10 rotate-[4deg]">
+      <div className="w-screen md:py-20 py-10 rotate-[3deg]">
         <ParallaxText baseVelocity={-5} reverse={false} />
         <ParallaxText baseVelocity={5} reverse={true} />
       </div>

@@ -28,7 +28,7 @@ const CountUpOnScroll = ({ number }) => {
         decimals={number >= 1000 ? 1 : 0}
         decimal="."
         prefix=""
-        suffix={number >= 1000 ? "" : "+"}
+        suffix={number >= 1000 ? "" : ""}
         redraw={true} // Ensure the CountUp component is redrawn when props change
       />
     </div>

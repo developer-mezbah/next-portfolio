@@ -40,13 +40,28 @@ export async function generateMetadata(props) {
 
 const ProjectsDetails = async (props) => {
   let id = await props.searchParams["id"]
-  const data = await getData(id);
+  // const data = await getData(id);
+
+
+  const projects = prisma.projects.findUnique({
+    where: { id: parseInt(id) },
+    include: {
+      profile: { select: { user_name: true, img: true } },
+      key_feature: true,
+      for_developer: true,
+    },
+  });
+  const relatedProjects = prisma.projects.findMany({
+    where: { categoryId: projects.categoryId },
+  });
+
+  const [projectsData, relatedProjectsData] = await Promise.all([projects, relatedProjects])
   return (
     <MasterLayout>
       <div>
         <ProjectDetails
-          data={data?.projects}
-          relatedProjects={data?.relatedProjects}
+          data={projectsData}
+          relatedProjects={relatedProjectsData}
         />
       </div>
     </MasterLayout>

@@ -18,7 +18,7 @@ const About = ({data,sectionDetails}) => {
             <div className="about__info">
               <div>
                 <span className="about__info-title">
-                  <CountUpOnScroll number={data?.expericed}/>
+                  <div className="flex justify-center"><CountUpOnScroll number={data?.expericed}/>+</div>
                 </span>
                 <span className="about__info-name">
                   Years <br />
@@ -27,7 +27,8 @@ const About = ({data,sectionDetails}) => {
               </div>
               <div>
                 <span className="about__info-title">
-                <CountUpOnScroll number={data?.projects}/>
+                  
+                <div className="flex justify-center"><CountUpOnScroll number={data?.projects}/>+</div>
                 </span>
                 <span className="about__info-name">
                   Completed <br />
@@ -36,7 +37,7 @@ const About = ({data,sectionDetails}) => {
               </div>
               <div>
                 <span className="about__info-title">
-                <CountUpOnScroll number={data?.works}/>
+                <div className="flex justify-center"><CountUpOnScroll number={data?.works}/>+</div>
                 </span>
                 <span className="about__info-name">
                   Companies <br />
