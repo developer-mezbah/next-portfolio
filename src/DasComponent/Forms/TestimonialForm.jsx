@@ -16,7 +16,7 @@ const TestimonialForm = ({ name, data, setUpdateForm }) => {
     description: data?.description || "",
     rating: data?.rating || 0,
   });
-  const [img, setImg] = useState(data?.img || "")
+  const [img, setImg] = useState(setUpdateForm ? data?.img || "" : "");
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -34,34 +34,48 @@ const TestimonialForm = ({ name, data, setUpdateForm }) => {
     }
     if (data) {
       client_api
-        .update(`/api/dashboard/testimonial?id=${data.id}`, {name: formData.name, title: formData.title, description: formData.description,rating: parseFloat(formData.rating), img})
+        .update(`/api/dashboard/testimonial?id=${data.id}`, {
+          name: formData.name,
+          title: formData.title,
+          description: formData.description,
+          rating: parseFloat(formData.rating),
+          img,
+        })
         .then((res) => {
           if (res.status == "success") {
             SuccessToast("Data Updated!");
             setUpdateForm(false);
-            router.push("/dashboard/all-testimonials")
+            router.push("/dashboard/all-testimonials");
             router.refresh();
           } else {
             ErrorToast("Something went wrong!");
           }
         });
     } else {
-      client_api.create("/api/dashboard/testimonial", {name: formData.name, title: formData.title, description: formData.description,rating: parseFloat(formData.rating), img}).then((res) => {
-        if (res.status == "success") {
-          SuccessToast("Data Added");
-          setFormData({
-            title: "",
-            name: "",
-            description: "",
-            rating: "",
-          });
+      client_api
+        .create("/api/dashboard/testimonial", {
+          name: formData.name,
+          title: formData.title,
+          description: formData.description,
+          rating: parseFloat(formData.rating),
+          img,
+        })
+        .then((res) => {
+          if (res.status == "success") {
+            SuccessToast("Data Added");
+            setFormData({
+              title: "",
+              name: "",
+              description: "",
+              rating: "",
+            });
 
-          router.push("/dashboard/all-testimonials")
-          router.refresh();
-        } else {
-          ErrorToast("Something went wrong!");
-        }
-      });
+            router.push("/dashboard/all-testimonials");
+            router.refresh();
+          } else {
+            ErrorToast("Something went wrong!");
+          }
+        });
     }
   };
   return (
@@ -72,7 +86,7 @@ const TestimonialForm = ({ name, data, setUpdateForm }) => {
           <div className="grid gap-6 mb-6 md:grid-cols-2">
             <div>
               <label htmlFor="name" className="dashboard-label">
-              name
+                name
               </label>
               <input
                 type="text"
@@ -85,10 +99,7 @@ const TestimonialForm = ({ name, data, setUpdateForm }) => {
               />
             </div>
             <div>
-              <label
-                htmlFor="Title"
-                className="dashboard-label"
-              >
+              <label htmlFor="Title" className="dashboard-label">
                 Title
               </label>
               <input
@@ -105,7 +116,8 @@ const TestimonialForm = ({ name, data, setUpdateForm }) => {
               <label htmlFor="description" className="dashboard-label">
                 description
               </label>
-              <input
+              <textarea
+                rows={4}
                 type="text"
                 id="description"
                 className="dashboard-input"
@@ -130,9 +142,12 @@ const TestimonialForm = ({ name, data, setUpdateForm }) => {
               />
             </div>
             <div>
-            <AddImage name={"Add Client Image"}  setImageUrl={setImg} imageUrl={img}/>
+              <AddImage
+                name={"Add Client Image"}
+                setImageUrl={setImg}
+                imageUrl={img}
+              />
             </div>
-            
           </div>
           <SubmitButton text={"Add"} submit={loading} />
         </form>

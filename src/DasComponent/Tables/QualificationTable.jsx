@@ -20,7 +20,7 @@ const QualificationTable = ({ data }) => {
   }, []);
 
   const handleDelete = (id) => {
-    DeleteAlert(`/api/qualification?id=${id}`).then((res) => {
+    DeleteAlert(`/api/dashboard/qualification?id=${id}`).then((res) => {
       if (res) {
         router.refresh();
         SuccessToast("Deleted Data!");

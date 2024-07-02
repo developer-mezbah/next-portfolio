@@ -20,7 +20,7 @@ const TestimonialsTable = ({ data }) => {
   }, []);
 
   const handleDelete = (id) => {
-    DeleteAlert(`/api/testimonial?id=${id}`).then((res) => {
+    DeleteAlert(`/api/dashboard/testimonial?id=${id}`).then((res) => {
       if (res) {
         router.refresh();
         SuccessToast("Deleted Data!");
