@@ -44,7 +44,7 @@ const ProjectCard = ({ data }) => {
                   </div>
                 </Link>
               </div>
-              <Link href={`/projects/${data?.title
+              <Link href={`/project-details/${data?.title
                           .replace(/[^a-zA-Z0-9-.\s]/g, "")
                           .replace(/ /g, "-")}?id=${data?.id}` || "#"}>
                 <div
