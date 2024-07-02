@@ -38,7 +38,7 @@ const ProjectsSlider = ({ data }) => {
           <div className="md:flex justify-between gap-6 items-center mx-auto block w-full text-center md:text-left">
             <div className="md:w-[90%] w-full">
               <Image
-                className="rounded-lg sm:h-[220px] md:w-full mx-auto mb-5 object-cover"
+                className="rounded-lg sm:h-[220px] md:w-full mx-auto mb-5"
                 width={400}
                 height={280}
                 src={slide?.banner_img}

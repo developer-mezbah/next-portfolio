@@ -31,7 +31,9 @@ export async function PUT(req, res) {
     const { searchParams } = new URL(req.url);
     const ID = parseInt(searchParams.get("id"));
     let bodyData = await req.json();
-    bodyData.password = md5(bodyData.password)
+    if (bodyData.password) {
+      bodyData.password = md5(bodyData.password)
+    }
     const result = await prisma.profile.update({
       data: bodyData,
       where: { id: ID },

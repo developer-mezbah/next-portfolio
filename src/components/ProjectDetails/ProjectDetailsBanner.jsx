@@ -1,3 +1,5 @@
+"use client";
+import { ErrorToast } from "@/utils/FormHelper";
 import Image from "next/image";
 import Link from "next/link";
 import { FaCode } from "react-icons/fa6";
@@ -29,7 +31,7 @@ const ProjectDetailsBanner = ({ data }) => {
               >
                 <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
               </svg>
-              <p className="text-lg font-semibold mb-2">Productionable</p>
+              <p className="text-lg font-semibold mb-2">Authentic</p>
             </div>
           </div>
         </div>
@@ -41,7 +43,7 @@ const ProjectDetailsBanner = ({ data }) => {
               style={{ background: "var(--first-color)" }}
             >
               <p className="text-white text-sm text-center font-semibold pb-4">
-              {data?.profile?.user_name}
+                {data?.profile?.user_name}
               </p>
               <div className="flex justify-center">
                 <Image
@@ -54,21 +56,47 @@ const ProjectDetailsBanner = ({ data }) => {
               </div>
             </div>
             <div className="py-4 pl-6 rounded-lg mb-3 sm:mb-0 w-full flex items-center gap-2 md:justify-around justify-end md:mx-12 mr-10">
-              <a href={data?.code_url}
-                className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md bg-[linear-gradient(110deg,#000103,45%,#E057E0,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
-                style={{ border: "1px solid var(--first-color)" }}
-              >
-                Code
-              </a>
-              <a href={data?.preview_url}
-                className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md bg-[linear-gradient(110deg,#000103,45%,#E057E0,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
-                style={{
-                  animationDelay: "1.3s",
-                  border: "1px solid var(--first-color)",
-                }}
-              >
-                Preview
-              </a>
+              {data?.code_url ? (
+                <a
+                  href={data?.code_url || "#"}
+                  className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md bg-[linear-gradient(110deg,#000103,45%,#E057E0,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
+                  style={{ border: "1px solid var(--first-color)" }}
+                  target="_blank"
+                >
+                  Code
+                </a>
+              ) : (
+                <button
+                  onClick={() => ErrorToast("Source Code is not Free!")}
+                  className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md bg-[linear-gradient(110deg,#000103,45%,#E057E0,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
+                  style={{ border: "1px solid var(--first-color)" }}
+                >
+                  Code
+                </button>
+              )}
+              {data?.preview_url ? (
+                <a
+                  href={data?.preview_url}
+                  className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md bg-[linear-gradient(110deg,#000103,45%,#E057E0,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
+                  style={{
+                    animationDelay: "1.3s",
+                    border: "1px solid var(--first-color)",
+                  }}
+                >
+                  Preview
+                </a>
+              ) : (
+                <button
+                  onClick={() => ErrorToast("Preview url is not available!")}
+                  className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md bg-[linear-gradient(110deg,#000103,45%,#E057E0,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
+                  style={{
+                    animationDelay: "1.3s",
+                    border: "1px solid var(--first-color)",
+                  }}
+                >
+                  Preview
+                </button>
+              )}
             </div>
           </div>
         </div>

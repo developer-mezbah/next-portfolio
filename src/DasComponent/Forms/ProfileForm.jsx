@@ -25,27 +25,27 @@ const ProfileForm = ({ data }) => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     const confirmPassword = e.target.confirmPassword.value;
-    if (IsEmpty(fullName)) {
-      return ErrorToast("First Name Must be fill up!");
-    }
-    if (IsEmpty(lastName)) {
-      return ErrorToast("Last Name Must be fill up!");
-    }
-    if (IsEmpty(password)) {
-      return ErrorToast("Password Must be fill up!");
-    }
+    // if (IsEmpty(fullName)) {
+    //   return ErrorToast("First Name Must be fill up!");
+    // }
+    // if (IsEmpty(lastName)) {
+    //   return ErrorToast("Last Name Must be fill up!");
+    // }
+    // if (IsEmpty(password)) {
+    //   return ErrorToast("Password Must be fill up!");
+    // }
     if (password !== confirmPassword) {
       return ErrorToast("Password Not Macthing!");
     }
+    const formData = {
+      user_name: fullName && lastName ? user_name : data?.user_name ,
+      age,
+      mobile,
+      email,
+      img,
+    }
     client_api
-      .update(`/api/dashboard/profile?id=${data.id}`, {
-        user_name ,
-        age,
-        mobile,
-        email,
-        password,
-        img,
-      })
+      .update(`/api/dashboard/profile?id=${data.id}`,( password ? {...formData, password} : formData))
       .then((data) => {
         if (data.status == "success") {
           SuccessToast("Profile Updated!");
