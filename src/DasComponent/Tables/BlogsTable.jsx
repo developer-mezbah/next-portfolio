@@ -98,6 +98,7 @@ const BlogsTable = ({ data }) => {
             }}
           />
           <Link
+            target="_blank"
             href={
               `/blog-details/${row?.title
                 .replace(/[^a-zA-Z0-9-.\s]/g, "")

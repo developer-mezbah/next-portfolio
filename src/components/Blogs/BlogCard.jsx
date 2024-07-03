@@ -17,7 +17,7 @@ const BlogCard = ({
     <CardContainer className="inter-var border-2 border-[#CB43CB] rounded-xl mb-10 w-full">
       <CardBody className="relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:border-white/[0.2] border-black/[0.1] h-auto rounded-xl p-6 border w-full">
         <CardItem translateZ="50" className="text-xl font-bold">
-          Make things float in air
+          {title}
         </CardItem>
         <CardItem
           as="p"

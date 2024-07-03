@@ -1,23 +1,12 @@
 import Link from "next/link";
-// import React, { useEffect, useState } from "react";
 import { FaCode } from "react-icons/fa6";
 import { VscPreview } from "react-icons/vsc";
 import { TbListDetails } from "react-icons/tb";
 import { BackgroundGradient } from "../Others/BackgroundGradient";
 import Image from "next/image";
-import "./ProjectCard.css"
+import "./ProjectCard.css";
 
 const ProjectCard = ({ data }) => {
-  // const [imgHeight, setImgHeight] = useState("")
-  // useEffect(() => {
-  //   const img = new Image();
-  //   img.onload = function () {
-  //     alert(this.width + "x" + this.height);
-  //     setImgHeight(this.height+"px")
-  //   };
-  //   img.src = data?.long_img;
-  // }, []);
-  // console.log(imgHeight);
   return (
     <BackgroundGradient className="rounded-[22px] dark:bg-zinc-900 overflow-hidden">
       <div className="rounded-lg overflow-hidden md:w-full w-full">
@@ -75,11 +64,19 @@ const ProjectCard = ({ data }) => {
           </div>
         </div>
         <div>
-          <p className="bottom-0 w-full text-white text-center font-semibold duration-300 project-card-title py-3">
-            {data?.title.length > 110
-              ? data?.title.slice(0, 110) + "..."
-              : data?.title}
-          </p>
+          <Link
+            href={
+              `/project-details/${data?.title
+                .replace(/[^a-zA-Z0-9-.\s]/g, "")
+                .replace(/ /g, "-")}?id=${data?.id}` || "#"
+            }
+          >
+            <p className="bottom-0 w-full text-white text-center font-semibold duration-300 project-card-title py-3">
+              {data?.title.length > 110
+                ? data?.title.slice(0, 110) + "..."
+                : data?.title}
+            </p>
+          </Link>
           <hr className="h-5 w-full bg-[#E057E0] -mt-5" />
         </div>
       </div>
