@@ -92,7 +92,8 @@ const Skills = ({ data, sectionDetails }) => {
                 <div key={skill.id} className="skills__data">
                   <div className="skills__titles">
                     <h3 className="skills__name">{skill?.name}</h3>
-                    <span className="skills__number flex">
+                    <span className="flex">
+                      <span className="skills__number hidden">{skill?.percent}</span>
                       <CountUpOnScroll number={skill?.percent} />%
                       {/* {skill?.percent}% */}
                     </span>
