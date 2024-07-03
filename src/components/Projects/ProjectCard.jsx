@@ -1,20 +1,32 @@
-import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+// import React, { useEffect, useState } from "react";
 import { FaCode } from "react-icons/fa6";
 import { VscPreview } from "react-icons/vsc";
 import { TbListDetails } from "react-icons/tb";
 import { BackgroundGradient } from "../Others/BackgroundGradient";
+import Image from "next/image";
+import "./ProjectCard.css"
 
 const ProjectCard = ({ data }) => {
+  // const [imgHeight, setImgHeight] = useState("")
+  // useEffect(() => {
+  //   const img = new Image();
+  //   img.onload = function () {
+  //     alert(this.width + "x" + this.height);
+  //     setImgHeight(this.height+"px")
+  //   };
+  //   img.src = data?.long_img;
+  // }, []);
+  // console.log(imgHeight);
   return (
     <BackgroundGradient className="rounded-[22px] dark:bg-zinc-900 overflow-hidden">
       <div className="rounded-lg overflow-hidden md:w-full w-full">
-        <div className="w-full h-[350px] overflow-hidden relative group">
+        <div className="w-full h-[350px] overflow-hidden relative group card-div">
           <Image
-            className="object-cover translate-y-0 group-hover:-translate-y-[65%] transition-transform duration-[3s] w-full"
-            width={350}
-            height={350}
+            // className={`object-cover translate-y-0 group-hover:-translate-y-[65%] transition-transform duration-[3s] w-full`}
+            className="card-img"
+            width={500}
+            height={500}
             src={data?.long_img}
             alt={data?.title}
           />
@@ -44,9 +56,13 @@ const ProjectCard = ({ data }) => {
                   </div>
                 </Link>
               </div>
-              <Link href={`/project-details/${data?.title
-                          .replace(/[^a-zA-Z0-9-.\s]/g, "")
-                          .replace(/ /g, "-")}?id=${data?.id}` || "#"}>
+              <Link
+                href={
+                  `/project-details/${data?.title
+                    .replace(/[^a-zA-Z0-9-.\s]/g, "")
+                    .replace(/ /g, "-")}?id=${data?.id}` || "#"
+                }
+              >
                 <div
                   className="flex items-center gap-2 text-white text-xl cursor-pointer px-3 py-1 rounded-lg hover:bg-black w-1/2 mx-auto"
                   style={{ border: "2px solid var(--first-color)" }}

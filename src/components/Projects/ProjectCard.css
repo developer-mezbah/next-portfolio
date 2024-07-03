@@ -1,0 +1,6 @@
+.card-img{
+    transition: 3s all ease;
+}
+.card-div:hover .card-img {
+    transform: translateY(calc(-100% + 350px));
+}

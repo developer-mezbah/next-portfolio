@@ -76,6 +76,7 @@ const ProjectDetailsBanner = ({ data }) => {
               )}
               {data?.preview_url ? (
                 <a
+                  target="_blank"
                   href={data?.preview_url}
                   className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md bg-[linear-gradient(110deg,#000103,45%,#E057E0,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
                   style={{

@@ -45,10 +45,10 @@ const ProjectsSlider = ({ data }) => {
                 alt={slide?.title}
               />
             </div>
-            <div className="w-full md:space-y-5">
-              <h2 className="portfolio__title">{slide?.title}</h2>
-              <div className="portfolio__description portfolio__description-2 truncate">
-                {parse(slide?.description)}
+            <div className="w-full md:space-y-5 overflow-hidden">
+              <h2 className="portfolio__title">{slide?.title?.slice(0, 100)}</h2>
+              <div className="portfolio__description portfolio__description-2">
+                {parse(slide?.description?.slice(0, 150))}
               </div>
               <Link
                 href={slide?.preview_url || "#"}
