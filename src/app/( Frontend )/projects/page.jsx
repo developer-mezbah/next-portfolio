@@ -6,7 +6,7 @@ import prisma from "@/utils/prisma";
 
 async function getData() {
   try {
-    const projects = await prisma.projects.findMany({
+    const projectsFetch = prisma.projects.findMany({
       orderBy: { id: "desc" },
       include: {
         for_developer: true,
@@ -14,13 +14,14 @@ async function getData() {
         profile: { select: { user_name: true, img: true } },
       },
     });
-    const categories = await prisma.projects_category.findMany({});
-    const sliderProjects = await prisma.projects.findMany({
+    const categoriesFetch = prisma.projects_category.findMany({});
+    const sliderProjectsFetch = prisma.projects.findMany({
       where: { type: "slider" },
       orderBy: { id: "desc" },
       take: 5,
     });
-    const sectionDetails = await prisma.section_details.findFirst({});
+    const sectionDetailsFetch = prisma.section_details.findFirst({});
+    const [projects, categories, sliderProjects,sectionDetails] = await Promise.all([projectsFetch, categoriesFetch, sliderProjectsFetch,sectionDetailsFetch])
     return { projects, categories, sliderProjects,sectionDetails };
   } catch (error) {
     console.log(error);
