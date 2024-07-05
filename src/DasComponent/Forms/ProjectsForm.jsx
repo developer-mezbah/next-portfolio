@@ -7,7 +7,7 @@ import client_api from "@/utils/api_fetch_fun";
 import { ErrorToast, IsEmpty, SuccessToast } from "@/utils/FormHelper";
 import { useRouter } from "next/navigation";
 import Editor from "@/utils/Editor";
-import { IoMdAdd, IoMdClose } from "react-icons/io";
+import { IoIosCloseCircleOutline, IoMdAdd, IoMdClose } from "react-icons/io";
 
 const ProjectsForm = ({ name, data, setUpdateForm, categories }) => {
   const router = useRouter();
@@ -149,7 +149,17 @@ const ProjectsForm = ({ name, data, setUpdateForm, categories }) => {
   return (
     <>
       <div className="dashboard-form-bg flex flex-col">
-        <FormTitle text={name || "Blog"} />
+      <div className="flex items-center justify-between">
+          <FormTitle text={name || "Update"} />
+          {data && (
+            <div
+              onClick={() => setUpdateForm(false)}
+              className="cursor-pointer text-6xl md:mr-10 mr-5 text-red-500"
+            >
+              <IoIosCloseCircleOutline/>
+            </div>
+          )}
+        </div>
         <form onSubmit={handleSubmit} className="px-10 pb-10">
           <div className="grid gap-6 mb-6 md:grid-cols-2">
             <div>

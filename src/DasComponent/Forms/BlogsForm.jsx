@@ -7,6 +7,7 @@ import client_api from "@/utils/api_fetch_fun";
 import { ErrorToast, IsEmpty, SuccessToast } from "@/utils/FormHelper";
 import { useRouter } from "next/navigation";
 import Editor from "@/utils/Editor";
+import { IoIosCloseCircleOutline } from "react-icons/io";
 
 const BlogsForm = ({ name, data, setUpdateForm }) => {
   const router = useRouter();
@@ -40,7 +41,11 @@ const BlogsForm = ({ name, data, setUpdateForm }) => {
     setLoading(true);
     if (data) {
       client_api
-        .update(`/api/dashboard/blogs?id=${data.id}`,  { ...formData, img, long_des: editorData })
+        .update(`/api/dashboard/blogs?id=${data.id}`, {
+          ...formData,
+          img,
+          long_des: editorData,
+        })
         .then((res) => {
           if (res.status == "success") {
             SuccessToast("Data Updated!");
@@ -54,7 +59,11 @@ const BlogsForm = ({ name, data, setUpdateForm }) => {
         });
     } else {
       client_api
-        .create("/api/dashboard/blogs", { ...formData, img, long_des: editorData })
+        .create("/api/dashboard/blogs", {
+          ...formData,
+          img,
+          long_des: editorData,
+        })
         .then((res) => {
           if (res.status == "success") {
             SuccessToast("Data Added");
@@ -72,7 +81,17 @@ const BlogsForm = ({ name, data, setUpdateForm }) => {
   return (
     <>
       <div className="dashboard-form-bg flex flex-col">
-        <FormTitle text={name || "Blog"} />
+        <div className="flex items-center justify-between">
+          <FormTitle text={name || "Blog"} />
+          {data && (
+            <div
+              onClick={() => setUpdateForm(false)}
+              className="cursor-pointer text-6xl md:mr-10 mr-5 text-red-500"
+            >
+              <IoIosCloseCircleOutline />
+            </div>
+          )}
+        </div>
         <form onSubmit={handleSubmit} className="px-10 pb-10">
           <div className="grid gap-6 mb-6 md:grid-cols-2">
             <div>

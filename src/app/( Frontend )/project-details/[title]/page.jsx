@@ -5,7 +5,7 @@ import prisma from "@/utils/prisma";
 
 async function getData(id) {
   try {
-    const projects = prisma.projects.findUnique({
+    const projects = await prisma.projects.findUnique({
       where: { id: parseInt(id) },
       include: {
         profile: { select: { user_name: true, img: true } },
@@ -13,12 +13,14 @@ async function getData(id) {
         for_developer: true,
       },
     });
-    const relatedProjects = prisma.projects.findMany({
+    const relatedProjects = await prisma.projects.findMany({
       where: { categoryId: projects.categoryId },
     });
     
-  const [projectsData, relatedProjectsData] = await Promise.all([projects, relatedProjects])
-    return { projectsData, relatedProjectsData };
+    return {projects, relatedProjects}
+
+  // const [projectsData, relatedProjectsData] = await Promise.all([projects, relatedProjects])
+  //   return { projectsData, relatedProjectsData };
   } catch (error) {
     console.log(error);
   }
@@ -28,13 +30,13 @@ export async function generateMetadata(props) {
   let id = await props.searchParams["id"];
   const data = await getData(id);
   return {
-    title: data?.projectsData?.title,
-    description: data?.projectsData?.description,
-    keywords: [data?.projectsData?.keywords],
+    title: data?.projects?.title,
+    description: data?.projects?.description,
+    keywords: [data?.projects?.keywords],
     openGraph: {
-      title: data?.projectsData?.title,
-      images: [data?.projectsData?.long_img, data?.projectsData?.banner_img],
-      description: data?.projectsData?.description,
+      title: data?.projects?.title,
+      images: [data?.projects?.long_img, data?.projects?.banner_img],
+      description: data?.projects?.description,
     },
   };
 }
@@ -47,8 +49,8 @@ export default async function Page(props) {
     <MasterLayout>
       <div>
         <ProjectDetails
-          data={data?.projectsData}
-          relatedProjects={data?.relatedProjectsData}
+          data={data?.projects}
+          relatedProjects={data?.relatedProjects}
         />
       </div>
     </MasterLayout>

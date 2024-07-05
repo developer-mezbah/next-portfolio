@@ -159,7 +159,7 @@ const ProjectsTable = ({ data, categories }) => {
     </section>
   ) : (
     <ProjectsForm
-      name={"Update Blog"}
+      name={"Update Project"}
       data={updateFormData}
       setUpdateForm={setUpdateForm}
       categories={categories}

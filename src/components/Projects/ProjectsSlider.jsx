@@ -36,7 +36,14 @@ const ProjectsSlider = ({ data }) => {
           style={{ background: "var(--hue-color)" }}
         >
           <div className="md:flex justify-between gap-6 items-center mx-auto block w-full text-center md:text-left">
-            <div className="md:w-[90%] w-full">
+            <Link
+              href={
+                `/project-details/${slide?.title
+                  .replace(/[^a-zA-Z0-9-.\s]/g, "")
+                  .replace(/ /g, "-")}?id=${slide?.id}` || "#"
+              }
+              className="md:w-[90%] w-full"
+            >
               <Image
                 className="rounded-lg sm:h-[220px] md:w-full mx-auto mb-5"
                 width={400}
@@ -44,9 +51,19 @@ const ProjectsSlider = ({ data }) => {
                 src={slide?.banner_img}
                 alt={slide?.title}
               />
-            </div>
+            </Link>
             <div className="w-full md:space-y-5 overflow-hidden">
-              <h2 className="portfolio__title">{slide?.title?.slice(0, 100)}</h2>
+              <Link
+                href={
+                  `/project-details/${slide?.title
+                    .replace(/[^a-zA-Z0-9-.\s]/g, "")
+                    .replace(/ /g, "-")}?id=${slide?.id}` || "#"
+                }
+              >
+                <h2 className="portfolio__title">
+                  {slide?.title?.slice(0, 100)}
+                </h2>
+              </Link>
               <div className="portfolio__description portfolio__description-2">
                 {parse(slide?.description?.slice(0, 150))}
               </div>

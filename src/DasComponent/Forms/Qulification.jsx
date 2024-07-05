@@ -6,6 +6,7 @@ import AddImage from "../Gallery/AddImage";
 import client_api from "@/utils/api_fetch_fun";
 import { ErrorToast, IsEmpty, SuccessToast } from "@/utils/FormHelper";
 import { useRouter } from "next/navigation";
+import { IoIosCloseCircleOutline } from "react-icons/io";
 
 const Qulification = ({ name, data, setUpdateForm }) => {
   const router = useRouter();
@@ -63,7 +64,17 @@ const Qulification = ({ name, data, setUpdateForm }) => {
   return (
     <>
       <div className="dashboard-form-bg flex flex-col">
-        <FormTitle text={name || "Qualification"} />
+        <div className="flex items-center justify-between">
+          <FormTitle text={name || "Qualification"} />
+          {data && (
+            <div
+              onClick={() => setUpdateForm(false)}
+              className="cursor-pointer text-6xl md:mr-10 mr-5 text-red-500"
+            >
+              <IoIosCloseCircleOutline/>
+            </div>
+          )}
+        </div>
         <form onSubmit={handleSubmit} className="px-10 pb-10">
           <div className="grid gap-6 mb-6 md:grid-cols-2">
             <div>
