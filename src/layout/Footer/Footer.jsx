@@ -69,7 +69,7 @@ const Footer = ({ social, data }) => {
           </div>
 
           <div className="footer__container">
-            <span className="mt-3 block">
+            <span className="mt-3 block footer__copy">
             {data?.footer_description}
             </span>
           </div>

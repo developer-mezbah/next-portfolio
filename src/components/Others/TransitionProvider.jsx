@@ -22,10 +22,10 @@ const TransitionProvider = ({ children }) => {
               // initial={{ opacity: 0, zIndex: "99999"  }}
               // animate={{ opacity: 1, zIndex: "-99999"  }}
               // exit={{ opacity: 1, zIndex: "-99999" }}
-              initial={{ opacity: 1 }}
-              animate={{ opacity: 0 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              initial={{ opacity: 1 , display: "block"}}
+              animate={{ opacity: 0 , display: "none"}}
+              exit={{ opacity: 0 , display: "none"}}
+              transition={{ duration: 0.8, ease: "easeOut"}}
             >
               {pathName === "/" ? "Home" : pathName.substring(1)}
             </motion.div>
