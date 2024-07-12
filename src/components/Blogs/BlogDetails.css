@@ -93,19 +93,7 @@
   /* object-fit: cover; */
 }
 
-.single-blog-content h1,
-.single-blog-content h2,
-.single-blog-content h3,
-.single-blog-content h4,
-.single-blog-content h5,
-.single-blog-content h6 {
-  font-weight: 600;
-  font-size: 30px;
-  text-transform: capitalize;
-  color: var(--text-color);
-  margin-bottom: 20px;
-  margin-top: 30px;
-}
+
 
 .single-blog-content h1,
 .single-blog-content h2,
@@ -117,27 +105,8 @@
   font-size: 30px;
   text-transform: capitalize;
   color: var(--text-color);
-  margin-bottom: 20px;
-  margin-top: 30px;
-}
-
-.single-blog-content ul {
-  padding: 20px 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  gap: 50px;
-}
-
-.single-blog-content ul li {
-  display: flex;
-  gap: 20px;
-  color: #b5b5b5;
-  align-items: center;
-  font-weight: 500;
-  font-size: 15px;
-  text-transform: capitalize;
+  /* margin-bottom: 20px;
+  margin-top: 30px; */
 }
 
 .single-blog-content ul li img {
@@ -151,8 +120,8 @@
   font-weight: 300;
   font-size: 15px;
   line-height: 32px;
-  color: #b5b5b5;
-  margin-bottom: 20px;
+  /* color: #b5b5b5; */
+  /* margin-bottom: 20px; */
 }
 
 .single-blog-content .highlight {
@@ -247,7 +216,7 @@
 
 .comment-box .inputs input {
   width: 100%;
-  background: #0d0d0f;
+  background-color: var(--input-color);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 5px;
   height: 58px;
@@ -255,21 +224,21 @@
   font-weight: 400;
   font-size: 14px;
   letter-spacing: 0.02em;
-  color: #dedada;
+  color: var(--text-color);
   padding: 10px 25px;
   outline: 0;
 }
 
 .comment-box .inputs textarea {
   width: 100%;
-  background: #0d0d0f;
+  background-color: var(--input-color);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 5px;
   min-height: 150px;
   font-weight: 400;
   font-size: 14px;
   letter-spacing: 0.02em;
-  color: #dedada;
+  color: var(--text-color);
   padding: 10px 15px;
   outline: 0;
 }
@@ -359,9 +328,6 @@
 
   .single-blog-content {
     padding: 20px 0;
-  }
-  .single-blog-content h3 {
-    font-size: 45px;
   }
   .single-blog-content .highlight {
     padding: 50px 80px;

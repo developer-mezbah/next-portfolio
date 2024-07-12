@@ -31,7 +31,7 @@ const CommentForm = ({ blogId }) => {
       <div className="comment-box">
         <form onSubmit={handleSubmit}>
           <div className="inputs">
-            <input name="userName" type="text" placeholder="Enter Your Name" required/>
+            <input className="bg-red-500" name="userName" type="text" placeholder="Enter Your Name" required/>
           </div>
           <div className="inputs">
             <input name="email" type="email" placeholder="Enter Your Email" required/>

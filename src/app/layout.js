@@ -8,6 +8,7 @@ import "./globals.css";
 import AosHook from "@/utils/AosHook";
 import "aos/dist/aos.css";
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
