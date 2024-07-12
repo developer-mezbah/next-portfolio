@@ -6,20 +6,13 @@ import ProjectCard from "../Projects/ProjectCard";
 import client_api from "@/utils/api_fetch_fun";
 import { Player } from "@lottiefiles/react-lottie-player";
 
-const Tabs = () => {
+const Tabs = ({ tabs }) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [projects, setProjects] = useState(data || []);
-  const [tabs, setTabs] = useState([]);
 
   useEffect(() => {
     setLoading(true);
-    fetch("/api/public-api/project-categories")
-      .then((res) => res.json())
-      .then((data) => {
-        setTabs(data?.data);
-        // setLoading(false);
-      });
     fetch("/api/public-api/home-client/all-projects")
       .then((res) => res.json())
       .then((data) => {
@@ -68,14 +61,26 @@ const Tabs = () => {
                 setLoading(false);
               }}
               className="active"
+              data-aos="fade-right"
+              data-aos-delay="800"
             >
               All
             </li>
-            {tabs?.map((item) => (
-              <li onClick={() => dataFetchByCat(item?.id)} key={item?.id}>
-                {item.cat_name}
-              </li>
-            ))}
+            {tabs?.map((item, index) => {
+              const delayTime = 900 + 100 * index;
+              return (
+                <>
+                  <li
+                    data-aos="fade-right"
+                    data-aos-delay={delayTime}
+                    onClick={() => dataFetchByCat(item?.id)}
+                    key={item?.id}
+                  >
+                    {item.cat_name}
+                  </li>
+                </>
+              );
+            })}
           </ul>
         </div>
         {!loading && data ? (

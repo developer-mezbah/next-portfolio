@@ -19,14 +19,14 @@ const Testimonial = () => {
       });
   }, []);
   return (
-    <section className="testimonial section anime" target="fadeUp">
-      <h2 className="section__title">
+    <section className="testimonial section anime">
+      <h2 data-aos="fade-up-right" className="section__title">
         {sectionDetails?.testimonial_title || "Testimonial"}
       </h2>
-      <span className="section__subtitle">
+      <span data-aos="fade-up-left" className="section__subtitle">
         {sectionDetails?.testimonial_subtitle || "My Client Saying"}
       </span>
-      <div className="testimonial__container cus_container swiper-container">
+      <div data-aos="zoom-out-up" className="testimonial__container cus_container swiper-container">
         <Swiper
           loop={true}
           grabCursor={true}

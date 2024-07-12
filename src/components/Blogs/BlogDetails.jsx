@@ -10,7 +10,7 @@ const BlogDetails = ({ comments, blogId, data }) => {
     <div>
       <div className="singleBlog cus_container">
         <div className="single-blog-content">
-          <div className="px-5">
+          <div className="md:px-5">
             <Image
               width={1000}
               height={500}
@@ -18,9 +18,9 @@ const BlogDetails = ({ comments, blogId, data }) => {
               alt={(data?.title, data?.short_des)}
               className="max-h-[300px] md:max-h-[400px] md:mb-10 mb-5"
             />
-            <h3>{data?.title}</h3>
+            <h3 className="md:text-3xl text-xl">{data?.title}</h3>
             <ul>
-              <li className="flex gap-5 items-center">
+              <li className="flex gap-5 items-center mt-5">
                 <Image
                   width={100}
                   height={80}
@@ -47,7 +47,7 @@ const BlogDetails = ({ comments, blogId, data }) => {
             </div>
             {/* <div>{parse(data?.long_des)}</div> */}
             <div
-              className="view ql-editor"
+              className="view ql-editor blog-details-para"
               dangerouslySetInnerHTML={{ __html: data?.long_des }}
             ></div>
             <br />

@@ -19,9 +19,6 @@ const TransitionProvider = ({ children }) => {
             />
             <motion.div
               className="fixed m-auto top-0 bottom-0 left-0 right-0 text-white text-8xl cursor-default w-fit h-fit z-[300]"
-              // initial={{ opacity: 0, zIndex: "99999"  }}
-              // animate={{ opacity: 1, zIndex: "-99999"  }}
-              // exit={{ opacity: 1, zIndex: "-99999" }}
               initial={{ opacity: 1, display: "block" }}
               animate={{ opacity: 0, display: "none" }}
               exit={{ opacity: 0, display: "none" }}
