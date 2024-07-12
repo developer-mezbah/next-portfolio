@@ -10,7 +10,6 @@ const Tabs = ({ tabs }) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [projects, setProjects] = useState(data || []);
-
   useEffect(() => {
     setLoading(true);
     fetch("/api/public-api/home-client/all-projects")
@@ -62,12 +61,12 @@ const Tabs = ({ tabs }) => {
               }}
               className="active"
               data-aos="fade-right"
-              data-aos-delay="800"
+              data-aos-delay="200"
             >
               All
             </li>
             {tabs?.map((item, index) => {
-              const delayTime = 900 + 100 * index;
+              const delayTime = 200 + 100 * index;
               return (
                 <>
                   <li
