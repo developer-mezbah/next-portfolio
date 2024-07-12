@@ -22,12 +22,21 @@ const TransitionProvider = ({ children }) => {
               // initial={{ opacity: 0, zIndex: "99999"  }}
               // animate={{ opacity: 1, zIndex: "-99999"  }}
               // exit={{ opacity: 1, zIndex: "-99999" }}
-              initial={{ opacity: 1 , display: "block"}}
-              animate={{ opacity: 0 , display: "none"}}
-              exit={{ opacity: 0 , display: "none"}}
-              transition={{ duration: 0.8, ease: "easeOut"}}
+              initial={{ opacity: 1, display: "block" }}
+              animate={{ opacity: 0, display: "none" }}
+              exit={{ opacity: 0, display: "none" }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <div className="md:w-4/5 w-5/6 mx-auto text-2xl md:text-4xl lg:text-6xl">{pathName === "/" ? "Home" : pathName.substring(1)}</div>
+              <div
+                className={`md:w-4/5 w-5/6 mx-auto ${
+                  pathName.includes("/blog-details/") ||
+                  pathName.includes("/project-details/")
+                    ? "text-4xl"
+                    : ""
+                }`}
+              >
+                {pathName === "/" ? "Home" : pathName.substring(1)}
+              </div>
             </motion.div>
             <motion.div
               className="h-full w-screen fixed bg-black rounded-t-[100px] bottom-0 z-[200]"
