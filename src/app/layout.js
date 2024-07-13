@@ -8,7 +8,6 @@ import "./globals.css";
 import AosHook from "@/utils/AosHook";
 import "aos/dist/aos.css";
 
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -60,11 +59,14 @@ export const metadata = {
   ],
   openGraph: {
     title:
-      "Hi, I'am Mezbah Uddin I'm software engineer.High level experience in web design, development and knowledge,And producing quality work.",
+      "Full Stack Developer Portfolio - Mezbah Uddin | Modern Web Solutions",
     images: [
-      "https://res.cloudinary.com/dizwg3tzh/image/upload/v1719684555/portfolio/jfi9jm0bc7xvfzyv9ofe.png",
+      {
+        url: "https://res.cloudinary.com/dqxizxsl0/image/upload/v1720856384/npdmmnsv2li41bijpq23.png",
+      },
     ],
-    description: "This is my portfolio's Hero sections",
+    description:
+      "Welcome to the portfolio of Mezbah Uddin, a passionate Full Stack Web Developer with a proven track record of delivering high-quality web solutions. I specialize in modern web technologies, including React, Next.js, Node.js, Express, and MongoDB.",
     locale: "bn_Dhaka",
   },
   generator: "Next.js, react.js",
@@ -81,19 +83,9 @@ export const metadata = {
     address: "Dhaka, Bangladesh",
     telephone: "+880 1843504994",
   },
-  // robots: {
-  //   index: false,
-  //   follow: true,
-  //   nocache: true,
-  //   googleBot: {
-  //     index: true,
-  //     follow: false,
-  //     noimageindex: true,
-  //     "max-video-preview": -1,
-  //     "max-image-preview": "large",
-  //     "max-snippet": -1,
-  //   },
-  // },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({ children }) {

@@ -1,9 +1,11 @@
-export const revalidate = 0; 
+export const revalidate = 0;
 import BlogDetails from "@/components/Blogs/BlogDetails";
 import MasterLayout from "@/layout/MasterLayout";
 import prisma from "@/utils/prisma";
+import { cache } from "react";
 
-async function getData(id) {
+
+const getData = cache(async (id) => {
   let commentsData = await prisma.comment.findMany({
     where: { blogId: parseInt(id) },
   });
@@ -22,7 +24,7 @@ async function getData(id) {
     },
   });
   return { blog, commentsData };
-}
+});
 
 export async function generateMetadata(props) {
   let id = await props.searchParams["id"];
@@ -32,14 +34,12 @@ export async function generateMetadata(props) {
     description: data?.blog?.short_des,
     keywords: [data?.blog?.keywords],
     openGraph: {
-      title: data?.blog?.title,
       images: [data?.blog?.img],
-      description: data?.blog?.long_des,
     },
   };
 }
 
-export default async function Page(props) {
+export default async function page(props) {
   let id = await props.searchParams["id"];
   const data = await getData(id);
   return (
@@ -51,5 +51,4 @@ export default async function Page(props) {
       />
     </MasterLayout>
   );
-};
-
+}
