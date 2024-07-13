@@ -1,18 +1,19 @@
-// export const revalidate = 0;
 import Navbar from "./Header/Navbar";
 import Footer from "./Footer/Footer";
 import prisma from "@/utils/prisma";
+import { cache } from "react";
 
-async function getData() {
+const getData = cache(async () => {
   try {
-    const social = await prisma.Social_media.findFirst({});
-    const web_info = await prisma.Web_information.findFirst({});
+    const socialFetch = prisma.Social_media.findFirst({});
+    const web_infoFetch = prisma.Web_information.findFirst({});
 
+    const [social, web_info] = await Promise.all([socialFetch, web_infoFetch]);
     return { social, web_info };
   } catch (error) {
     console.log(error);
   }
-}
+});
 
 const MasterLayout = async ({ children }) => {
   const data = await getData();

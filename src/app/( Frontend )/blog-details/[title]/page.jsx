@@ -4,12 +4,11 @@ import MasterLayout from "@/layout/MasterLayout";
 import prisma from "@/utils/prisma";
 import { cache } from "react";
 
-
 const getData = cache(async (id) => {
-  let commentsData = await prisma.comment.findMany({
+  let commentsDataPromise = prisma.comment.findMany({
     where: { blogId: parseInt(id) },
   });
-  let blog = await prisma.blog.findUnique({
+  let blogPromise = prisma.blog.findUnique({
     where: { id: parseInt(id) },
     include: {
       profile: {
@@ -23,6 +22,10 @@ const getData = cache(async (id) => {
       },
     },
   });
+  const [blog, commentsData] = await Promise.all([
+    blogPromise,
+    commentsDataPromise,
+  ]);
   return { blog, commentsData };
 });
 
