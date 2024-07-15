@@ -4,30 +4,28 @@ import { TracingBeam } from "@/components/Others/TracingBeam";
 import MasterLayout from "@/layout/MasterLayout";
 import { allBlogPromise, sectionDetailsPromise } from "@/utils/fetchData";
 
-
-
-// export async function generateMetadata(props) {
-  
-//   const data = await getData();
-//   return {
-//     title: "Blogs | Mezbah Uddin",
-//     description:
-//       "This is Blog page. I am Mezbah Uddin, a dedicated and passionate full stack web developer with a keen eye for detail and a commitment to creating seamless, user-friendly web experiences. With expertise in both front-end and back-end technologies, I specialize in building robust, scalable, and dynamic web applications. My proficiency spans across HTML, CSS, JavaScript, and various back-end frameworks, enabling me to deliver comprehensive solutions tailored to meet diverse client needs. I thrive in collaborative environments, continuously seeking opportunities to innovate and enhance the digital landscape through cutting-edge web development practices.",
-//     openGraph: {
-//       title: data?.data[0]?.title,
-//       images: [
-//         data?.data[0]?.img,
-//         data?.data[1]?.img,
-//         data?.data[2]?.img,
-//         data?.data[3]?.img,
-//       ],
-//       description: data?.data[0]?.short_des,
-//     },
-//   };
-// }
+export async function generateMetadata() {
+  const [data] = await Promise.all([allBlogPromise]);
+  return {
+    title: "Blogs | Mezbah Uddin",
+    description:
+      "This is Blog page. Stay updated with the latest insights and trends in web development on Mezbah Uddin's blog. Explore articles on full stack development, React, Next.js, Node.js, Express, MongoDB, Firebase, and more. Gain valuable tips, tutorials, and industry news from a professional developer.",
+    openGraph: {
+      images: [
+        data[0]?.img,
+        data[1]?.img,
+        data[2]?.img,
+        data[3]?.img,
+      ],
+    },
+  };
+}
 
 const page = async () => {
-  const [sectionDetails, data]= await Promise.all([sectionDetailsPromise, allBlogPromise]) ;
+  const [sectionDetails, data] = await Promise.all([
+    sectionDetailsPromise,
+    allBlogPromise,
+  ]);
   return (
     <MasterLayout>
       <TracingBeam className="pl-6 md:pl-0">

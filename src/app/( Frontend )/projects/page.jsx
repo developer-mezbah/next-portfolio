@@ -8,18 +8,23 @@ import {
   sliderProjectsFetch,
 } from "@/utils/fetchData";
 
-// export async function generateMetadata() {
-//   const data = await getData();
-//   return {
-//     title: "Projects | Mezbah Uddin",
-//     description: "This is Projects page. I am Mezbah Uddin, a dedicated and passionate full stack web developer with a keen eye for detail and a commitment to creating seamless, user-friendly web experiences. With expertise in both front-end and back-end technologies, I specialize in building robust, scalable, and dynamic web applications. My proficiency spans across HTML, CSS, JavaScript, and various back-end frameworks, enabling me to deliver comprehensive solutions tailored to meet diverse client needs. I thrive in collaborative environments, continuously seeking opportunities to innovate and enhance the digital landscape through cutting-edge web development practices.",
-//     openGraph: {
-//       title: data?.projects[0]?.title,
-//       images: [data?.projects[0]?.banner_img],
-//       description: data?.projects[0]?.description,
-//     },
-//   };
-// }
+export async function generateMetadata() {
+  const [projects] = await Promise.all([projectsFetch]);
+  return {
+    title: "Projects | Mezbah Uddin",
+    description:
+      "Explore the portfolio of Mezbah Uddin, a skilled full stack web developer. Discover innovative web applications developed using React, Next.js, Node.js, Express, MongoDB, and Firebase. From responsive designs to advanced admin dashboards, Mezbah's projects highlight a commitment to quality and functionality.",
+    openGraph: {
+      images: [
+        projects[0]?.banner_img,
+        projects[1]?.banner_img,
+        projects[2]?.banner_img,
+        projects[3]?.banner_img,
+        projects[4]?.banner_img,
+      ],
+    },
+  };
+}
 
 const page = async () => {
   const [projects, sliderProjects, sectionDetails] = await Promise.all([

@@ -8,7 +8,7 @@ export function generateMetadata() {
   return {
     title: "Skills | Mezbah Uddin",
     description:
-      "This is Skills page. There is lot of Skills like full stact web developer and good communication with everyone.",
+      "Explore the diverse skill set of Mezbah Uddin, a proficient full stack web developer. With expertise in React, Next.js, Node.js, Express, MongoDB, and Firebase, Mezbah delivers robust and scalable web solutions. Discover capabilities in frontend and backend development, responsive design, and more.",
   };
 }
 const page = async () => {

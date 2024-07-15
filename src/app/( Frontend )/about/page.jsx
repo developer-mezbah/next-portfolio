@@ -5,18 +5,19 @@ import { aboutPromise, sectionDetailsPromise } from "@/utils/fetchData";
 
 
 
-// export async function generateMetadata(props) {
-//   const data = await getData();
-//   return {
-//     title: "About Me | Mezbah Uddin",
-//     description: data?.data?.content,
-//     openGraph: {
-//       title: data?.data?.title,
-//       images: [data?.data?.img, data?.data?.cv],
-//       description: data?.data?.content,
-//     },
-//   };
-// }
+export async function generateMetadata() {
+  
+  const [data] = await Promise.all([aboutPromise])
+  return {
+    title: "About Me | Mezbah Uddin",
+    description: data?.content,
+    openGraph: {
+      title: data?.title,
+      images: [data?.img, data?.cv],
+      description: data?.content,
+    },
+  };
+}
 
 const page = async () => {
   const [data, sectionDetails] = await Promise.all([aboutPromise, sectionDetailsPromise])
