@@ -2,27 +2,11 @@ export const revalidate = 0;
 import { TracingBeam } from "@/components/Others/TracingBeam";
 import Projects from "@/components/Projects/Projects";
 import MasterLayout from "@/layout/MasterLayout";
-import prisma from "@/utils/prisma";
-
-// async function getData() {
-//     const projectsFetch = prisma.projects.findMany({
-//       orderBy: { id: "desc" },
-//       include: {
-//         for_developer: true,
-//         key_feature: true,
-//         profile: { select: { user_name: true, img: true } },
-//       },
-//     });
-//     const categoriesFetch = prisma.projects_category.findMany({});
-//     const sliderProjectsFetch = prisma.projects.findMany({
-//       where: { type: "slider" },
-//       orderBy: { id: "desc" },
-//       take: 5,
-//     });
-//     const sectionDetailsFetch = prisma.section_details.findFirst({});
-//     const [projects, categories, sliderProjects,sectionDetails] = await Promise.all([projectsFetch, categoriesFetch, sliderProjectsFetch,sectionDetailsFetch])
-//     return { projects, categories, sliderProjects,sectionDetails };
-// }
+import {
+  projectsFetch,
+  sectionDetailsPromise,
+  sliderProjectsFetch,
+} from "@/utils/fetchData";
 
 // export async function generateMetadata() {
 //   const data = await getData();
@@ -37,40 +21,12 @@ import prisma from "@/utils/prisma";
 //   };
 // }
 
-const projectsFetch = async () => {
-  const data = await prisma.projects.findMany({
-    orderBy: { id: "desc" },
-    include: {
-      for_developer: true,
-      key_feature: true,
-      profile: { select: { user_name: true, img: true } },
-    },
-  });
-  return data;
-};
-// const categoriesFetch = async () => {
-//   const data = await prisma.projects_category.findMany({});
-//   return data;
-// };
-const sliderProjectsFetch = async () => {
-    const data = await prisma.projects.findMany({
-      where: { type: "slider" },
-      orderBy: { id: "desc" },
-      take: 5,
-    });
-  return data;
-};
-const sectionDetailsFetch = async () => {
-  const data = await prisma.section_details.findFirst({});
-  return data;
-};
-
 const page = async () => {
-  // const data = await getData();
-  const projectPromise = projectsFetch()
-  const sliderPromise = sliderProjectsFetch()
-  const detailsPromise = sectionDetailsFetch()
-  const [projects, sliderProjects, sectionDetails] = await Promise.all([projectPromise, sliderPromise, detailsPromise])
+  const [projects, sliderProjects, sectionDetails] = await Promise.all([
+    projectsFetch,
+    sliderProjectsFetch,
+    sectionDetailsPromise,
+  ]);
   return (
     <MasterLayout>
       <TracingBeam className="pl-6 md:pl-0">

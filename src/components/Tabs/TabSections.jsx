@@ -1,18 +1,8 @@
-import React from "react";
 import Tabs from "./Tabs";
-import prisma from "@/utils/prisma";
-
-async function getData() {
-  try {
-    const tabs = await prisma.Projects_category.findMany({});
-    return tabs;
-  } catch (error) {
-    console.log(error);
-  }
-}
+import { categoryPromise } from "@/utils/fetchData";
 
 const TabSections = async () => {
-  const data = await getData();
+  const [data] = await Promise.all([categoryPromise]);
   return <Tabs tabs={data} />;
 };
 

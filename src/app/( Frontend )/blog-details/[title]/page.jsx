@@ -1,56 +1,33 @@
 export const revalidate = 0;
 import BlogDetails from "@/components/Blogs/BlogDetails";
 import MasterLayout from "@/layout/MasterLayout";
-import prisma from "@/utils/prisma";
-import { cache } from "react";
+import { blogPromise, commentsDataPromise } from "@/utils/fetchData";
 
-const getData = cache(async (id) => {
-  let commentsDataPromise = prisma.comment.findMany({
-    where: { blogId: parseInt(id) },
-  });
-  let blogPromise = prisma.blog.findUnique({
-    where: { id: parseInt(id) },
-    include: {
-      profile: {
-        select: {
-          user_name: true,
-          age: true,
-          mobile: true,
-          img: true,
-          email: true,
-        },
-      },
-    },
-  });
-  const [blog, commentsData] = await Promise.all([
-    blogPromise,
-    commentsDataPromise,
-  ]);
-  return { blog, commentsData };
-});
-
-export async function generateMetadata(props) {
-  let id = await props.searchParams["id"];
-  const data = await getData(id);
-  return {
-    title: data?.blog?.title,
-    description: data?.blog?.short_des,
-    keywords: [data?.blog?.keywords],
-    openGraph: {
-      images: [data?.blog?.img],
-    },
-  };
-}
+// export async function generateMetadata(props) {
+//   let id = await props.searchParams["id"];
+//   const data = await getData(id);
+//   return {
+//     title: data?.blog?.title,
+//     description: data?.blog?.short_des,
+//     keywords: [data?.blog?.keywords],
+//     openGraph: {
+//       images: [data?.blog?.img],
+//     },
+//   };
+// }
 
 export default async function page(props) {
   let id = await props.searchParams["id"];
-  const data = await getData(id);
+  const [blog, commentsData] = await Promise.all([
+    blogPromise(id),
+    commentsDataPromise(id),
+  ]);
   return (
     <MasterLayout>
       <BlogDetails
-        comments={data?.commentsData}
+        comments={commentsData}
         blogId={id}
-        data={data?.blog}
+        data={blog}
       />
     </MasterLayout>
   );

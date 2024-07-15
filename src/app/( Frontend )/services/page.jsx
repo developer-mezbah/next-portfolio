@@ -1,20 +1,7 @@
 export const revalidate = 0;
 import Services from "@/components/Services/Services";
 import MasterLayout from "@/layout/MasterLayout";
-import prisma from "@/utils/prisma";
-
-async function getData() {
-  try {
-    const data = await prisma.services.findMany({
-      include: { service_items: true },
-    });
-    
-    const sectionDetails = await prisma.section_details.findFirst({});
-    return {data, sectionDetails};
-  } catch (error) {
-    console.log(error);
-  }
-}
+import { sectionDetailsPromise, servicePromise } from "@/utils/fetchData";
 
 
 export function generateMetadata() {
@@ -25,10 +12,10 @@ export function generateMetadata() {
 }
 
 const page = async () => {
-  const data = await getData();
+  const [data, sectionDetails] = await Promise.all([servicePromise, sectionDetailsPromise])
   return (
     <MasterLayout>
-      <Services data={data?.data} sectionDetails={data?.sectionDetails} />
+      <Services data={data} sectionDetails={sectionDetails} />
     </MasterLayout>
   );
 };

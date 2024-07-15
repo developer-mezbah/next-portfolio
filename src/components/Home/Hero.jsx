@@ -5,6 +5,7 @@ import { PiMediumLogoFill } from "react-icons/pi";
 import { VscSend } from "react-icons/vsc";
 import TypeWriter from "../Others/TypeWriter";
 import prisma from "@/utils/prisma";
+import { hero_dataPromise, socialPromise } from "@/utils/fetchData";
 
 async function postData() {
   const result = await prisma.hero.create({
@@ -20,19 +21,12 @@ async function postData() {
   });
 }
 
-async function getData() {
-  try {
-    let hero_data = await prisma.hero.findFirst({});
-    const social = await prisma.Social_media.findFirst({});
-    return { hero_data, social };
-  } catch (error) {
-    console.log(error);
-  }
-}
+
 
 const Hero = async () => {
-  const data = await getData();
-  if (!!data === false) {
+  // const data = await getData();
+  const [hero_data, social] = await Promise.all([hero_dataPromise, socialPromise])
+  if (!!hero_data === false) {
     await postData();
   }
   return (
@@ -45,25 +39,25 @@ const Hero = async () => {
             className="home__social pl-2"
           >
             <Link
-              href={data?.social?.github || "#"}
+              href={social?.github || "#"}
               className="home__social-icon"
             >
               <FiGithub className="text-3xl" />
             </Link>
             <Link
-              href={data?.social?.linkedin || "#"}
+              href={social?.linkedin || "#"}
               className="home__social-icon"
             >
               <FiLinkedin className="text-3xl" />
             </Link>
             <Link
-              href={data?.social?.facebook || "#"}
+              href={social?.facebook || "#"}
               className="home__social-icon"
             >
               <CiFacebook className="text-3xl" />
             </Link>
             <Link
-              href={data?.social?.medium || "#"}
+              href={social?.medium || "#"}
               className="home__social-icon"
             >
               <PiMediumLogoFill className="text-3xl" />
@@ -128,7 +122,7 @@ const Hero = async () => {
                   className="home__blob-img"
                   x={12}
                   y={30}
-                  href={data?.hero_data?.img}
+                  href={hero_data?.img}
                 />
               </g>
             </svg>
@@ -142,17 +136,17 @@ const Hero = async () => {
               <span className="pr-5">Hi, I'am </span>
               <TypeWriter
                 data={[
-                  data?.hero_data?.title1,
-                  data?.hero_data?.title2,
-                  data?.hero_data?.title3,
-                  data?.hero_data?.title4,
+                  hero_data?.title1,
+                  hero_data?.title2,
+                  hero_data?.title3,
+                  hero_data?.title4,
                 ]}
               />
-              <span className="text-primary -mt-2">:)</span>
-              {/* 🙋 👋 */}
+              {/* <span className="text-primary -mt-2"></span> */}
+              {/* 🙋 👋 :) */}
             </h1>
-            <h3 className="home__subtitle">{data?.hero_data?.subtitle}</h3>
-            <p className="home__description">{data?.hero_data?.description}</p>
+            <h3 className="home__subtitle">{hero_data?.subtitle}</h3>
+            <p className="home__description">{hero_data?.description}</p>
             <Link href="/contact" className="button button--flex">
               Contact Me
               <VscSend className="button__icon" />

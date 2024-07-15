@@ -87,7 +87,7 @@ const Tabs = ({ tabs }) => {
             {projects.length != 0 ? (
               projects?.slice(0, 4).map((project, index) => (
                 <div
-                  key={project.id}
+                  key={project?.id}
                   data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
                   data-aos-easing="linear"
                   data-aos-duration="300"
