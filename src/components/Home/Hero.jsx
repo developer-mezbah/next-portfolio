@@ -1,11 +1,15 @@
 import Link from "next/link";
 import { CiFacebook } from "react-icons/ci";
-import { FiGithub, FiLinkedin } from "react-icons/fi";
+import { FiDownload, FiGithub, FiLinkedin } from "react-icons/fi";
 import { PiMediumLogoFill } from "react-icons/pi";
 import { VscSend } from "react-icons/vsc";
 import TypeWriter from "../Others/TypeWriter";
 import prisma from "@/utils/prisma";
-import { hero_dataPromise, socialPromise } from "@/utils/fetchData";
+import {
+  hero_dataPromise,
+  socialPromise,
+  aboutPromise,
+} from "@/utils/fetchData";
 
 async function postData() {
   const result = await prisma.hero.create({
@@ -21,14 +25,17 @@ async function postData() {
   });
 }
 
-
-
 const Hero = async () => {
   // const data = await getData();
-  const [hero_data, social] = await Promise.all([hero_dataPromise, socialPromise])
+  const [hero_data, social, aboutData] = await Promise.all([
+    hero_dataPromise,
+    socialPromise,
+    aboutPromise,
+  ]);
   if (!!hero_data === false) {
     await postData();
   }
+
   return (
     <section className="home section" id="home">
       <div className="home_container cus_container cus_grid">
@@ -38,28 +45,16 @@ const Hero = async () => {
             data-aos="zoom-in-left"
             className="home__social pl-2"
           >
-            <Link
-              href={social?.github || "#"}
-              className="home__social-icon"
-            >
+            <Link href={social?.github || "#"} className="home__social-icon">
               <FiGithub className="text-3xl" />
             </Link>
-            <Link
-              href={social?.linkedin || "#"}
-              className="home__social-icon"
-            >
+            <Link href={social?.linkedin || "#"} className="home__social-icon">
               <FiLinkedin className="text-3xl" />
             </Link>
-            <Link
-              href={social?.facebook || "#"}
-              className="home__social-icon"
-            >
+            <Link href={social?.facebook || "#"} className="home__social-icon">
               <CiFacebook className="text-3xl" />
             </Link>
-            <Link
-              href={social?.medium || "#"}
-              className="home__social-icon"
-            >
+            <Link href={social?.medium || "#"} className="home__social-icon">
               <PiMediumLogoFill className="text-3xl" />
             </Link>
           </div>
@@ -147,10 +142,24 @@ const Hero = async () => {
             </h1>
             <h3 className="home__subtitle">{hero_data?.subtitle}</h3>
             <p className="home__description">{hero_data?.description}</p>
-            <Link href="/contact" className="button button--flex">
-              Contact Me
-              <VscSend className="button__icon" />
-            </Link>
+            <div className="flex gap-5">
+              <Link href="/contact" className="button button--flex">
+                Contact Me
+                <VscSend className="button__icon" />
+              </Link>
+              <Link
+                href={aboutData?.cv || "assets/pdf/Alexa-Cv.pdf"}
+                download
+                target="_blank"
+              >
+                <button className="glowing-btn">
+                  <span className="glowing-txt">
+                    Download<span className="faulty-letter">CV</span>
+                    <FiDownload className="button__icon" />
+                  </span>
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
         {/* Scrolling Button  */}

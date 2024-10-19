@@ -63,7 +63,7 @@ const Tabs = ({ tabs }) => {
               data-aos="fade-right"
               data-aos-delay="200"
             >
-              All
+              <span>All</span>
             </li>
             {tabs?.map((item, index) => {
               const delayTime = 200 + 100 * index;
@@ -75,7 +75,7 @@ const Tabs = ({ tabs }) => {
                     onClick={() => dataFetchByCat(item?.id)}
                     key={item?.id}
                   >
-                    {item.cat_name}
+                    <span>{item.cat_name}</span>
                   </li>
                 </>
               );
@@ -83,7 +83,7 @@ const Tabs = ({ tabs }) => {
           </ul>
         </div>
         {!loading && data ? (
-          <div className="tab-body grid md:grid-cols-2 gap-5">
+          <div className="tab-body grid md:grid-cols-2 gap-5 mt-6">
             {projects.length != 0 ? (
               projects?.slice(0, 4).map((project, index) => (
                 <div

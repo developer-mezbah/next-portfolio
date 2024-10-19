@@ -388,6 +388,20 @@ img {
   padding: 1rem;
   border-radius: 0.5rem;
   font-weight: var(--font-medium);
+  transition: 0.3s all ease;
+}
+.button-download {
+  display: inline-block;
+  /* background-color: var(--first-color); */
+  color: #fff;
+  border: 2px solid var(--first-color);
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  font-weight: var(--font-medium);
+  transition: 0.3s all ease;
+}
+.button-download:hover {
+  background-color: var(--first-color-alt);
 }
 .button:hover {
   background-color: var(--first-color-alt);
@@ -1356,138 +1370,324 @@ img {
   border: 2px solid red; 
 } */
 
-
-
-
-
-
-
-
 .signin-and-signup *,
 .signin-and-signup *:before,
-.signin-and-signup *:after{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+.signin-and-signup *:after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-.signin-and-signup{
-    position: relative;
-    height: 720px;
+.signin-and-signup {
+  position: relative;
+  height: 720px;
 }
-.signin-and-signup .background{
-    width: 430px;
-    height: 520px;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    left: 50%;
-    top: 50%;
+.signin-and-signup .background {
+  width: 430px;
+  height: 520px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
 }
-.signin-and-signup .background .shape{
-    height: 200px;
-    width: 200px;
-    position: absolute;
-    border-radius: 50%;
+.signin-and-signup .background .shape {
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  border-radius: 50%;
 }
-.signin-and-signup .shape:first-child{
-    background: linear-gradient(
-        #1845ad,
-        #23a2f6
-    );
-    left: -80px;
-    top: -80px;
+.signin-and-signup .shape:first-child {
+  background: linear-gradient(#1845ad, #23a2f6);
+  left: -80px;
+  top: -80px;
 }
-.signin-and-signup .shape:last-child{
-    background: linear-gradient(
-        to right,
-        #ff512f,
-        #f09819
-    );
-    right: -30px;
-    bottom: -80px;
+.signin-and-signup .shape:last-child {
+  background: linear-gradient(to right, #ff512f, #f09819);
+  right: -30px;
+  bottom: -80px;
 }
-.signin-and-signup form{
-    height: 520px;
-    width: 400px;
-    background-color: rgba(255,255,255,0.13);
-    position: absolute;
-    transform: translate(-50%,-50%);
-    top: 50%;
-    left: 50%;
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255,255,255,0.1);
-    box-shadow: 0 0 40px rgba(8,7,16,0.6);
-    padding: 50px 35px;
+.signin-and-signup form {
+  height: 520px;
+  width: 400px;
+  background-color: rgba(255, 255, 255, 0.13);
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  padding: 50px 35px;
 }
-.signin-and-signup form *{
-    font-family: 'Poppins',sans-serif;
-    color: #ffffff;
-    letter-spacing: 0.5px;
-    outline: none;
-    border: none;
+.signin-and-signup form * {
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  outline: none;
+  border: none;
 }
-.signin-and-signup form h3{
-    font-size: 32px;
-    font-weight: 500;
-    line-height: 42px;
-    text-align: center;
+.signin-and-signup form h3 {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 42px;
+  text-align: center;
 }
 
-.signin-and-signup label{
-    display: block;
-    margin-top: 30px;
-    font-size: 16px;
-    font-weight: 500;
+.signin-and-signup label {
+  display: block;
+  margin-top: 30px;
+  font-size: 16px;
+  font-weight: 500;
 }
-.signin-and-signup input{
-    display: block;
-    height: 50px;
-    width: 100%;
-    background-color: rgba(255,255,255,0.07);
-    border-radius: 3px;
-    padding: 0 10px;
-    margin-top: 8px;
-    font-size: 14px;
-    font-weight: 300;
+.signin-and-signup input {
+  display: block;
+  height: 50px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.07);
+  border-radius: 3px;
+  padding: 0 10px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 300;
 }
-.signin-and-signup ::placeholder{
-    color: #e5e5e5;
+.signin-and-signup ::placeholder {
+  color: #e5e5e5;
 }
-.signin-and-signup button{
-    margin-top: 50px;
-    width: 100%;
-    background-color: #ffffff;
-    color: #080710;
-    padding: 15px 0;
-    font-size: 18px;
-    font-weight: 600;
-    border-radius: 5px;
-    cursor: pointer;
+.signin-and-signup button {
+  margin-top: 50px;
+  width: 100%;
+  background-color: #ffffff;
+  color: #080710;
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
 }
-.signin-and-signup .social{
+.signin-and-signup .social {
   margin-top: 30px;
   display: flex;
 }
-.signin-and-signup .social div{
+.signin-and-signup .social div {
   background: red;
   width: 150px;
   border-radius: 3px;
   padding: 10px 10px 10px 5px;
-  background-color: rgba(255,255,255,0.27);
+  background-color: rgba(255, 255, 255, 0.27);
   color: #eaf0fb;
   text-align: center;
 }
-.signin-and-signup .social div:hover{
-  background-color: rgba(255,255,255,0.47);
+.signin-and-signup .social div:hover {
+  background-color: rgba(255, 255, 255, 0.47);
 }
-.signin-and-signup .social .fb{
+.signin-and-signup .social .fb {
   margin-left: 25px;
 }
-.signin-and-signup .social i{
+.signin-and-signup .social i {
   margin-right: 4px;
 }
 
-.portfolio__description-2 img{
+.portfolio__description-2 img {
   display: none;
 }
 
+/* Download animation in hero section  */
+.glowing-btn {
+  position: relative;
+  height: 100%;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0.35em 1.5em;
+  border: 2px solid var(--first-color);
+  border-radius: 0.45em;
+  background: none;
+  perspective: 2em;
+  font-family: "Raleway", sans-serif;
+  font-size: 1em;
+  font-weight: 500;
+  /* letter-spacing: 1em; */
+
+  -webkit-box-shadow: inset 0px 0px 0.5em 0px var(--first-color),
+    0px 0px 0.5em 0px var(--first-color);
+  -moz-box-shadow: inset 0px 0px 0.5em 0px var(--first-color),
+    0px 0px 0.5em 0px var(--first-color);
+  box-shadow: inset 0px 0px 0.5em 0px var(--first-color),
+    0px 0px 0.5em 0px var(--first-color);
+  animation: border-flicker 2s linear infinite;
+}
+
+.glowing-txt {
+  display: flex;
+  gap: 5px;
+  float: left;
+  margin-right: -0.8em;
+  -webkit-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
+    0 0 0.45em var(--first-color);
+  -moz-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
+    0 0 0.45em var(--first-color);
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--first-color);
+  animation: text-flicker 3s linear infinite;
+}
+
+.faulty-letter {
+  opacity: 0.5;
+  animation: faulty-flicker 2s linear infinite;
+}
+
+.glowing-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.7;
+  filter: blur(1em);
+  transform: translateY(120%) rotateX(95deg) scale(1, 0.35);
+  background: var(--first-color);
+  pointer-events: none;
+}
+
+.glowing-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  z-index: -1;
+  background-color: var(--first-color);
+  box-shadow: 0 0 2em 0.2em var(--first-color);
+  transition: opacity 100ms linear;
+}
+
+.glowing-btn:hover {
+  color: rgba(0, 0, 0, 0.8);
+  text-shadow: none;
+  animation: none;
+}
+
+.glowing-btn:hover .glowing-txt {
+  animation: none;
+}
+
+.glowing-btn:hover .faulty-letter {
+  animation: none;
+  text-shadow: none;
+  opacity: 1;
+}
+
+.glowing-btn:hover:before {
+  filter: blur(1.5em);
+  opacity: 1;
+}
+
+.glowing-btn:hover:after {
+  opacity: 1;
+}
+
+@keyframes faulty-flicker {
+  0% {
+    opacity: 0.1;
+  }
+  2% {
+    opacity: 0.1;
+  }
+  4% {
+    opacity: 0.5;
+  }
+  19% {
+    opacity: 0.5;
+  }
+  21% {
+    opacity: 0.1;
+  }
+  23% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  83% {
+    opacity: 0.4;
+  }
+
+  87% {
+    opacity: 1;
+  }
+}
+
+@keyframes text-flicker {
+  0% {
+    opacity: 0.1;
+  }
+
+  2% {
+    opacity: 1;
+  }
+
+  8% {
+    opacity: 0.1;
+  }
+
+  9% {
+    opacity: 1;
+  }
+
+  12% {
+    opacity: 0.1;
+  }
+  20% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.3;
+  }
+  30% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0.7;
+  }
+  72% {
+    opacity: 0.2;
+  }
+
+  77% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes border-flicker {
+  0% {
+    opacity: 0.1;
+  }
+  2% {
+    opacity: 1;
+  }
+  4% {
+    opacity: 0.1;
+  }
+
+  8% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .glowing-btn {
+    font-size: 1em;
+  }
+}
+/* End Download animation in hero section  */

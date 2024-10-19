@@ -66,5 +66,8 @@
   "bugs": {
     "url": "https://github.com/developer-mezbah/next-portfolio-2/issues"
   },
-  "homepage": "https://github.com/developer-mezbah/next-portfolio-2#readme"
+  "homepage": "https://github.com/developer-mezbah/next-portfolio-2#readme",
+  "engines": {
+    "node": ">=16.0.0"
+  }
 }

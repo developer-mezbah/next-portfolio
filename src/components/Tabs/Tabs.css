@@ -1,5 +1,5 @@
 .tabs-section {
-    width: 100%;
+  width: 100%;
   margin: 50px auto;
 }
 .tab-header {
@@ -10,9 +10,12 @@
   display: flex;
   gap: 20px;
   font-size: 20px;
-  border-bottom: 3px solid var(--first-color);
+  /* border-bottom: 3px solid var(--first-color); */
 }
-.tab-header ul li{
+.tab-header ul li {
+  width: 100%;
+}
+.tab-header ul li span {
   background: rgba(224, 87, 224, 0.17);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(12.6px);
@@ -28,18 +31,61 @@
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
-  transition: .5s;
-  margin-bottom: -2px;
+}
+.tab-header ul li::before {
+  content: "";
+  position: absolute;
+  bottom: 0%;
+  width: 100%;
+  height: 13px;
+  background-color: var(--first-color);
+  z-index: -99;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+.tab-header ul li:nth-child(odd)::before {
+  animation: infinite 4s tab-background backwards;
+}
+.tab-header ul li:nth-child(even)::before {
+  animation: infinite 4s tab-background-reverse;
+}
+@keyframes tab-background {
+  0% {
+    bottom: 0%;
+  }
+  50% {
+    bottom: 65%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  100% {
+    bottom: 0%;
+  }
+}
+@keyframes tab-background-reverse {
+  0% {
+    bottom: 65%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  50% {
+    bottom: 0%;
+  }
+  100% {
+    bottom: 65%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
 }
 
-
-.tab-header ul li.active {
+.tab-header ul li.active span {
   background: var(--first-color);
   color: #fff;
 }
-.tab-header ul li:hover{
-    background: var(--first-color);
-    color: #fff;
+.tab-header ul li:hover span {
+  background: var(--first-color);
+  color: #fff;
+  transition: 0.3s all ease-in;
 }
 /* .tab-body {
     display: grid;

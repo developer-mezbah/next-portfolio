@@ -11,7 +11,7 @@ const AllProjects = ({ data, sectionDetails }) => {
         {sectionDetails?.all_projects_subtitle ||
           "Those is my personal Projects."}
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 place-items-center sm:px-7">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 place-items-center sm:px-7 mt-8">
         {data?.map((project, index) => (
           <div
             key={project.id}
