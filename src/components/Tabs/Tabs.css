@@ -14,6 +14,7 @@
 }
 .tab-header ul li {
   width: 100%;
+  position: relative;
 }
 .tab-header ul li span {
   background: rgba(224, 87, 224, 0.17);
@@ -32,6 +33,7 @@
   align-items: center;
   flex-wrap: nowrap;
 }
+
 .tab-header ul li::before {
   content: "";
   position: absolute;

@@ -143,16 +143,20 @@ const Hero = async () => {
             <h3 className="home__subtitle">{hero_data?.subtitle}</h3>
             <p className="home__description">{hero_data?.description}</p>
             <div className="flex gap-5">
-              <Link href="/contact" className="button button--flex">
+              <Link
+                href="/contact"
+                className="button button--flex whitespace-nowrap text-xs md:text-md"
+              >
                 Contact Me
                 <VscSend className="button__icon" />
               </Link>
               <Link
-                href={aboutData?.cv || "assets/pdf/Alexa-Cv.pdf"}
+                // aboutData?.cv ||
+                href={"/developer-mezbah-resume.pdf"}
                 download
                 target="_blank"
               >
-                <button className="glowing-btn">
+                <button className="glowing-btn text-xs md:text-md">
                   <span className="glowing-txt">
                     Download<span className="faulty-letter">CV</span>
                     <FiDownload className="button__icon" />

@@ -18,6 +18,7 @@ const ProjectCard = ({ data }) => {
             height={500}
             src={data?.long_img}
             alt={data?.title}
+            className="w-full"
           />
 
           <div

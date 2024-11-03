@@ -174,7 +174,7 @@ export const NavData = [
         url: "/dashboard/service/all-services",
       },
       {
-        name: "Create Skill",
+        name: "Create services",
         url: "/dashboard/service/create-service",
       },
     ],

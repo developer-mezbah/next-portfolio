@@ -54,31 +54,30 @@ const Tabs = ({ tabs }) => {
         <div className="tab-header">
           <ul className="tab-items">
             <li
+            key="sdkfj"
               onClick={() => {
                 setLoading(true);
                 setProjects(data);
                 setLoading(false);
               }}
               className="active"
-              data-aos="fade-right"
-              data-aos-delay="200"
+              // data-aos="fade-right"
+              // data-aos-delay="200"
             >
               <span>All</span>
             </li>
             {tabs?.map((item, index) => {
               const delayTime = 200 + 100 * index;
               return (
-                <>
                   <li
-                    data-aos="fade-right"
-                    data-aos-delay={delayTime}
+                    // data-aos="fade-right"
+                    // data-aos-delay={delayTime}
                     onClick={() => dataFetchByCat(item?.id)}
-                    key={item?.id}
+                    key={index}
                   >
                     <span>{item.cat_name}</span>
                   </li>
-                </>
-              );
+              )
             })}
           </ul>
         </div>
@@ -87,7 +86,7 @@ const Tabs = ({ tabs }) => {
             {projects.length != 0 ? (
               projects?.slice(0, 4).map((project, index) => (
                 <div
-                  key={project?.id}
+                  key={index}
                   data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
                   data-aos-easing="linear"
                   data-aos-duration="300"
@@ -96,7 +95,7 @@ const Tabs = ({ tabs }) => {
                 </div>
               ))
             ) : (
-              <p>There is no project here!</p>
+              <p key={index}>There is no project here!</p>
             )}
           </div>
         ) : (

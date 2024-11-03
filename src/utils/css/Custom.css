@@ -506,6 +506,10 @@ img {
 .skills__icon {
   margin-right: var(--mb-0-75);
 }
+.skills__icon svg{
+  width: 60px;
+  height: 60px;
+}
 .skills__title {
   font-size: var(--h3-font-size);
 }
@@ -1495,7 +1499,8 @@ img {
 .glowing-btn {
   position: relative;
   height: 100%;
-  color: var(--text-color);
+  /* color: var(--text-color); */
+  color: var(--first-color);
   cursor: pointer;
   padding: 0.35em 1.5em;
   border: 2px solid var(--first-color);
@@ -1504,7 +1509,7 @@ img {
   perspective: 2em;
   font-family: "Raleway", sans-serif;
   font-size: 1em;
-  font-weight: 500;
+  font-weight: 400;
   /* letter-spacing: 1em; */
 
   -webkit-box-shadow: inset 0px 0px 0.5em 0px var(--first-color),

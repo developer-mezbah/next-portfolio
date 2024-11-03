@@ -75,17 +75,14 @@ const Skills = ({ data, sectionDetails }) => {
           >
             <div className="skills__header">
               {/* <PiBracketsCurlyBold className="skills__icon" /> */}
-              <span
-                className="skills__icon"
-                style={{ height: "100px", width: "100px" }}
-              >
-                {parse(item?.svg)}
-              </span>
+              <span className="skills__icon">{parse(item?.svg)}</span>
               <div>
                 <h1 className="skills__titles">{item?.title}</h1>
                 <span className="skills__subtitle">{item?.subTitle}</span>
               </div>
-              <FaAngleDown className="skills__arrow" />
+              <span>
+                <FaAngleDown className="skills__arrow" />
+              </span>
             </div>
             <div className="skills__list cus_grid">
               {item?.skill_items.map((skill) => (
@@ -93,7 +90,9 @@ const Skills = ({ data, sectionDetails }) => {
                   <div className="skills__titles">
                     <h3 className="skills__name">{skill?.name}</h3>
                     <span className="flex">
-                      <span className="skills__number hidden">{skill?.percent}</span>
+                      <span className="skills__number hidden">
+                        {skill?.percent}
+                      </span>
                       <CountUpOnScroll number={skill?.percent} />%
                       {/* {skill?.percent}% */}
                     </span>
