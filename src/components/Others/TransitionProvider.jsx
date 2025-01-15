@@ -1,7 +1,6 @@
 "use client";
 
-import { AnimatePresence } from "framer-motion";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 
 const TransitionProvider = ({ children }) => {
@@ -25,7 +24,7 @@ const TransitionProvider = ({ children }) => {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <div
-                className={`md:w-4/5 w-5/6 mx-auto ${
+                className={`md:w-4/5 w-5/6 mx-auto capitalize ${
                   pathName.includes("/blog-details/") ||
                   pathName.includes("/project-details/")
                     ? "text-4xl"

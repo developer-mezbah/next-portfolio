@@ -1568,7 +1568,7 @@ img {
 }
 
 .glowing-btn:hover {
-  color: rgba(0, 0, 0, 0.8);
+  color: #fff;
   text-shadow: none;
   animation: none;
 }
