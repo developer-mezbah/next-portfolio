@@ -1,14 +1,14 @@
 "use client";
 import PageTitle from "@/DasComponent/Others/PageTitle";
 import SubmitButton from "@/DasComponent/Others/SubmitButton";
-import Image from "next/image";
-import React, { useState } from "react";
-import AddImage from "../Gallery/AddImage";
-import moment from "moment";
-import { ErrorToast, IsEmpty, SuccessToast } from "@/utils/FormHelper";
+import { ErrorToast, SuccessToast } from "@/utils/FormHelper";
 import client_api from "@/utils/api_fetch_fun";
+import moment from "moment";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import Swal from "sweetalert2";
+import AddImage from "../Gallery/AddImage";
 
 const ProfileForm = ({ data }) => {
   const router = useRouter();
@@ -216,7 +216,7 @@ const ProfileForm = ({ data }) => {
                         <div className="mt-3 md:grid grid-cols-2 gap-3">
                           <div>
                             <label className="sc-bqyKva ePvcBv text-slate-200 text-sm">
-                              Password:
+                             New Password:
                             </label>
                             <input
                               className="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-6 text-base text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
@@ -227,7 +227,7 @@ const ProfileForm = ({ data }) => {
                           </div>
                           <div className="mt-3 md:mt-0">
                             <label className="sc-bqyKva ePvcBv text-slate-200 text-sm">
-                              Confirm Password:
+                              Retype New Password:
                             </label>
                             <input
                               className="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-6 text-base text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"

@@ -3,19 +3,21 @@ import Image from "next/image";
 import { useEffect } from "react";
 import { GrGallery } from "react-icons/gr";
 
-const AddImage = ({ name, setImageUrl, imageUrl }) => {
+const AddImage = ({ name, setImageUrl, imageUrl, uniqueId }) => {
   const { setShowModel, selectedImgUrl, uniqueKey, setUniqueKey } =
     useGalleryModel();
   useEffect(() => {
-    const res = selectedImgUrl.find((url) => url.key === name);
+    const res = selectedImgUrl.find((url) => url.key === name + uniqueId);
     if (res !== undefined) {
       setImageUrl(res.url);
     }
   }, [selectedImgUrl]);
 
+
+
   const handleModel = () => {
     setShowModel(true);
-    setUniqueKey(name);
+    setUniqueKey(name + uniqueId);
   };
   return (
     <div>

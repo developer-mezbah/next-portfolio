@@ -1,13 +1,13 @@
 "use client";
-import { useEffect, useState } from "react";
-import FormTitle from "../Others/FormTitle";
-import SubmitButton from "../Others/SubmitButton";
-import AddImage from "../Gallery/AddImage";
 import client_api from "@/utils/api_fetch_fun";
+import Editor from "@/utils/Editor";
 import { ErrorToast, IsEmpty, SuccessToast } from "@/utils/FormHelper";
 import { useRouter } from "next/navigation";
-import Editor from "@/utils/Editor";
+import { useEffect, useState } from "react";
 import { IoIosCloseCircleOutline, IoMdAdd, IoMdClose } from "react-icons/io";
+import AddImage from "../Gallery/AddImage";
+import FormTitle from "../Others/FormTitle";
+import SubmitButton from "../Others/SubmitButton";
 
 const ProjectsForm = ({ name, data, setUpdateForm, categories }) => {
   const router = useRouter();
@@ -44,6 +44,7 @@ const ProjectsForm = ({ name, data, setUpdateForm, categories }) => {
     }
     setLoading(true);
     if (data) {
+      // handle update data
       const updateAbleForDeveloper = [];
       forDeveloper.forEach((element) => {
         updateAbleForDeveloper.push(element.title);
@@ -146,6 +147,14 @@ const ProjectsForm = ({ name, data, setUpdateForm, categories }) => {
       setImg("");
     }
   }, []);
+
+
+  
+  function generateOrderId() {
+    const min = 10000000000;
+    const max = 99999999999; 
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
   return (
     <>
       <div className="dashboard-form-bg flex flex-col">
@@ -270,6 +279,7 @@ const ProjectsForm = ({ name, data, setUpdateForm, categories }) => {
                 name={"Banner Image"}
                 setImageUrl={setImg}
                 imageUrl={img}
+                uniqueId={generateOrderId()}
               />
             </div>
             <div>
@@ -277,6 +287,7 @@ const ProjectsForm = ({ name, data, setUpdateForm, categories }) => {
                 name={"Long Or Scroll Image"}
                 setImageUrl={setLongimg}
                 imageUrl={longimg}
+                uniqueId={generateOrderId()}
               />
             </div>
             <div className="">

@@ -11,4 +11,4 @@ email: developer.mezbah@gmail.com
 
 ## Dashboard credential
 email: admin@mezbah.com
-pass: MASUD KHAN6449248
+pass: admin

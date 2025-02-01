@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
-import AllImages from "./AllImages";
-import client_api from "@/utils/api_fetch_fun";
-import { FaRegWindowClose } from "react-icons/fa";
-import { SuccessToast } from "@/utils/FormHelper";
 import { useGalleryModel } from "@/_zustand/store";
+import client_api from "@/utils/api_fetch_fun";
+import { useEffect, useState } from "react";
+import { FaRegWindowClose } from "react-icons/fa";
+import AllImages from "./AllImages";
 
 const GalleryModel = () => {
   const [categories, setCategories] = useState([]);
@@ -41,8 +40,8 @@ const GalleryModel = () => {
               />
             </div>
           </div>
-          <div className="mx-auto bottom-0 mt-[430px] fixed top-20 left-0 right-0 w-[800px] z-[999999]">
-            <div className="dashboard-form-bg -mt-[20px] float-end px-5 py-5 flex">
+          <div className="mx-auto bottom-0 mt-[430px] fixed top-20 left-0 right-5 w-[800px] z-[999999]">
+            <div className="dashboard-form-bg -mt-[20px] float-end pl-4 pt-4 pr-3 pb-3 flex">
               <button
                 onClick={() => setShowModel(false)}
                 type="button"
