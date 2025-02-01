@@ -68,7 +68,7 @@ const AllImages = ({ categories, showModel, setIsSelectImage }) => {
     setIsSelectImage(img_url);
   };
   return (
-    <div className="gallery dashboard-form-bg">
+    <div className="gallery dashboard-form-bg h-full">
       <div className="">
         <div className="flex justify-between items-center">
           <ul className="flex flex-wrap justify-start items-center">

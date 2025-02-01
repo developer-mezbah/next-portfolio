@@ -1,11 +1,11 @@
 "use client";
-import React, { useState } from "react";
-import FormTitle from "../Others/FormTitle";
-import SubmitButton from "../Others/SubmitButton";
-import AddImage from "../Gallery/AddImage";
 import client_api from "@/utils/api_fetch_fun";
 import { SuccessToast } from "@/utils/FormHelper";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import AddImage from "../Gallery/AddImage";
+import FormTitle from "../Others/FormTitle";
+import SubmitButton from "../Others/SubmitButton";
 
 const WebInformation = ({ data }) => {
   const [loading, setLoading] = useState(false);
@@ -50,6 +50,12 @@ const WebInformation = ({ data }) => {
       });
     }
   };
+
+  function generateOrderId() {
+    const min = 10000000000;
+    const max = 99999999999; 
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
   return (
     <div className="dashboard-form-bg flex flex-col">
       <FormTitle text={"Website Info"} />
@@ -113,6 +119,7 @@ const WebInformation = ({ data }) => {
               name={"Main LOGO"}
               setImageUrl={setLogo}
               imageUrl={logo}
+              uniqueId={generateOrderId()}
             />
           </div>
           <div>
@@ -120,6 +127,7 @@ const WebInformation = ({ data }) => {
               name={"Footer Logo"}
               setImageUrl={setFooter_logo}
               imageUrl={footer_logo}
+              uniqueId={generateOrderId()}
             />
           </div>
         </div>

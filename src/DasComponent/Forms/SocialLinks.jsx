@@ -1,15 +1,20 @@
-"use client"
-import SubmitButton from "../Others/SubmitButton";
-import FormTitle from "../Others/FormTitle";
-import AddImage from "../Gallery/AddImage";
+"use client";
 import { useState } from "react";
+import AddImage from "../Gallery/AddImage";
+import FormTitle from "../Others/FormTitle";
+import SubmitButton from "../Others/SubmitButton";
 
 const SocialLinks = () => {
-  const [facebookImg, setFacebookImage] = useState("")
+  const [facebookImg, setFacebookImage] = useState("");
   const inputClass =
     "border text-sm rounded-lg block w-full p-2.5 bg-bgDark border-themeColor placeholder-gray-400 text-white focus:ring-themeColor focus:border-themeColor";
-  const lableClass =
-    "block mb-2 text-sm font-medium text-white";
+  const lableClass = "block mb-2 text-sm font-medium text-white";
+
+  function generateOrderId() {
+    const min = 10000000000;
+    const max = 99999999999; 
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
   return (
     <div className="dashboard-form-bg flex flex-col">
       <FormTitle text={"Social Link"} />
@@ -59,7 +64,12 @@ const SocialLinks = () => {
               placeholder="Medium Link"
             />
           </div>
-          <AddImage name={"facebook image"} setImageUrl={setFacebookImage} imageUrl={facebookImg} />
+          <AddImage
+            name={"facebook image"}
+            setImageUrl={setFacebookImage}
+            imageUrl={facebookImg}
+            uniqueId={generateOrderId()}
+          />
         </div>
 
         <SubmitButton text={"Submit"} submit={true} />

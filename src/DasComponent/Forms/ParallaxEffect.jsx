@@ -1,6 +1,5 @@
 "use client"
 import { useState } from "react";
-import AddImage from "../Gallery/AddImage";
 import FormTitle from "../Others/FormTitle";
 import SubmitButton from "../Others/SubmitButton";
 

@@ -1,7 +1,7 @@
 "use client";
 import PageTitle from "@/DasComponent/Others/PageTitle";
 import SubmitButton from "@/DasComponent/Others/SubmitButton";
-import { ErrorToast, SuccessToast } from "@/utils/FormHelper";
+import { SuccessToast } from "@/utils/FormHelper";
 import client_api from "@/utils/api_fetch_fun";
 import moment from "moment";
 import Image from "next/image";
@@ -22,9 +22,10 @@ const ProfileForm = ({ data }) => {
     const user_name = `${fullName} ${lastName}`;
     const age = e.target.age.value;
     const mobile = e.target.mobile.value;
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    const confirmPassword = e.target.confirmPassword.value;
+    // const email = e.target.email.value;
+    // const password = e.target.password.value;
+    // const confirmPassword = e.target.confirmPassword.value;
+
     // if (IsEmpty(fullName)) {
     //   return ErrorToast("First Name Must be fill up!");
     // }
@@ -34,18 +35,20 @@ const ProfileForm = ({ data }) => {
     // if (IsEmpty(password)) {
     //   return ErrorToast("Password Must be fill up!");
     // }
-    if (password !== confirmPassword) {
-      return ErrorToast("Password Not Macthing!");
-    }
+
+    // if (password !== confirmPassword) {
+    //   return ErrorToast("Password Not Macthing!");
+    // }
     const formData = {
-      user_name: fullName && lastName ? user_name : data?.user_name ,
+      user_name: fullName && lastName ? user_name : data?.user_name,
       age,
       mobile,
-      email,
+      // email,
       img,
-    }
+    };
     client_api
-      .update(`/api/dashboard/profile?id=${data.id}`,( password ? {...formData, password} : formData))
+      // .update(`/api/dashboard/profile?id=${data.id}`,( password ? {...formData, password} : formData))
+      .update(`/api/dashboard/profile?id=${data.id}`, formData)
       .then((data) => {
         if (data.status == "success") {
           SuccessToast("Profile Updated!");
@@ -55,7 +58,6 @@ const ProfileForm = ({ data }) => {
   };
 
   const handleLogout = () => {
-    console.log("logout");
     Swal.fire({
       title: "Are you sure?",
       text: "You want to logout!",
@@ -67,11 +69,17 @@ const ProfileForm = ({ data }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         client_api.get("/api/user/logout");
-        SuccessToast("Successfull Logout !")
-        router.push("/")
+        SuccessToast("Successfull Logout !");
+        router.push("/");
       }
     });
   };
+
+  function generateOrderId() {
+    const min = 10000000000;
+    const max = 99999999999; 
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
   return (
     <div>
       <PageTitle text={"Profile Information"} />
@@ -91,17 +99,13 @@ const ProfileForm = ({ data }) => {
                 </div>
                 <div className="mt-8 grid gap-2">
                   <p>
-                    <strong>
-                      Full Name: {data?.user_name}
-                    </strong>
+                    <strong>Full Name: {data?.user_name}</strong>
                   </p>
                   <p>
                     <strong>Email:</strong> {data?.email}
                   </p>
                   <p>
-                    <strong>
-                      Mobile Number: {data?.mobile}
-                    </strong>
+                    <strong>Mobile Number: {data?.mobile}</strong>
                   </p>
                   <p>
                     <strong>Age: {data?.age}</strong>
@@ -190,7 +194,7 @@ const ProfileForm = ({ data }) => {
                             />
                           </div>
                         </div>
-                        <div className="mt-3">
+                        {/* <div className="mt-3">
                           <div>
                             <label className="sc-bqyKva ePvcBv text-slate-200 text-sm ">
                               Email ID:
@@ -203,17 +207,18 @@ const ProfileForm = ({ data }) => {
                               defaultValue={data?.email}
                             />
                           </div>
-                        </div>
+                        </div> */}
                         <div className="mt-3">
                           <div className="mt-5">
                             <AddImage
                               name={"Add Profile Image"}
                               setImageUrl={setImg}
                               imageUrl={img}
+                              uniqueId={generateOrderId()}
                             />
                           </div>
                         </div>
-                        <div className="mt-3 md:grid grid-cols-2 gap-3">
+                        {/* <div className="mt-3 md:grid grid-cols-2 gap-3">
                           <div>
                             <label className="sc-bqyKva ePvcBv text-slate-200 text-sm">
                              New Password:
@@ -236,7 +241,7 @@ const ProfileForm = ({ data }) => {
                               placeholder="Enter Repeat your Password!"
                             />
                           </div>
-                        </div>
+                        </div> */}
                         <div className="mt-10">
                           <SubmitButton
                             text={"Update Profile"}

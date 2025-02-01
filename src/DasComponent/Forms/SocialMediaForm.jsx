@@ -1,10 +1,9 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-import FormTitle from "../Others/FormTitle";
-import SubmitButton from "../Others/SubmitButton";
 import client_api from "@/utils/api_fetch_fun";
 import { ErrorToast, IsEmpty, SuccessToast } from "@/utils/FormHelper";
-import AddImage from "../Gallery/AddImage";
+import { useEffect, useState } from "react";
+import FormTitle from "../Others/FormTitle";
+import SubmitButton from "../Others/SubmitButton";
 
 const SocialMediaForm = () => {
   const [loading, setLoading] = useState(false);

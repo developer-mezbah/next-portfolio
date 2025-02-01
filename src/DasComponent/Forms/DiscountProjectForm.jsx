@@ -1,10 +1,10 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-import FormTitle from "../Others/FormTitle";
-import SubmitButton from "../Others/SubmitButton";
 import client_api from "@/utils/api_fetch_fun";
 import { ErrorToast, IsEmpty, SuccessToast } from "@/utils/FormHelper";
+import { useEffect, useState } from "react";
 import AddImage from "../Gallery/AddImage";
+import FormTitle from "../Others/FormTitle";
+import SubmitButton from "../Others/SubmitButton";
 
 const DiscountProjectForm = () => {
   const [loading, setLoading] = useState(false);
@@ -55,6 +55,12 @@ const DiscountProjectForm = () => {
         }
       });
   };
+
+  function generateOrderId() {
+    const min = 10000000000;
+    const max = 99999999999; 
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
   return (
     <div className="dashboard-form-bg flex flex-col mt-5">
       <FormTitle text={"parallax effect"} />
@@ -94,6 +100,7 @@ const DiscountProjectForm = () => {
               name={"Discount Project Image"}
               setImageUrl={setImg}
               imageUrl={img}
+              uniqueId={generateOrderId()}
             />
           </div>
         </div>

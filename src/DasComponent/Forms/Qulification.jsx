@@ -1,12 +1,11 @@
 "use client";
-import { useState } from "react";
-import FormTitle from "../Others/FormTitle";
-import SubmitButton from "../Others/SubmitButton";
-import AddImage from "../Gallery/AddImage";
 import client_api from "@/utils/api_fetch_fun";
 import { ErrorToast, IsEmpty, SuccessToast } from "@/utils/FormHelper";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { IoIosCloseCircleOutline } from "react-icons/io";
+import FormTitle from "../Others/FormTitle";
+import SubmitButton from "../Others/SubmitButton";
 
 const Qulification = ({ name, data, setUpdateForm }) => {
   const router = useRouter();

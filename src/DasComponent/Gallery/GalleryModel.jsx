@@ -32,7 +32,7 @@ const GalleryModel = () => {
       {showModel && (
         <div>
           <div className="fixed top-20 left-0 right-0 h-[500px] w-[800px] rounded-xl m-auto z-[999999] overflow-scroll gallery-model">
-            <div className="mt-10">
+            <div className="mt-10 h-full">
               <AllImages
                 categories={categories}
                 showModel={showModel}

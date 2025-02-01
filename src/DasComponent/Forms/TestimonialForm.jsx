@@ -1,12 +1,12 @@
 "use client";
-import { useState } from "react";
-import FormTitle from "../Others/FormTitle";
-import SubmitButton from "../Others/SubmitButton";
-import AddImage from "../Gallery/AddImage";
 import client_api from "@/utils/api_fetch_fun";
 import { ErrorToast, IsEmpty, SuccessToast } from "@/utils/FormHelper";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { IoIosCloseCircleOutline } from "react-icons/io";
+import AddImage from "../Gallery/AddImage";
+import FormTitle from "../Others/FormTitle";
+import SubmitButton from "../Others/SubmitButton";
 
 const TestimonialForm = ({ name, data, setUpdateForm }) => {
   const router = useRouter();
@@ -79,6 +79,11 @@ const TestimonialForm = ({ name, data, setUpdateForm }) => {
         });
     }
   };
+  function generateOrderId() {
+    const min = 10000000000;
+    const max = 99999999999; 
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
   return (
     <>
       <div className="dashboard-form-bg flex flex-col">
@@ -157,6 +162,7 @@ const TestimonialForm = ({ name, data, setUpdateForm }) => {
                 name={"Add Client Image"}
                 setImageUrl={setImg}
                 imageUrl={img}
+                uniqueId={generateOrderId()}
               />
             </div>
           </div>
