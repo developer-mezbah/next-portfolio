@@ -1,10 +1,10 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import "./Tabs.css";
+import ProjectCard from "../Projects/ProjectCard";
 import client_api from "@/utils/api_fetch_fun";
 import { Player } from "@lottiefiles/react-lottie-player";
-import { useEffect, useState } from "react";
-import ProjectCard from "../Projects/ProjectCard";
-import "./Tabs.css";
 
 const Tabs = ({ tabs }) => {
   const [data, setData] = useState(null);
@@ -21,8 +21,6 @@ const Tabs = ({ tabs }) => {
       });
   }, []);
   const dataFetchByCat = async (catID) => {
-    console.log(catID);
-    
     setLoading(true);
     await client_api
       .get(`/api/public-api/projects-by-category?id=${catID}`)
@@ -97,7 +95,7 @@ const Tabs = ({ tabs }) => {
                 </div>
               ))
             ) : (
-              <p key="asdf324">There is no project here!</p>
+              <p key={index}>There is no project here!</p>
             )}
           </div>
         ) : (

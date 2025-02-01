@@ -1,8 +1,11 @@
 "use client";
-import CountUpOnScroll from "@/utils/CountUpOnScroll";
-import parse from "html-react-parser";
-import { useEffect } from "react";
+import { PiBracketsCurlyBold } from "react-icons/pi";
+import { BsHddNetwork } from "react-icons/bs";
+import { FaSwatchbook } from "react-icons/fa";
 import { FaAngleDown } from "react-icons/fa";
+import { useEffect } from "react";
+import parse from "html-react-parser";
+import CountUpOnScroll from "@/utils/CountUpOnScroll";
 
 const Skills = ({ data, sectionDetails }) => {
   useEffect(() => {

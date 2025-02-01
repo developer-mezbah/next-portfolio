@@ -1,10 +1,6 @@
-.card-div img {
+.card-img{
     transition: 3s all ease;
-    transform: translateY(0%) !important;
 }
-/* .card-div{
-    transition: 3s all ease;
-} */
-.card-div:hover img {
-    transform: translateY(calc(-100% + 350px)) !important;
+.card-div:hover .card-img {
+    transform: translateY(calc(-100% + 350px));
 }

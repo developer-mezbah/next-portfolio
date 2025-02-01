@@ -1,19 +1,19 @@
-import Image from "next/image";
 import Link from "next/link";
 import { FaCode } from "react-icons/fa6";
-import { TbListDetails } from "react-icons/tb";
 import { VscPreview } from "react-icons/vsc";
+import { TbListDetails } from "react-icons/tb";
 import { BackgroundGradient } from "../Others/BackgroundGradient";
+import Image from "next/image";
 import "./ProjectCard.css";
 
 const ProjectCard = ({ data }) => {
   return (
     <BackgroundGradient className="rounded-[22px] dark:bg-zinc-900 overflow-hidden">
       <div className="rounded-lg overflow-hidden md:w-full w-full">
-        <div className="w-full h-[350px] overflow-hidden group relative card-div">
+        <div className="w-full h-[350px] overflow-hidden relative group card-div">
           <Image
             // className={`object-cover translate-y-0 group-hover:-translate-y-[65%] transition-transform duration-[3s] w-full`}
-            // className="card-img"
+            className="card-img"
             width={500}
             height={500}
             src={data?.long_img}
