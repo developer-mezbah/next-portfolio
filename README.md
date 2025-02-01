@@ -7,3 +7,8 @@ email: developer.mezbah@gmail.com
 ## License
 
 [MIT License](LICENSE)
+
+
+## Dashboard credential
+email: admin@mezbah.com
+pass: MASUD KHAN6449248
