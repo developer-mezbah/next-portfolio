@@ -1,9 +1,8 @@
 import { FaCheckCircle } from "react-icons/fa";
-import ProjectDetailsBanner from "./ProjectDetailsBanner";
 import ProjectsSlider from "../Projects/ProjectsSlider";
-import { projectSlider } from "@/utils/fakeData";
+import ProjectDetailsBanner from "./ProjectDetailsBanner";
 import ProjectFeatures from "./ProjectFeatures";
-const ProjectDetails = ({ data,relatedProjects }) => {
+const ProjectDetails = ({ data, relatedProjects }) => {
   return (
     <div className="cus_container space-y-5">
       <h1 className="text-2xl" style={{ color: "var(--first-color)" }}>
@@ -83,7 +82,18 @@ const ProjectDetails = ({ data,relatedProjects }) => {
         keyFeatures={data?.key_feature}
         forDeveloper={data?.for_developer}
       />
-
+      {data?.description && (
+        <hr
+          className="outline-none mb-5"
+          style={{ border: "1px solid var(--first-color)" }}
+        />
+      )}
+      {data?.description && (
+        <div
+          className="py-5"
+          dangerouslySetInnerHTML={{ __html: data ? data?.description : "" }}
+        ></div>
+      )}
       <hr
         className="outline-none my-3"
         style={{ border: "2px solid var(--first-color)" }}

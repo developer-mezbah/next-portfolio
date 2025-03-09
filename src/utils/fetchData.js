@@ -58,6 +58,24 @@ export const sliderProjectsFetch = prisma.projects.findMany({
   take: 5,
 });
 
+// Project Details
+export const projectDetailsPromise = async (id) => {
+  return prisma.projects.findUnique({
+    where: { id: parseInt(id) },
+    include: {
+      profile: { select: { user_name: true, img: true } },
+      key_feature: true,
+      for_developer: true,
+    },
+  });
+};
+
+export const relatedProjectPromise = async (id) => {
+  return prisma.projects.findMany({
+    where: { categoryId: id },
+  });
+};
+
 // services page
 export const servicePromise = prisma.services.findMany({
   include: { service_items: true },
